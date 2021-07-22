@@ -138,6 +138,12 @@ interface IGunPool {
   **/
   function getDepositAPY(address token) external view returns(uint256);
 
+  /**
+   * @dev getDepositAccounts get acconts of deposit
+   * @return Accounts: who has deposited
+  **/
+  function getDepositAccounts() external view returns(uint32);
+
   /**** event description ****/
   /**
    * @dev Emitted on deposit()

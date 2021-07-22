@@ -40,6 +40,8 @@ contract GunPool is IGunPool, Ownable {
   mapping (address => mapping(GunPoolContext.PlaneType => GunPoolContext.PlaneContext)) internal _planes;
   // fee account
   GunPoolContext.FeeContext _feeTo;
+  // the count of deposit account
+  uint32 _depositAccounts;
 
   /**** modifier ****/
   modifier tokenValid(address token, uint256 amount) {
@@ -55,6 +57,7 @@ contract GunPool is IGunPool, Ownable {
     _IWETH = IWETH(weth);
     _feeTo.account = address(0);
     _feeTo.permillage = 0;
+    _depositAccounts = 0;
   }
 
   /**** public function ****/
@@ -208,6 +211,14 @@ contract GunPool is IGunPool, Ownable {
     }
   }
 
+  function getDepositAccounts()
+    external
+    override
+    view
+    returns(uint32)
+  {
+    return _depositAccounts;
+  }
 
   /*
   * user who deposit by polylend gunpool will get gptoken and obtain pcoin reward
@@ -262,6 +273,10 @@ contract GunPool is IGunPool, Ownable {
     reward.lastMintCapacity = reserve.pcoin.mintCapacity;
     reward.lastGpBalance = gpMABalance;
 
+    if ( isFirst ) {
+      _depositAccounts = _depositAccounts + 1;
+    }
+
     reserve.lock = false;
     emit Deposit(token, msg.sender, amount);
   }
@@ -305,6 +320,9 @@ contract GunPool is IGunPool, Ownable {
     }
     reward.lastMintCapacity = reserve.pcoin.mintCapacity;
     reward.lastGpBalance = gpMABalance;
+    if ( gpMABalance == 0 && _depositAccounts > 0 ) {
+      _depositAccounts = _depositAccounts - 1;
+    }
 
     emit Withdraw(token, msg.sender, amountWithdraw);
     reserve.lock = false;

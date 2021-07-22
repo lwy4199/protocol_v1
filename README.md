@@ -18,5 +18,6 @@ Develop gunpool-V1 base on aave, function: deposit/withdraw/get reward from pcoi
        withdraw(): withdraw amount from valid token which belongs to you;
        claim(): you can receive rewards from pcoin
        rewardBalanceOf(): you can quary rewards from pcoin
+       getDepositAccounts(): you can quary the number of deposit account
 
 Future gunpool-Vxxx will base on other plane
