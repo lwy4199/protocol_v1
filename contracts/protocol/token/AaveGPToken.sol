@@ -7,16 +7,17 @@ import {BaseERC20} from "./BaseERC20.sol";
 import {Ownable} from '../../dependencies/openzeppelin/contracts/access/Ownable.sol';
 import {IGunPool} from "../../interfaces/IGunPool.sol";
 import {IGPToken} from "../../interfaces/IGPToken.sol";
+import {IAToken} from "../gunpool/pools/aave/IAToken.sol";
 import {GunPoolContext} from "../gunpool/GunPoolContext.sol";
 import {Error} from "../gunpool/helpers/Error.sol";
 import {WadRayMath} from "../gunpool/pools/aave/WadRayMath.sol";
 import {ILendingPool} from "../gunpool/pools/aave/ILendingPool.sol";
 import {DataTypes} from "../gunpool/pools/aave/DataTypes.sol";
 
-
+// 通过Aave返回的Token
 contract AaveGPToken is
   IGPToken,
-  BaseERC20("", "", 18),
+  BaseERC20("", "" , 18),
   Ownable
 {
   using WadRayMath for uint256;
@@ -30,13 +31,13 @@ contract AaveGPToken is
   }
 
   function initialize(
-    address lendingPoolAddress,
+    address gunPoolAddress,
     address correspondToken,
     string calldata name,
     string calldata symbol,
     uint8 decimals
   ) external onlyOwner {
-    _pool = IGunPool(lendingPoolAddress);
+    _pool = IGunPool(gunPoolAddress);
     _correspondToken = correspondToken;
     _setName(name);
     _setSymbol(symbol);
@@ -48,7 +49,6 @@ contract AaveGPToken is
     uint256 amount
   ) external override onlyGunPool returns (bool) {
     uint256 preBalance = super.balanceOf(user);
-
     uint256 index = _getAaveIncome();
     uint256 amountScaled = amount.rayDiv(index);
 
@@ -63,18 +63,20 @@ contract AaveGPToken is
   function burn(
     address user,
     uint256 amount
-    ) external override {
-      uint256 index = _getAaveIncome();
-      uint256 amountScaled = amount.rayDiv(index);
+  )
+    external
+    override
+  {
+    uint256 index = _getAaveIncome();
+    uint256 amountScaled = amount.rayDiv(index);
+    require(amountScaled != 0, Error.GPTOKEN_BURN_AMOUNT_ZERO);
 
-      require(amountScaled != 0, Error.GPTOKEN_BURN_AMOUNT_ZERO);
+    if ( amountScaled > super.balanceOf(user) )
+      amountScaled = super.balanceOf(user);
+    _burn(user, amountScaled);
 
-      if ( amountScaled > super.balanceOf(user) )
-        amountScaled = super.balanceOf(user);
-      _burn(user, amountScaled);
-
-      emit Transfer(user, address(0), amount);
-      emit Burn(user, amount);
+    emit Transfer(user, address(0), amount);
+    emit Burn(user, amount);
   }
 
   function balanceOf(address account)
@@ -140,8 +142,9 @@ contract AaveGPToken is
     view
     returns (uint256)
   {
-    GunPoolContext.ReserveData memory reserve = _pool.getReserve(_correspondToken);
-    ILendingPool lendingPool = ILendingPool(reserve.aavePlane.aaveAddress);
+    GunPoolContext.PlaneContext memory plane =
+      _pool.getPlanes(_correspondToken, GunPoolContext.PlaneType.AAVE);
+    ILendingPool lendingPool = ILendingPool(plane.plane);
     return lendingPool.getReserveNormalizedIncome(_correspondToken);
   }
 }

@@ -35,7 +35,7 @@ abstract contract BaseERC20 is Context, IERC20 {
   /**
    * @return The name of the token
    **/
-  function name() public view returns (string memory) {
+  function name() external view returns (string memory) {
     return _name;
   }
 

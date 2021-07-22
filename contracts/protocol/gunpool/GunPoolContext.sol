@@ -7,17 +7,18 @@ library GunPoolContext {
     PcoinReward pcoin;
     // PlaneType
     PlaneType pt;
-    // aave plane
-    AavePlane aavePlane;
     // reserve frozen flag
     bool isFrozen;
+    // lock
+    bool lock;
   }
 
-  struct AavePlane {
-    // aave lendingpool address
-    address aaveAddress;
-    // gun pool token address for mapping aave lending pool token
-    address gpTokenAddress;
+  // Plane context
+  struct PlaneContext {
+    // plane address
+    address plane;
+    // gunpool token address for plane
+    address gptoken;
   }
 
   // pcoin reward
@@ -28,22 +29,35 @@ library GunPoolContext {
     uint256 mintMaxSupply;
     // the mint rate in second from pcoin
     uint256 mintRateBySec;
-    // the mint decay rate
-    uint16  mintDecayRate;
+    // the last mint time
+    uint256 lastMintTime;
+    // the last supply of mint token
+    uint256 lastSupply;
+    // the mint accumulation capacity of one unit token
+    uint256 mintCapacity;
   }
 
   // record the reward of account
   struct RewardContext {
-    // last update reward time
-    uint256 lastUpdatetime;
-    // the reward amount of pcoin which has obtained but not draw by account
-    uint256 pcoinAmount;
-    // last gptoken balance
-    uint256 lastGPTokenBalance;
-    // last gptoken supply
-    uint256 lastGPTokenSupply;
+    // record the reward supply of pcoin which has obtained by account
+    uint256 rewardSupply;
+    // last mint capacity of one unit token
+    uint256 lastMintCapacity;
+    // last balance of gptoken
+    uint256 lastGpBalance;
   }
 
-  enum PlaneType {NONE, AAVE}
+  enum PlaneType {AAVE}
 
+  struct PlaneInitInput {
+    PlaneType pt;
+    PlaneContext plane;
+  }
+
+  struct FeeContext {
+    // fee account
+    address account;
+    // the max fee ratio is 10
+    uint16  permillage;
+  }
 }

@@ -1,0 +1,3336 @@
+{
+  "contractName": "RewardPolicy",
+  "abi": [],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/libraries/RewardPolicy.sol\":\"RewardPolicy\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/dependencies/openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5\",\"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0xffe8c22dc1522e1614cc11ef667c2024d11cb2d5073c0432cc1d658a844accab\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://df929365ea3a7cd6e345a19718d67983b18d6d1ef17df670ad3a5bd291833dec\",\"dweb:/ipfs/QmR955FfLiHRsPfEonbD6PJYNqvZ9136SorKppBXsN399i\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/libraries/RewardPolicy.sol\":{\"keccak256\":\"0x018ed6f64548c9208cdb073921eec845152223d586d3ca9f5f7500e3c15632a7\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4e55eb5e97d4ab09a1a46c755bee22f9c365e76c702353fd1eab828b10d7c755\",\"dweb:/ipfs/QmYEFohK3khXZ1cEFbp1LBg9Wq4eygMb9s2q4NVVpra4W5\"]}},\"version\":1}",
+  "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209d6becfd210abf2efeb14ca711411bee342780bdf3cb746d5287957572c8540664736f6c634300060c0033",
+  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212209d6becfd210abf2efeb14ca711411bee342780bdf3cb746d5287957572c8540664736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "220:1175:261:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "220:1175:261:-:0;;;;;;;;",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.4.22 <0.9.0;\n\nimport {GunPoolContext} from \"../gunpool/GunPoolContext.sol\";\nimport {SafeMath} from \"../../dependencies/openzeppelin/contracts/math/SafeMath.sol\";\n\nlibrary RewardPolicy {\n  using SafeMath for uint256;\n\n  function calcultionReward(\n    GunPoolContext.RewardContext memory reward,\n    uint256 mintSec,\n    uint256 curSupply\n    )\n    internal\n    view\n    returns (uint256)\n  {\n    if ( reward.lastUpdatetime < block.timestamp ) {\n      uint256 timeDiff = block.timestamp.sub(reward.lastUpdatetime);\n      uint256 rewardAmount = mintSec.mul(timeDiff);\n      uint256 lastReward = rewardAmount\n                           .mul(reward.lastGPTokenBalance)\n                           .div(reward.lastGPTokenSupply);\n      uint256 curReward = rewardAmount\n                          .mul(reward.lastGPTokenBalance)\n                          .div(curSupply);\n      rewardAmount = lastReward.add(curReward).div(2);\n      return rewardAmount;\n    }\n    else {\n      return 0;\n    }\n  }\n\n  function updateRewardContext(\n    GunPoolContext.RewardContext storage reward,\n    uint256 curBalance,\n    uint256 curSupply,\n    uint256 totalAmount\n    )\n    internal\n  {\n    reward.lastGPTokenBalance = curBalance;\n    reward.lastGPTokenSupply = curSupply;\n    reward.pcoinAmount = totalAmount;\n    reward.lastUpdatetime = block.timestamp;\n  }\n}\n",
+  "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/libraries/RewardPolicy.sol",
+  "ast": {
+    "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/libraries/RewardPolicy.sol",
+    "exportedSymbols": {
+      "RewardPolicy": [
+        13845
+      ]
+    },
+    "id": 13846,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 13727,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:32:261"
+      },
+      {
+        "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/gunpool/GunPoolContext.sol",
+        "file": "../gunpool/GunPoolContext.sol",
+        "id": 13729,
+        "nodeType": "ImportDirective",
+        "scope": 13846,
+        "sourceUnit": 12814,
+        "src": "71:61:261",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13728,
+              "name": "GunPoolContext",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "79:14:261",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/dependencies/openzeppelin/contracts/math/SafeMath.sol",
+        "file": "../../dependencies/openzeppelin/contracts/math/SafeMath.sol",
+        "id": 13731,
+        "nodeType": "ImportDirective",
+        "scope": 13846,
+        "sourceUnit": 2784,
+        "src": "133:85:261",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 13730,
+              "name": "SafeMath",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "141:8:261",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "library",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 13845,
+        "linearizedBaseContracts": [
+          13845
+        ],
+        "name": "RewardPolicy",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "id": 13734,
+            "libraryName": {
+              "contractScope": null,
+              "id": 13732,
+              "name": "SafeMath",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 2783,
+              "src": "251:8:261",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_SafeMath_$2783",
+                "typeString": "library SafeMath"
+              }
+            },
+            "nodeType": "UsingForDirective",
+            "src": "245:27:261",
+            "typeName": {
+              "id": 13733,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "264:7:261",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            }
+          },
+          {
+            "body": {
+              "id": 13806,
+              "nodeType": "Block",
+              "src": "446:598:261",
+              "statements": [
+                {
+                  "condition": {
+                    "argumentTypes": null,
+                    "commonType": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    },
+                    "id": 13749,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13745,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13736,
+                        "src": "457:6:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                          "typeString": "struct GunPoolContext.RewardContext memory"
+                        }
+                      },
+                      "id": 13746,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "lastUpdatetime",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12802,
+                      "src": "457:21:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "BinaryOperation",
+                    "operator": "<",
+                    "rightExpression": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13747,
+                        "name": "block",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -4,
+                        "src": "481:5:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_block",
+                          "typeString": "block"
+                        }
+                      },
+                      "id": 13748,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "timestamp",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "481:15:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "457:39:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bool",
+                      "typeString": "bool"
+                    }
+                  },
+                  "falseBody": {
+                    "id": 13804,
+                    "nodeType": "Block",
+                    "src": "1017:23:261",
+                    "statements": [
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 13802,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "1032:1:261",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        "functionReturnParameters": 13744,
+                        "id": 13803,
+                        "nodeType": "Return",
+                        "src": "1025:8:261"
+                      }
+                    ]
+                  },
+                  "id": 13805,
+                  "nodeType": "IfStatement",
+                  "src": "452:588:261",
+                  "trueBody": {
+                    "id": 13801,
+                    "nodeType": "Block",
+                    "src": "499:508:261",
+                    "statements": [
+                      {
+                        "assignments": [
+                          13751
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 13751,
+                            "mutability": "mutable",
+                            "name": "timeDiff",
+                            "nodeType": "VariableDeclaration",
+                            "overrides": null,
+                            "scope": 13801,
+                            "src": "507:16:261",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 13750,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "507:7:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "value": null,
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 13758,
+                        "initialValue": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 13755,
+                                "name": "reward",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 13736,
+                                "src": "546:6:261",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                                  "typeString": "struct GunPoolContext.RewardContext memory"
+                                }
+                              },
+                              "id": 13756,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "lastUpdatetime",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 12802,
+                              "src": "546:21:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 13752,
+                                "name": "block",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": -4,
+                                "src": "526:5:261",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_magic_block",
+                                  "typeString": "block"
+                                }
+                              },
+                              "id": 13753,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "timestamp",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": null,
+                              "src": "526:15:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "id": 13754,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "sub",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2633,
+                            "src": "526:19:261",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 13757,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "526:42:261",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "507:61:261"
+                      },
+                      {
+                        "assignments": [
+                          13760
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 13760,
+                            "mutability": "mutable",
+                            "name": "rewardAmount",
+                            "nodeType": "VariableDeclaration",
+                            "overrides": null,
+                            "scope": 13801,
+                            "src": "576:20:261",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 13759,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "576:7:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "value": null,
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 13765,
+                        "initialValue": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 13763,
+                              "name": "timeDiff",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 13751,
+                              "src": "611:8:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "id": 13761,
+                              "name": "mintSec",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 13738,
+                              "src": "599:7:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "id": 13762,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "mul",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2696,
+                            "src": "599:11:261",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 13764,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "599:21:261",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "576:44:261"
+                      },
+                      {
+                        "assignments": [
+                          13767
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 13767,
+                            "mutability": "mutable",
+                            "name": "lastReward",
+                            "nodeType": "VariableDeclaration",
+                            "overrides": null,
+                            "scope": 13801,
+                            "src": "628:18:261",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 13766,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "628:7:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "value": null,
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 13777,
+                        "initialValue": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "expression": {
+                                "argumentTypes": null,
+                                "id": 13774,
+                                "name": "reward",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 13736,
+                                "src": "753:6:261",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                                  "typeString": "struct GunPoolContext.RewardContext memory"
+                                }
+                              },
+                              "id": 13775,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "lastGPTokenSupply",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 12808,
+                              "src": "753:24:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "id": 13770,
+                                    "name": "reward",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 13736,
+                                    "src": "694:6:261",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                                      "typeString": "struct GunPoolContext.RewardContext memory"
+                                    }
+                                  },
+                                  "id": 13771,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "lastGPTokenBalance",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 12806,
+                                  "src": "694:25:261",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "id": 13768,
+                                  "name": "rewardAmount",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 13760,
+                                  "src": "649:12:261",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "id": 13769,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "mul",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 2696,
+                                "src": "649:44:261",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                                  "typeString": "function (uint256,uint256) pure returns (uint256)"
+                                }
+                              },
+                              "id": 13772,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "649:71:261",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "id": 13773,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "div",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2713,
+                            "src": "649:103:261",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 13776,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "649:129:261",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "628:150:261"
+                      },
+                      {
+                        "assignments": [
+                          13779
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 13779,
+                            "mutability": "mutable",
+                            "name": "curReward",
+                            "nodeType": "VariableDeclaration",
+                            "overrides": null,
+                            "scope": 13801,
+                            "src": "786:17:261",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 13778,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "786:7:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "value": null,
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 13788,
+                        "initialValue": {
+                          "argumentTypes": null,
+                          "arguments": [
+                            {
+                              "argumentTypes": null,
+                              "id": 13786,
+                              "name": "curSupply",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 13740,
+                              "src": "908:9:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": null,
+                              "arguments": [
+                                {
+                                  "argumentTypes": null,
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "id": 13782,
+                                    "name": "reward",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 13736,
+                                    "src": "850:6:261",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                                      "typeString": "struct GunPoolContext.RewardContext memory"
+                                    }
+                                  },
+                                  "id": 13783,
+                                  "isConstant": false,
+                                  "isLValue": true,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "lastGPTokenBalance",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 12806,
+                                  "src": "850:25:261",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": null,
+                                  "id": 13780,
+                                  "name": "rewardAmount",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 13760,
+                                  "src": "806:12:261",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                },
+                                "id": 13781,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "lValueRequested": false,
+                                "memberName": "mul",
+                                "nodeType": "MemberAccess",
+                                "referencedDeclaration": 2696,
+                                "src": "806:43:261",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                                  "typeString": "function (uint256,uint256) pure returns (uint256)"
+                                }
+                              },
+                              "id": 13784,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "806:70:261",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "id": 13785,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "div",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 2713,
+                            "src": "806:101:261",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                              "typeString": "function (uint256,uint256) pure returns (uint256)"
+                            }
+                          },
+                          "id": 13787,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "806:112:261",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "786:132:261"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13797,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "argumentTypes": null,
+                            "id": 13789,
+                            "name": "rewardAmount",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 13760,
+                            "src": "926:12:261",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "argumentTypes": null,
+                            "arguments": [
+                              {
+                                "argumentTypes": null,
+                                "hexValue": "32",
+                                "id": 13795,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "number",
+                                "lValueRequested": false,
+                                "nodeType": "Literal",
+                                "src": "971:1:261",
+                                "subdenomination": null,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_rational_2_by_1",
+                                  "typeString": "int_const 2"
+                                },
+                                "value": "2"
+                              }
+                            ],
+                            "expression": {
+                              "argumentTypes": [
+                                {
+                                  "typeIdentifier": "t_rational_2_by_1",
+                                  "typeString": "int_const 2"
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": null,
+                                "arguments": [
+                                  {
+                                    "argumentTypes": null,
+                                    "id": 13792,
+                                    "name": "curReward",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 13779,
+                                    "src": "956:9:261",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  }
+                                ],
+                                "expression": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  ],
+                                  "expression": {
+                                    "argumentTypes": null,
+                                    "id": 13790,
+                                    "name": "lastReward",
+                                    "nodeType": "Identifier",
+                                    "overloadedDeclarations": [],
+                                    "referencedDeclaration": 13767,
+                                    "src": "941:10:261",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "id": 13791,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "memberName": "add",
+                                  "nodeType": "MemberAccess",
+                                  "referencedDeclaration": 2616,
+                                  "src": "941:14:261",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                                    "typeString": "function (uint256,uint256) pure returns (uint256)"
+                                  }
+                                },
+                                "id": 13793,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "941:25:261",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_uint256",
+                                  "typeString": "uint256"
+                                }
+                              },
+                              "id": 13794,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "memberName": "div",
+                              "nodeType": "MemberAccess",
+                              "referencedDeclaration": 2713,
+                              "src": "941:29:261",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_function_internal_pure$_t_uint256_$_t_uint256_$returns$_t_uint256_$bound_to$_t_uint256_$",
+                                "typeString": "function (uint256,uint256) pure returns (uint256)"
+                              }
+                            },
+                            "id": 13796,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "kind": "functionCall",
+                            "lValueRequested": false,
+                            "names": [],
+                            "nodeType": "FunctionCall",
+                            "src": "941:32:261",
+                            "tryCall": false,
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "926:47:261",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 13798,
+                        "nodeType": "ExpressionStatement",
+                        "src": "926:47:261"
+                      },
+                      {
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 13799,
+                          "name": "rewardAmount",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 13760,
+                          "src": "988:12:261",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "functionReturnParameters": 13744,
+                        "id": 13800,
+                        "nodeType": "Return",
+                        "src": "981:19:261"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 13807,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "calcultionReward",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13741,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13736,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13807,
+                  "src": "307:42:261",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RewardContext_$12809_memory_ptr",
+                    "typeString": "struct GunPoolContext.RewardContext"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 13735,
+                    "name": "GunPoolContext.RewardContext",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 12809,
+                    "src": "307:28:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                      "typeString": "struct GunPoolContext.RewardContext"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13738,
+                  "mutability": "mutable",
+                  "name": "mintSec",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13807,
+                  "src": "355:15:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13737,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "355:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13740,
+                  "mutability": "mutable",
+                  "name": "curSupply",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13807,
+                  "src": "376:17:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13739,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "376:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "301:98:261"
+            },
+            "returnParameters": {
+              "id": 13744,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13743,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13807,
+                  "src": "435:7:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13742,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "435:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "434:9:261"
+            },
+            "scope": 13845,
+            "src": "276:768:261",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "internal"
+          },
+          {
+            "body": {
+              "id": 13843,
+              "nodeType": "Block",
+              "src": "1219:174:261",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13822,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13818,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13809,
+                        "src": "1225:6:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                          "typeString": "struct GunPoolContext.RewardContext storage pointer"
+                        }
+                      },
+                      "id": 13820,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "lastGPTokenBalance",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12806,
+                      "src": "1225:25:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 13821,
+                      "name": "curBalance",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13811,
+                      "src": "1253:10:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1225:38:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 13823,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1225:38:261"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13828,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13824,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13809,
+                        "src": "1269:6:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                          "typeString": "struct GunPoolContext.RewardContext storage pointer"
+                        }
+                      },
+                      "id": 13826,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "lastGPTokenSupply",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12808,
+                      "src": "1269:24:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 13827,
+                      "name": "curSupply",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13813,
+                      "src": "1296:9:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1269:36:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 13829,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1269:36:261"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13834,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13830,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13809,
+                        "src": "1311:6:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                          "typeString": "struct GunPoolContext.RewardContext storage pointer"
+                        }
+                      },
+                      "id": 13832,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "pcoinAmount",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12804,
+                      "src": "1311:18:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "id": 13833,
+                      "name": "totalAmount",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 13815,
+                      "src": "1332:11:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1311:32:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 13835,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1311:32:261"
+                },
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 13841,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13836,
+                        "name": "reward",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 13809,
+                        "src": "1349:6:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                          "typeString": "struct GunPoolContext.RewardContext storage pointer"
+                        }
+                      },
+                      "id": 13838,
+                      "isConstant": false,
+                      "isLValue": true,
+                      "isPure": false,
+                      "lValueRequested": true,
+                      "memberName": "lastUpdatetime",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": 12802,
+                      "src": "1349:21:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "expression": {
+                        "argumentTypes": null,
+                        "id": 13839,
+                        "name": "block",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": -4,
+                        "src": "1373:5:261",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_magic_block",
+                          "typeString": "block"
+                        }
+                      },
+                      "id": 13840,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "lValueRequested": false,
+                      "memberName": "timestamp",
+                      "nodeType": "MemberAccess",
+                      "referencedDeclaration": null,
+                      "src": "1373:15:261",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "1349:39:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 13842,
+                  "nodeType": "ExpressionStatement",
+                  "src": "1349:39:261"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 13844,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "updateRewardContext",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 13816,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 13809,
+                  "mutability": "mutable",
+                  "name": "reward",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13844,
+                  "src": "1082:43:261",
+                  "stateVariable": false,
+                  "storageLocation": "storage",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                    "typeString": "struct GunPoolContext.RewardContext"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 13808,
+                    "name": "GunPoolContext.RewardContext",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 12809,
+                    "src": "1082:28:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_RewardContext_$12809_storage_ptr",
+                      "typeString": "struct GunPoolContext.RewardContext"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13811,
+                  "mutability": "mutable",
+                  "name": "curBalance",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13844,
+                  "src": "1131:18:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13810,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1131:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13813,
+                  "mutability": "mutable",
+                  "name": "curSupply",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13844,
+                  "src": "1155:17:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13812,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1155:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 13815,
+                  "mutability": "mutable",
+                  "name": "totalAmount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 13844,
+                  "src": "1178:19:261",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13814,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1178:7:261",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1076:127:261"
+            },
+            "returnParameters": {
+              "id": 13817,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1219:0:261"
+            },
+            "scope": 13845,
+            "src": "1048:345:261",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "internal"
+          }
+        ],
+        "scope": 13846,
+        "src": "220:1175:261"
+      }
+    ],
+    "src": "37:1359:261"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/libraries/RewardPolicy.sol",
+      "exportedSymbols": {
+        "RewardPolicy": [
+          13845
+        ]
+      },
+      "license": "agpl-3.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 13727,
+        "name": "PragmaDirective",
+        "src": "37:32:261"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 12814,
+          "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/protocol/gunpool/GunPoolContext.sol",
+          "file": "../gunpool/GunPoolContext.sol",
+          "scope": 13846,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "GunPoolContext"
+                },
+                "id": 13728,
+                "name": "Identifier",
+                "src": "79:14:261"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 13729,
+        "name": "ImportDirective",
+        "src": "71:61:261"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 2784,
+          "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/contracts/contracts/dependencies/openzeppelin/contracts/math/SafeMath.sol",
+          "file": "../../dependencies/openzeppelin/contracts/math/SafeMath.sol",
+          "scope": 13846,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "SafeMath"
+                },
+                "id": 13730,
+                "name": "Identifier",
+                "src": "141:8:261"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 13731,
+        "name": "ImportDirective",
+        "src": "133:85:261"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "library",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            13845
+          ],
+          "name": "RewardPolicy",
+          "scope": 13846
+        },
+        "children": [
+          {
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "SafeMath",
+                  "referencedDeclaration": 2783,
+                  "type": "library SafeMath"
+                },
+                "id": 13732,
+                "name": "UserDefinedTypeName",
+                "src": "251:8:261"
+              },
+              {
+                "attributes": {
+                  "name": "uint256",
+                  "type": "uint256"
+                },
+                "id": 13733,
+                "name": "ElementaryTypeName",
+                "src": "264:7:261"
+              }
+            ],
+            "id": 13734,
+            "name": "UsingForDirective",
+            "src": "245:27:261"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "calcultionReward",
+              "overrides": null,
+              "scope": 13845,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "reward",
+                      "overrides": null,
+                      "scope": 13807,
+                      "stateVariable": false,
+                      "storageLocation": "memory",
+                      "type": "struct GunPoolContext.RewardContext",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "GunPoolContext.RewardContext",
+                          "referencedDeclaration": 12809,
+                          "type": "struct GunPoolContext.RewardContext"
+                        },
+                        "id": 13735,
+                        "name": "UserDefinedTypeName",
+                        "src": "307:28:261"
+                      }
+                    ],
+                    "id": 13736,
+                    "name": "VariableDeclaration",
+                    "src": "307:42:261"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "mintSec",
+                      "overrides": null,
+                      "scope": 13807,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13737,
+                        "name": "ElementaryTypeName",
+                        "src": "355:7:261"
+                      }
+                    ],
+                    "id": 13738,
+                    "name": "VariableDeclaration",
+                    "src": "355:15:261"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "curSupply",
+                      "overrides": null,
+                      "scope": 13807,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13739,
+                        "name": "ElementaryTypeName",
+                        "src": "376:7:261"
+                      }
+                    ],
+                    "id": 13740,
+                    "name": "VariableDeclaration",
+                    "src": "376:17:261"
+                  }
+                ],
+                "id": 13741,
+                "name": "ParameterList",
+                "src": "301:98:261"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 13807,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13742,
+                        "name": "ElementaryTypeName",
+                        "src": "435:7:261"
+                      }
+                    ],
+                    "id": 13743,
+                    "name": "VariableDeclaration",
+                    "src": "435:7:261"
+                  }
+                ],
+                "id": 13744,
+                "name": "ParameterList",
+                "src": "434:9:261"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "<",
+                          "type": "bool"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "lastUpdatetime",
+                              "referencedDeclaration": 12802,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13736,
+                                  "type": "struct GunPoolContext.RewardContext memory",
+                                  "value": "reward"
+                                },
+                                "id": 13745,
+                                "name": "Identifier",
+                                "src": "457:6:261"
+                              }
+                            ],
+                            "id": 13746,
+                            "name": "MemberAccess",
+                            "src": "457:21:261"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "timestamp",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -4,
+                                  "type": "block",
+                                  "value": "block"
+                                },
+                                "id": 13747,
+                                "name": "Identifier",
+                                "src": "481:5:261"
+                              }
+                            ],
+                            "id": 13748,
+                            "name": "MemberAccess",
+                            "src": "481:15:261"
+                          }
+                        ],
+                        "id": 13749,
+                        "name": "BinaryOperation",
+                        "src": "457:39:261"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "assignments": [
+                                13751
+                              ]
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "constant": false,
+                                  "mutability": "mutable",
+                                  "name": "timeDiff",
+                                  "overrides": null,
+                                  "scope": 13801,
+                                  "stateVariable": false,
+                                  "storageLocation": "default",
+                                  "type": "uint256",
+                                  "value": null,
+                                  "visibility": "internal"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "uint256",
+                                      "type": "uint256"
+                                    },
+                                    "id": 13750,
+                                    "name": "ElementaryTypeName",
+                                    "src": "507:7:261"
+                                  }
+                                ],
+                                "id": 13751,
+                                "name": "VariableDeclaration",
+                                "src": "507:16:261"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "sub",
+                                      "referencedDeclaration": 2633,
+                                      "type": "function (uint256,uint256) pure returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "timestamp",
+                                          "referencedDeclaration": null,
+                                          "type": "uint256"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "overloadedDeclarations": [
+                                                null
+                                              ],
+                                              "referencedDeclaration": -4,
+                                              "type": "block",
+                                              "value": "block"
+                                            },
+                                            "id": 13752,
+                                            "name": "Identifier",
+                                            "src": "526:5:261"
+                                          }
+                                        ],
+                                        "id": 13753,
+                                        "name": "MemberAccess",
+                                        "src": "526:15:261"
+                                      }
+                                    ],
+                                    "id": 13754,
+                                    "name": "MemberAccess",
+                                    "src": "526:19:261"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "lastUpdatetime",
+                                      "referencedDeclaration": 12802,
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 13736,
+                                          "type": "struct GunPoolContext.RewardContext memory",
+                                          "value": "reward"
+                                        },
+                                        "id": 13755,
+                                        "name": "Identifier",
+                                        "src": "546:6:261"
+                                      }
+                                    ],
+                                    "id": 13756,
+                                    "name": "MemberAccess",
+                                    "src": "546:21:261"
+                                  }
+                                ],
+                                "id": 13757,
+                                "name": "FunctionCall",
+                                "src": "526:42:261"
+                              }
+                            ],
+                            "id": 13758,
+                            "name": "VariableDeclarationStatement",
+                            "src": "507:61:261"
+                          },
+                          {
+                            "attributes": {
+                              "assignments": [
+                                13760
+                              ]
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "constant": false,
+                                  "mutability": "mutable",
+                                  "name": "rewardAmount",
+                                  "overrides": null,
+                                  "scope": 13801,
+                                  "stateVariable": false,
+                                  "storageLocation": "default",
+                                  "type": "uint256",
+                                  "value": null,
+                                  "visibility": "internal"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "uint256",
+                                      "type": "uint256"
+                                    },
+                                    "id": 13759,
+                                    "name": "ElementaryTypeName",
+                                    "src": "576:7:261"
+                                  }
+                                ],
+                                "id": 13760,
+                                "name": "VariableDeclaration",
+                                "src": "576:20:261"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "mul",
+                                      "referencedDeclaration": 2696,
+                                      "type": "function (uint256,uint256) pure returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 13738,
+                                          "type": "uint256",
+                                          "value": "mintSec"
+                                        },
+                                        "id": 13761,
+                                        "name": "Identifier",
+                                        "src": "599:7:261"
+                                      }
+                                    ],
+                                    "id": 13762,
+                                    "name": "MemberAccess",
+                                    "src": "599:11:261"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13751,
+                                      "type": "uint256",
+                                      "value": "timeDiff"
+                                    },
+                                    "id": 13763,
+                                    "name": "Identifier",
+                                    "src": "611:8:261"
+                                  }
+                                ],
+                                "id": 13764,
+                                "name": "FunctionCall",
+                                "src": "599:21:261"
+                              }
+                            ],
+                            "id": 13765,
+                            "name": "VariableDeclarationStatement",
+                            "src": "576:44:261"
+                          },
+                          {
+                            "attributes": {
+                              "assignments": [
+                                13767
+                              ]
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "constant": false,
+                                  "mutability": "mutable",
+                                  "name": "lastReward",
+                                  "overrides": null,
+                                  "scope": 13801,
+                                  "stateVariable": false,
+                                  "storageLocation": "default",
+                                  "type": "uint256",
+                                  "value": null,
+                                  "visibility": "internal"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "uint256",
+                                      "type": "uint256"
+                                    },
+                                    "id": 13766,
+                                    "name": "ElementaryTypeName",
+                                    "src": "628:7:261"
+                                  }
+                                ],
+                                "id": 13767,
+                                "name": "VariableDeclaration",
+                                "src": "628:18:261"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "div",
+                                      "referencedDeclaration": 2713,
+                                      "type": "function (uint256,uint256) pure returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "tryCall": false,
+                                          "type": "uint256",
+                                          "type_conversion": false
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_uint256",
+                                                  "typeString": "uint256"
+                                                }
+                                              ],
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "mul",
+                                              "referencedDeclaration": 2696,
+                                              "type": "function (uint256,uint256) pure returns (uint256)"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 13760,
+                                                  "type": "uint256",
+                                                  "value": "rewardAmount"
+                                                },
+                                                "id": 13768,
+                                                "name": "Identifier",
+                                                "src": "649:12:261"
+                                              }
+                                            ],
+                                            "id": 13769,
+                                            "name": "MemberAccess",
+                                            "src": "649:44:261"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": true,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "lastGPTokenBalance",
+                                              "referencedDeclaration": 12806,
+                                              "type": "uint256"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 13736,
+                                                  "type": "struct GunPoolContext.RewardContext memory",
+                                                  "value": "reward"
+                                                },
+                                                "id": 13770,
+                                                "name": "Identifier",
+                                                "src": "694:6:261"
+                                              }
+                                            ],
+                                            "id": 13771,
+                                            "name": "MemberAccess",
+                                            "src": "694:25:261"
+                                          }
+                                        ],
+                                        "id": 13772,
+                                        "name": "FunctionCall",
+                                        "src": "649:71:261"
+                                      }
+                                    ],
+                                    "id": 13773,
+                                    "name": "MemberAccess",
+                                    "src": "649:103:261"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": true,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "lastGPTokenSupply",
+                                      "referencedDeclaration": 12808,
+                                      "type": "uint256"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "overloadedDeclarations": [
+                                            null
+                                          ],
+                                          "referencedDeclaration": 13736,
+                                          "type": "struct GunPoolContext.RewardContext memory",
+                                          "value": "reward"
+                                        },
+                                        "id": 13774,
+                                        "name": "Identifier",
+                                        "src": "753:6:261"
+                                      }
+                                    ],
+                                    "id": 13775,
+                                    "name": "MemberAccess",
+                                    "src": "753:24:261"
+                                  }
+                                ],
+                                "id": 13776,
+                                "name": "FunctionCall",
+                                "src": "649:129:261"
+                              }
+                            ],
+                            "id": 13777,
+                            "name": "VariableDeclarationStatement",
+                            "src": "628:150:261"
+                          },
+                          {
+                            "attributes": {
+                              "assignments": [
+                                13779
+                              ]
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "constant": false,
+                                  "mutability": "mutable",
+                                  "name": "curReward",
+                                  "overrides": null,
+                                  "scope": 13801,
+                                  "stateVariable": false,
+                                  "storageLocation": "default",
+                                  "type": "uint256",
+                                  "value": null,
+                                  "visibility": "internal"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "name": "uint256",
+                                      "type": "uint256"
+                                    },
+                                    "id": 13778,
+                                    "name": "ElementaryTypeName",
+                                    "src": "786:7:261"
+                                  }
+                                ],
+                                "id": 13779,
+                                "name": "VariableDeclaration",
+                                "src": "786:17:261"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "isStructConstructorCall": false,
+                                  "lValueRequested": false,
+                                  "names": [
+                                    null
+                                  ],
+                                  "tryCall": false,
+                                  "type": "uint256",
+                                  "type_conversion": false
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": [
+                                        {
+                                          "typeIdentifier": "t_uint256",
+                                          "typeString": "uint256"
+                                        }
+                                      ],
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "lValueRequested": false,
+                                      "member_name": "div",
+                                      "referencedDeclaration": 2713,
+                                      "type": "function (uint256,uint256) pure returns (uint256)"
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "isStructConstructorCall": false,
+                                          "lValueRequested": false,
+                                          "names": [
+                                            null
+                                          ],
+                                          "tryCall": false,
+                                          "type": "uint256",
+                                          "type_conversion": false
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": [
+                                                {
+                                                  "typeIdentifier": "t_uint256",
+                                                  "typeString": "uint256"
+                                                }
+                                              ],
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "mul",
+                                              "referencedDeclaration": 2696,
+                                              "type": "function (uint256,uint256) pure returns (uint256)"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 13760,
+                                                  "type": "uint256",
+                                                  "value": "rewardAmount"
+                                                },
+                                                "id": 13780,
+                                                "name": "Identifier",
+                                                "src": "806:12:261"
+                                              }
+                                            ],
+                                            "id": 13781,
+                                            "name": "MemberAccess",
+                                            "src": "806:43:261"
+                                          },
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": true,
+                                              "isPure": false,
+                                              "lValueRequested": false,
+                                              "member_name": "lastGPTokenBalance",
+                                              "referencedDeclaration": 12806,
+                                              "type": "uint256"
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 13736,
+                                                  "type": "struct GunPoolContext.RewardContext memory",
+                                                  "value": "reward"
+                                                },
+                                                "id": 13782,
+                                                "name": "Identifier",
+                                                "src": "850:6:261"
+                                              }
+                                            ],
+                                            "id": 13783,
+                                            "name": "MemberAccess",
+                                            "src": "850:25:261"
+                                          }
+                                        ],
+                                        "id": 13784,
+                                        "name": "FunctionCall",
+                                        "src": "806:70:261"
+                                      }
+                                    ],
+                                    "id": 13785,
+                                    "name": "MemberAccess",
+                                    "src": "806:101:261"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13740,
+                                      "type": "uint256",
+                                      "value": "curSupply"
+                                    },
+                                    "id": 13786,
+                                    "name": "Identifier",
+                                    "src": "908:9:261"
+                                  }
+                                ],
+                                "id": 13787,
+                                "name": "FunctionCall",
+                                "src": "806:112:261"
+                              }
+                            ],
+                            "id": 13788,
+                            "name": "VariableDeclarationStatement",
+                            "src": "786:132:261"
+                          },
+                          {
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "operator": "=",
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13760,
+                                      "type": "uint256",
+                                      "value": "rewardAmount"
+                                    },
+                                    "id": 13789,
+                                    "name": "Identifier",
+                                    "src": "926:12:261"
+                                  },
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "isConstant": false,
+                                      "isLValue": false,
+                                      "isPure": false,
+                                      "isStructConstructorCall": false,
+                                      "lValueRequested": false,
+                                      "names": [
+                                        null
+                                      ],
+                                      "tryCall": false,
+                                      "type": "uint256",
+                                      "type_conversion": false
+                                    },
+                                    "children": [
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": [
+                                            {
+                                              "typeIdentifier": "t_rational_2_by_1",
+                                              "typeString": "int_const 2"
+                                            }
+                                          ],
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": false,
+                                          "lValueRequested": false,
+                                          "member_name": "div",
+                                          "referencedDeclaration": 2713,
+                                          "type": "function (uint256,uint256) pure returns (uint256)"
+                                        },
+                                        "children": [
+                                          {
+                                            "attributes": {
+                                              "argumentTypes": null,
+                                              "isConstant": false,
+                                              "isLValue": false,
+                                              "isPure": false,
+                                              "isStructConstructorCall": false,
+                                              "lValueRequested": false,
+                                              "names": [
+                                                null
+                                              ],
+                                              "tryCall": false,
+                                              "type": "uint256",
+                                              "type_conversion": false
+                                            },
+                                            "children": [
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": [
+                                                    {
+                                                      "typeIdentifier": "t_uint256",
+                                                      "typeString": "uint256"
+                                                    }
+                                                  ],
+                                                  "isConstant": false,
+                                                  "isLValue": false,
+                                                  "isPure": false,
+                                                  "lValueRequested": false,
+                                                  "member_name": "add",
+                                                  "referencedDeclaration": 2616,
+                                                  "type": "function (uint256,uint256) pure returns (uint256)"
+                                                },
+                                                "children": [
+                                                  {
+                                                    "attributes": {
+                                                      "argumentTypes": null,
+                                                      "overloadedDeclarations": [
+                                                        null
+                                                      ],
+                                                      "referencedDeclaration": 13767,
+                                                      "type": "uint256",
+                                                      "value": "lastReward"
+                                                    },
+                                                    "id": 13790,
+                                                    "name": "Identifier",
+                                                    "src": "941:10:261"
+                                                  }
+                                                ],
+                                                "id": 13791,
+                                                "name": "MemberAccess",
+                                                "src": "941:14:261"
+                                              },
+                                              {
+                                                "attributes": {
+                                                  "argumentTypes": null,
+                                                  "overloadedDeclarations": [
+                                                    null
+                                                  ],
+                                                  "referencedDeclaration": 13779,
+                                                  "type": "uint256",
+                                                  "value": "curReward"
+                                                },
+                                                "id": 13792,
+                                                "name": "Identifier",
+                                                "src": "956:9:261"
+                                              }
+                                            ],
+                                            "id": 13793,
+                                            "name": "FunctionCall",
+                                            "src": "941:25:261"
+                                          }
+                                        ],
+                                        "id": 13794,
+                                        "name": "MemberAccess",
+                                        "src": "941:29:261"
+                                      },
+                                      {
+                                        "attributes": {
+                                          "argumentTypes": null,
+                                          "hexvalue": "32",
+                                          "isConstant": false,
+                                          "isLValue": false,
+                                          "isPure": true,
+                                          "lValueRequested": false,
+                                          "subdenomination": null,
+                                          "token": "number",
+                                          "type": "int_const 2",
+                                          "value": "2"
+                                        },
+                                        "id": 13795,
+                                        "name": "Literal",
+                                        "src": "971:1:261"
+                                      }
+                                    ],
+                                    "id": 13796,
+                                    "name": "FunctionCall",
+                                    "src": "941:32:261"
+                                  }
+                                ],
+                                "id": 13797,
+                                "name": "Assignment",
+                                "src": "926:47:261"
+                              }
+                            ],
+                            "id": 13798,
+                            "name": "ExpressionStatement",
+                            "src": "926:47:261"
+                          },
+                          {
+                            "attributes": {
+                              "functionReturnParameters": 13744
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13760,
+                                  "type": "uint256",
+                                  "value": "rewardAmount"
+                                },
+                                "id": 13799,
+                                "name": "Identifier",
+                                "src": "988:12:261"
+                              }
+                            ],
+                            "id": 13800,
+                            "name": "Return",
+                            "src": "981:19:261"
+                          }
+                        ],
+                        "id": 13801,
+                        "name": "Block",
+                        "src": "499:508:261"
+                      },
+                      {
+                        "children": [
+                          {
+                            "attributes": {
+                              "functionReturnParameters": 13744
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 13802,
+                                "name": "Literal",
+                                "src": "1032:1:261"
+                              }
+                            ],
+                            "id": 13803,
+                            "name": "Return",
+                            "src": "1025:8:261"
+                          }
+                        ],
+                        "id": 13804,
+                        "name": "Block",
+                        "src": "1017:23:261"
+                      }
+                    ],
+                    "id": 13805,
+                    "name": "IfStatement",
+                    "src": "452:588:261"
+                  }
+                ],
+                "id": 13806,
+                "name": "Block",
+                "src": "446:598:261"
+              }
+            ],
+            "id": 13807,
+            "name": "FunctionDefinition",
+            "src": "276:768:261"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "updateRewardContext",
+              "overrides": null,
+              "scope": 13845,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "reward",
+                      "overrides": null,
+                      "scope": 13844,
+                      "stateVariable": false,
+                      "storageLocation": "storage",
+                      "type": "struct GunPoolContext.RewardContext",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "GunPoolContext.RewardContext",
+                          "referencedDeclaration": 12809,
+                          "type": "struct GunPoolContext.RewardContext"
+                        },
+                        "id": 13808,
+                        "name": "UserDefinedTypeName",
+                        "src": "1082:28:261"
+                      }
+                    ],
+                    "id": 13809,
+                    "name": "VariableDeclaration",
+                    "src": "1082:43:261"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "curBalance",
+                      "overrides": null,
+                      "scope": 13844,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13810,
+                        "name": "ElementaryTypeName",
+                        "src": "1131:7:261"
+                      }
+                    ],
+                    "id": 13811,
+                    "name": "VariableDeclaration",
+                    "src": "1131:18:261"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "curSupply",
+                      "overrides": null,
+                      "scope": 13844,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13812,
+                        "name": "ElementaryTypeName",
+                        "src": "1155:7:261"
+                      }
+                    ],
+                    "id": 13813,
+                    "name": "VariableDeclaration",
+                    "src": "1155:17:261"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "totalAmount",
+                      "overrides": null,
+                      "scope": 13844,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 13814,
+                        "name": "ElementaryTypeName",
+                        "src": "1178:7:261"
+                      }
+                    ],
+                    "id": 13815,
+                    "name": "VariableDeclaration",
+                    "src": "1178:19:261"
+                  }
+                ],
+                "id": 13816,
+                "name": "ParameterList",
+                "src": "1076:127:261"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 13817,
+                "name": "ParameterList",
+                "src": "1219:0:261"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "lastGPTokenBalance",
+                              "referencedDeclaration": 12806,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13809,
+                                  "type": "struct GunPoolContext.RewardContext storage pointer",
+                                  "value": "reward"
+                                },
+                                "id": 13818,
+                                "name": "Identifier",
+                                "src": "1225:6:261"
+                              }
+                            ],
+                            "id": 13820,
+                            "name": "MemberAccess",
+                            "src": "1225:25:261"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13811,
+                              "type": "uint256",
+                              "value": "curBalance"
+                            },
+                            "id": 13821,
+                            "name": "Identifier",
+                            "src": "1253:10:261"
+                          }
+                        ],
+                        "id": 13822,
+                        "name": "Assignment",
+                        "src": "1225:38:261"
+                      }
+                    ],
+                    "id": 13823,
+                    "name": "ExpressionStatement",
+                    "src": "1225:38:261"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "lastGPTokenSupply",
+                              "referencedDeclaration": 12808,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13809,
+                                  "type": "struct GunPoolContext.RewardContext storage pointer",
+                                  "value": "reward"
+                                },
+                                "id": 13824,
+                                "name": "Identifier",
+                                "src": "1269:6:261"
+                              }
+                            ],
+                            "id": 13826,
+                            "name": "MemberAccess",
+                            "src": "1269:24:261"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13813,
+                              "type": "uint256",
+                              "value": "curSupply"
+                            },
+                            "id": 13827,
+                            "name": "Identifier",
+                            "src": "1296:9:261"
+                          }
+                        ],
+                        "id": 13828,
+                        "name": "Assignment",
+                        "src": "1269:36:261"
+                      }
+                    ],
+                    "id": 13829,
+                    "name": "ExpressionStatement",
+                    "src": "1269:36:261"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "pcoinAmount",
+                              "referencedDeclaration": 12804,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13809,
+                                  "type": "struct GunPoolContext.RewardContext storage pointer",
+                                  "value": "reward"
+                                },
+                                "id": 13830,
+                                "name": "Identifier",
+                                "src": "1311:6:261"
+                              }
+                            ],
+                            "id": 13832,
+                            "name": "MemberAccess",
+                            "src": "1311:18:261"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 13815,
+                              "type": "uint256",
+                              "value": "totalAmount"
+                            },
+                            "id": 13833,
+                            "name": "Identifier",
+                            "src": "1332:11:261"
+                          }
+                        ],
+                        "id": 13834,
+                        "name": "Assignment",
+                        "src": "1311:32:261"
+                      }
+                    ],
+                    "id": 13835,
+                    "name": "ExpressionStatement",
+                    "src": "1311:32:261"
+                  },
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "uint256"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": true,
+                              "isPure": false,
+                              "lValueRequested": true,
+                              "member_name": "lastUpdatetime",
+                              "referencedDeclaration": 12802,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 13809,
+                                  "type": "struct GunPoolContext.RewardContext storage pointer",
+                                  "value": "reward"
+                                },
+                                "id": 13836,
+                                "name": "Identifier",
+                                "src": "1349:6:261"
+                              }
+                            ],
+                            "id": 13838,
+                            "name": "MemberAccess",
+                            "src": "1349:21:261"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "lValueRequested": false,
+                              "member_name": "timestamp",
+                              "referencedDeclaration": null,
+                              "type": "uint256"
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": -4,
+                                  "type": "block",
+                                  "value": "block"
+                                },
+                                "id": 13839,
+                                "name": "Identifier",
+                                "src": "1373:5:261"
+                              }
+                            ],
+                            "id": 13840,
+                            "name": "MemberAccess",
+                            "src": "1373:15:261"
+                          }
+                        ],
+                        "id": 13841,
+                        "name": "Assignment",
+                        "src": "1349:39:261"
+                      }
+                    ],
+                    "id": 13842,
+                    "name": "ExpressionStatement",
+                    "src": "1349:39:261"
+                  }
+                ],
+                "id": 13843,
+                "name": "Block",
+                "src": "1219:174:261"
+              }
+            ],
+            "id": 13844,
+            "name": "FunctionDefinition",
+            "src": "1048:345:261"
+          }
+        ],
+        "id": 13845,
+        "name": "ContractDefinition",
+        "src": "220:1175:261"
+      }
+    ],
+    "id": 13846,
+    "name": "SourceUnit",
+    "src": "37:1359:261"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-15T16:16:50.346Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

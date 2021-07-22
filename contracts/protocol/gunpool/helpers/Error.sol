@@ -12,8 +12,11 @@ library Error {
   string public constant RESERVE_FROZEN = '4';
   // reserve lptoken is zero
   string public constant RESERVE_GPTOKEN_ZERO = '5';
+  // reserve is lockded
+  string public constant RESERVE_LOCK = '12';
   // pool plane invalid
   string public constant POOL_PLANE_INVALID = '6';
+
 
   // gptoken must be minted by gunpool
   string public constant GPTOKEN_MUST_BE_GUNPOOL = '7';
@@ -24,4 +27,8 @@ library Error {
 
   // token reserve has exist
   string public constant TOKEN_RESERVE_EXIST = '9';
+  // token reserve plane input fails
+  string public constant TOKEN_RESERVE_PLANE_INPUT_FAIL = '10';
+  // reset token reserve has not exist
+  string public constant TOKEN_RESERVE_RESET_UNEXIST = '11';
 }

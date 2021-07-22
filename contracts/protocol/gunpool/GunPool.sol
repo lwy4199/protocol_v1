@@ -14,14 +14,15 @@ import {DataTypes} from "./pools/aave/DataTypes.sol";
 import {ILendingPool} from "./pools/aave/ILendingPool.sol";
 import {IAToken} from "./pools/aave/IAToken.sol";
 import {SafeMath} from "../../dependencies/openzeppelin/contracts/math/SafeMath.sol";
-import {RewardPolicy} from "../libraries/RewardPolicy.sol";
-
+import {MintPolicy} from "../libraries/MintPolicy.sol";
+import {IWETH} from "../../dependencies/misc/IWETH.sol";
+import {WadRayMath} from "./pools/aave/WadRayMath.sol";
 
 contract GunPool is IGunPool, Ownable {
   using Address for address;
   using SafeERC20 for IERC20;
   using SafeMath for uint256;
-  using RewardPolicy for GunPoolContext.RewardContext;
+  using MintPolicy for GunPoolContext.PcoinReward;
 
   /**** data context ****/
   // pcoin address
@@ -33,6 +34,12 @@ contract GunPool is IGunPool, Ownable {
   // reservers token list and count
   mapping(uint32 => address) internal _reservesList;
   uint32 internal _reservesCount;
+  // IWETH instance
+  IWETH internal immutable _IWETH;
+  // gptoken mapping: key is token and plane type, value is gptoken address
+  mapping (address => mapping(GunPoolContext.PlaneType => GunPoolContext.PlaneContext)) internal _planes;
+  // fee account
+  GunPoolContext.FeeContext _feeTo;
 
   /**** modifier ****/
   modifier tokenValid(address token, uint256 amount) {
@@ -43,16 +50,22 @@ contract GunPool is IGunPool, Ownable {
   }
 
   /**** constructor funcion ****/
-  constructor () public {
+  constructor (address weth) public {
     _reservesCount = 0;
+    _IWETH = IWETH(weth);
+    _feeTo.account = address(0);
+    _feeTo.permillage = 0;
   }
 
   /**** public function ****/
   function initReserve(
     address token,
-    GunPoolContext.PcoinReward calldata pcoin,
-    GunPoolContext.AavePlane calldata aavePlane
-    ) external override onlyOwner
+    GunPoolContext.PlaneInitInput[] calldata planes,
+    GunPoolContext.PcoinReward calldata pcoin
+  )
+    external
+    override
+    onlyOwner
   {
     require(token != address(0), Error.TOKEN_ADDRESS_ZERO);
     require(token.isContract(), Error.TOKEN_INVALID_CONTRACTS);
@@ -62,23 +75,95 @@ contract GunPool is IGunPool, Ownable {
     }
 
     GunPoolContext.ReserveData storage reserve = _reserves[token];
-    reserve.pt = GunPoolContext.PlaneType.AAVE;
     reserve.pcoin = GunPoolContext.PcoinReward(0,
                                                pcoin.mintMaxSupply,
                                                pcoin.mintRateBySec,
-                                               pcoin.mintDecayRate);
-    reserve.aavePlane = GunPoolContext.AavePlane(aavePlane.aaveAddress,
-                                                 aavePlane.gpTokenAddress);
+                                               block.timestamp,
+                                               0,
+                                               0);
+    reserve.pt = GunPoolContext.PlaneType.AAVE;
     reserve.isFrozen = false;
+    reserve.lock = false;
 
+    address[] memory gptoken = new address[](planes.length);
+    uint256 insertNums = 0;
+
+    for ( uint256 j = 0; j < planes.length; j++ ) {
+      if ( planes[j].pt == GunPoolContext.PlaneType.AAVE ) {
+        _planes[token][planes[j].pt] =
+          GunPoolContext.PlaneContext(
+            planes[j].plane.plane,
+            planes[j].plane.gptoken
+          );
+        insertNums += 1;
+        gptoken[j] = planes[j].plane.gptoken;
+      }
+    }
+
+    require(insertNums > 0, Error.TOKEN_RESERVE_PLANE_INPUT_FAIL);
     _reservesList[_reservesCount] = token;
     _reservesCount++;
 
-    address[] memory gptokenAddresses
-      = new address[](1);
+    emit InitReserve(token, pcoin, gptoken);
+  }
 
-    gptokenAddresses[0] = aavePlane.gpTokenAddress;
-    emit InitReserve(token, pcoin, gptokenAddresses);
+  function resetPcoinReward(
+    address token,
+    GunPoolContext.PcoinReward calldata pcoin
+  )
+    external
+    override
+    onlyOwner
+  {
+    bool isExist = false;
+    for (uint32 i = 0; i < _reservesCount; i++) {
+      if ( token == _reservesList[i] ) {
+        isExist = true;
+        break;
+      }
+    }
+    require(isExist, Error.TOKEN_RESERVE_RESET_UNEXIST);
+
+    GunPoolContext.ReserveData storage reserve = _reserves[token];
+    reserve.pcoin.mintMaxSupply = pcoin.mintMaxSupply;
+    reserve.pcoin.mintRateBySec = pcoin.mintRateBySec;
+
+    emit ResetPcoinReward(token, pcoin);
+  }
+
+  function resetPlane(
+    address token,
+    GunPoolContext.PlaneInitInput calldata planeInput
+  )
+    external
+    override
+    onlyOwner
+  {
+    bool isExist = false;
+    for (uint32 i = 0; i < _reservesCount; i++) {
+      if ( token == _reservesList[i] ) {
+        isExist = true;
+        break;
+      }
+    }
+    require(isExist, Error.TOKEN_RESERVE_RESET_UNEXIST);
+
+    GunPoolContext.PlaneContext storage planeContext = _planes[token][planeInput.pt];
+    planeContext.plane = planeInput.plane.plane;
+    planeContext.gptoken = planeInput.plane.gptoken;
+
+    emit ResetPlane(token, planeInput.pt, planeInput.plane);
+
+  }
+
+  function pause(address token, bool frozen)
+    external
+    override
+    onlyOwner
+  {
+    GunPoolContext.ReserveData storage reserve = _reserves[token];
+    reserve.isFrozen = frozen;
+    emit Pause(token, frozen);
   }
 
   function setPcoinAddress(address pcoinAddress)
@@ -87,7 +172,42 @@ contract GunPool is IGunPool, Ownable {
     onlyOwner
   {
     _pcoinAddress = pcoinAddress;
+
+    emit SetPcoinAddress(pcoinAddress);
   }
+
+  function setFeeto(GunPoolContext.FeeContext calldata feeTo)
+    external
+    override
+    onlyOwner
+  {
+    uint16 permillage = feeTo.permillage;
+    if ( permillage > 10 ) {
+      permillage = 10;
+    }
+    _feeTo = GunPoolContext.FeeContext(feeTo.account, permillage);
+    emit SetFeeto(feeTo.account, permillage);
+  }
+
+  function getDepositAPY(address token)
+    external
+    override
+    view
+    returns(uint256)
+  {
+    GunPoolContext.ReserveData memory reserve = _reserves[token];
+    if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
+      GunPoolContext.PlaneContext memory plane =
+        _planes[token][reserve.pt];
+      ILendingPool lendingPool = ILendingPool(plane.plane);
+      DataTypes.ReserveData memory lpReserve = lendingPool.getReserveData(token);
+      return lpReserve.currentLiquidityRate;
+    }
+    else {
+      return 0;
+    }
+  }
+
 
   /*
   * user who deposit by polylend gunpool will get gptoken and obtain pcoin reward
@@ -95,46 +215,60 @@ contract GunPool is IGunPool, Ownable {
   function deposit(
     address token,
     uint256 amount
-  ) external override tokenValid(token, amount) {
+  )
+    external
+    override
+    tokenValid(token, amount)
+  {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     _reserveValidate(reserve);
     bool isFirst = false;
     IGPToken gpToken;
-    uint256 gpTokenOldTotalSupply = 0;
+    //uint256 gpMPSupply = 0;
+    uint256 gpMASupply = 0;
+    //uint256 gpMPBalance = 0;
+    uint256 gpMABalance = 0;
+    reserve.lock = true;
 
-    IERC20(token).safeTransferFrom(msg.sender, address(this), amount);
+    if ( token != address(_IWETH) ) {
+      IERC20(token).safeTransferFrom(msg.sender, address(this), amount);
+    }
 
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-      gpToken = IGPToken(reserve.aavePlane.gpTokenAddress);
-      gpTokenOldTotalSupply = gpToken.totalSupply();
+      GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
+      gpToken = IGPToken(plane.gptoken);
+      //gpMPBalance = gpToken.balanceOf(msg.sender);
+      //gpMPSupply = gpToken.totalSupply();
       isFirst = _aaveDeposit(token,
-                             reserve.aavePlane.aaveAddress,
+                             plane.plane,
                              gpToken,
                              msg.sender,
                              amount);
+      gpMABalance = gpToken.balanceOf(msg.sender);
+      gpMASupply = gpToken.totalSupply();
     }
     else {
       require(false, Error.POOL_PLANE_INVALID);
     }
 
+    bool isMint = _updateMint(reserve.pcoin, gpMASupply);
     GunPoolContext.RewardContext storage reward = _rewards[msg.sender][token];
-    if ( isFirst ) {
-      reward.lastUpdatetime = block.timestamp;
-      reward.pcoinAmount = 0;
-      (reward.lastGPTokenBalance, reward.lastGPTokenSupply) =
-        gpToken.getUserNormalBalanceAndSupply(msg.sender);
-    }
-    else {
-      _updateReward(reward,
-                    reserve.pcoin,
-                    gpToken,
-                    gpTokenOldTotalSupply,
-                    msg.sender);
-    }
 
+    if ( isMint ) {
+      if ( !isFirst ) {
+        _updateReward(reward, reserve.pcoin);
+      }
+    }
+    reward.lastMintCapacity = reserve.pcoin.mintCapacity;
+    reward.lastGpBalance = gpMABalance;
+
+    reserve.lock = false;
     emit Deposit(token, msg.sender, amount);
   }
 
+  /*
+  * we will convert the ratio between gptoken and input token
+  */
   function withdraw(
     address token,
     uint256 amount
@@ -143,76 +277,88 @@ contract GunPool is IGunPool, Ownable {
     _reserveValidate(reserve);
     uint256 amountWithdraw = 0;
     IGPToken gpToken;
-    uint256 gpTokenOldTotalSupply = 0;
+    uint256 gpMASupply = 0;
+    uint256 gpMABalance = 0;
+    reserve.lock = true;
 
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-      gpToken = IGPToken(reserve.aavePlane.gpTokenAddress);
-      gpTokenOldTotalSupply = gpToken.totalSupply();
-      amountWithdraw= _aaveWithdraw(token,
-                                    reserve.aavePlane.aaveAddress,
-                                    gpToken,
-                                    msg.sender,
-                                    amount);
+      GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
+      gpToken = IGPToken(plane.gptoken);
+      // gpPreSupply = gpToken.totalSupply();
+      amountWithdraw = _aaveWithdraw(token,
+                                     plane.plane,
+                                     gpToken,
+                                     msg.sender,
+                                     amount);
+      gpMASupply = gpToken.totalSupply();
+      gpMABalance = gpToken.balanceOf(msg.sender);
     }
     else {
       require(false, Error.POOL_PLANE_INVALID);
     }
 
+    bool isMint = _updateMint(reserve.pcoin, gpMASupply);
     GunPoolContext.RewardContext storage reward = _rewards[msg.sender][token];
-    _updateReward(reward, reserve.pcoin, gpToken, gpTokenOldTotalSupply, msg.sender);
 
-    // to reward auto for msg.sender
-    if ( gpToken.balanceOf(msg.sender) == 0 ) {
-      // _reward(reward, reserve.pcoin, msg.sender);
-      uint256 totalReward = reward.pcoinAmount;
-      _updateRewardContext(reward, gpToken, msg.sender, 0);
-      if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
-        IERC20(_pcoinAddress).safeTransfer(msg.sender, totalReward);
-      }
+    if ( isMint ) {
+      _updateReward(reward, reserve.pcoin);
     }
+    reward.lastMintCapacity = reserve.pcoin.mintCapacity;
+    reward.lastGpBalance = gpMABalance;
 
     emit Withdraw(token, msg.sender, amountWithdraw);
+    reserve.lock = false;
     return amountWithdraw;
   }
 
   function depositByEth()
-    external payable override returns (bool) {
-    return true;
+    external payable override
+  {
+    uint256 amount = msg.value;
+    _IWETH.deposit{value: msg.value}();
+    this.deposit(address(_IWETH), amount);
   }
 
-  function withdrawByEth(
-    uint256 amount
-  ) external override returns (bool) {
-    return true;
+  function withdrawByEth(uint256 amount)
+    external override
+  {
+    uint256 amountWithdraw = this.withdraw(address(_IWETH), amount);
+    _IWETH.withdraw(amountWithdraw);
+    _safeTransferETH(msg.sender, amountWithdraw);
   }
 
-  function reward(
+  function claim(
     address to
   ) external override returns (uint256) {
     uint256 totalReward = 0;
     GunPoolContext.ReserveData storage reserve;
-    GunPoolContext.RewardContext storage rewardContext;
+    GunPoolContext.RewardContext storage reward;
     IGPToken gpToken;
-    uint256 gpTokenOldTotalSupply = 0;
     address token = address(0);
+    bool isMint = false;
 
     for ( uint32 i = 0; i < _reservesCount; i++ ) {
       token = _reservesList[i];
       reserve = _reserves[token];
-      rewardContext = _rewards[msg.sender][token];
+      reward = _rewards[msg.sender][token];
 
       if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-        gpToken = IGPToken(reserve.aavePlane.gpTokenAddress);
-        gpTokenOldTotalSupply = gpToken.totalSupply();
-
-        _updateReward(rewardContext, reserve.pcoin, gpToken, gpTokenOldTotalSupply, msg.sender);
-        totalReward = totalReward + rewardContext.pcoinAmount;
-        _updateRewardContext(rewardContext, gpToken, msg.sender, 0);
+        GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
+        gpToken = IGPToken(plane.gptoken);
+        isMint = _updateMint(reserve.pcoin, gpToken.totalSupply());
+        if ( isMint ) {
+          _updateReward(reward, reserve.pcoin);
+        }
+        totalReward = totalReward.add(reward.rewardSupply);
+        reward.rewardSupply = 0;
+        reward.lastMintCapacity = reserve.pcoin.mintCapacity;
+        reward.lastGpBalance = gpToken.balanceOf(msg.sender);
       }
     }
 
     if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
       IERC20(_pcoinAddress).safeTransfer(to, totalReward);
+      emit Claim(msg.sender, to, totalReward);
     }
   }
 
@@ -225,49 +371,52 @@ contract GunPool is IGunPool, Ownable {
     return _reserves[token];
   }
 
-  function rewardView(address user)
+  function getPlanes(address token, GunPoolContext.PlaneType pt)
+    external
+    view
+    override
+    returns(GunPoolContext.PlaneContext memory)
+  {
+    return _planes[token][pt];
+  }
+
+  function rewardBalanceOf(address user)
     external
     view
     override
     returns (uint256 amount)
   {
     GunPoolContext.ReserveData memory reserve;
-    GunPoolContext.RewardContext memory rewardContext;
-    IGPToken gpToken;
-    uint256 gpTokenOldTotalSupply = 0;
+    GunPoolContext.RewardContext memory reward;
     address token = address(0);
-    uint256 totalRewardAmount = 0;
+    uint256 rewardBalance = 0;
 
     for ( uint32 i = 0; i < _reservesCount; i++ ) {
       token = _reservesList[i];
       reserve = _reserves[token];
-      rewardContext = _rewards[user][token];
+      reward = _rewards[user][token];
 
-      if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-        gpToken = IGPToken(reserve.aavePlane.gpTokenAddress);
-        gpTokenOldTotalSupply = gpToken.totalSupply();
-
-        if ( reserve.pcoin.mintSupply < reserve.pcoin.mintMaxSupply ) {
-          uint256 rewardAmount =
-            rewardContext.calcultionReward(
-              reserve.pcoin.mintRateBySec,
-              gpTokenOldTotalSupply
-            );
-          totalRewardAmount += ( rewardAmount + rewardContext.pcoinAmount);
-        }
-        else {
-          totalRewardAmount += rewardContext.pcoinAmount;
-        }
+      if ( reserve.pcoin.mintSupply < reserve.pcoin.mintMaxSupply ) {
+        uint256 mintRate = reserve.pcoin.calcultionMintRate(block.timestamp);
+        uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+        mintRate = mintRate.add(reserve.pcoin.mintCapacity);
+        uint256 curSupply = reward.lastGpBalance.mul(mintRate);
+        uint256 rewardAmount = curSupply.sub(preSupply);
+        rewardBalance = rewardBalance.add(reward.rewardSupply).add(rewardAmount);
+      }
+      else {
+        rewardBalance = rewardBalance.add(reward.rewardSupply);
       }
     }
 
-    return totalRewardAmount;
+    return rewardBalance.div(WadRayMath.ray());
   }
 
   /**** internal function ****/
   function _reserveValidate(GunPoolContext.ReserveData storage reserve) internal view {
     require(!(reserve.isFrozen), Error.RESERVE_FROZEN);
-    require(reserve.aavePlane.gpTokenAddress != address(0), Error.RESERVE_GPTOKEN_ZERO);
+    require(!(reserve.lock), Error.RESERVE_LOCK);
+    //require(reserve.aavePlane.gpTokenAddress != address(0), Error.RESERVE_GPTOKEN_ZERO);
   }
 
   function _aaveDeposit(
@@ -298,46 +447,69 @@ contract GunPool is IGunPool, Ownable {
 
       gpToken.burn(user, amountToWithdraw);
       // todo receive a part of coin for self user
-      lendingPool.withdraw(token, amountToWithdraw, user);
+      if ( token == address(_IWETH) ) {
+        lendingPool.withdraw(token, amountToWithdraw, address(this));
+      }
+      else {
+        lendingPool.withdraw(token, amountToWithdraw, user);
+      }
+
+      if ( _feeTo.account != address(0) && _feeTo.permillage > 0 ) {
+        uint256 fee = 1000;
+        fee.sub(_feeTo.permillage);
+        fee = amountToWithdraw.mul(fee).div(100);
+        amountToWithdraw = amountToWithdraw.sub(fee);
+        if ( token != address(_IWETH) ) {
+          IERC20(token).safeTransferFrom(user, address(this), fee);
+        }
+      }
+
       return amountToWithdraw;
   }
 
-  function _updateReward(
-    GunPoolContext.RewardContext storage rewardContext,
+  function _updateMint(
     GunPoolContext.PcoinReward storage pcoin,
-    IGPToken gptoken,
-    uint256 gptolenOldTotalSupply,
-    address user
-    ) internal
+    uint256 supply
+  )
+    internal
+    returns (bool)
+  {
+    uint256 timestamp = block.timestamp;
+    uint256 mintRate = pcoin.calcultionMintRate(timestamp);
+    pcoin.updateMintContext(supply, mintRate, timestamp);
+    if ( mintRate > 0 ) {
+      return true;
+    }
+    else {
+      return false;
+    }
+  }
+
+  function _updateReward(
+    GunPoolContext.RewardContext storage reward,
+    GunPoolContext.PcoinReward memory pcoin
+  )
+    internal
   {
     if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
-      uint256 rewardAmount =
-        rewardContext.calcultionReward(
-          pcoin.mintRateBySec,
-          gptolenOldTotalSupply
-        );
+      uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+      uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
+      uint256 rewardAmount = curSupply.sub(preSupply);
 
       if ( rewardAmount > 0 ) {
-        _updateRewardContext(rewardContext, gptoken, user, rewardAmount);
-        pcoin.mintSupply.add(rewardAmount);
+        reward.rewardSupply = reward.rewardSupply.add(rewardAmount);
+        pcoin.mintSupply = pcoin.mintSupply.add(rewardAmount.div(WadRayMath.ray()));
       }
     }
   }
 
-  function _updateRewardContext(
-    GunPoolContext.RewardContext storage rewardContext,
-    IGPToken gptoken,
-    address user,
-    uint256 rewardAmount
-    )
-    internal
-  {
-    (uint256 gpTokenBalance, uint256 gpTokenSupply) =
-      gptoken.getUserNormalBalanceAndSupply(user);
-    rewardContext.updateRewardContext(
-      gpTokenBalance,
-      gpTokenSupply,
-      rewardContext.pcoinAmount.add(rewardAmount)
-    );
+  /**
+   * @dev transfer ETH to an address, revert if it fails.
+   * @param to recipient of the transfer
+   * @param value the amount to send
+   */
+  function _safeTransferETH(address to, uint256 value) internal {
+    (bool success, ) = to.call{value: value}(new bytes(0));
+    require(success, 'ETH_TRANSFER_FAILED');
   }
 }
