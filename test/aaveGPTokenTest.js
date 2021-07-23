@@ -64,6 +64,12 @@ contract('AaveGPToken', async accounts => {
       balance = (await GpTokenIns.balanceOf(account_one)).toNumber();
       let index_2 = (await LpMockIns.getReserveNormalizedIncome(token_address)).toNumber();
       assert.equal(balance, Math.floor(300000*index_2/index_0+600000*index_2/index_1));
+      let supply = (await GpTokenIns.totalSupply()).toNumber();
+      assert.equal(supply, Math.floor(300000*index_2/index_0+600000*index_2/index_1));
+
+
+      // LpMock mint gptoken suceess
+      // await LpMockIns.mint(GpTokenIns.address, 600000, {from: account_one});
   });
 
   it('transfer', async() => {
@@ -79,13 +85,27 @@ contract('AaveGPToken', async accounts => {
   });
 
   it('burn', async() => {
-      balance = (await GpTokenIns.balanceOf(account_one)).toNumber();
-      let timestamp = (await web3.eth.getBlock()).timestamp;
-      console.log(balance, timestamp);
+    let supply_0 = (await GpTokenIns.totalSupply()).toNumber();
+    let balance_one_0 = (await GpTokenIns.balanceOf(account_one)).toNumber();
+    await GpMockIns.burn(GpTokenIns.address, 10000);
+    let balance_one_1 = (await GpTokenIns.balanceOf(account_one)).toNumber();
+    assert.equal(balance_one_1, balance_one_0 - 10000);
+    // let timestamp = (await web3.eth.getBlock()).timestamp;
+    let supply_1 = (await GpTokenIns.totalSupply()).toNumber();
+    console.log(supply_0, supply_1+10000);
   });
 
   it('approve', async() => {
-
+    await GpTokenIns.approve(account_two, 10000, {from: account_one});
+    let allowance_one_0 = (await GpTokenIns.allowance(account_one, account_two)).toNumber();
+    assert.equal(allowance_one_0, 10000);
+    let balance_one_0 = (await GpTokenIns.balanceOf(account_one)).toNumber();
+    let balance_three_0 = (await GpTokenIns.balanceOf(account_three)).toNumber();
+    await GpTokenIns.transferFrom(account_one, account_three, 8000, {from: account_two});
+    let balance_three_1 = (await GpTokenIns.balanceOf(account_three)).toNumber();
+    let balance_one_1 = (await GpTokenIns.balanceOf(account_one)).toNumber();
+    assert.equal(balance_one_0, balance_one_1+8000);
+    assert.equal(balance_three_0, balance_three_1-8000);
   });
 
   it('add mint pool', async() => {

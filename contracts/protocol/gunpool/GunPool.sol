@@ -334,13 +334,24 @@ contract GunPool is IGunPool, Ownable {
   {
     uint256 amount = msg.value;
     _IWETH.deposit{value: msg.value}();
-    this.deposit(address(_IWETH), amount);
+    //this.deposit(address(_IWETH), amount);
+    IGunPool pool = IGunPool(address(this));
+    bytes memory data = abi.encodeWithSelector(pool.deposit.selector, address(_IWETH), amount);
+    (bool success, ) = address(this).delegatecall(data);
+    require(success, Error.WMATIC_DEPOSIT_FAIL);
   }
 
   function withdrawByEth(uint256 amount)
     external override
   {
-    uint256 amountWithdraw = this.withdraw(address(_IWETH), amount);
+    IGunPool pool = IGunPool(address(this));
+    bytes memory data = abi.encodeWithSelector(pool.withdraw.selector, address(_IWETH), amount);
+    (bool success, bytes memory returndata) = address(this).delegatecall(data);
+    require(success, Error.WMATIC_WITHDRAW_FAIL);
+    require(returndata.length > 0, Error.WMATIC_WITHDRAW_RETURN_NONE);
+
+    uint256 amountWithdraw = abi.decode(returndata, (uint256));
+    //uint256 amountWithdraw = this.withdraw(address(_IWETH), amount);
     _IWETH.withdraw(amountWithdraw);
     _safeTransferETH(msg.sender, amountWithdraw);
   }

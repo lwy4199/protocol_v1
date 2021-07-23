@@ -26,7 +26,7 @@ contract AaveGPToken is
   address _correspondToken;
 
   modifier onlyGunPool {
-    require(_msgSender() == address(_pool), Error.GPTOKEN_MUST_BE_GUNPOOL);
+    require(_msgSender() == address(_pool), Error.GPTOKEN_MINT_BE_GUNPOOL);
     _;
   }
 

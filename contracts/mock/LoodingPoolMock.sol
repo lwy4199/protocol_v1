@@ -2,6 +2,7 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 import {SafeMath} from "../dependencies/openzeppelin/contracts/math/SafeMath.sol";
+import {IGPToken} from "../interfaces/IGPToken.sol";
 
 contract LoodingPoolMock {
   using SafeMath for uint256;
@@ -46,6 +47,13 @@ contract LoodingPoolMock {
     returns (uint256)
   {
     return _lastBlockTime;
+  }
+
+  function mint(address gpToken, uint256 amount)
+    external
+    returns (bool)
+  {
+    return IGPToken(gpToken).mint(msg.sender, amount);
   }
 }
 

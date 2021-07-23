@@ -19,7 +19,7 @@ library Error {
 
 
   // gptoken must be minted by gunpool
-  string public constant GPTOKEN_MUST_BE_GUNPOOL = '7';
+  string public constant GPTOKEN_MINT_BE_GUNPOOL = '7';
   // gptoken mint amount is zero
   string public constant GPTOKEN_MINT_AMOUNT_ZERO = '8';
   // gptoken burn amount is zero
@@ -31,4 +31,12 @@ library Error {
   string public constant TOKEN_RESERVE_PLANE_INPUT_FAIL = '10';
   // reset token reserve has not exist
   string public constant TOKEN_RESERVE_RESET_UNEXIST = '11';
+
+
+  // wmatic deposit fail
+  string public constant WMATIC_DEPOSIT_FAIL = '13';
+  // wmatic withdraw fail
+  string public constant WMATIC_WITHDRAW_FAIL = '14';
+  // wmatic withdraw return none
+  string public constant WMATIC_WITHDRAW_RETURN_NONE = '15';
 }
