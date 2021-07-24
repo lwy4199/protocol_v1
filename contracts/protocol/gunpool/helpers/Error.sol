@@ -34,9 +34,9 @@ library Error {
 
 
   // wmatic deposit fail
-  string public constant WMATIC_DEPOSIT_FAIL = '13';
+  // string public constant WMATIC_DEPOSIT_FAIL = '13';
   // wmatic withdraw fail
-  string public constant WMATIC_WITHDRAW_FAIL = '14';
+  // string public constant WMATIC_WITHDRAW_FAIL = '14';
   // wmatic withdraw return none
-  string public constant WMATIC_WITHDRAW_RETURN_NONE = '15';
+  // string public constant WMATIC_WITHDRAW_RETURN_NONE = '15';
 }

@@ -29,7 +29,7 @@
     },
     {
       "inputs": [],
-      "name": "GPTOKEN_MUST_BE_GUNPOOL",
+      "name": "GPTOKEN_MINT_BE_GUNPOOL",
       "outputs": [
         {
           "internalType": "string",
@@ -169,29 +169,68 @@
       ],
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "WMATIC_DEPOSIT_FAIL",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "WMATIC_WITHDRAW_FAIL",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "WMATIC_WITHDRAW_RETURN_NONE",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"GPTOKEN_BURN_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GPTOKEN_MINT_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GPTOKEN_MUST_BE_GUNPOOL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"POOL_PLANE_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_FROZEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_GPTOKEN_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_LOCK\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_ADDRESS_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_INVALID_CONTRACTS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_EXIST\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_PLANE_INPUT_FAIL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_RESET_UNEXIST\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol\":\"Error\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol\":{\"keccak256\":\"0xcfa449bad4125266d2896971cc8030c07842495bc0bde5134b2decddb8345f6a\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d6b205f142757030bbb646d9d1c8b43279478765ec7078193694791449cf70bd\",\"dweb:/ipfs/QmWHdakXVFcv2R7mdM5869noBmCBiT19ukPdGJ9693X7Bt\"]}},\"version\":1}",
-  "bytecode": "0x610348610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600436106100d95760003560e01c80635902a8601161009657806383373dd91161007057806383373dd91461019b57806384f0b0ea146101a3578063bba46ee01461018b578063e9b139da146101ab576100d9565b80635902a860146101835780635b545fc31461018b5780636cd3cfbc14610193576100d9565b80630b1bfa26146100de578063318015f31461015b5780633809066b146101635780633b6fef661461016b578063418a397d1461017357806357b4c90c1461017b575b600080fd5b6100e66101b3565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610120578181015183820152602001610108565b50505050905090810190601f16801561014d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100e66101d1565b6100e66101ee565b6100e661020b565b6100e6610228565b6100e6610245565b6100e6610262565b6100e6610280565b6100e661029d565b6100e66102ba565b6100e66102d8565b6100e66102f5565b60405180604001604052806002815260200161189960f11b81525081565b604051806040016040528060018152602001603160f81b81525081565b604051806040016040528060018152602001601b60f91b81525081565b604051806040016040528060018152602001603360f81b81525081565b604051806040016040528060018152602001603760f81b81525081565b604051806040016040528060018152602001600360fc1b81525081565b60405180604001604052806002815260200161031360f41b81525081565b604051806040016040528060018152602001600760fb1b81525081565b604051806040016040528060018152602001600d60fa1b81525081565b60405180604001604052806002815260200161313160f01b81525081565b604051806040016040528060018152602001603560f81b81525081565b604051806040016040528060018152602001603960f81b8152508156fea264697066735822122093450ef35200eeaaf3b59060c56f646edc34856a2bf682cb254da447b2c5b0fe64736f6c634300060c0033",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600436106100d95760003560e01c80635902a8601161009657806383373dd91161007057806383373dd91461019b57806384f0b0ea146101a3578063bba46ee01461018b578063e9b139da146101ab576100d9565b80635902a860146101835780635b545fc31461018b5780636cd3cfbc14610193576100d9565b80630b1bfa26146100de578063318015f31461015b5780633809066b146101635780633b6fef661461016b578063418a397d1461017357806357b4c90c1461017b575b600080fd5b6100e66101b3565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610120578181015183820152602001610108565b50505050905090810190601f16801561014d5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6100e66101d1565b6100e66101ee565b6100e661020b565b6100e6610228565b6100e6610245565b6100e6610262565b6100e6610280565b6100e661029d565b6100e66102ba565b6100e66102d8565b6100e66102f5565b60405180604001604052806002815260200161189960f11b81525081565b604051806040016040528060018152602001603160f81b81525081565b604051806040016040528060018152602001601b60f91b81525081565b604051806040016040528060018152602001603360f81b81525081565b604051806040016040528060018152602001603760f81b81525081565b604051806040016040528060018152602001600360fc1b81525081565b60405180604001604052806002815260200161031360f41b81525081565b604051806040016040528060018152602001600760fb1b81525081565b604051806040016040528060018152602001600d60fa1b81525081565b60405180604001604052806002815260200161313160f01b81525081565b604051806040016040528060018152602001603560f81b81525081565b604051806040016040528060018152602001603960f81b8152508156fea264697066735822122093450ef35200eeaaf3b59060c56f646edc34856a2bf682cb254da447b2c5b0fe64736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"GPTOKEN_BURN_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GPTOKEN_MINT_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"GPTOKEN_MINT_BE_GUNPOOL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"POOL_PLANE_INVALID\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_FROZEN\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_GPTOKEN_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"RESERVE_LOCK\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_ADDRESS_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_AMOUNT_ZERO\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_INVALID_CONTRACTS\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_EXIST\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_PLANE_INPUT_FAIL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"TOKEN_RESERVE_RESET_UNEXIST\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"WMATIC_DEPOSIT_FAIL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"WMATIC_WITHDRAW_FAIL\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"WMATIC_WITHDRAW_RETURN_NONE\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol\":\"Error\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol\":{\"keccak256\":\"0x62e6d6c0c12624c2b87ec7958a0dfac9cf8d8f43a544b494b1d48e7ef4b5e307\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://1aa4c5cc45e1313a96ff703cb69e1125626e89ccd95dee5173dd6810ad8e40ce\",\"dweb:/ipfs/QmeL5rDTvcVJYrkHR4jZHnJ2PrRAzmc8Ba8kr4Pur9gyLv\"]}},\"version\":1}",
+  "bytecode": "0x6103eb610026600b82828239805160001a60731461001957fe5b30600052607381538281f3fe730000000000000000000000000000000000000000301460806040526004361061010a5760003560e01c80635b545fc3116100a157806388559ee51161007057806388559ee5146101e45780639a0ecade146101ec578063bba46ee0146101c4578063e9b139da146101f45761010a565b80635b545fc3146101c45780636cd3cfbc146101cc57806383373dd9146101d457806384f0b0ea146101dc5761010a565b80633809066b116100dd5780633809066b146101a45780633b6fef66146101ac57806357b4c90c146101b45780635902a860146101bc5761010a565b80630b1bfa261461010f5780630debbbd01461018c57806316560e4514610194578063318015f31461019c575b600080fd5b6101176101fc565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610151578181015183820152602001610139565b50505050905090810190601f16801561017e5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b61011761021a565b610117610238565b610117610256565b610117610273565b610117610290565b6101176102ad565b6101176102ca565b6101176102e8565b610117610305565b610117610322565b610117610340565b61011761035d565b61011761037a565b610117610398565b60405180604001604052806002815260200161189960f11b81525081565b604051806040016040528060028152602001610c4d60f21b81525081565b60405180604001604052806002815260200161313560f01b81525081565b604051806040016040528060018152602001603160f81b81525081565b604051806040016040528060018152602001601b60f91b81525081565b604051806040016040528060018152602001603360f81b81525081565b604051806040016040528060018152602001600360fc1b81525081565b60405180604001604052806002815260200161031360f41b81525081565b604051806040016040528060018152602001600760fb1b81525081565b604051806040016040528060018152602001600d60fa1b81525081565b60405180604001604052806002815260200161313160f01b81525081565b604051806040016040528060018152602001603560f81b81525081565b604051806040016040528060018152602001603760f81b81525081565b60405180604001604052806002815260200161313360f01b81525081565b604051806040016040528060018152602001603960f81b8152508156fea2646970667358221220c82a76a39a263df5c6ef39d78ceefb0d4a66881ba854c0164c091ba47a0972e664736f6c634300060c0033",
+  "deployedBytecode": "0x730000000000000000000000000000000000000000301460806040526004361061010a5760003560e01c80635b545fc3116100a157806388559ee51161007057806388559ee5146101e45780639a0ecade146101ec578063bba46ee0146101c4578063e9b139da146101f45761010a565b80635b545fc3146101c45780636cd3cfbc146101cc57806383373dd9146101d457806384f0b0ea146101dc5761010a565b80633809066b116100dd5780633809066b146101a45780633b6fef66146101ac57806357b4c90c146101b45780635902a860146101bc5761010a565b80630b1bfa261461010f5780630debbbd01461018c57806316560e4514610194578063318015f31461019c575b600080fd5b6101176101fc565b6040805160208082528351818301528351919283929083019185019080838360005b83811015610151578181015183820152602001610139565b50505050905090810190601f16801561017e5780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b61011761021a565b610117610238565b610117610256565b610117610273565b610117610290565b6101176102ad565b6101176102ca565b6101176102e8565b610117610305565b610117610322565b610117610340565b61011761035d565b61011761037a565b610117610398565b60405180604001604052806002815260200161189960f11b81525081565b604051806040016040528060028152602001610c4d60f21b81525081565b60405180604001604052806002815260200161313560f01b81525081565b604051806040016040528060018152602001603160f81b81525081565b604051806040016040528060018152602001601b60f91b81525081565b604051806040016040528060018152602001603360f81b81525081565b604051806040016040528060018152602001600360fc1b81525081565b60405180604001604052806002815260200161031360f41b81525081565b604051806040016040528060018152602001600760fb1b81525081565b604051806040016040528060018152602001600d60fa1b81525081565b60405180604001604052806002815260200161313160f01b81525081565b604051806040016040528060018152602001603560f81b81525081565b604051806040016040528060018152602001603760f81b81525081565b60405180604001604052806002815260200161313360f01b81525081565b604051806040016040528060018152602001603960f81b8152508156fea2646970667358221220c82a76a39a263df5c6ef39d78ceefb0d4a66881ba854c0164c091ba47a0972e664736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "71:1131:255:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "71:1131:255:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;522:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;206:52;;;:::i;592:47::-;;;:::i;294:46::-;;;:::i;684:52::-;;;:::i;119:47::-;;;:::i;1039:60::-;;;:::i;773:53::-;;;:::i;369:43::-;;;:::i;1142:57::-;;;:::i;445:49::-;;;:::i;950:48::-;;;:::i;522:42::-;;;;;;;;;;;;;;-1:-1:-1;;;522:42:255;;;;:::o;206:52::-;;;;;;;;;;;;;;-1:-1:-1;;;206:52:255;;;;:::o;592:47::-;;;;;;;;;;;;;;-1:-1:-1;;;592:47:255;;;;:::o;294:46::-;;;;;;;;;;;;;;-1:-1:-1;;;294:46:255;;;;:::o;684:52::-;;;;;;;;;;;;;;-1:-1:-1;;;684:52:255;;;;:::o;119:47::-;;;;;;;;;;;;;;-1:-1:-1;;;119:47:255;;;;:::o;1039:60::-;;;;;;;;;;;;;;-1:-1:-1;;;1039:60:255;;;;:::o;773:53::-;;;;;;;;;;;;;;-1:-1:-1;;;773:53:255;;;;:::o;369:43::-;;;;;;;;;;;;;;-1:-1:-1;;;369:43:255;;;;:::o;1142:57::-;;;;;;;;;;;;;;-1:-1:-1;;;1142:57:255;;;;:::o;445:49::-;;;;;;;;;;;;;;-1:-1:-1;;;445:49:255;;;;:::o;950:48::-;;;;;;;;;;;;;;-1:-1:-1;;;950:48:255;;;;:::o",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.4.22 <0.9.0;\n\nlibrary Error {\n  // token address is invalid\n  string public constant TOKEN_ADDRESS_ZERO = '0';\n  // token address is not contracts\n  string public constant TOKEN_INVALID_CONTRACTS = '1';\n  // token input amount is zero\n  string public constant TOKEN_AMOUNT_ZERO = '3';\n  // reserve is frozened\n  string public constant RESERVE_FROZEN = '4';\n  // reserve lptoken is zero\n  string public constant RESERVE_GPTOKEN_ZERO = '5';\n  // reserve is lockded\n  string public constant RESERVE_LOCK = '12';\n  // pool plane invalid\n  string public constant POOL_PLANE_INVALID = '6';\n\n\n  // gptoken must be minted by gunpool\n  string public constant GPTOKEN_MUST_BE_GUNPOOL = '7';\n  // gptoken mint amount is zero\n  string public constant GPTOKEN_MINT_AMOUNT_ZERO = '8';\n  // gptoken burn amount is zero\n  string public constant GPTOKEN_BURN_AMOUNT_ZERO = '8';\n\n  // token reserve has exist\n  string public constant TOKEN_RESERVE_EXIST = '9';\n  // token reserve plane input fails\n  string public constant TOKEN_RESERVE_PLANE_INPUT_FAIL = '10';\n  // reset token reserve has not exist\n  string public constant TOKEN_RESERVE_RESET_UNEXIST = '11';\n}\n",
+  "sourceMap": "71:1385:256:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "71:1385:256:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;522:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1309:50;;;:::i;1396:57::-;;;:::i;206:52::-;;;:::i;592:47::-;;;:::i;294:46::-;;;:::i;119:47::-;;;:::i;1039:60::-;;;:::i;773:53::-;;;:::i;369:43::-;;;:::i;1142:57::-;;;:::i;445:49::-;;;:::i;684:52::-;;;:::i;1230:49::-;;;:::i;950:48::-;;;:::i;522:42::-;;;;;;;;;;;;;;-1:-1:-1;;;522:42:256;;;;:::o;1309:50::-;;;;;;;;;;;;;;-1:-1:-1;;;1309:50:256;;;;:::o;1396:57::-;;;;;;;;;;;;;;-1:-1:-1;;;1396:57:256;;;;:::o;206:52::-;;;;;;;;;;;;;;-1:-1:-1;;;206:52:256;;;;:::o;592:47::-;;;;;;;;;;;;;;-1:-1:-1;;;592:47:256;;;;:::o;294:46::-;;;;;;;;;;;;;;-1:-1:-1;;;294:46:256;;;;:::o;119:47::-;;;;;;;;;;;;;;-1:-1:-1;;;119:47:256;;;;:::o;1039:60::-;;;;;;;;;;;;;;-1:-1:-1;;;1039:60:256;;;;:::o;773:53::-;;;;;;;;;;;;;;-1:-1:-1;;;773:53:256;;;;:::o;369:43::-;;;;;;;;;;;;;;-1:-1:-1;;;369:43:256;;;;:::o;1142:57::-;;;;;;;;;;;;;;-1:-1:-1;;;1142:57:256;;;;:::o;445:49::-;;;;;;;;;;;;;;-1:-1:-1;;;445:49:256;;;;:::o;684:52::-;;;;;;;;;;;;;;-1:-1:-1;;;684:52:256;;;;:::o;1230:49::-;;;;;;;;;;;;;;-1:-1:-1;;;1230:49:256;;;;:::o;950:48::-;;;;;;;;;;;;;;-1:-1:-1;;;950:48:256;;;;:::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.4.22 <0.9.0;\n\nlibrary Error {\n  // token address is invalid\n  string public constant TOKEN_ADDRESS_ZERO = '0';\n  // token address is not contracts\n  string public constant TOKEN_INVALID_CONTRACTS = '1';\n  // token input amount is zero\n  string public constant TOKEN_AMOUNT_ZERO = '3';\n  // reserve is frozened\n  string public constant RESERVE_FROZEN = '4';\n  // reserve lptoken is zero\n  string public constant RESERVE_GPTOKEN_ZERO = '5';\n  // reserve is lockded\n  string public constant RESERVE_LOCK = '12';\n  // pool plane invalid\n  string public constant POOL_PLANE_INVALID = '6';\n\n\n  // gptoken must be minted by gunpool\n  string public constant GPTOKEN_MINT_BE_GUNPOOL = '7';\n  // gptoken mint amount is zero\n  string public constant GPTOKEN_MINT_AMOUNT_ZERO = '8';\n  // gptoken burn amount is zero\n  string public constant GPTOKEN_BURN_AMOUNT_ZERO = '8';\n\n  // token reserve has exist\n  string public constant TOKEN_RESERVE_EXIST = '9';\n  // token reserve plane input fails\n  string public constant TOKEN_RESERVE_PLANE_INPUT_FAIL = '10';\n  // reset token reserve has not exist\n  string public constant TOKEN_RESERVE_RESET_UNEXIST = '11';\n\n\n  // wmatic deposit fail\n  string public constant WMATIC_DEPOSIT_FAIL = '13';\n  // wmatic withdraw fail\n  string public constant WMATIC_WITHDRAW_FAIL = '14';\n  // wmatic withdraw return none\n  string public constant WMATIC_WITHDRAW_RETURN_NONE = '15';\n}\n",
   "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol",
   "ast": {
     "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol",
     "exportedSymbols": {
       "Error": [
-        13617
+        13815
       ]
     },
-    "id": 13618,
+    "id": 13816,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 13577,
+        "id": 13766,
         "literals": [
           "solidity",
           ">=",
@@ -202,7 +241,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:32:255"
+        "src": "37:32:256"
       },
       {
         "abstract": false,
@@ -211,9 +250,9 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 13617,
+        "id": 13815,
         "linearizedBaseContracts": [
-          13617
+          13815
         ],
         "name": "Error",
         "nodeType": "ContractDefinition",
@@ -221,13 +260,13 @@
           {
             "constant": true,
             "functionSelector": "57b4c90c",
-            "id": 13580,
+            "id": 13769,
             "mutability": "constant",
             "name": "TOKEN_ADDRESS_ZERO",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "119:47:255",
+            "scope": 13815,
+            "src": "119:47:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -235,10 +274,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13578,
+              "id": 13767,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "119:6:255",
+              "src": "119:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -247,14 +286,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "30",
-              "id": 13579,
+              "id": 13768,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "163:3:255",
+              "src": "163:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_044852b2a670ade5407e78fb2863c51de9fcb96542a07186fe3aeda6bb8a116d",
@@ -267,13 +306,13 @@
           {
             "constant": true,
             "functionSelector": "318015f3",
-            "id": 13583,
+            "id": 13772,
             "mutability": "constant",
             "name": "TOKEN_INVALID_CONTRACTS",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "206:52:255",
+            "scope": 13815,
+            "src": "206:52:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -281,10 +320,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13581,
+              "id": 13770,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "206:6:255",
+              "src": "206:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -293,14 +332,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "31",
-              "id": 13582,
+              "id": 13771,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "255:3:255",
+              "src": "255:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_c89efdaa54c0f20c7adf612882df0950f5a951637e0307cdcb4c672f298b8bc6",
@@ -313,13 +352,13 @@
           {
             "constant": true,
             "functionSelector": "3b6fef66",
-            "id": 13586,
+            "id": 13775,
             "mutability": "constant",
             "name": "TOKEN_AMOUNT_ZERO",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "294:46:255",
+            "scope": 13815,
+            "src": "294:46:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -327,10 +366,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13584,
+              "id": 13773,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "294:6:255",
+              "src": "294:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -339,14 +378,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "33",
-              "id": 13585,
+              "id": 13774,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "337:3:255",
+              "src": "337:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_2a80e1ef1d7842f27f2e6be0972bb708b9a135c38860dbe73c27c3486c34f4de",
@@ -359,13 +398,13 @@
           {
             "constant": true,
             "functionSelector": "6cd3cfbc",
-            "id": 13589,
+            "id": 13778,
             "mutability": "constant",
             "name": "RESERVE_FROZEN",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "369:43:255",
+            "scope": 13815,
+            "src": "369:43:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -373,10 +412,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13587,
+              "id": 13776,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "369:6:255",
+              "src": "369:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -385,14 +424,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "34",
-              "id": 13588,
+              "id": 13777,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "409:3:255",
+              "src": "409:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_13600b294191fc92924bb3ce4b969c1e7e2bab8f4c93c3fc6d0a51733df3c060",
@@ -405,13 +444,13 @@
           {
             "constant": true,
             "functionSelector": "84f0b0ea",
-            "id": 13592,
+            "id": 13781,
             "mutability": "constant",
             "name": "RESERVE_GPTOKEN_ZERO",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "445:49:255",
+            "scope": 13815,
+            "src": "445:49:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -419,10 +458,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13590,
+              "id": 13779,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "445:6:255",
+              "src": "445:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -431,14 +470,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "35",
-              "id": 13591,
+              "id": 13780,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "491:3:255",
+              "src": "491:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_ceebf77a833b30520287ddd9478ff51abbdffa30aa90a8d655dba0e8a79ce0c1",
@@ -451,13 +490,13 @@
           {
             "constant": true,
             "functionSelector": "0b1bfa26",
-            "id": 13595,
+            "id": 13784,
             "mutability": "constant",
             "name": "RESERVE_LOCK",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "522:42:255",
+            "scope": 13815,
+            "src": "522:42:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -465,10 +504,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13593,
+              "id": 13782,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "522:6:255",
+              "src": "522:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -477,14 +516,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3132",
-              "id": 13594,
+              "id": 13783,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "560:4:255",
+              "src": "560:4:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_7f8b6b088b6d74c2852fc86c796dca07b44eed6fb3daf5e6b59f7c364db14528",
@@ -497,13 +536,13 @@
           {
             "constant": true,
             "functionSelector": "3809066b",
-            "id": 13598,
+            "id": 13787,
             "mutability": "constant",
             "name": "POOL_PLANE_INVALID",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "592:47:255",
+            "scope": 13815,
+            "src": "592:47:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -511,10 +550,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13596,
+              "id": 13785,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "592:6:255",
+              "src": "592:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -523,14 +562,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "36",
-              "id": 13597,
+              "id": 13786,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "636:3:255",
+              "src": "636:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_e455bf8ea6e7463a1046a0b52804526e119b4bf5136279614e0b1e8e296a4e2d",
@@ -542,14 +581,14 @@
           },
           {
             "constant": true,
-            "functionSelector": "418a397d",
-            "id": 13601,
+            "functionSelector": "88559ee5",
+            "id": 13790,
             "mutability": "constant",
-            "name": "GPTOKEN_MUST_BE_GUNPOOL",
+            "name": "GPTOKEN_MINT_BE_GUNPOOL",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "684:52:255",
+            "scope": 13815,
+            "src": "684:52:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -557,10 +596,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13599,
+              "id": 13788,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "684:6:255",
+              "src": "684:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -569,14 +608,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "37",
-              "id": 13600,
+              "id": 13789,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "733:3:255",
+              "src": "733:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_52f1a9b320cab38e5da8a8f97989383aab0a49165fc91c737310e4f7e9821021",
@@ -589,13 +628,13 @@
           {
             "constant": true,
             "functionSelector": "5b545fc3",
-            "id": 13604,
+            "id": 13793,
             "mutability": "constant",
             "name": "GPTOKEN_MINT_AMOUNT_ZERO",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "773:53:255",
+            "scope": 13815,
+            "src": "773:53:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -603,10 +642,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13602,
+              "id": 13791,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "773:6:255",
+              "src": "773:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -615,14 +654,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "38",
-              "id": 13603,
+              "id": 13792,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "823:3:255",
+              "src": "823:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_e4b1702d9298fee62dfeccc57d322a463ad55ca201256d01f62b45b2e1c21c10",
@@ -635,13 +674,13 @@
           {
             "constant": true,
             "functionSelector": "bba46ee0",
-            "id": 13607,
+            "id": 13796,
             "mutability": "constant",
             "name": "GPTOKEN_BURN_AMOUNT_ZERO",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "863:53:255",
+            "scope": 13815,
+            "src": "863:53:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -649,10 +688,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13605,
+              "id": 13794,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "863:6:255",
+              "src": "863:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -661,14 +700,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "38",
-              "id": 13606,
+              "id": 13795,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "913:3:255",
+              "src": "913:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_e4b1702d9298fee62dfeccc57d322a463ad55ca201256d01f62b45b2e1c21c10",
@@ -681,13 +720,13 @@
           {
             "constant": true,
             "functionSelector": "e9b139da",
-            "id": 13610,
+            "id": 13799,
             "mutability": "constant",
             "name": "TOKEN_RESERVE_EXIST",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "950:48:255",
+            "scope": 13815,
+            "src": "950:48:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -695,10 +734,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13608,
+              "id": 13797,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "950:6:255",
+              "src": "950:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -707,14 +746,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "39",
-              "id": 13609,
+              "id": 13798,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "995:3:255",
+              "src": "995:3:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_d2f8f61201b2b11a78d6e866abc9c3db2ae8631fa656bfe5cb53668255367afb",
@@ -727,13 +766,13 @@
           {
             "constant": true,
             "functionSelector": "5902a860",
-            "id": 13613,
+            "id": 13802,
             "mutability": "constant",
             "name": "TOKEN_RESERVE_PLANE_INPUT_FAIL",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "1039:60:255",
+            "scope": 13815,
+            "src": "1039:60:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -741,10 +780,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13611,
+              "id": 13800,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "1039:6:255",
+              "src": "1039:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -753,14 +792,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3130",
-              "id": 13612,
+              "id": 13801,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "1095:4:255",
+              "src": "1095:4:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_1a192fabce13988b84994d4296e6cdc418d55e2f1d7f942188d4040b94fc57ac",
@@ -773,13 +812,13 @@
           {
             "constant": true,
             "functionSelector": "83373dd9",
-            "id": 13616,
+            "id": 13805,
             "mutability": "constant",
             "name": "TOKEN_RESERVE_RESET_UNEXIST",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 13617,
-            "src": "1142:57:255",
+            "scope": 13815,
+            "src": "1142:57:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -787,10 +826,10 @@
               "typeString": "string"
             },
             "typeName": {
-              "id": 13614,
+              "id": 13803,
               "name": "string",
               "nodeType": "ElementaryTypeName",
-              "src": "1142:6:255",
+              "src": "1142:6:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_string_storage_ptr",
                 "typeString": "string"
@@ -799,14 +838,14 @@
             "value": {
               "argumentTypes": null,
               "hexValue": "3131",
-              "id": 13615,
+              "id": 13804,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
               "kind": "string",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "1195:4:255",
+              "src": "1195:4:256",
               "subdenomination": null,
               "typeDescriptions": {
                 "typeIdentifier": "t_stringliteral_7880aec93413f117ef14bd4e6d130875ab2c7d7d55a064fac3c2f7bd51516380",
@@ -815,20 +854,158 @@
               "value": "11"
             },
             "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "9a0ecade",
+            "id": 13808,
+            "mutability": "constant",
+            "name": "WMATIC_DEPOSIT_FAIL",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 13815,
+            "src": "1230:49:256",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 13806,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "1230:6:256",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3133",
+              "id": 13807,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "1275:4:256",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_789bcdf275fa270780a52ae3b79bb1ce0fda7e0aaad87b57b74bb99ac290714a",
+                "typeString": "literal_string \"13\""
+              },
+              "value": "13"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "0debbbd0",
+            "id": 13811,
+            "mutability": "constant",
+            "name": "WMATIC_WITHDRAW_FAIL",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 13815,
+            "src": "1309:50:256",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 13809,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "1309:6:256",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3134",
+              "id": 13810,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "1355:4:256",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_5c4c6aa067b6f8e6cb38e6ab843832a94d1712d661a04d73c517d6a1931a9e5d",
+                "typeString": "literal_string \"14\""
+              },
+              "value": "14"
+            },
+            "visibility": "public"
+          },
+          {
+            "constant": true,
+            "functionSelector": "16560e45",
+            "id": 13814,
+            "mutability": "constant",
+            "name": "WMATIC_WITHDRAW_RETURN_NONE",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 13815,
+            "src": "1396:57:256",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_string_memory_ptr",
+              "typeString": "string"
+            },
+            "typeName": {
+              "id": 13812,
+              "name": "string",
+              "nodeType": "ElementaryTypeName",
+              "src": "1396:6:256",
+              "typeDescriptions": {
+                "typeIdentifier": "t_string_storage_ptr",
+                "typeString": "string"
+              }
+            },
+            "value": {
+              "argumentTypes": null,
+              "hexValue": "3135",
+              "id": 13813,
+              "isConstant": false,
+              "isLValue": false,
+              "isPure": true,
+              "kind": "string",
+              "lValueRequested": false,
+              "nodeType": "Literal",
+              "src": "1449:4:256",
+              "subdenomination": null,
+              "typeDescriptions": {
+                "typeIdentifier": "t_stringliteral_1d3be50b2bb17407dd170f1d5da128d1def30c6b1598d6a629e79b4775265526",
+                "typeString": "literal_string \"15\""
+              },
+              "value": "15"
+            },
+            "visibility": "public"
           }
         ],
-        "scope": 13618,
-        "src": "71:1131:255"
+        "scope": 13816,
+        "src": "71:1385:256"
       }
     ],
-    "src": "37:1166:255"
+    "src": "37:1420:256"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/helpers/Error.sol",
       "exportedSymbols": {
         "Error": [
-          13617
+          13815
         ]
       },
       "license": "agpl-3.0"
@@ -846,9 +1023,9 @@
             ".0"
           ]
         },
-        "id": 13577,
+        "id": 13766,
         "name": "PragmaDirective",
-        "src": "37:32:255"
+        "src": "37:32:256"
       },
       {
         "attributes": {
@@ -863,10 +1040,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            13617
+            13815
           ],
           "name": "Error",
-          "scope": 13618
+          "scope": 13816
         },
         "children": [
           {
@@ -876,7 +1053,7 @@
               "mutability": "constant",
               "name": "TOKEN_ADDRESS_ZERO",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -888,9 +1065,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13578,
+                "id": 13767,
                 "name": "ElementaryTypeName",
-                "src": "119:6:255"
+                "src": "119:6:256"
               },
               {
                 "attributes": {
@@ -905,14 +1082,14 @@
                   "type": "literal_string \"0\"",
                   "value": "0"
                 },
-                "id": 13579,
+                "id": 13768,
                 "name": "Literal",
-                "src": "163:3:255"
+                "src": "163:3:256"
               }
             ],
-            "id": 13580,
+            "id": 13769,
             "name": "VariableDeclaration",
-            "src": "119:47:255"
+            "src": "119:47:256"
           },
           {
             "attributes": {
@@ -921,7 +1098,7 @@
               "mutability": "constant",
               "name": "TOKEN_INVALID_CONTRACTS",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -933,9 +1110,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13581,
+                "id": 13770,
                 "name": "ElementaryTypeName",
-                "src": "206:6:255"
+                "src": "206:6:256"
               },
               {
                 "attributes": {
@@ -950,14 +1127,14 @@
                   "type": "literal_string \"1\"",
                   "value": "1"
                 },
-                "id": 13582,
+                "id": 13771,
                 "name": "Literal",
-                "src": "255:3:255"
+                "src": "255:3:256"
               }
             ],
-            "id": 13583,
+            "id": 13772,
             "name": "VariableDeclaration",
-            "src": "206:52:255"
+            "src": "206:52:256"
           },
           {
             "attributes": {
@@ -966,7 +1143,7 @@
               "mutability": "constant",
               "name": "TOKEN_AMOUNT_ZERO",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -978,9 +1155,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13584,
+                "id": 13773,
                 "name": "ElementaryTypeName",
-                "src": "294:6:255"
+                "src": "294:6:256"
               },
               {
                 "attributes": {
@@ -995,14 +1172,14 @@
                   "type": "literal_string \"3\"",
                   "value": "3"
                 },
-                "id": 13585,
+                "id": 13774,
                 "name": "Literal",
-                "src": "337:3:255"
+                "src": "337:3:256"
               }
             ],
-            "id": 13586,
+            "id": 13775,
             "name": "VariableDeclaration",
-            "src": "294:46:255"
+            "src": "294:46:256"
           },
           {
             "attributes": {
@@ -1011,7 +1188,7 @@
               "mutability": "constant",
               "name": "RESERVE_FROZEN",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1023,9 +1200,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13587,
+                "id": 13776,
                 "name": "ElementaryTypeName",
-                "src": "369:6:255"
+                "src": "369:6:256"
               },
               {
                 "attributes": {
@@ -1040,14 +1217,14 @@
                   "type": "literal_string \"4\"",
                   "value": "4"
                 },
-                "id": 13588,
+                "id": 13777,
                 "name": "Literal",
-                "src": "409:3:255"
+                "src": "409:3:256"
               }
             ],
-            "id": 13589,
+            "id": 13778,
             "name": "VariableDeclaration",
-            "src": "369:43:255"
+            "src": "369:43:256"
           },
           {
             "attributes": {
@@ -1056,7 +1233,7 @@
               "mutability": "constant",
               "name": "RESERVE_GPTOKEN_ZERO",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1068,9 +1245,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13590,
+                "id": 13779,
                 "name": "ElementaryTypeName",
-                "src": "445:6:255"
+                "src": "445:6:256"
               },
               {
                 "attributes": {
@@ -1085,14 +1262,14 @@
                   "type": "literal_string \"5\"",
                   "value": "5"
                 },
-                "id": 13591,
+                "id": 13780,
                 "name": "Literal",
-                "src": "491:3:255"
+                "src": "491:3:256"
               }
             ],
-            "id": 13592,
+            "id": 13781,
             "name": "VariableDeclaration",
-            "src": "445:49:255"
+            "src": "445:49:256"
           },
           {
             "attributes": {
@@ -1101,7 +1278,7 @@
               "mutability": "constant",
               "name": "RESERVE_LOCK",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1113,9 +1290,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13593,
+                "id": 13782,
                 "name": "ElementaryTypeName",
-                "src": "522:6:255"
+                "src": "522:6:256"
               },
               {
                 "attributes": {
@@ -1130,14 +1307,14 @@
                   "type": "literal_string \"12\"",
                   "value": "12"
                 },
-                "id": 13594,
+                "id": 13783,
                 "name": "Literal",
-                "src": "560:4:255"
+                "src": "560:4:256"
               }
             ],
-            "id": 13595,
+            "id": 13784,
             "name": "VariableDeclaration",
-            "src": "522:42:255"
+            "src": "522:42:256"
           },
           {
             "attributes": {
@@ -1146,7 +1323,7 @@
               "mutability": "constant",
               "name": "POOL_PLANE_INVALID",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1158,9 +1335,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13596,
+                "id": 13785,
                 "name": "ElementaryTypeName",
-                "src": "592:6:255"
+                "src": "592:6:256"
               },
               {
                 "attributes": {
@@ -1175,23 +1352,23 @@
                   "type": "literal_string \"6\"",
                   "value": "6"
                 },
-                "id": 13597,
+                "id": 13786,
                 "name": "Literal",
-                "src": "636:3:255"
+                "src": "636:3:256"
               }
             ],
-            "id": 13598,
+            "id": 13787,
             "name": "VariableDeclaration",
-            "src": "592:47:255"
+            "src": "592:47:256"
           },
           {
             "attributes": {
               "constant": true,
-              "functionSelector": "418a397d",
+              "functionSelector": "88559ee5",
               "mutability": "constant",
-              "name": "GPTOKEN_MUST_BE_GUNPOOL",
+              "name": "GPTOKEN_MINT_BE_GUNPOOL",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1203,9 +1380,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13599,
+                "id": 13788,
                 "name": "ElementaryTypeName",
-                "src": "684:6:255"
+                "src": "684:6:256"
               },
               {
                 "attributes": {
@@ -1220,14 +1397,14 @@
                   "type": "literal_string \"7\"",
                   "value": "7"
                 },
-                "id": 13600,
+                "id": 13789,
                 "name": "Literal",
-                "src": "733:3:255"
+                "src": "733:3:256"
               }
             ],
-            "id": 13601,
+            "id": 13790,
             "name": "VariableDeclaration",
-            "src": "684:52:255"
+            "src": "684:52:256"
           },
           {
             "attributes": {
@@ -1236,7 +1413,7 @@
               "mutability": "constant",
               "name": "GPTOKEN_MINT_AMOUNT_ZERO",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1248,9 +1425,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13602,
+                "id": 13791,
                 "name": "ElementaryTypeName",
-                "src": "773:6:255"
+                "src": "773:6:256"
               },
               {
                 "attributes": {
@@ -1265,14 +1442,14 @@
                   "type": "literal_string \"8\"",
                   "value": "8"
                 },
-                "id": 13603,
+                "id": 13792,
                 "name": "Literal",
-                "src": "823:3:255"
+                "src": "823:3:256"
               }
             ],
-            "id": 13604,
+            "id": 13793,
             "name": "VariableDeclaration",
-            "src": "773:53:255"
+            "src": "773:53:256"
           },
           {
             "attributes": {
@@ -1281,7 +1458,7 @@
               "mutability": "constant",
               "name": "GPTOKEN_BURN_AMOUNT_ZERO",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1293,9 +1470,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13605,
+                "id": 13794,
                 "name": "ElementaryTypeName",
-                "src": "863:6:255"
+                "src": "863:6:256"
               },
               {
                 "attributes": {
@@ -1310,14 +1487,14 @@
                   "type": "literal_string \"8\"",
                   "value": "8"
                 },
-                "id": 13606,
+                "id": 13795,
                 "name": "Literal",
-                "src": "913:3:255"
+                "src": "913:3:256"
               }
             ],
-            "id": 13607,
+            "id": 13796,
             "name": "VariableDeclaration",
-            "src": "863:53:255"
+            "src": "863:53:256"
           },
           {
             "attributes": {
@@ -1326,7 +1503,7 @@
               "mutability": "constant",
               "name": "TOKEN_RESERVE_EXIST",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1338,9 +1515,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13608,
+                "id": 13797,
                 "name": "ElementaryTypeName",
-                "src": "950:6:255"
+                "src": "950:6:256"
               },
               {
                 "attributes": {
@@ -1355,14 +1532,14 @@
                   "type": "literal_string \"9\"",
                   "value": "9"
                 },
-                "id": 13609,
+                "id": 13798,
                 "name": "Literal",
-                "src": "995:3:255"
+                "src": "995:3:256"
               }
             ],
-            "id": 13610,
+            "id": 13799,
             "name": "VariableDeclaration",
-            "src": "950:48:255"
+            "src": "950:48:256"
           },
           {
             "attributes": {
@@ -1371,7 +1548,7 @@
               "mutability": "constant",
               "name": "TOKEN_RESERVE_PLANE_INPUT_FAIL",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1383,9 +1560,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13611,
+                "id": 13800,
                 "name": "ElementaryTypeName",
-                "src": "1039:6:255"
+                "src": "1039:6:256"
               },
               {
                 "attributes": {
@@ -1400,14 +1577,14 @@
                   "type": "literal_string \"10\"",
                   "value": "10"
                 },
-                "id": 13612,
+                "id": 13801,
                 "name": "Literal",
-                "src": "1095:4:255"
+                "src": "1095:4:256"
               }
             ],
-            "id": 13613,
+            "id": 13802,
             "name": "VariableDeclaration",
-            "src": "1039:60:255"
+            "src": "1039:60:256"
           },
           {
             "attributes": {
@@ -1416,7 +1593,7 @@
               "mutability": "constant",
               "name": "TOKEN_RESERVE_RESET_UNEXIST",
               "overrides": null,
-              "scope": 13617,
+              "scope": 13815,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "string",
@@ -1428,9 +1605,9 @@
                   "name": "string",
                   "type": "string"
                 },
-                "id": 13614,
+                "id": 13803,
                 "name": "ElementaryTypeName",
-                "src": "1142:6:255"
+                "src": "1142:6:256"
               },
               {
                 "attributes": {
@@ -1445,24 +1622,159 @@
                   "type": "literal_string \"11\"",
                   "value": "11"
                 },
-                "id": 13615,
+                "id": 13804,
                 "name": "Literal",
-                "src": "1195:4:255"
+                "src": "1195:4:256"
               }
             ],
-            "id": 13616,
+            "id": 13805,
             "name": "VariableDeclaration",
-            "src": "1142:57:255"
+            "src": "1142:57:256"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "9a0ecade",
+              "mutability": "constant",
+              "name": "WMATIC_DEPOSIT_FAIL",
+              "overrides": null,
+              "scope": 13815,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 13806,
+                "name": "ElementaryTypeName",
+                "src": "1230:6:256"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3133",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"13\"",
+                  "value": "13"
+                },
+                "id": 13807,
+                "name": "Literal",
+                "src": "1275:4:256"
+              }
+            ],
+            "id": 13808,
+            "name": "VariableDeclaration",
+            "src": "1230:49:256"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "0debbbd0",
+              "mutability": "constant",
+              "name": "WMATIC_WITHDRAW_FAIL",
+              "overrides": null,
+              "scope": 13815,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 13809,
+                "name": "ElementaryTypeName",
+                "src": "1309:6:256"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3134",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"14\"",
+                  "value": "14"
+                },
+                "id": 13810,
+                "name": "Literal",
+                "src": "1355:4:256"
+              }
+            ],
+            "id": 13811,
+            "name": "VariableDeclaration",
+            "src": "1309:50:256"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "functionSelector": "16560e45",
+              "mutability": "constant",
+              "name": "WMATIC_WITHDRAW_RETURN_NONE",
+              "overrides": null,
+              "scope": 13815,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "string",
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "name": "string",
+                  "type": "string"
+                },
+                "id": 13812,
+                "name": "ElementaryTypeName",
+                "src": "1396:6:256"
+              },
+              {
+                "attributes": {
+                  "argumentTypes": null,
+                  "hexvalue": "3135",
+                  "isConstant": false,
+                  "isLValue": false,
+                  "isPure": true,
+                  "lValueRequested": false,
+                  "subdenomination": null,
+                  "token": "string",
+                  "type": "literal_string \"15\"",
+                  "value": "15"
+                },
+                "id": 13813,
+                "name": "Literal",
+                "src": "1449:4:256"
+              }
+            ],
+            "id": 13814,
+            "name": "VariableDeclaration",
+            "src": "1396:57:256"
           }
         ],
-        "id": 13617,
+        "id": 13815,
         "name": "ContractDefinition",
-        "src": "71:1131:255"
+        "src": "71:1385:256"
       }
     ],
-    "id": 13618,
+    "id": 13816,
     "name": "SourceUnit",
-    "src": "37:1166:255"
+    "src": "37:1420:256"
   },
   "compiler": {
     "name": "solc",
@@ -1470,7 +1782,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-22T03:03:20.370Z",
+  "updatedAt": "2021-07-23T11:42:28.273Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

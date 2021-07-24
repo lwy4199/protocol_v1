@@ -100,6 +100,7 @@ contract GunPool is IGunPool, Ownable {
           );
         insertNums += 1;
         gptoken[j] = planes[j].plane.gptoken;
+        _authorizeAAVEPlane(token, planes[j].plane.plane);
       }
     }
 
@@ -154,6 +155,10 @@ contract GunPool is IGunPool, Ownable {
     GunPoolContext.PlaneContext storage planeContext = _planes[token][planeInput.pt];
     planeContext.plane = planeInput.plane.plane;
     planeContext.gptoken = planeInput.plane.gptoken;
+
+    if ( planeInput.pt == GunPoolContext.PlaneType.AAVE ) {
+      _authorizeAAVEPlane(token, planeContext.plane);
+    }
 
     emit ResetPlane(token, planeInput.pt, planeInput.plane);
 
@@ -231,6 +236,15 @@ contract GunPool is IGunPool, Ownable {
     override
     tokenValid(token, amount)
   {
+    _deposit(token, amount);
+  }
+
+  function _deposit(
+    address token,
+    uint256 amount
+  )
+    internal
+  {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     _reserveValidate(reserve);
     bool isFirst = false;
@@ -288,6 +302,16 @@ contract GunPool is IGunPool, Ownable {
     address token,
     uint256 amount
   ) external override tokenValid(token, amount) returns (uint256) {
+    return _withdraw(token, amount);
+  }
+
+  function _withdraw(
+    address token,
+    uint256 amount
+  )
+    internal
+    returns (uint256)
+  {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     _reserveValidate(reserve);
     uint256 amountWithdraw = 0;
@@ -334,24 +358,24 @@ contract GunPool is IGunPool, Ownable {
   {
     uint256 amount = msg.value;
     _IWETH.deposit{value: msg.value}();
-    //this.deposit(address(_IWETH), amount);
-    IGunPool pool = IGunPool(address(this));
-    bytes memory data = abi.encodeWithSelector(pool.deposit.selector, address(_IWETH), amount);
-    (bool success, ) = address(this).delegatecall(data);
-    require(success, Error.WMATIC_DEPOSIT_FAIL);
+    _deposit(address(_IWETH), amount);
+    //IGunPool pool = IGunPool(address(this));
+    //bytes memory data = abi.encodeWithSelector(pool.deposit.selector, address(_IWETH), amount);
+    //(bool success, ) = address(this).delegatecall(data);
+    //require(success, Error.WMATIC_DEPOSIT_FAIL);
   }
 
   function withdrawByEth(uint256 amount)
     external override
   {
-    IGunPool pool = IGunPool(address(this));
-    bytes memory data = abi.encodeWithSelector(pool.withdraw.selector, address(_IWETH), amount);
-    (bool success, bytes memory returndata) = address(this).delegatecall(data);
-    require(success, Error.WMATIC_WITHDRAW_FAIL);
-    require(returndata.length > 0, Error.WMATIC_WITHDRAW_RETURN_NONE);
-
-    uint256 amountWithdraw = abi.decode(returndata, (uint256));
+    //IGunPool pool = IGunPool(address(this));
+    //bytes memory data = abi.encodeWithSelector(pool.withdraw.selector, address(_IWETH), amount);
+    //(bool success, bytes memory returndata) = address(this).delegatecall(data);
+    //require(success, Error.WMATIC_WITHDRAW_FAIL);
+    //require(returndata.length > 0, Error.WMATIC_WITHDRAW_RETURN_NONE);
+    //uint256 amountWithdraw = abi.decode(returndata, (uint256));
     //uint256 amountWithdraw = this.withdraw(address(_IWETH), amount);
+    uint256 amountWithdraw = _withdraw(address(_IWETH), amount);
     _IWETH.withdraw(amountWithdraw);
     _safeTransferETH(msg.sender, amountWithdraw);
   }
@@ -454,10 +478,13 @@ contract GunPool is IGunPool, Ownable {
     IGPToken gpToken,
     address user,
     uint256 amount
-    ) internal returns (bool) {
-      ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
-      lendingPool.deposit(token, amount, address(this), 0);
-      return gpToken.mint(user, amount);
+  )
+    internal
+    returns (bool)
+  {
+    ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
+    lendingPool.deposit(token, amount, address(this), 0);
+    return gpToken.mint(user, amount);
   }
 
   function _aaveWithdraw(
@@ -466,34 +493,37 @@ contract GunPool is IGunPool, Ownable {
     IGPToken gpToken,
     address user,
     uint256 amount
-    ) internal returns (uint256) {
-      ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
-      uint256 amountToWithdraw = amount;
-      uint256 gpBalance = gpToken.balanceOf(user);
+  )
+    internal
+    returns (uint256)
+  {
+    ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
+    uint256 amountToWithdraw = amount;
+    uint256 gpBalance = gpToken.balanceOf(user);
 
-      if ( (amount == type(uint256).max) || (amount > gpBalance) )
-        amountToWithdraw = gpBalance;
+    if ( (amount == type(uint256).max) || (amount > gpBalance) )
+      amountToWithdraw = gpBalance;
 
-      gpToken.burn(user, amountToWithdraw);
-      // todo receive a part of coin for self user
-      if ( token == address(_IWETH) ) {
-        lendingPool.withdraw(token, amountToWithdraw, address(this));
+    gpToken.burn(user, amountToWithdraw);
+    // todo receive a part of coin for self user
+    if ( token == address(_IWETH) ) {
+      lendingPool.withdraw(token, amountToWithdraw, address(this));
+    }
+    else {
+      lendingPool.withdraw(token, amountToWithdraw, user);
+    }
+
+    if ( _feeTo.account != address(0) && _feeTo.permillage > 0 ) {
+      uint256 fee = 1000;
+      fee.sub(_feeTo.permillage);
+      fee = amountToWithdraw.mul(fee).div(100);
+      amountToWithdraw = amountToWithdraw.sub(fee);
+      if ( token != address(_IWETH) ) {
+        IERC20(token).safeTransferFrom(user, address(this), fee);
       }
-      else {
-        lendingPool.withdraw(token, amountToWithdraw, user);
-      }
+    }
 
-      if ( _feeTo.account != address(0) && _feeTo.permillage > 0 ) {
-        uint256 fee = 1000;
-        fee.sub(_feeTo.permillage);
-        fee = amountToWithdraw.mul(fee).div(100);
-        amountToWithdraw = amountToWithdraw.sub(fee);
-        if ( token != address(_IWETH) ) {
-          IERC20(token).safeTransferFrom(user, address(this), fee);
-        }
-      }
-
-      return amountToWithdraw;
+    return amountToWithdraw;
   }
 
   function _updateMint(
@@ -540,5 +570,19 @@ contract GunPool is IGunPool, Ownable {
   function _safeTransferETH(address to, uint256 value) internal {
     (bool success, ) = to.call{value: value}(new bytes(0));
     require(success, 'ETH_TRANSFER_FAILED');
+  }
+
+  /*
+  * @dev approve aoken to aave plane from this address
+  * @param token find reserve from aave
+  * @param lpAddress is lendingPool address for aave
+  */
+  function _authorizeAAVEPlane(
+    address token,
+    address plane
+  )
+    internal
+  {
+    IERC20(token).approve(plane, uint256(-1));
   }
 }

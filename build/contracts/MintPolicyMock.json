@@ -1,0 +1,1372 @@
+{
+  "contractName": "MintPolicyMock",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "mintSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "mintMaxSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "mintRateBySec",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lastMintTime",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "lastSupply",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "mintCapacity",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct GunPoolContext.PcoinReward",
+          "name": "pcoinreward",
+          "type": "tuple"
+        }
+      ],
+      "name": "setPcoinreward",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "deposit",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoinreward\",\"type\":\"tuple\"}],\"name\":\"setPcoinreward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/mock/MintPolicyMock.sol\":\"MintPolicyMock\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x9a9cf02622cd7a64261b10534fc3260449da25c98c9e96d1b4ae8110a20e5806\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2df142592d1dc267d9549049ee3317fa190d2f87eaa565f86ab05ec83f7ab8f5\",\"dweb:/ipfs/QmSkJtcfWo7c42KnL5hho6GFxK6HRNV91XABx1P7xDtfLV\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/mock/MintPolicyMock.sol\":{\"keccak256\":\"0xd9ce42954b36aae8aaf114d9e4d3d968188059f85f019cf80b859c340c266fdb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://e7536ac5fbcd0ecc9ea6ccbf356bc30eb922cfeda93019589120ee7ebb17ce1d\",\"dweb:/ipfs/QmSwBbbkpzhifSeKKMLvgR954gz4qxutSqT4ebDwqpEoMj\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0xff493d75fc1651f904b3dff147e0333a261273ab364a6c28789c386230f5375e\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://44d0144710570beeb0e781bcc8cef104f3d8c00398bc56da09c58e6aff8c8789\",\"dweb:/ipfs/QmQ6863kFWY6ec545ZxDWj3JxVDNaFwTF6vshA8ft72uLk\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/WadRayMath.sol\":{\"keccak256\":\"0x1b0aad128d8de4428168e4a11f65aa4395e59eb4a5be3c70577ac37cf0a61788\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d7438a5a66eb9393c5b2be2cdfaeb7f97b654367583bd480cb26cc13640f0ed3\",\"dweb:/ipfs/QmRFq59WPnt9BFfCANH8UTXFNo5E2XcFbafBarZoci1jcB\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/libraries/MintPolicy.sol\":{\"keccak256\":\"0x16ed7c1e092397d28e873108168d43f1b10807e1748a8a5c27427acb7dc47432\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://18b1e6c77cda3037ec49f47258057b9d9266c4245d41ca6ad7a45d87db376fb4\",\"dweb:/ipfs/Qmd2v1UfJTcEVbi3bHpWf5wyhp2GaSUp2kaVSyhZjpju3A\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610115806100206000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063b6b55f25146037578063f97da8ba146048575b600080fd5b6046604236600460c8565b6057565b005b6046605336600460b2565b605a565b50565b6040805160c08101825260008082526020848101359083018190529383013592820183905242606083018190526080830182905260a09092018190528080556001939093556002919091556003556004819055600555565b600060c0828403121560c2578081fd5b50919050565b60006020828403121560d8578081fd5b503591905056fea2646970667358221220ed54da1d545707bbcf7a6675c252ca34a28e5f3685109f3a6a01f14be076a8fe64736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063b6b55f25146037578063f97da8ba146048575b600080fd5b6046604236600460c8565b6057565b005b6046605336600460b2565b605a565b50565b6040805160c08101825260008082526020848101359083018190529383013592820183905242606083018190526080830182905260a09092018190528080556001939093556002919091556003556004819055600555565b600060c0828403121560c2578081fd5b50919050565b60006020828403121560d8578081fd5b503591905056fea2646970667358221220ed54da1d545707bbcf7a6675c252ca34a28e5f3685109f3a6a01f14be076a8fe64736f6c634300060c0033",
+  "immutableReferences": {},
+  "sourceMap": "242:652:252:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "242:652:252:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;832:58;;;;;;:::i;:::-;;:::i;:::-;;441:387;;;;;;:::i;:::-;;:::i;832:58::-;;:::o;441:387::-;558:265;;;;;;;;-1:-1:-1;558:265:252;;;;635:25;;;;558:265;;;;;;685:25;;;;558:265;;;;;;735:15;558:265;;;;;;;;;;;;;;;;;;;543:280;;;;;;;;;;;;;;;;;;;;;441:387::o;355:306:-1:-;;491:3;479:9;470:7;466:23;462:33;459:2;;;-1:-1;;498:12;459:2;-1:-1;550:95;453:208;-1:-1;453:208::o;668:241::-;;772:2;760:9;751:7;747:23;743:32;740:2;;;-1:-1;;778:12;740:2;-1:-1;285:20;;734:175;-1:-1;734:175::o",
+  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.4.22 <0.9.0;\npragma experimental ABIEncoderV2;\n\nimport {GunPoolContext} from \"../protocol/gunpool/GunPoolContext.sol\";\nimport {MintPolicy} from \"../protocol/libraries/MintPolicy.sol\";\n\ncontract MintPolicyMock {\n  GunPoolContext.PcoinReward private _pcoinreward;\n  mapping(address => GunPoolContext.RewardContext) private _rewards;\n  mapping(address => uint256) private _balanceOf;\n\n  function setPcoinreward(\n    GunPoolContext.PcoinReward calldata pcoinreward\n  )\n    external\n  {\n    _pcoinreward = GunPoolContext.PcoinReward(\n                       0,\n                       pcoinreward.mintMaxSupply,\n                       pcoinreward.mintRateBySec,\n                       block.timestamp,\n                       0,\n                       0\n                   );\n  }\n\n  function deposit(uint256 amount)\n    external\n  {\n    \n  }\n\n\n}\n",
+  "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/mock/MintPolicyMock.sol",
+  "ast": {
+    "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/mock/MintPolicyMock.sol",
+    "exportedSymbols": {
+      "MintPolicyMock": [
+        11845
+      ]
+    },
+    "id": 11846,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 11802,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "37:32:252"
+      },
+      {
+        "id": 11803,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "70:33:252"
+      },
+      {
+        "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolContext.sol",
+        "file": "../protocol/gunpool/GunPoolContext.sol",
+        "id": 11805,
+        "nodeType": "ImportDirective",
+        "scope": 11846,
+        "sourceUnit": 13765,
+        "src": "105:70:252",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 11804,
+              "name": "GunPoolContext",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "113:14:252",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/libraries/MintPolicy.sol",
+        "file": "../protocol/libraries/MintPolicy.sol",
+        "id": 11807,
+        "nodeType": "ImportDirective",
+        "scope": 11846,
+        "sourceUnit": 14803,
+        "src": "176:64:252",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 11806,
+              "name": "MintPolicy",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "184:10:252",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": true,
+        "id": 11845,
+        "linearizedBaseContracts": [
+          11845
+        ],
+        "name": "MintPolicyMock",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "id": 11809,
+            "mutability": "mutable",
+            "name": "_pcoinreward",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 11845,
+            "src": "270:47:252",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_struct$_PcoinReward_$13744_storage",
+              "typeString": "struct GunPoolContext.PcoinReward"
+            },
+            "typeName": {
+              "contractScope": null,
+              "id": 11808,
+              "name": "GunPoolContext.PcoinReward",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 13744,
+              "src": "270:26:252",
+              "typeDescriptions": {
+                "typeIdentifier": "t_struct$_PcoinReward_$13744_storage_ptr",
+                "typeString": "struct GunPoolContext.PcoinReward"
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 11813,
+            "mutability": "mutable",
+            "name": "_rewards",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 11845,
+            "src": "321:65:252",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_RewardContext_$13751_storage_$",
+              "typeString": "mapping(address => struct GunPoolContext.RewardContext)"
+            },
+            "typeName": {
+              "id": 11812,
+              "keyType": {
+                "id": 11810,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "329:7:252",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "321:48:252",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_RewardContext_$13751_storage_$",
+                "typeString": "mapping(address => struct GunPoolContext.RewardContext)"
+              },
+              "valueType": {
+                "contractScope": null,
+                "id": 11811,
+                "name": "GunPoolContext.RewardContext",
+                "nodeType": "UserDefinedTypeName",
+                "referencedDeclaration": 13751,
+                "src": "340:28:252",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_struct$_RewardContext_$13751_storage_ptr",
+                  "typeString": "struct GunPoolContext.RewardContext"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "constant": false,
+            "id": 11817,
+            "mutability": "mutable",
+            "name": "_balanceOf",
+            "nodeType": "VariableDeclaration",
+            "overrides": null,
+            "scope": 11845,
+            "src": "390:46:252",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+              "typeString": "mapping(address => uint256)"
+            },
+            "typeName": {
+              "id": 11816,
+              "keyType": {
+                "id": 11814,
+                "name": "address",
+                "nodeType": "ElementaryTypeName",
+                "src": "398:7:252",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                }
+              },
+              "nodeType": "Mapping",
+              "src": "390:27:252",
+              "typeDescriptions": {
+                "typeIdentifier": "t_mapping$_t_address_$_t_uint256_$",
+                "typeString": "mapping(address => uint256)"
+              },
+              "valueType": {
+                "id": 11815,
+                "name": "uint256",
+                "nodeType": "ElementaryTypeName",
+                "src": "409:7:252",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                }
+              }
+            },
+            "value": null,
+            "visibility": "private"
+          },
+          {
+            "body": {
+              "id": 11837,
+              "nodeType": "Block",
+              "src": "537:291:252",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 11835,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "argumentTypes": null,
+                      "id": 11822,
+                      "name": "_pcoinreward",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 11809,
+                      "src": "543:12:252",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PcoinReward_$13744_storage",
+                        "typeString": "struct GunPoolContext.PcoinReward storage ref"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "argumentTypes": null,
+                      "arguments": [
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 11825,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "609:1:252",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 11826,
+                            "name": "pcoinreward",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11819,
+                            "src": "635:11:252",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_PcoinReward_$13744_calldata_ptr",
+                              "typeString": "struct GunPoolContext.PcoinReward calldata"
+                            }
+                          },
+                          "id": 11827,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "mintMaxSupply",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 13735,
+                          "src": "635:25:252",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 11828,
+                            "name": "pcoinreward",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 11819,
+                            "src": "685:11:252",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_struct$_PcoinReward_$13744_calldata_ptr",
+                              "typeString": "struct GunPoolContext.PcoinReward calldata"
+                            }
+                          },
+                          "id": 11829,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "mintRateBySec",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": 13737,
+                          "src": "685:25:252",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "expression": {
+                            "argumentTypes": null,
+                            "id": 11830,
+                            "name": "block",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -4,
+                            "src": "735:5:252",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_magic_block",
+                              "typeString": "block"
+                            }
+                          },
+                          "id": 11831,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "memberName": "timestamp",
+                          "nodeType": "MemberAccess",
+                          "referencedDeclaration": null,
+                          "src": "735:15:252",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 11832,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "775:1:252",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        },
+                        {
+                          "argumentTypes": null,
+                          "hexValue": "30",
+                          "id": 11833,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": true,
+                          "kind": "number",
+                          "lValueRequested": false,
+                          "nodeType": "Literal",
+                          "src": "801:1:252",
+                          "subdenomination": null,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          "value": "0"
+                        }
+                      ],
+                      "expression": {
+                        "argumentTypes": [
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          },
+                          {
+                            "typeIdentifier": "t_rational_0_by_1",
+                            "typeString": "int_const 0"
+                          }
+                        ],
+                        "expression": {
+                          "argumentTypes": null,
+                          "id": 11823,
+                          "name": "GunPoolContext",
+                          "nodeType": "Identifier",
+                          "overloadedDeclarations": [],
+                          "referencedDeclaration": 13764,
+                          "src": "558:14:252",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$13764_$",
+                            "typeString": "type(library GunPoolContext)"
+                          }
+                        },
+                        "id": 11824,
+                        "isConstant": false,
+                        "isLValue": false,
+                        "isPure": false,
+                        "lValueRequested": false,
+                        "memberName": "PcoinReward",
+                        "nodeType": "MemberAccess",
+                        "referencedDeclaration": 13744,
+                        "src": "558:26:252",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_type$_t_struct$_PcoinReward_$13744_storage_ptr_$",
+                          "typeString": "type(struct GunPoolContext.PcoinReward storage pointer)"
+                        }
+                      },
+                      "id": 11834,
+                      "isConstant": false,
+                      "isLValue": false,
+                      "isPure": false,
+                      "kind": "structConstructorCall",
+                      "lValueRequested": false,
+                      "names": [],
+                      "nodeType": "FunctionCall",
+                      "src": "558:265:252",
+                      "tryCall": false,
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_struct$_PcoinReward_$13744_memory_ptr",
+                        "typeString": "struct GunPoolContext.PcoinReward memory"
+                      }
+                    },
+                    "src": "543:280:252",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PcoinReward_$13744_storage",
+                      "typeString": "struct GunPoolContext.PcoinReward storage ref"
+                    }
+                  },
+                  "id": 11836,
+                  "nodeType": "ExpressionStatement",
+                  "src": "543:280:252"
+                }
+              ]
+            },
+            "documentation": null,
+            "functionSelector": "f97da8ba",
+            "id": 11838,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setPcoinreward",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11820,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11819,
+                  "mutability": "mutable",
+                  "name": "pcoinreward",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11838,
+                  "src": "470:47:252",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_PcoinReward_$13744_calldata_ptr",
+                    "typeString": "struct GunPoolContext.PcoinReward"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 11818,
+                    "name": "GunPoolContext.PcoinReward",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 13744,
+                    "src": "470:26:252",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_PcoinReward_$13744_storage_ptr",
+                      "typeString": "struct GunPoolContext.PcoinReward"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "464:57:252"
+            },
+            "returnParameters": {
+              "id": 11821,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "537:0:252"
+            },
+            "scope": 11845,
+            "src": "441:387:252",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": {
+              "id": 11843,
+              "nodeType": "Block",
+              "src": "880:10:252",
+              "statements": []
+            },
+            "documentation": null,
+            "functionSelector": "b6b55f25",
+            "id": 11844,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "deposit",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11841,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11840,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11844,
+                  "src": "849:14:252",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11839,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "849:7:252",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "848:16:252"
+            },
+            "returnParameters": {
+              "id": 11842,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "880:0:252"
+            },
+            "scope": 11845,
+            "src": "832:58:252",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 11846,
+        "src": "242:652:252"
+      }
+    ],
+    "src": "37:858:252"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/mock/MintPolicyMock.sol",
+      "exportedSymbols": {
+        "MintPolicyMock": [
+          11845
+        ]
+      },
+      "license": "agpl-3.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 11802,
+        "name": "PragmaDirective",
+        "src": "37:32:252"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 11803,
+        "name": "PragmaDirective",
+        "src": "70:33:252"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 13765,
+          "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolContext.sol",
+          "file": "../protocol/gunpool/GunPoolContext.sol",
+          "scope": 11846,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "GunPoolContext"
+                },
+                "id": 11804,
+                "name": "Identifier",
+                "src": "113:14:252"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 11805,
+        "name": "ImportDirective",
+        "src": "105:70:252"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 14803,
+          "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/libraries/MintPolicy.sol",
+          "file": "../protocol/libraries/MintPolicy.sol",
+          "scope": 11846,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "MintPolicy"
+                },
+                "id": 11806,
+                "name": "Identifier",
+                "src": "184:10:252"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 11807,
+        "name": "ImportDirective",
+        "src": "176:64:252"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "contract",
+          "documentation": null,
+          "fullyImplemented": true,
+          "linearizedBaseContracts": [
+            11845
+          ],
+          "name": "MintPolicyMock",
+          "scope": 11846
+        },
+        "children": [
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "_pcoinreward",
+              "overrides": null,
+              "scope": 11845,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "struct GunPoolContext.PcoinReward",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "contractScope": null,
+                  "name": "GunPoolContext.PcoinReward",
+                  "referencedDeclaration": 13744,
+                  "type": "struct GunPoolContext.PcoinReward"
+                },
+                "id": 11808,
+                "name": "UserDefinedTypeName",
+                "src": "270:26:252"
+              }
+            ],
+            "id": 11809,
+            "name": "VariableDeclaration",
+            "src": "270:47:252"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "_rewards",
+              "overrides": null,
+              "scope": 11845,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct GunPoolContext.RewardContext)",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct GunPoolContext.RewardContext)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 11810,
+                    "name": "ElementaryTypeName",
+                    "src": "329:7:252"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "GunPoolContext.RewardContext",
+                      "referencedDeclaration": 13751,
+                      "type": "struct GunPoolContext.RewardContext"
+                    },
+                    "id": 11811,
+                    "name": "UserDefinedTypeName",
+                    "src": "340:28:252"
+                  }
+                ],
+                "id": 11812,
+                "name": "Mapping",
+                "src": "321:48:252"
+              }
+            ],
+            "id": 11813,
+            "name": "VariableDeclaration",
+            "src": "321:65:252"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "mutability": "mutable",
+              "name": "_balanceOf",
+              "overrides": null,
+              "scope": 11845,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => uint256)",
+              "value": null,
+              "visibility": "private"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => uint256)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 11814,
+                    "name": "ElementaryTypeName",
+                    "src": "398:7:252"
+                  },
+                  {
+                    "attributes": {
+                      "name": "uint256",
+                      "type": "uint256"
+                    },
+                    "id": 11815,
+                    "name": "ElementaryTypeName",
+                    "src": "409:7:252"
+                  }
+                ],
+                "id": 11816,
+                "name": "Mapping",
+                "src": "390:27:252"
+              }
+            ],
+            "id": 11817,
+            "name": "VariableDeclaration",
+            "src": "390:46:252"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "f97da8ba",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "setPcoinreward",
+              "overrides": null,
+              "scope": 11845,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "pcoinreward",
+                      "overrides": null,
+                      "scope": 11838,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "struct GunPoolContext.PcoinReward",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "GunPoolContext.PcoinReward",
+                          "referencedDeclaration": 13744,
+                          "type": "struct GunPoolContext.PcoinReward"
+                        },
+                        "id": 11818,
+                        "name": "UserDefinedTypeName",
+                        "src": "470:26:252"
+                      }
+                    ],
+                    "id": 11819,
+                    "name": "VariableDeclaration",
+                    "src": "470:47:252"
+                  }
+                ],
+                "id": 11820,
+                "name": "ParameterList",
+                "src": "464:57:252"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11821,
+                "name": "ParameterList",
+                "src": "537:0:252"
+              },
+              {
+                "children": [
+                  {
+                    "children": [
+                      {
+                        "attributes": {
+                          "argumentTypes": null,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "operator": "=",
+                          "type": "struct GunPoolContext.PcoinReward storage ref"
+                        },
+                        "children": [
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "overloadedDeclarations": [
+                                null
+                              ],
+                              "referencedDeclaration": 11809,
+                              "type": "struct GunPoolContext.PcoinReward storage ref",
+                              "value": "_pcoinreward"
+                            },
+                            "id": 11822,
+                            "name": "Identifier",
+                            "src": "543:12:252"
+                          },
+                          {
+                            "attributes": {
+                              "argumentTypes": null,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "isStructConstructorCall": true,
+                              "lValueRequested": false,
+                              "names": [
+                                null
+                              ],
+                              "tryCall": false,
+                              "type": "struct GunPoolContext.PcoinReward memory",
+                              "type_conversion": false
+                            },
+                            "children": [
+                              {
+                                "attributes": {
+                                  "argumentTypes": [
+                                    {
+                                      "typeIdentifier": "t_rational_0_by_1",
+                                      "typeString": "int_const 0"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_rational_0_by_1",
+                                      "typeString": "int_const 0"
+                                    },
+                                    {
+                                      "typeIdentifier": "t_rational_0_by_1",
+                                      "typeString": "int_const 0"
+                                    }
+                                  ],
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "PcoinReward",
+                                  "referencedDeclaration": 13744,
+                                  "type": "type(struct GunPoolContext.PcoinReward storage pointer)"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 13764,
+                                      "type": "type(library GunPoolContext)",
+                                      "value": "GunPoolContext"
+                                    },
+                                    "id": 11823,
+                                    "name": "Identifier",
+                                    "src": "558:14:252"
+                                  }
+                                ],
+                                "id": 11824,
+                                "name": "MemberAccess",
+                                "src": "558:26:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 11825,
+                                "name": "Literal",
+                                "src": "609:1:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "mintMaxSupply",
+                                  "referencedDeclaration": 13735,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 11819,
+                                      "type": "struct GunPoolContext.PcoinReward calldata",
+                                      "value": "pcoinreward"
+                                    },
+                                    "id": 11826,
+                                    "name": "Identifier",
+                                    "src": "635:11:252"
+                                  }
+                                ],
+                                "id": 11827,
+                                "name": "MemberAccess",
+                                "src": "635:25:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "mintRateBySec",
+                                  "referencedDeclaration": 13737,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": 11819,
+                                      "type": "struct GunPoolContext.PcoinReward calldata",
+                                      "value": "pcoinreward"
+                                    },
+                                    "id": 11828,
+                                    "name": "Identifier",
+                                    "src": "685:11:252"
+                                  }
+                                ],
+                                "id": 11829,
+                                "name": "MemberAccess",
+                                "src": "685:25:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "member_name": "timestamp",
+                                  "referencedDeclaration": null,
+                                  "type": "uint256"
+                                },
+                                "children": [
+                                  {
+                                    "attributes": {
+                                      "argumentTypes": null,
+                                      "overloadedDeclarations": [
+                                        null
+                                      ],
+                                      "referencedDeclaration": -4,
+                                      "type": "block",
+                                      "value": "block"
+                                    },
+                                    "id": 11830,
+                                    "name": "Identifier",
+                                    "src": "735:5:252"
+                                  }
+                                ],
+                                "id": 11831,
+                                "name": "MemberAccess",
+                                "src": "735:15:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 11832,
+                                "name": "Literal",
+                                "src": "775:1:252"
+                              },
+                              {
+                                "attributes": {
+                                  "argumentTypes": null,
+                                  "hexvalue": "30",
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": true,
+                                  "lValueRequested": false,
+                                  "subdenomination": null,
+                                  "token": "number",
+                                  "type": "int_const 0",
+                                  "value": "0"
+                                },
+                                "id": 11833,
+                                "name": "Literal",
+                                "src": "801:1:252"
+                              }
+                            ],
+                            "id": 11834,
+                            "name": "FunctionCall",
+                            "src": "558:265:252"
+                          }
+                        ],
+                        "id": 11835,
+                        "name": "Assignment",
+                        "src": "543:280:252"
+                      }
+                    ],
+                    "id": 11836,
+                    "name": "ExpressionStatement",
+                    "src": "543:280:252"
+                  }
+                ],
+                "id": 11837,
+                "name": "Block",
+                "src": "537:291:252"
+              }
+            ],
+            "id": 11838,
+            "name": "FunctionDefinition",
+            "src": "441:387:252"
+          },
+          {
+            "attributes": {
+              "documentation": null,
+              "functionSelector": "b6b55f25",
+              "implemented": true,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "deposit",
+              "overrides": null,
+              "scope": 11845,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 11844,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11839,
+                        "name": "ElementaryTypeName",
+                        "src": "849:7:252"
+                      }
+                    ],
+                    "id": 11840,
+                    "name": "VariableDeclaration",
+                    "src": "849:14:252"
+                  }
+                ],
+                "id": 11841,
+                "name": "ParameterList",
+                "src": "848:16:252"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11842,
+                "name": "ParameterList",
+                "src": "880:0:252"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11843,
+                "name": "Block",
+                "src": "880:10:252"
+              }
+            ],
+            "id": 11844,
+            "name": "FunctionDefinition",
+            "src": "832:58:252"
+          }
+        ],
+        "id": 11845,
+        "name": "ContractDefinition",
+        "src": "242:652:252"
+      }
+    ],
+    "id": 11846,
+    "name": "SourceUnit",
+    "src": "37:858:252"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-07-23T11:42:28.226Z",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {},
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}
