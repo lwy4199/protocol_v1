@@ -24,7 +24,7 @@ Truly realize one investment, two gains.
 
   GPtoken address:[0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038](https://mumbai.polygonscan.com/address/0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038)
 
-- **Matic-Mainnet**
+- **Mumbai-Testnet**
 
   Ptoken address:[0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6](https://mumbai.polygonscan.com/address/0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6)
 
