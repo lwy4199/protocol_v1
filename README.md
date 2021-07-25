@@ -1,23 +1,43 @@
-Develop gunpool-V1 base on aave, function: deposit/withdraw/get reward from pcoin
+## Polylend
 
-    1. constructor funcion
-       initReserve(): you can use this function that configure reserve/plane context,
-                      especially gunpool-tokens
+### Overview
 
+Polylend is a Layer-2 solution based Yield-Aggregator and lending product.
 
-    2. configure function(can be done by owner)
-       resetPcoinReward(): reset pcoin reward parameters;
-       resetPlane(): reset base plane and gp-token address;
-       setPcoinAddress(): set polylend token ERC20 address;
-       pause(): set reserve pause/work;
-       setFeeto(): set feeto account and permillage;
-       getDepositAPY(): get APY by deposit
+Truly realize one investment, two gains.
 
-    3. service function
-       deposit(): deposit amount for valid token, you will get reward by APY from plane;
-       withdraw(): withdraw amount from valid token which belongs to you;
-       claim(): you can receive rewards from pcoin
-       rewardBalanceOf(): you can quary rewards from pcoin
-       getDepositAccounts(): you can quary the number of deposit account
+:tropical_fish: Deployer
 
-Future gunpool-Vxxx will base on other plane
+- **Matic-Mainnet**
+  
+  Deployer address:[0x7f774B2710f038EDc502fEeE7627961a3fd172aE](https://mumbai.polygonscan.com/address/0x7f774B2710f038EDc502fEeE7627961a3fd172aE)
+
+- **Mumbai-Testnet**
+
+  Deployer address:[0x7f774B2710f038EDc502fEeE7627961a3fd172aE](https://mumbai.polygonscan.com/address/0x7f774B2710f038EDc502fEeE7627961a3fd172aE)
+
+### [👋](https://www.emojiall.com/zh-hans/emoji/👋) Polylend Contracts
+
+- **Matic-Mainnet**
+
+  Ptoken address:[0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6](https://mumbai.polygonscan.com/address/0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6)
+  
+  GPtoken address:[0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038](https://mumbai.polygonscan.com/address/0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038)https://mumbai.polygonscan.com/address/0x7f774B2710f038EDc502fEeE7627961a3fd172aE)
+
+- **Matic-Mainnet**
+
+  Ptoken address:[0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6](https://mumbai.polygonscan.com/address/0x846a6223936F76866D6Ed10CC83BD9Ac520Bf5c6)
+  
+  GPtoken address:[0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038](https://mumbai.polygonscan.com/address/0xe8F727eCa9ECDCc4d89dd744153086DEBD9a9038)https://mumbai.polygonscan.com/address/0x7f774B2710f038EDc502fEeE7627961a3fd172aE)
+
+### 🧐 RESOURCES
+
+- Website:[http://polylend.io](http://polylend.io)
+- Twitter:[http://polylend.io](http://polylend.io)
+- Discord:[http://polylend.io](http://polylend.io)
+
+### 💻 TECHNICAL
+
+- Github:[https://github.com/Polylend/](https://github.com/Polylend/)
+- Docs:[https://github.com/Polylend/](https://github.com/Polylend/)
+
