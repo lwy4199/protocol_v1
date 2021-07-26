@@ -215,4 +215,6 @@ interface IGunPool {
    * @param permillage the ratio of feeTo(base 1000)
   **/
   event SetFeeto(address feeAccount, uint16 permillage);
+
+  event Log(string msg, uint256 value);
 }

@@ -503,9 +503,9 @@ contract GunPool is IGunPool, Ownable {
 
     if ( (amount == type(uint256).max) || (amount > gpBalance) )
       amountToWithdraw = gpBalance;
-
+    emit Log("burn withdraw", amountToWithdraw);
     gpToken.burn(user, amountToWithdraw);
-    // todo receive a part of coin for self user
+
     if ( token == address(_IWETH) ) {
       lendingPool.withdraw(token, amountToWithdraw, address(this));
     }
@@ -514,9 +514,8 @@ contract GunPool is IGunPool, Ownable {
     }
 
     if ( _feeTo.account != address(0) && _feeTo.permillage > 0 ) {
-      uint256 fee = 1000;
-      fee.sub(_feeTo.permillage);
-      fee = amountToWithdraw.mul(fee).div(100);
+      uint256 fee = _feeTo.permillage;
+      fee = amountToWithdraw.mul(fee).div(1000);
       amountToWithdraw = amountToWithdraw.sub(fee);
       if ( token != address(_IWETH) ) {
         IERC20(token).safeTransferFrom(user, address(this), fee);
@@ -584,5 +583,20 @@ contract GunPool is IGunPool, Ownable {
     internal
   {
     IERC20(token).approve(plane, uint256(-1));
+  }
+
+  /**
+   * @dev Only _IWETH contract is allowed to transfer ETH here.
+   *   Prevent other addresses to send Ether to this contract.
+   */
+  receive() external payable {
+    require(msg.sender == address(_IWETH), 'Receive not allowed');
+  }
+
+  /**
+   * @dev Revert fallback calls
+   */
+  fallback() external payable {
+    revert('Fallback not allowed');
   }
 }

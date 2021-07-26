@@ -37,7 +37,7 @@ library MintPolicy {
     )
     internal
   {
-    pcoin.mintCapacity.add(mintRate);
+    pcoin.mintCapacity = pcoin.mintCapacity.add(mintRate);
     pcoin.lastMintTime = timestamp;
     pcoin.lastSupply = supply;
   }
