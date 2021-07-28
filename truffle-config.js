@@ -24,6 +24,8 @@
 // const fs = require('fs');
 // const mnemonic = fs.readFileSync(".secret").toString().trim();
 
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+
 module.exports = {
   /**
    * Networks define how you connect to your ethereum client and let you set the
@@ -72,6 +74,16 @@ module.exports = {
     // network_id: 2111,   // This network is yours, in the cloud.
     // production: true    // Treats this network as if it was a public net. (default: false)
     // }
+      mumbai: {
+         provider: function() {
+           return new HDWalletProvider('xxxxx', 'https://matic-testnet-archive-rpc.bwarelabs.com');
+         },
+         network_id: "80001",       // Any network (default: none)
+         //gas: 20000000,
+         //gasPrice: 100000000000,
+         networkCheckTimeout: 30000,
+         from: 'yyyyyyyy'
+       }
   },
 
   // Set default mocha options here, use special reporters etc.

@@ -1,6 +1,7 @@
 const AaveGPToken = artifacts.require("AaveGPToken");
 const GunpoolMock = artifacts.require("GunpoolMock");
 const LoodingPoolMock = artifacts.require("LoodingPoolMock");
+const MintPolicyMock = artifacts.require("MintPolicyMock")
 
 module.exports = async function (deployer) {
   await deployer.deploy(GunpoolMock);
@@ -27,4 +28,8 @@ module.exports = async function (deployer) {
 
   var name = await GPToken.name();
   console.log(name);
+
+  await deployer.deploy(MintPolicyMock);
+  let MpMock = await MintPolicyMock.deployed();
+  await MpMock.setPcoinreward([0, 2000000000000, 100, 0, 0, 0]);
 };

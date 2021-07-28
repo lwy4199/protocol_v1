@@ -16,6 +16,22 @@ contract MintPolicyMock {
   mapping(address => uint256) private _balanceOf;
   uint256 private _supply;
 
+  function getPcoinreward()
+    external
+    view
+    returns (GunPoolContext.PcoinReward memory)
+  {
+    return _pcoinreward;
+  }
+
+  function getReward(address account)
+    external
+    view
+    returns (GunPoolContext.RewardContext memory)
+  {
+    return _rewards[account];
+  }
+
   function setPcoinreward(
     GunPoolContext.PcoinReward calldata pcoinreward
   )
@@ -32,6 +48,40 @@ contract MintPolicyMock {
                    );
   }
 
+  function rewardBalanceOf(uint256 timestamp)
+    external
+    view
+    returns (uint256)
+  {
+    GunPoolContext.RewardContext storage reward = _rewards[msg.sender];
+
+    uint256 mintRate = _pcoinreward.calcultionMintRate(timestamp);
+    uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+    mintRate = mintRate.add(_pcoinreward.mintCapacity);
+    uint256 curSupply = reward.lastGpBalance.mul(mintRate);
+    return curSupply.sub(preSupply).div(WadRayMath.ray()) + reward.rewardSupply;
+  }
+
+  event Claim(address indexed account, uint256 amount);
+
+  function claim(uint256 timestamp)
+    external
+    returns (uint256)
+  {
+    GunPoolContext.RewardContext storage reward = _rewards[msg.sender];
+
+    _updateMint(_pcoinreward, _supply, timestamp);
+    _updateReward(reward, _pcoinreward);
+
+    uint256 totalReward = reward.rewardSupply;
+    reward.rewardSupply = 0;
+    reward.lastMintCapacity = _pcoinreward.mintCapacity;
+    reward.lastGpBalance = _balanceOf[msg.sender];
+
+    emit Claim(msg.sender, totalReward);
+    return totalReward;
+  }
+
   function deposit(uint256 amount, uint256 timestamp)
     external
   {
@@ -40,12 +90,10 @@ contract MintPolicyMock {
     _balanceOf[msg.sender] = preBalance.add(amount);
     _supply = _supply.add(amount);
 
-    bool isMint = _updateMint(_pcoinreward, _supply, timestamp);
+    _updateMint(_pcoinreward, _supply, timestamp);
 
-    if ( isMint ) {
-      if ( 0 == preBalance ) {
-        _updateReward(reward, _pcoinreward);
-      }
+    if ( 0 != preBalance ) {
+      _updateReward(reward, _pcoinreward);
     }
     reward.lastMintCapacity = _pcoinreward.mintCapacity;
     reward.lastGpBalance = _balanceOf[msg.sender];
@@ -56,6 +104,14 @@ contract MintPolicyMock {
   {
     uint256 preBalance = _balanceOf[msg.sender];
     GunPoolContext.RewardContext storage reward = _rewards[msg.sender];
+    require(preBalance >= amount, "amount more than balance");
+    _balanceOf[msg.sender] = preBalance.sub(amount);
+    _supply = _supply.sub(amount);
+
+    _updateMint(_pcoinreward, _supply, timestamp);
+    _updateReward(reward, _pcoinreward);
+    reward.lastMintCapacity = _pcoinreward.mintCapacity;
+    reward.lastGpBalance = _balanceOf[msg.sender];
   }
 
   function _updateMint(
@@ -64,15 +120,10 @@ contract MintPolicyMock {
     uint256 timestamp
   )
     internal
-    returns (bool)
   {
-    uint256 mintRate = pcoin.calcultionMintRate(timestamp);
-    pcoin.updateMintContext(supply, mintRate, timestamp);
-    if ( mintRate > 0 ) {
-      return true;
-    }
-    else {
-      return false;
+    if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
+      uint256 mintRate = pcoin.calcultionMintRate(timestamp);
+      pcoin.updateMintContext(supply, mintRate, timestamp);
     }
   }
 
@@ -82,15 +133,12 @@ contract MintPolicyMock {
   )
     internal
   {
-    if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
-      uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
-      uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
-      uint256 rewardAmount = curSupply.sub(preSupply);
+    uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+    uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
+    uint256 rewardAmount = curSupply.sub(preSupply);
 
-      if ( rewardAmount > 0 ) {
-        reward.rewardSupply = reward.rewardSupply.add(rewardAmount);
-        pcoin.mintSupply = pcoin.mintSupply.add(rewardAmount.div(WadRayMath.ray()));
-      }
+    if ( rewardAmount > 0 ) {
+      reward.rewardSupply = reward.rewardSupply.add(rewardAmount.div(WadRayMath.ray()));
     }
   }
 }

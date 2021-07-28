@@ -276,13 +276,10 @@ contract GunPool is IGunPool, Ownable {
       require(false, Error.POOL_PLANE_INVALID);
     }
 
-    bool isMint = _updateMint(reserve.pcoin, gpMASupply);
+    _updateMint(reserve.pcoin, gpMASupply);
     GunPoolContext.RewardContext storage reward = _rewards[msg.sender][token];
-
-    if ( isMint ) {
-      if ( !isFirst ) {
-        _updateReward(reward, reserve.pcoin);
-      }
+    if ( !isFirst ) {
+      _updateReward(reward, reserve.pcoin);
     }
     reward.lastMintCapacity = reserve.pcoin.mintCapacity;
     reward.lastGpBalance = gpMABalance;
@@ -336,12 +333,9 @@ contract GunPool is IGunPool, Ownable {
       require(false, Error.POOL_PLANE_INVALID);
     }
 
-    bool isMint = _updateMint(reserve.pcoin, gpMASupply);
+    _updateMint(reserve.pcoin, gpMASupply);
     GunPoolContext.RewardContext storage reward = _rewards[msg.sender][token];
-
-    if ( isMint ) {
-      _updateReward(reward, reserve.pcoin);
-    }
+    _updateReward(reward, reserve.pcoin);
     reward.lastMintCapacity = reserve.pcoin.mintCapacity;
     reward.lastGpBalance = gpMABalance;
     if ( gpMABalance == 0 && _depositAccounts > 0 ) {
@@ -388,7 +382,6 @@ contract GunPool is IGunPool, Ownable {
     GunPoolContext.RewardContext storage reward;
     IGPToken gpToken;
     address token = address(0);
-    bool isMint = false;
 
     for ( uint32 i = 0; i < _reservesCount; i++ ) {
       token = _reservesList[i];
@@ -398,10 +391,8 @@ contract GunPool is IGunPool, Ownable {
       if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
         GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
         gpToken = IGPToken(plane.gptoken);
-        isMint = _updateMint(reserve.pcoin, gpToken.totalSupply());
-        if ( isMint ) {
-          _updateReward(reward, reserve.pcoin);
-        }
+        _updateMint(reserve.pcoin, gpToken.totalSupply());
+        _updateReward(reward, reserve.pcoin);
         totalReward = totalReward.add(reward.rewardSupply);
         reward.rewardSupply = 0;
         reward.lastMintCapacity = reserve.pcoin.mintCapacity;
@@ -443,26 +434,23 @@ contract GunPool is IGunPool, Ownable {
     GunPoolContext.RewardContext memory reward;
     address token = address(0);
     uint256 rewardBalance = 0;
+    uint256 timestamp = block.timestamp;
 
     for ( uint32 i = 0; i < _reservesCount; i++ ) {
       token = _reservesList[i];
       reserve = _reserves[token];
       reward = _rewards[user][token];
 
-      if ( reserve.pcoin.mintSupply < reserve.pcoin.mintMaxSupply ) {
-        uint256 mintRate = reserve.pcoin.calcultionMintRate(block.timestamp);
-        uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
-        mintRate = mintRate.add(reserve.pcoin.mintCapacity);
-        uint256 curSupply = reward.lastGpBalance.mul(mintRate);
-        uint256 rewardAmount = curSupply.sub(preSupply);
-        rewardBalance = rewardBalance.add(reward.rewardSupply).add(rewardAmount);
-      }
-      else {
-        rewardBalance = rewardBalance.add(reward.rewardSupply);
-      }
+      uint256 mintRate = reserve.pcoin.calcultionMintRate(timestamp);
+      uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+      mintRate = mintRate.add(reserve.pcoin.mintCapacity);
+      uint256 curSupply = reward.lastGpBalance.mul(mintRate);
+      uint256 rewardAmount = curSupply.sub(preSupply).div(WadRayMath.ray());
+      rewardAmount = rewardAmount.add(reward.rewardSupply);
+      rewardBalance = rewardBalance.add(rewardAmount);
     }
 
-    return rewardBalance.div(WadRayMath.ray());
+    return rewardBalance;
   }
 
   /**** internal function ****/
@@ -530,16 +518,11 @@ contract GunPool is IGunPool, Ownable {
     uint256 supply
   )
     internal
-    returns (bool)
   {
-    uint256 timestamp = block.timestamp;
-    uint256 mintRate = pcoin.calcultionMintRate(timestamp);
-    pcoin.updateMintContext(supply, mintRate, timestamp);
-    if ( mintRate > 0 ) {
-      return true;
-    }
-    else {
-      return false;
+    if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
+      uint256 timestamp = block.timestamp;
+      uint256 mintRate = pcoin.calcultionMintRate(timestamp);
+      pcoin.updateMintContext(supply, mintRate, timestamp);
     }
   }
 
@@ -549,15 +532,12 @@ contract GunPool is IGunPool, Ownable {
   )
     internal
   {
-    if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
-      uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
-      uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
-      uint256 rewardAmount = curSupply.sub(preSupply);
+    uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
+    uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
+    uint256 rewardAmount = curSupply.sub(preSupply);
 
-      if ( rewardAmount > 0 ) {
-        reward.rewardSupply = reward.rewardSupply.add(rewardAmount);
-        pcoin.mintSupply = pcoin.mintSupply.add(rewardAmount.div(WadRayMath.ray()));
-      }
+    if ( rewardAmount > 0 ) {
+      reward.rewardSupply = reward.rewardSupply.add(rewardAmount.div(WadRayMath.ray()));
     }
   }
 

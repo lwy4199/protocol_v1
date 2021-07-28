@@ -37,6 +37,7 @@ library MintPolicy {
     )
     internal
   {
+    pcoin.mintSupply = pcoin.mintSupply.add(pcoin.lastSupply.mul(mintRate).div(WadRayMath.ray()));
     pcoin.mintCapacity = pcoin.mintCapacity.add(mintRate);
     pcoin.lastMintTime = timestamp;
     pcoin.lastSupply = supply;
