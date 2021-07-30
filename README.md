@@ -57,7 +57,7 @@
   
   - Website:[http://polylend.io](http://polylend.io)
   - Twitter:[https://twitter.com/Polylend1](https://twitter.com/Polylend1)
-  - Discord:-------------------------------
+  - Discord:[https://discord.gg/gRKdENkMjD](https://discord.gg/gRKdENkMjD)
   
   ### 💻 TECHNICAL
   
