@@ -1,0 +1,2590 @@
+{
+  "contractName": "IStakePool",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint128",
+          "name": "id",
+          "type": "uint128"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Delegate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "id",
+              "type": "uint128"
+            },
+            {
+              "internalType": "enum StakePoolContext.ORDER_STATUS",
+              "name": "state",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256[]",
+              "name": "stateTime",
+              "type": "uint256[]"
+            },
+            {
+              "internalType": "uint256",
+              "name": "threshold",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "period",
+              "type": "uint32"
+            },
+            {
+              "internalType": "address",
+              "name": "proxy",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pcoinReward",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "feeTo",
+              "type": "address"
+            },
+            {
+              "internalType": "uint16",
+              "name": "feePermillage",
+              "type": "uint16"
+            }
+          ],
+          "indexed": false,
+          "internalType": "struct StakePoolContext.Order",
+          "name": "order",
+          "type": "tuple"
+        }
+      ],
+      "name": "InitOrder",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint128",
+          "name": "id",
+          "type": "uint128"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "proxy",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Migrate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint128",
+          "name": "id",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum StakePoolContext.ORDER_STATUS",
+          "name": "preState",
+          "type": "uint8"
+        },
+        {
+          "indexed": false,
+          "internalType": "enum StakePoolContext.ORDER_STATUS",
+          "name": "curState",
+          "type": "uint8"
+        }
+      ],
+      "name": "StatusTransfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint128",
+          "name": "id",
+          "type": "uint128"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "UnDelegate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint128",
+          "name": "id",
+          "type": "uint128"
+        },
+        {
+          "indexed": false,
+          "internalType": "string",
+          "name": "msg",
+          "type": "string"
+        }
+      ],
+      "name": "Warn",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint128",
+              "name": "id",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint256",
+              "name": "threshold",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint32",
+              "name": "period",
+              "type": "uint32"
+            },
+            {
+              "internalType": "address",
+              "name": "proxy",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "pcoinReward",
+              "type": "uint256"
+            },
+            {
+              "internalType": "address",
+              "name": "feeTo",
+              "type": "address"
+            },
+            {
+              "internalType": "uint16",
+              "name": "feePermillage",
+              "type": "uint16"
+            }
+          ],
+          "internalType": "struct StakePoolContext.OrderInitParam",
+          "name": "orderParam",
+          "type": "tuple"
+        }
+      ],
+      "name": "initOrder",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "delegate",
+      "outputs": [],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "undelegate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "lock",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Delegate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"internalType\":\"enum StakePoolContext.ORDER_STATUS\",\"name\":\"state\",\"type\":\"uint8\"},{\"internalType\":\"uint256[]\",\"name\":\"stateTime\",\"type\":\"uint256[]\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint32\",\"name\":\"period\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"pcoinReward\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"feeTo\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"feePermillage\",\"type\":\"uint16\"}],\"indexed\":false,\"internalType\":\"struct StakePoolContext.Order\",\"name\":\"order\",\"type\":\"tuple\"}],\"name\":\"InitOrder\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Migrate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"enum StakePoolContext.ORDER_STATUS\",\"name\":\"preState\",\"type\":\"uint8\"},{\"indexed\":false,\"internalType\":\"enum StakePoolContext.ORDER_STATUS\",\"name\":\"curState\",\"type\":\"uint8\"}],\"name\":\"StatusTransfer\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"UnDelegate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"indexed\":false,\"internalType\":\"string\",\"name\":\"msg\",\"type\":\"string\"}],\"name\":\"Warn\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"delegate\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"uint128\",\"name\":\"id\",\"type\":\"uint128\"},{\"internalType\":\"uint256\",\"name\":\"threshold\",\"type\":\"uint256\"},{\"internalType\":\"uint32\",\"name\":\"period\",\"type\":\"uint32\"},{\"internalType\":\"address\",\"name\":\"proxy\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"pcoinReward\",\"type\":\"uint256\"},{\"internalType\":\"address\",\"name\":\"feeTo\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"feePermillage\",\"type\":\"uint16\"}],\"internalType\":\"struct StakePoolContext.OrderInitParam\",\"name\":\"orderParam\",\"type\":\"tuple\"}],\"name\":\"initOrder\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"\",\"type\":\"uint128\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"lock\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"undelegate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"Delegate(uint128,address,uint256)\":{\"details\":\"Delegate on delegate()\",\"params\":{\"account\":\"who delegates matic\",\"amount\":\"the amount of delegate matic*\",\"id\":\"the index of order\"}},\"InitOrder((uint128,uint8,uint256[],uint256,uint32,address,uint256,address,uint16))\":{\"details\":\"InitOrder on initOrder()\",\"params\":{\"order\":\"the parameters of order*\"}},\"Migrate(uint128,address,uint256)\":{\"details\":\"Migrate on lock()\",\"params\":{\"amount\":\"the amount of migrate matic*\",\"id\":\"the index of order\",\"proxy\":\"who get matic to migrate\"}},\"StatusTransfer(uint128,uint8,uint8)\":{\"details\":\"StatusTransfer on status switch\",\"params\":{\"curState\":\"the current status*\",\"id\":\"the index of order\",\"preState\":\"the previous status\"}},\"UnDelegate(uint128,address,uint256)\":{\"details\":\"UnDelegate on undelegate()\",\"params\":{\"account\":\"who undelegates matic\",\"amount\":\"the amount of undelegate matic*\",\"id\":\"the index of order\"}},\"Warn(uint128,string)\":{\"details\":\"Warn on contract exception\",\"params\":{\"id\":\"the index of order\",\"msg\":\"description exception*\"}}},\"kind\":\"dev\",\"methods\":{\"balanceOf(address)\":{\"details\":\"balanceOf get balance of account\",\"params\":{\"account\":\"who has delegated*\"}},\"delegate()\":{\"details\":\"delegate deposit matic into contract to stake Emits a {Delegate} event.*\"},\"initOrder((uint128,uint256,uint32,address,uint256,address,uint16))\":{\"details\":\"initOrder initializes parameters for order\",\"params\":{\"orderParam\":\"the initialization parameters of order Emits a {InitOrder} event.*\"}},\"lock()\":{\"details\":\"lock it is migrating matic from contract to ethereum Emits a {Migrate} event*\"},\"totalSupply()\":{\"details\":\"totalSupply get supply of this contract*\"},\"undelegate(uint256)\":{\"details\":\"undelegate withdraw matic from contract to unstake\",\"params\":{\"amount\":\"the withdraw amount of user Emits a {Undelegate} event.*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IStakePool.sol\":\"IStakePool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IStakePool.sol\":{\"keccak256\":\"0xc42cd9a43019539b8630699fb258d1285391ec010d9d02fa9bff1470a6dca6a2\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://f8418f56f92d4511c163a8abd55fddb4080fd9064017ef4e2d9b277e38f52f6b\",\"dweb:/ipfs/QmYgumVZVsX8uhqJ1wyhfNJ5j6Yh9i1dU8X8hiGJu9bMwF\"]},\"project:/contracts/protocol/stakepool/StakePoolContext.sol\":{\"keccak256\":\"0x35c7b1e95d5d4a91103f079d898ae811d9479c8ca5f36276f36e245d9943c51c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://52161eb4795e1cd9a25cc0e85af542ac94a14cf7f45d5f94f357fe34ae597854\",\"dweb:/ipfs/QmSo34x9GpEhiEG3m3HuxiJ45tLiGCnYPgQsGZT9h7uirj\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {StakePoolContext} from \"../protocol/stakepool/StakePoolContext.sol\";\r\n\r\ninterface IStakePool {\r\n    /**** function description ****/\r\n\r\n    /**\r\n     * @dev initOrder initializes parameters for order\r\n     * @param orderParam the initialization parameters of order\r\n     * Emits a {InitOrder} event.\r\n    **/\r\n    function initOrder(StakePoolContext.OrderInitParam calldata orderParam) external returns (uint128);\r\n\r\n    /**\r\n     * @dev delegate deposit matic into contract to stake\r\n     * Emits a {Delegate} event.\r\n    **/\r\n    function delegate() external payable;\r\n\r\n    /**\r\n     * @dev undelegate withdraw matic from contract to unstake\r\n     * @param amount the withdraw amount of user\r\n     * Emits a {Undelegate} event.\r\n    **/\r\n    function undelegate(uint256 amount) external;\r\n\r\n    /**\r\n     * @dev lock it is migrating matic from contract to ethereum\r\n     * Emits a {Migrate} event\r\n    **/\r\n    function lock() external;\r\n\r\n    /**\r\n    * @dev balanceOf get balance of account\r\n    * @param account who has delegated\r\n    **/\r\n    function balanceOf(address account) external view returns (uint256);\r\n\r\n    /**\r\n    * @dev totalSupply get supply of this contract\r\n    **/\r\n    function totalSupply() external view returns (uint256);\r\n\r\n    /**\r\n     * @dev InitOrder on initOrder()\r\n     * @param order the parameters of order\r\n    **/\r\n    event InitOrder(StakePoolContext.Order order);\r\n\r\n    /**\r\n     * @dev Delegate on delegate()\r\n     * @param id the index of order\r\n     * @param account who delegates matic\r\n     * @param amount the amount of delegate matic\r\n    **/\r\n    event Delegate(uint128 indexed id, address indexed account, uint256 amount);\r\n\r\n    /**\r\n     * @dev UnDelegate on undelegate()\r\n     * @param id the index of order\r\n     * @param account who undelegates matic\r\n     * @param amount the amount of undelegate matic\r\n    **/\r\n    event UnDelegate(uint128 indexed id, address indexed account, uint256 amount);\r\n\r\n    /**\r\n    * @dev Migrate on lock()\r\n    * @param id the index of order\r\n    * @param proxy who get matic to migrate\r\n    * @param amount the amount of migrate matic\r\n    **/\r\n    event Migrate(uint128 indexed id, address indexed proxy, uint256 amount);\r\n\r\n\r\n    /**\r\n     * @dev StatusTransfer on status switch\r\n     * @param id the index of order\r\n     * @param preState the previous status\r\n     * @param curState the current status\r\n    **/\r\n    event StatusTransfer(uint128 indexed id,\r\n                         StakePoolContext.ORDER_STATUS preState,\r\n                         StakePoolContext.ORDER_STATUS curState);\r\n\r\n    /**\r\n     * @dev Warn on contract exception\r\n     * @param id the index of order\r\n     * @param msg description exception\r\n    **/\r\n    event Warn(uint128 indexed id, string msg);\r\n}",
+  "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\interfaces\\IStakePool.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/interfaces/IStakePool.sol",
+    "exportedSymbols": {
+      "IStakePool": [
+        11644
+      ]
+    },
+    "id": 11645,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 11556,
+        "literals": [
+          "solidity",
+          ">=",
+          "0.4",
+          ".22",
+          "<",
+          "0.9",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "38:32:250"
+      },
+      {
+        "id": 11557,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "72:33:250"
+      },
+      {
+        "absolutePath": "project:/contracts/protocol/stakepool/StakePoolContext.sol",
+        "file": "../protocol/stakepool/StakePoolContext.sol",
+        "id": 11559,
+        "nodeType": "ImportDirective",
+        "scope": 11645,
+        "sourceUnit": 16309,
+        "src": "109:76:250",
+        "symbolAliases": [
+          {
+            "foreign": {
+              "argumentTypes": null,
+              "id": 11558,
+              "name": "StakePoolContext",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": null,
+              "src": "117:16:250",
+              "typeDescriptions": {
+                "typeIdentifier": null,
+                "typeString": null
+              }
+            },
+            "local": null
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 11644,
+        "linearizedBaseContracts": [
+          11644
+        ],
+        "name": "IStakePool",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "body": null,
+            "documentation": {
+              "id": 11560,
+              "nodeType": "StructuredDocumentation",
+              "src": "257:168:250",
+              "text": " @dev initOrder initializes parameters for order\n @param orderParam the initialization parameters of order\n Emits a {InitOrder} event.*"
+            },
+            "functionSelector": "81d8b825",
+            "id": 11567,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "initOrder",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11563,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11562,
+                  "mutability": "mutable",
+                  "name": "orderParam",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11567,
+                  "src": "450:51:250",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_OrderInitParam_$16293_calldata_ptr",
+                    "typeString": "struct StakePoolContext.OrderInitParam"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 11561,
+                    "name": "StakePoolContext.OrderInitParam",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16293,
+                    "src": "450:31:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_OrderInitParam_$16293_storage_ptr",
+                      "typeString": "struct StakePoolContext.OrderInitParam"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "449:53:250"
+            },
+            "returnParameters": {
+              "id": 11566,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11565,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11567,
+                  "src": "521:7:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11564,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "521:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "520:9:250"
+            },
+            "scope": 11644,
+            "src": "431:99:250",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 11568,
+              "nodeType": "StructuredDocumentation",
+              "src": "538:105:250",
+              "text": " @dev delegate deposit matic into contract to stake\n Emits a {Delegate} event.*"
+            },
+            "functionSelector": "c89e4361",
+            "id": 11571,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "delegate",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11569,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "666:2:250"
+            },
+            "returnParameters": {
+              "id": 11570,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "685:0:250"
+            },
+            "scope": 11644,
+            "src": "649:37:250",
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 11572,
+              "nodeType": "StructuredDocumentation",
+              "src": "694:162:250",
+              "text": " @dev undelegate withdraw matic from contract to unstake\n @param amount the withdraw amount of user\n Emits a {Undelegate} event.*"
+            },
+            "functionSelector": "6c68c0e1",
+            "id": 11577,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "undelegate",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11575,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11574,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11577,
+                  "src": "882:14:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11573,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "882:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "881:16:250"
+            },
+            "returnParameters": {
+              "id": 11576,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "906:0:250"
+            },
+            "scope": 11644,
+            "src": "862:45:250",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 11578,
+              "nodeType": "StructuredDocumentation",
+              "src": "915:110:250",
+              "text": " @dev lock it is migrating matic from contract to ethereum\n Emits a {Migrate} event*"
+            },
+            "functionSelector": "f83d08ba",
+            "id": 11581,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "lock",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11579,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1044:2:250"
+            },
+            "returnParameters": {
+              "id": 11580,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1055:0:250"
+            },
+            "scope": 11644,
+            "src": "1031:25:250",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 11582,
+              "nodeType": "StructuredDocumentation",
+              "src": "1064:97:250",
+              "text": " @dev balanceOf get balance of account\n @param account who has delegated*"
+            },
+            "functionSelector": "70a08231",
+            "id": 11589,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "balanceOf",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11585,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11584,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11589,
+                  "src": "1186:15:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 11583,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1186:7:250",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1185:17:250"
+            },
+            "returnParameters": {
+              "id": 11588,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11587,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11589,
+                  "src": "1226:7:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11586,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1226:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1225:9:250"
+            },
+            "scope": 11644,
+            "src": "1167:68:250",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "body": null,
+            "documentation": {
+              "id": 11590,
+              "nodeType": "StructuredDocumentation",
+              "src": "1243:64:250",
+              "text": " @dev totalSupply get supply of this contract*"
+            },
+            "functionSelector": "18160ddd",
+            "id": 11595,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "totalSupply",
+            "nodeType": "FunctionDefinition",
+            "overrides": null,
+            "parameters": {
+              "id": 11591,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1333:2:250"
+            },
+            "returnParameters": {
+              "id": 11594,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11593,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11595,
+                  "src": "1359:7:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11592,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1359:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1358:9:250"
+            },
+            "scope": 11644,
+            "src": "1313:55:250",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11596,
+              "nodeType": "StructuredDocumentation",
+              "src": "1376:95:250",
+              "text": " @dev InitOrder on initOrder()\n @param order the parameters of order*"
+            },
+            "id": 11600,
+            "name": "InitOrder",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11599,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11598,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "order",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11600,
+                  "src": "1493:28:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$16278_memory_ptr",
+                    "typeString": "struct StakePoolContext.Order"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 11597,
+                    "name": "StakePoolContext.Order",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16278,
+                    "src": "1493:22:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$16278_storage_ptr",
+                      "typeString": "struct StakePoolContext.Order"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1492:30:250"
+            },
+            "src": "1477:46:250"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11601,
+              "nodeType": "StructuredDocumentation",
+              "src": "1531:179:250",
+              "text": " @dev Delegate on delegate()\n @param id the index of order\n @param account who delegates matic\n @param amount the amount of delegate matic*"
+            },
+            "id": 11609,
+            "name": "Delegate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11608,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11603,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11609,
+                  "src": "1731:18:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11602,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1731:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11605,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11609,
+                  "src": "1751:23:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 11604,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1751:7:250",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11607,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11609,
+                  "src": "1776:14:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11606,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1776:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1730:61:250"
+            },
+            "src": "1716:76:250"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11610,
+              "nodeType": "StructuredDocumentation",
+              "src": "1800:187:250",
+              "text": " @dev UnDelegate on undelegate()\n @param id the index of order\n @param account who undelegates matic\n @param amount the amount of undelegate matic*"
+            },
+            "id": 11618,
+            "name": "UnDelegate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11617,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11612,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11618,
+                  "src": "2010:18:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11611,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2010:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11614,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "account",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11618,
+                  "src": "2030:23:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 11613,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2030:7:250",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11616,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11618,
+                  "src": "2055:14:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11615,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2055:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2009:61:250"
+            },
+            "src": "1993:78:250"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11619,
+              "nodeType": "StructuredDocumentation",
+              "src": "2079:172:250",
+              "text": " @dev Migrate on lock()\n @param id the index of order\n @param proxy who get matic to migrate\n @param amount the amount of migrate matic*"
+            },
+            "id": 11627,
+            "name": "Migrate",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11626,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11621,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11627,
+                  "src": "2271:18:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11620,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2271:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11623,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "proxy",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11627,
+                  "src": "2291:21:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 11622,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2291:7:250",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11625,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11627,
+                  "src": "2314:14:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 11624,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2314:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2270:59:250"
+            },
+            "src": "2257:73:250"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11628,
+              "nodeType": "StructuredDocumentation",
+              "src": "2340:181:250",
+              "text": " @dev StatusTransfer on status switch\n @param id the index of order\n @param preState the previous status\n @param curState the current status*"
+            },
+            "id": 11636,
+            "name": "StatusTransfer",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11635,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11630,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11636,
+                  "src": "2548:18:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11629,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2548:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11632,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "preState",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11636,
+                  "src": "2594:38:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ORDER_STATUS_$16247",
+                    "typeString": "enum StakePoolContext.ORDER_STATUS"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 11631,
+                    "name": "StakePoolContext.ORDER_STATUS",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16247,
+                    "src": "2594:29:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ORDER_STATUS_$16247",
+                      "typeString": "enum StakePoolContext.ORDER_STATUS"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11634,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "curState",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11636,
+                  "src": "2660:38:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_enum$_ORDER_STATUS_$16247",
+                    "typeString": "enum StakePoolContext.ORDER_STATUS"
+                  },
+                  "typeName": {
+                    "contractScope": null,
+                    "id": 11633,
+                    "name": "StakePoolContext.ORDER_STATUS",
+                    "nodeType": "UserDefinedTypeName",
+                    "referencedDeclaration": 16247,
+                    "src": "2660:29:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_enum$_ORDER_STATUS_$16247",
+                      "typeString": "enum StakePoolContext.ORDER_STATUS"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2547:152:250"
+            },
+            "src": "2527:173:250"
+          },
+          {
+            "anonymous": false,
+            "documentation": {
+              "id": 11637,
+              "nodeType": "StructuredDocumentation",
+              "src": "2708:130:250",
+              "text": " @dev Warn on contract exception\n @param id the index of order\n @param msg description exception*"
+            },
+            "id": 11643,
+            "name": "Warn",
+            "nodeType": "EventDefinition",
+            "parameters": {
+              "id": 11642,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 11639,
+                  "indexed": true,
+                  "mutability": "mutable",
+                  "name": "id",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11643,
+                  "src": "2855:18:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 11638,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2855:7:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 11641,
+                  "indexed": false,
+                  "mutability": "mutable",
+                  "name": "msg",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 11643,
+                  "src": "2875:10:250",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 11640,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2875:6:250",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2854:32:250"
+            },
+            "src": "2844:43:250"
+          }
+        ],
+        "scope": 11645,
+        "src": "189:2701:250"
+      }
+    ],
+    "src": "38:2852:250"
+  },
+  "legacyAST": {
+    "attributes": {
+      "absolutePath": "project:/contracts/interfaces/IStakePool.sol",
+      "exportedSymbols": {
+        "IStakePool": [
+          11644
+        ]
+      },
+      "license": "agpl-3.0"
+    },
+    "children": [
+      {
+        "attributes": {
+          "literals": [
+            "solidity",
+            ">=",
+            "0.4",
+            ".22",
+            "<",
+            "0.9",
+            ".0"
+          ]
+        },
+        "id": 11556,
+        "name": "PragmaDirective",
+        "src": "38:32:250"
+      },
+      {
+        "attributes": {
+          "literals": [
+            "experimental",
+            "ABIEncoderV2"
+          ]
+        },
+        "id": 11557,
+        "name": "PragmaDirective",
+        "src": "72:33:250"
+      },
+      {
+        "attributes": {
+          "SourceUnit": 16309,
+          "absolutePath": "project:/contracts/protocol/stakepool/StakePoolContext.sol",
+          "file": "../protocol/stakepool/StakePoolContext.sol",
+          "scope": 11645,
+          "symbolAliases": [
+            {
+              "foreign": {
+                "attributes": {
+                  "argumentTypes": null,
+                  "overloadedDeclarations": [
+                    null
+                  ],
+                  "referencedDeclaration": null,
+                  "type": null,
+                  "value": "StakePoolContext"
+                },
+                "id": 11558,
+                "name": "Identifier",
+                "src": "117:16:250"
+              },
+              "local": null
+            }
+          ],
+          "unitAlias": ""
+        },
+        "id": 11559,
+        "name": "ImportDirective",
+        "src": "109:76:250"
+      },
+      {
+        "attributes": {
+          "abstract": false,
+          "baseContracts": [
+            null
+          ],
+          "contractDependencies": [
+            null
+          ],
+          "contractKind": "interface",
+          "documentation": null,
+          "fullyImplemented": false,
+          "linearizedBaseContracts": [
+            11644
+          ],
+          "name": "IStakePool",
+          "scope": 11645
+        },
+        "children": [
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "81d8b825",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "initOrder",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev initOrder initializes parameters for order\n @param orderParam the initialization parameters of order\n Emits a {InitOrder} event.*"
+                },
+                "id": 11560,
+                "name": "StructuredDocumentation",
+                "src": "257:168:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "orderParam",
+                      "overrides": null,
+                      "scope": 11567,
+                      "stateVariable": false,
+                      "storageLocation": "calldata",
+                      "type": "struct StakePoolContext.OrderInitParam",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StakePoolContext.OrderInitParam",
+                          "referencedDeclaration": 16293,
+                          "type": "struct StakePoolContext.OrderInitParam"
+                        },
+                        "id": 11561,
+                        "name": "UserDefinedTypeName",
+                        "src": "450:31:250"
+                      }
+                    ],
+                    "id": 11562,
+                    "name": "VariableDeclaration",
+                    "src": "450:51:250"
+                  }
+                ],
+                "id": 11563,
+                "name": "ParameterList",
+                "src": "449:53:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 11567,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11564,
+                        "name": "ElementaryTypeName",
+                        "src": "521:7:250"
+                      }
+                    ],
+                    "id": 11565,
+                    "name": "VariableDeclaration",
+                    "src": "521:7:250"
+                  }
+                ],
+                "id": 11566,
+                "name": "ParameterList",
+                "src": "520:9:250"
+              }
+            ],
+            "id": 11567,
+            "name": "FunctionDefinition",
+            "src": "431:99:250"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "c89e4361",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "delegate",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "payable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev delegate deposit matic into contract to stake\n Emits a {Delegate} event.*"
+                },
+                "id": 11568,
+                "name": "StructuredDocumentation",
+                "src": "538:105:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11569,
+                "name": "ParameterList",
+                "src": "666:2:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11570,
+                "name": "ParameterList",
+                "src": "685:0:250"
+              }
+            ],
+            "id": 11571,
+            "name": "FunctionDefinition",
+            "src": "649:37:250"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "6c68c0e1",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "undelegate",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev undelegate withdraw matic from contract to unstake\n @param amount the withdraw amount of user\n Emits a {Undelegate} event.*"
+                },
+                "id": 11572,
+                "name": "StructuredDocumentation",
+                "src": "694:162:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 11577,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11573,
+                        "name": "ElementaryTypeName",
+                        "src": "882:7:250"
+                      }
+                    ],
+                    "id": 11574,
+                    "name": "VariableDeclaration",
+                    "src": "882:14:250"
+                  }
+                ],
+                "id": 11575,
+                "name": "ParameterList",
+                "src": "881:16:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11576,
+                "name": "ParameterList",
+                "src": "906:0:250"
+              }
+            ],
+            "id": 11577,
+            "name": "FunctionDefinition",
+            "src": "862:45:250"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "f83d08ba",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "lock",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "nonpayable",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev lock it is migrating matic from contract to ethereum\n Emits a {Migrate} event*"
+                },
+                "id": 11578,
+                "name": "StructuredDocumentation",
+                "src": "915:110:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11579,
+                "name": "ParameterList",
+                "src": "1044:2:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11580,
+                "name": "ParameterList",
+                "src": "1055:0:250"
+              }
+            ],
+            "id": 11581,
+            "name": "FunctionDefinition",
+            "src": "1031:25:250"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "70a08231",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "balanceOf",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev balanceOf get balance of account\n @param account who has delegated*"
+                },
+                "id": 11582,
+                "name": "StructuredDocumentation",
+                "src": "1064:97:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "account",
+                      "overrides": null,
+                      "scope": 11589,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 11583,
+                        "name": "ElementaryTypeName",
+                        "src": "1186:7:250"
+                      }
+                    ],
+                    "id": 11584,
+                    "name": "VariableDeclaration",
+                    "src": "1186:15:250"
+                  }
+                ],
+                "id": 11585,
+                "name": "ParameterList",
+                "src": "1185:17:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 11589,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11586,
+                        "name": "ElementaryTypeName",
+                        "src": "1226:7:250"
+                      }
+                    ],
+                    "id": 11587,
+                    "name": "VariableDeclaration",
+                    "src": "1226:7:250"
+                  }
+                ],
+                "id": 11588,
+                "name": "ParameterList",
+                "src": "1225:9:250"
+              }
+            ],
+            "id": 11589,
+            "name": "FunctionDefinition",
+            "src": "1167:68:250"
+          },
+          {
+            "attributes": {
+              "body": null,
+              "functionSelector": "18160ddd",
+              "implemented": false,
+              "isConstructor": false,
+              "kind": "function",
+              "modifiers": [
+                null
+              ],
+              "name": "totalSupply",
+              "overrides": null,
+              "scope": 11644,
+              "stateMutability": "view",
+              "virtual": false,
+              "visibility": "external"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev totalSupply get supply of this contract*"
+                },
+                "id": 11590,
+                "name": "StructuredDocumentation",
+                "src": "1243:64:250"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 11591,
+                "name": "ParameterList",
+                "src": "1333:2:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "",
+                      "overrides": null,
+                      "scope": 11595,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11592,
+                        "name": "ElementaryTypeName",
+                        "src": "1359:7:250"
+                      }
+                    ],
+                    "id": 11593,
+                    "name": "VariableDeclaration",
+                    "src": "1359:7:250"
+                  }
+                ],
+                "id": 11594,
+                "name": "ParameterList",
+                "src": "1358:9:250"
+              }
+            ],
+            "id": 11595,
+            "name": "FunctionDefinition",
+            "src": "1313:55:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "InitOrder"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev InitOrder on initOrder()\n @param order the parameters of order*"
+                },
+                "id": 11596,
+                "name": "StructuredDocumentation",
+                "src": "1376:95:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "order",
+                      "overrides": null,
+                      "scope": 11600,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "struct StakePoolContext.Order",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StakePoolContext.Order",
+                          "referencedDeclaration": 16278,
+                          "type": "struct StakePoolContext.Order"
+                        },
+                        "id": 11597,
+                        "name": "UserDefinedTypeName",
+                        "src": "1493:22:250"
+                      }
+                    ],
+                    "id": 11598,
+                    "name": "VariableDeclaration",
+                    "src": "1493:28:250"
+                  }
+                ],
+                "id": 11599,
+                "name": "ParameterList",
+                "src": "1492:30:250"
+              }
+            ],
+            "id": 11600,
+            "name": "EventDefinition",
+            "src": "1477:46:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "Delegate"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Delegate on delegate()\n @param id the index of order\n @param account who delegates matic\n @param amount the amount of delegate matic*"
+                },
+                "id": 11601,
+                "name": "StructuredDocumentation",
+                "src": "1531:179:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "overrides": null,
+                      "scope": 11609,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11602,
+                        "name": "ElementaryTypeName",
+                        "src": "1731:7:250"
+                      }
+                    ],
+                    "id": 11603,
+                    "name": "VariableDeclaration",
+                    "src": "1731:18:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "account",
+                      "overrides": null,
+                      "scope": 11609,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 11604,
+                        "name": "ElementaryTypeName",
+                        "src": "1751:7:250"
+                      }
+                    ],
+                    "id": 11605,
+                    "name": "VariableDeclaration",
+                    "src": "1751:23:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 11609,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11606,
+                        "name": "ElementaryTypeName",
+                        "src": "1776:7:250"
+                      }
+                    ],
+                    "id": 11607,
+                    "name": "VariableDeclaration",
+                    "src": "1776:14:250"
+                  }
+                ],
+                "id": 11608,
+                "name": "ParameterList",
+                "src": "1730:61:250"
+              }
+            ],
+            "id": 11609,
+            "name": "EventDefinition",
+            "src": "1716:76:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "UnDelegate"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev UnDelegate on undelegate()\n @param id the index of order\n @param account who undelegates matic\n @param amount the amount of undelegate matic*"
+                },
+                "id": 11610,
+                "name": "StructuredDocumentation",
+                "src": "1800:187:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "overrides": null,
+                      "scope": 11618,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11611,
+                        "name": "ElementaryTypeName",
+                        "src": "2010:7:250"
+                      }
+                    ],
+                    "id": 11612,
+                    "name": "VariableDeclaration",
+                    "src": "2010:18:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "account",
+                      "overrides": null,
+                      "scope": 11618,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 11613,
+                        "name": "ElementaryTypeName",
+                        "src": "2030:7:250"
+                      }
+                    ],
+                    "id": 11614,
+                    "name": "VariableDeclaration",
+                    "src": "2030:23:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 11618,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11615,
+                        "name": "ElementaryTypeName",
+                        "src": "2055:7:250"
+                      }
+                    ],
+                    "id": 11616,
+                    "name": "VariableDeclaration",
+                    "src": "2055:14:250"
+                  }
+                ],
+                "id": 11617,
+                "name": "ParameterList",
+                "src": "2009:61:250"
+              }
+            ],
+            "id": 11618,
+            "name": "EventDefinition",
+            "src": "1993:78:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "Migrate"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Migrate on lock()\n @param id the index of order\n @param proxy who get matic to migrate\n @param amount the amount of migrate matic*"
+                },
+                "id": 11619,
+                "name": "StructuredDocumentation",
+                "src": "2079:172:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "overrides": null,
+                      "scope": 11627,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11620,
+                        "name": "ElementaryTypeName",
+                        "src": "2271:7:250"
+                      }
+                    ],
+                    "id": 11621,
+                    "name": "VariableDeclaration",
+                    "src": "2271:18:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "proxy",
+                      "overrides": null,
+                      "scope": 11627,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 11622,
+                        "name": "ElementaryTypeName",
+                        "src": "2291:7:250"
+                      }
+                    ],
+                    "id": 11623,
+                    "name": "VariableDeclaration",
+                    "src": "2291:21:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "amount",
+                      "overrides": null,
+                      "scope": 11627,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint256",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint256",
+                          "type": "uint256"
+                        },
+                        "id": 11624,
+                        "name": "ElementaryTypeName",
+                        "src": "2314:7:250"
+                      }
+                    ],
+                    "id": 11625,
+                    "name": "VariableDeclaration",
+                    "src": "2314:14:250"
+                  }
+                ],
+                "id": 11626,
+                "name": "ParameterList",
+                "src": "2270:59:250"
+              }
+            ],
+            "id": 11627,
+            "name": "EventDefinition",
+            "src": "2257:73:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "StatusTransfer"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev StatusTransfer on status switch\n @param id the index of order\n @param preState the previous status\n @param curState the current status*"
+                },
+                "id": 11628,
+                "name": "StructuredDocumentation",
+                "src": "2340:181:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "overrides": null,
+                      "scope": 11636,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11629,
+                        "name": "ElementaryTypeName",
+                        "src": "2548:7:250"
+                      }
+                    ],
+                    "id": 11630,
+                    "name": "VariableDeclaration",
+                    "src": "2548:18:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "preState",
+                      "overrides": null,
+                      "scope": 11636,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum StakePoolContext.ORDER_STATUS",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StakePoolContext.ORDER_STATUS",
+                          "referencedDeclaration": 16247,
+                          "type": "enum StakePoolContext.ORDER_STATUS"
+                        },
+                        "id": 11631,
+                        "name": "UserDefinedTypeName",
+                        "src": "2594:29:250"
+                      }
+                    ],
+                    "id": 11632,
+                    "name": "VariableDeclaration",
+                    "src": "2594:38:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "curState",
+                      "overrides": null,
+                      "scope": 11636,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "enum StakePoolContext.ORDER_STATUS",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "contractScope": null,
+                          "name": "StakePoolContext.ORDER_STATUS",
+                          "referencedDeclaration": 16247,
+                          "type": "enum StakePoolContext.ORDER_STATUS"
+                        },
+                        "id": 11633,
+                        "name": "UserDefinedTypeName",
+                        "src": "2660:29:250"
+                      }
+                    ],
+                    "id": 11634,
+                    "name": "VariableDeclaration",
+                    "src": "2660:38:250"
+                  }
+                ],
+                "id": 11635,
+                "name": "ParameterList",
+                "src": "2547:152:250"
+              }
+            ],
+            "id": 11636,
+            "name": "EventDefinition",
+            "src": "2527:173:250"
+          },
+          {
+            "attributes": {
+              "anonymous": false,
+              "name": "Warn"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "text": " @dev Warn on contract exception\n @param id the index of order\n @param msg description exception*"
+                },
+                "id": 11637,
+                "name": "StructuredDocumentation",
+                "src": "2708:130:250"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": true,
+                      "mutability": "mutable",
+                      "name": "id",
+                      "overrides": null,
+                      "scope": 11643,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "uint128",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "uint128",
+                          "type": "uint128"
+                        },
+                        "id": 11638,
+                        "name": "ElementaryTypeName",
+                        "src": "2855:7:250"
+                      }
+                    ],
+                    "id": 11639,
+                    "name": "VariableDeclaration",
+                    "src": "2855:18:250"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "indexed": false,
+                      "mutability": "mutable",
+                      "name": "msg",
+                      "overrides": null,
+                      "scope": 11643,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string"
+                        },
+                        "id": 11640,
+                        "name": "ElementaryTypeName",
+                        "src": "2875:6:250"
+                      }
+                    ],
+                    "id": 11641,
+                    "name": "VariableDeclaration",
+                    "src": "2875:10:250"
+                  }
+                ],
+                "id": 11642,
+                "name": "ParameterList",
+                "src": "2854:32:250"
+              }
+            ],
+            "id": 11643,
+            "name": "EventDefinition",
+            "src": "2844:43:250"
+          }
+        ],
+        "id": 11644,
+        "name": "ContractDefinition",
+        "src": "189:2701:250"
+      }
+    ],
+    "id": 11645,
+    "name": "SourceUnit",
+    "src": "38:2852:250"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-08-10T11:43:49.446Z",
+  "devdoc": {
+    "events": {
+      "Delegate(uint128,address,uint256)": {
+        "details": "Delegate on delegate()",
+        "params": {
+          "account": "who delegates matic",
+          "amount": "the amount of delegate matic*",
+          "id": "the index of order"
+        }
+      },
+      "InitOrder((uint128,uint8,uint256[],uint256,uint32,address,uint256,address,uint16))": {
+        "details": "InitOrder on initOrder()",
+        "params": {
+          "order": "the parameters of order*"
+        }
+      },
+      "Migrate(uint128,address,uint256)": {
+        "details": "Migrate on lock()",
+        "params": {
+          "amount": "the amount of migrate matic*",
+          "id": "the index of order",
+          "proxy": "who get matic to migrate"
+        }
+      },
+      "StatusTransfer(uint128,uint8,uint8)": {
+        "details": "StatusTransfer on status switch",
+        "params": {
+          "curState": "the current status*",
+          "id": "the index of order",
+          "preState": "the previous status"
+        }
+      },
+      "UnDelegate(uint128,address,uint256)": {
+        "details": "UnDelegate on undelegate()",
+        "params": {
+          "account": "who undelegates matic",
+          "amount": "the amount of undelegate matic*",
+          "id": "the index of order"
+        }
+      },
+      "Warn(uint128,string)": {
+        "details": "Warn on contract exception",
+        "params": {
+          "id": "the index of order",
+          "msg": "description exception*"
+        }
+      }
+    },
+    "kind": "dev",
+    "methods": {
+      "balanceOf(address)": {
+        "details": "balanceOf get balance of account",
+        "params": {
+          "account": "who has delegated*"
+        }
+      },
+      "delegate()": {
+        "details": "delegate deposit matic into contract to stake Emits a {Delegate} event.*"
+      },
+      "initOrder((uint128,uint256,uint32,address,uint256,address,uint16))": {
+        "details": "initOrder initializes parameters for order",
+        "params": {
+          "orderParam": "the initialization parameters of order Emits a {InitOrder} event.*"
+        }
+      },
+      "lock()": {
+        "details": "lock it is migrating matic from contract to ethereum Emits a {Migrate} event*"
+      },
+      "totalSupply()": {
+        "details": "totalSupply get supply of this contract*"
+      },
+      "undelegate(uint256)": {
+        "details": "undelegate withdraw matic from contract to unstake",
+        "params": {
+          "amount": "the withdraw amount of user Emits a {Undelegate} event.*"
+        }
+      }
+    },
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {},
+    "version": 1
+  }
+}

@@ -58,34 +58,34 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getScaledUserBalanceAndSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"scaledBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"scaledTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getScaledUserBalanceAndSupply(address)\":{\"details\":\"Returns the scaled balance of the user and the scaled total supply.\",\"params\":{\"user\":\"The address of the user\"},\"returns\":{\"_0\":\"The scaled balance of the user\",\"_1\":\"The scaled balance and the scaled total supply*\"}},\"scaledBalanceOf(address)\":{\"details\":\"Returns the scaled balance of the user. The scaled balance is the sum of all the updated stored balance divided by the reserve's liquidity index at the moment of the update\",\"params\":{\"user\":\"The user whose balance is calculated\"},\"returns\":{\"_0\":\"The scaled balance of the user*\"}},\"scaledTotalSupply()\":{\"details\":\"Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\",\"returns\":{\"_0\":\"The scaled total supply*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol\":\"IScaledBalanceToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol\":{\"keccak256\":\"0x03f77c8f37be8f08723b82ccc7c000da0152839632a5c3952c292a2ea0b1b491\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://c8cbe31d5cd705ef15b40c0d9a48dace17797a314fa1d8d93edd412537e8ac98\",\"dweb:/ipfs/QmYuKD5D5NVakZ41XRxHvMUXUG4Hn83E9YyxJMrMCjPZxd\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"getScaledUserBalanceAndSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"scaledBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"scaledTotalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"getScaledUserBalanceAndSupply(address)\":{\"details\":\"Returns the scaled balance of the user and the scaled total supply.\",\"params\":{\"user\":\"The address of the user\"},\"returns\":{\"_0\":\"The scaled balance of the user\",\"_1\":\"The scaled balance and the scaled total supply*\"}},\"scaledBalanceOf(address)\":{\"details\":\"Returns the scaled balance of the user. The scaled balance is the sum of all the updated stored balance divided by the reserve's liquidity index at the moment of the update\",\"params\":{\"user\":\"The user whose balance is calculated\"},\"returns\":{\"_0\":\"The scaled balance of the user*\"}},\"scaledTotalSupply()\":{\"details\":\"Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\",\"returns\":{\"_0\":\"The scaled total supply*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol\":\"IScaledBalanceToken\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol\":{\"keccak256\":\"0x8a30667a00d1d6f95f4a44cf33d1f5869153325395fee603957882ba0a5734ed\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://cfeae32aa78f6f52fdda54dd6536b0fb5d341f8341353b40271f03a8fe957fab\",\"dweb:/ipfs/QmPq5x5kxQr3NSJhBj4F2fYEUeMja4NW48LB5XHAsJJ4XY\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity 0.6.12;\n\ninterface IScaledBalanceToken {\n  /**\n   * @dev Returns the scaled balance of the user. The scaled balance is the sum of all the\n   * updated stored balance divided by the reserve's liquidity index at the moment of the update\n   * @param user The user whose balance is calculated\n   * @return The scaled balance of the user\n   **/\n  function scaledBalanceOf(address user) external view returns (uint256);\n\n  /**\n   * @dev Returns the scaled balance of the user and the scaled total supply.\n   * @param user The address of the user\n   * @return The scaled balance of the user\n   * @return The scaled balance and the scaled total supply\n   **/\n  function getScaledUserBalanceAndSupply(address user) external view returns (uint256, uint256);\n\n  /**\n   * @dev Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\n   * @return The scaled total supply\n   **/\n  function scaledTotalSupply() external view returns (uint256);\n}\n",
-  "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol",
+  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity 0.6.12;\r\n\r\ninterface IScaledBalanceToken {\r\n  /**\r\n   * @dev Returns the scaled balance of the user. The scaled balance is the sum of all the\r\n   * updated stored balance divided by the reserve's liquidity index at the moment of the update\r\n   * @param user The user whose balance is calculated\r\n   * @return The scaled balance of the user\r\n   **/\r\n  function scaledBalanceOf(address user) external view returns (uint256);\r\n\r\n  /**\r\n   * @dev Returns the scaled balance of the user and the scaled total supply.\r\n   * @param user The address of the user\r\n   * @return The scaled balance of the user\r\n   * @return The scaled balance and the scaled total supply\r\n   **/\r\n  function getScaledUserBalanceAndSupply(address user) external view returns (uint256, uint256);\r\n\r\n  /**\r\n   * @dev Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\r\n   * @return The scaled total supply\r\n   **/\r\n  function scaledTotalSupply() external view returns (uint256);\r\n}\r\n",
+  "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\protocol\\gunpool\\pools\\aave\\IScaledBalanceToken.sol",
   "ast": {
-    "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol",
+    "absolutePath": "project:/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol",
     "exportedSymbols": {
       "IScaledBalanceToken": [
-        14696
+        14786
       ]
     },
-    "id": 14697,
+    "id": 14787,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14671,
+        "id": 14761,
         "literals": [
           "solidity",
           "0.6",
           ".12"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:23:260"
+        "src": "38:23:261"
       },
       {
         "abstract": false,
@@ -94,9 +94,9 @@
         "contractKind": "interface",
         "documentation": null,
         "fullyImplemented": false,
-        "id": 14696,
+        "id": 14786,
         "linearizedBaseContracts": [
-          14696
+          14786
         ],
         "name": "IScaledBalanceToken",
         "nodeType": "ContractDefinition",
@@ -104,13 +104,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 14672,
+              "id": 14762,
               "nodeType": "StructuredDocumentation",
-              "src": "96:296:260",
+              "src": "100:301:261",
               "text": " @dev Returns the scaled balance of the user. The scaled balance is the sum of all the\n updated stored balance divided by the reserve's liquidity index at the moment of the update\n @param user The user whose balance is calculated\n @return The scaled balance of the user*"
             },
             "functionSelector": "1da24f3e",
-            "id": 14679,
+            "id": 14769,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -118,18 +118,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 14675,
+              "id": 14765,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 14674,
+                  "id": 14764,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14679,
-                  "src": "420:12:260",
+                  "scope": 14769,
+                  "src": "430:12:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -137,10 +137,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 14673,
+                    "id": 14763,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "420:7:260",
+                    "src": "430:7:261",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -151,21 +151,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "419:14:260"
+              "src": "429:14:261"
             },
             "returnParameters": {
-              "id": 14678,
+              "id": 14768,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 14677,
+                  "id": 14767,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14679,
-                  "src": "457:7:260",
+                  "scope": 14769,
+                  "src": "467:7:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -173,10 +173,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 14676,
+                    "id": 14766,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "457:7:260",
+                    "src": "467:7:261",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -186,10 +186,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "456:9:260"
+              "src": "466:9:261"
             },
-            "scope": 14696,
-            "src": "395:71:260",
+            "scope": 14786,
+            "src": "405:71:261",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -197,13 +197,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 14680,
+              "id": 14770,
               "nodeType": "StructuredDocumentation",
-              "src": "470:233:260",
+              "src": "482:238:261",
               "text": " @dev Returns the scaled balance of the user and the scaled total supply.\n @param user The address of the user\n @return The scaled balance of the user\n @return The scaled balance and the scaled total supply*"
             },
             "functionSelector": "0afbcdc9",
-            "id": 14689,
+            "id": 14779,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -211,18 +211,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 14683,
+              "id": 14773,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 14682,
+                  "id": 14772,
                   "mutability": "mutable",
                   "name": "user",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14689,
-                  "src": "745:12:260",
+                  "scope": 14779,
+                  "src": "763:12:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -230,10 +230,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 14681,
+                    "id": 14771,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "745:7:260",
+                    "src": "763:7:261",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -244,21 +244,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "744:14:260"
+              "src": "762:14:261"
             },
             "returnParameters": {
-              "id": 14688,
+              "id": 14778,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 14685,
+                  "id": 14775,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14689,
-                  "src": "782:7:260",
+                  "scope": 14779,
+                  "src": "800:7:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -266,10 +266,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 14684,
+                    "id": 14774,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "782:7:260",
+                    "src": "800:7:261",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -280,13 +280,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 14687,
+                  "id": 14777,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14689,
-                  "src": "791:7:260",
+                  "scope": 14779,
+                  "src": "809:7:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -294,10 +294,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 14686,
+                    "id": 14776,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "791:7:260",
+                    "src": "809:7:261",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -307,10 +307,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "781:18:260"
+              "src": "799:18:261"
             },
-            "scope": 14696,
-            "src": "706:94:260",
+            "scope": 14786,
+            "src": "724:94:261",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -318,13 +318,13 @@
           {
             "body": null,
             "documentation": {
-              "id": 14690,
+              "id": 14780,
               "nodeType": "StructuredDocumentation",
-              "src": "804:144:260",
+              "src": "824:147:261",
               "text": " @dev Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\n @return The scaled total supply*"
             },
             "functionSelector": "b1bf962d",
-            "id": 14695,
+            "id": 14785,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
@@ -332,24 +332,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 14691,
+              "id": 14781,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "977:2:260"
+              "src": "1001:2:261"
             },
             "returnParameters": {
-              "id": 14694,
+              "id": 14784,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 14693,
+                  "id": 14783,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 14695,
-                  "src": "1003:7:260",
+                  "scope": 14785,
+                  "src": "1027:7:261",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -357,10 +357,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 14692,
+                    "id": 14782,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1003:7:260",
+                    "src": "1027:7:261",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -370,27 +370,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1002:9:260"
+              "src": "1026:9:261"
             },
-            "scope": 14696,
-            "src": "951:61:260",
+            "scope": 14786,
+            "src": "975:61:261",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 14697,
-        "src": "62:952:260"
+        "scope": 14787,
+        "src": "65:974:261"
       }
     ],
-    "src": "37:978:260"
+    "src": "38:1003:261"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol",
+      "absolutePath": "project:/contracts/protocol/gunpool/pools/aave/IScaledBalanceToken.sol",
       "exportedSymbols": {
         "IScaledBalanceToken": [
-          14696
+          14786
         ]
       },
       "license": "agpl-3.0"
@@ -404,9 +404,9 @@
             ".12"
           ]
         },
-        "id": 14671,
+        "id": 14761,
         "name": "PragmaDirective",
-        "src": "37:23:260"
+        "src": "38:23:261"
       },
       {
         "attributes": {
@@ -421,10 +421,10 @@
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            14696
+            14786
           ],
           "name": "IScaledBalanceToken",
-          "scope": 14697
+          "scope": 14787
         },
         "children": [
           {
@@ -439,7 +439,7 @@
               ],
               "name": "scaledBalanceOf",
               "overrides": null,
-              "scope": 14696,
+              "scope": 14786,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -449,9 +449,9 @@
                 "attributes": {
                   "text": " @dev Returns the scaled balance of the user. The scaled balance is the sum of all the\n updated stored balance divided by the reserve's liquidity index at the moment of the update\n @param user The user whose balance is calculated\n @return The scaled balance of the user*"
                 },
-                "id": 14672,
+                "id": 14762,
                 "name": "StructuredDocumentation",
-                "src": "96:296:260"
+                "src": "100:301:261"
               },
               {
                 "children": [
@@ -461,7 +461,7 @@
                       "mutability": "mutable",
                       "name": "user",
                       "overrides": null,
-                      "scope": 14679,
+                      "scope": 14769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -475,19 +475,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 14673,
+                        "id": 14763,
                         "name": "ElementaryTypeName",
-                        "src": "420:7:260"
+                        "src": "430:7:261"
                       }
                     ],
-                    "id": 14674,
+                    "id": 14764,
                     "name": "VariableDeclaration",
-                    "src": "420:12:260"
+                    "src": "430:12:261"
                   }
                 ],
-                "id": 14675,
+                "id": 14765,
                 "name": "ParameterList",
-                "src": "419:14:260"
+                "src": "429:14:261"
               },
               {
                 "children": [
@@ -497,7 +497,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 14679,
+                      "scope": 14769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -510,24 +510,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 14676,
+                        "id": 14766,
                         "name": "ElementaryTypeName",
-                        "src": "457:7:260"
+                        "src": "467:7:261"
                       }
                     ],
-                    "id": 14677,
+                    "id": 14767,
                     "name": "VariableDeclaration",
-                    "src": "457:7:260"
+                    "src": "467:7:261"
                   }
                 ],
-                "id": 14678,
+                "id": 14768,
                 "name": "ParameterList",
-                "src": "456:9:260"
+                "src": "466:9:261"
               }
             ],
-            "id": 14679,
+            "id": 14769,
             "name": "FunctionDefinition",
-            "src": "395:71:260"
+            "src": "405:71:261"
           },
           {
             "attributes": {
@@ -541,7 +541,7 @@
               ],
               "name": "getScaledUserBalanceAndSupply",
               "overrides": null,
-              "scope": 14696,
+              "scope": 14786,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -551,9 +551,9 @@
                 "attributes": {
                   "text": " @dev Returns the scaled balance of the user and the scaled total supply.\n @param user The address of the user\n @return The scaled balance of the user\n @return The scaled balance and the scaled total supply*"
                 },
-                "id": 14680,
+                "id": 14770,
                 "name": "StructuredDocumentation",
-                "src": "470:233:260"
+                "src": "482:238:261"
               },
               {
                 "children": [
@@ -563,7 +563,7 @@
                       "mutability": "mutable",
                       "name": "user",
                       "overrides": null,
-                      "scope": 14689,
+                      "scope": 14779,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -577,19 +577,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 14681,
+                        "id": 14771,
                         "name": "ElementaryTypeName",
-                        "src": "745:7:260"
+                        "src": "763:7:261"
                       }
                     ],
-                    "id": 14682,
+                    "id": 14772,
                     "name": "VariableDeclaration",
-                    "src": "745:12:260"
+                    "src": "763:12:261"
                   }
                 ],
-                "id": 14683,
+                "id": 14773,
                 "name": "ParameterList",
-                "src": "744:14:260"
+                "src": "762:14:261"
               },
               {
                 "children": [
@@ -599,7 +599,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 14689,
+                      "scope": 14779,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -612,14 +612,14 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 14684,
+                        "id": 14774,
                         "name": "ElementaryTypeName",
-                        "src": "782:7:260"
+                        "src": "800:7:261"
                       }
                     ],
-                    "id": 14685,
+                    "id": 14775,
                     "name": "VariableDeclaration",
-                    "src": "782:7:260"
+                    "src": "800:7:261"
                   },
                   {
                     "attributes": {
@@ -627,7 +627,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 14689,
+                      "scope": 14779,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -640,24 +640,24 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 14686,
+                        "id": 14776,
                         "name": "ElementaryTypeName",
-                        "src": "791:7:260"
+                        "src": "809:7:261"
                       }
                     ],
-                    "id": 14687,
+                    "id": 14777,
                     "name": "VariableDeclaration",
-                    "src": "791:7:260"
+                    "src": "809:7:261"
                   }
                 ],
-                "id": 14688,
+                "id": 14778,
                 "name": "ParameterList",
-                "src": "781:18:260"
+                "src": "799:18:261"
               }
             ],
-            "id": 14689,
+            "id": 14779,
             "name": "FunctionDefinition",
-            "src": "706:94:260"
+            "src": "724:94:261"
           },
           {
             "attributes": {
@@ -671,7 +671,7 @@
               ],
               "name": "scaledTotalSupply",
               "overrides": null,
-              "scope": 14696,
+              "scope": 14786,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -681,9 +681,9 @@
                 "attributes": {
                   "text": " @dev Returns the scaled total supply of the variable debt token. Represents sum(debt/index)\n @return The scaled total supply*"
                 },
-                "id": 14690,
+                "id": 14780,
                 "name": "StructuredDocumentation",
-                "src": "804:144:260"
+                "src": "824:147:261"
               },
               {
                 "attributes": {
@@ -692,9 +692,9 @@
                   ]
                 },
                 "children": [],
-                "id": 14691,
+                "id": 14781,
                 "name": "ParameterList",
-                "src": "977:2:260"
+                "src": "1001:2:261"
               },
               {
                 "children": [
@@ -704,7 +704,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 14695,
+                      "scope": 14785,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -717,42 +717,42 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 14692,
+                        "id": 14782,
                         "name": "ElementaryTypeName",
-                        "src": "1003:7:260"
+                        "src": "1027:7:261"
                       }
                     ],
-                    "id": 14693,
+                    "id": 14783,
                     "name": "VariableDeclaration",
-                    "src": "1003:7:260"
+                    "src": "1027:7:261"
                   }
                 ],
-                "id": 14694,
+                "id": 14784,
                 "name": "ParameterList",
-                "src": "1002:9:260"
+                "src": "1026:9:261"
               }
             ],
-            "id": 14695,
+            "id": 14785,
             "name": "FunctionDefinition",
-            "src": "951:61:260"
+            "src": "975:61:261"
           }
         ],
-        "id": 14696,
+        "id": 14786,
         "name": "ContractDefinition",
-        "src": "62:952:260"
+        "src": "65:974:261"
       }
     ],
-    "id": 14697,
+    "id": 14787,
     "name": "SourceUnit",
-    "src": "37:978:260"
+    "src": "38:1003:261"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-28T06:04:33.922Z",
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-08-10T11:43:49.513Z",
   "devdoc": {
     "kind": "dev",
     "methods": {

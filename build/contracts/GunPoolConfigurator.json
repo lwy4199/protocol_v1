@@ -1,27 +1,27 @@
 {
   "contractName": "GunPoolConfigurator",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolConfigurator.sol\":\"GunPoolConfigurator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xdf34b82857429c3cad17daf516d55b05a8d8b8df91b7c32f0c093f3bc6a66a45\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://b86b1b654e1a470759609ac381073a2191658927098b3ac3f0cdf57cb6d004da\",\"dweb:/ipfs/QmUVsCiANCS14Png1ZqmQG6cA3E553MLAhjXsJFKLXmd8g\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolConfigurator.sol\":{\"keccak256\":\"0xbbc43441cc2928206e77fadcd489ade0296b65b0f61cc86f1795f36b4165e6f9\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://95ac800d07f6af6e015954f248a460f9b6fac983d799006b8b17cc86e1a2184a\",\"dweb:/ipfs/Qmb8tuWdzVT7a8JD28G2CU44U9uJ1u2ixWH3DWsmRU9YBt\"]},\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0xff493d75fc1651f904b3dff147e0333a261273ab364a6c28789c386230f5375e\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://44d0144710570beeb0e781bcc8cef104f3d8c00398bc56da09c58e6aff8c8789\",\"dweb:/ipfs/QmQ6863kFWY6ec545ZxDWj3JxVDNaFwTF6vshA8ft72uLk\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220934e36e60a5cc595f164a867289a19c0fca7605723ca2520685f6ffe31a8275d64736f6c634300060c0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220934e36e60a5cc595f164a867289a19c0fca7605723ca2520685f6ffe31a8275d64736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":\"GunPoolConfigurator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xd21cb8aef1587aef74cefe70cf0fb417161f77f2883bbe9445bc21e143eb240d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://795bfda411fb819132ba5629a0538281963ac36e96a268b3db91a26b51df3cb3\",\"dweb:/ipfs/QmU7yC5cC5e5tu4E3YAXhbfPv2YXL1EF74fkqiA3me3LS6\"]},\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":{\"keccak256\":\"0x8b9a9d325b0217a1a1ecc17113f74a53530b15b3c91b0e8786622f4a5b7717f2\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://0a99b19cbc4551a33f7bc02dc77e53948f52f43d6c372ab2170c1483435a8e75\",\"dweb:/ipfs/QmVCLcTWXG3J9TqX7nGyNs2QFDwhTKuvSQHeigu2ZYjz1E\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a89b998cdef9e759eae144b933917e1424590fca616195198f1126f4e664b75464736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220a89b998cdef9e759eae144b933917e1424590fca616195198f1126f4e664b75464736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "162:60:254:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "162:60:254:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: agpl-3.0\npragma solidity >=0.4.22 <0.9.0;\npragma experimental ABIEncoderV2;\n\nimport {IGunPool} from \"../../interfaces/IGunPool.sol\";\n\ncontract GunPoolConfigurator {\n  IGunPool internal pool;\n\n\n}\n",
-  "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolConfigurator.sol",
+  "sourceMap": "168:64:255:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "168:64:255:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {IGunPool} from \"../../interfaces/IGunPool.sol\";\r\n\r\ncontract GunPoolConfigurator {\r\n  IGunPool internal pool;\r\n\r\n\r\n}\r\n",
+  "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\protocol\\gunpool\\GunPoolConfigurator.sol",
   "ast": {
-    "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolConfigurator.sol",
+    "absolutePath": "project:/contracts/protocol/gunpool/GunPoolConfigurator.sol",
     "exportedSymbols": {
       "GunPoolConfigurator": [
-        14078
+        14168
       ]
     },
-    "id": 14079,
+    "id": 14169,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14072,
+        "id": 14162,
         "literals": [
           "solidity",
           ">=",
@@ -32,35 +32,35 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "37:32:254"
+        "src": "38:32:255"
       },
       {
-        "id": 14073,
+        "id": 14163,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "70:33:254"
+        "src": "72:33:255"
       },
       {
-        "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/interfaces/IGunPool.sol",
+        "absolutePath": "project:/contracts/interfaces/IGunPool.sol",
         "file": "../../interfaces/IGunPool.sol",
-        "id": 14075,
+        "id": 14165,
         "nodeType": "ImportDirective",
-        "scope": 14079,
+        "scope": 14169,
         "sourceUnit": 11555,
-        "src": "105:55:254",
+        "src": "109:55:255",
         "symbolAliases": [
           {
             "foreign": {
               "argumentTypes": null,
-              "id": 14074,
+              "id": 14164,
               "name": "IGunPool",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
               "referencedDeclaration": null,
-              "src": "113:8:254",
+              "src": "117:8:255",
               "typeDescriptions": {
                 "typeIdentifier": null,
                 "typeString": null
@@ -78,22 +78,22 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 14078,
+        "id": 14168,
         "linearizedBaseContracts": [
-          14078
+          14168
         ],
         "name": "GunPoolConfigurator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 14077,
+            "id": 14167,
             "mutability": "mutable",
             "name": "pool",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 14078,
-            "src": "195:22:254",
+            "scope": 14168,
+            "src": "202:22:255",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -102,11 +102,11 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 14076,
+              "id": 14166,
               "name": "IGunPool",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 11554,
-              "src": "195:8:254",
+              "src": "202:8:255",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_IGunPool_$11554",
                 "typeString": "contract IGunPool"
@@ -116,18 +116,18 @@
             "visibility": "internal"
           }
         ],
-        "scope": 14079,
-        "src": "162:60:254"
+        "scope": 14169,
+        "src": "168:64:255"
       }
     ],
-    "src": "37:186:254"
+    "src": "38:196:255"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/protocol/gunpool/GunPoolConfigurator.sol",
+      "absolutePath": "project:/contracts/protocol/gunpool/GunPoolConfigurator.sol",
       "exportedSymbols": {
         "GunPoolConfigurator": [
-          14078
+          14168
         ]
       },
       "license": "agpl-3.0"
@@ -145,9 +145,9 @@
             ".0"
           ]
         },
-        "id": 14072,
+        "id": 14162,
         "name": "PragmaDirective",
-        "src": "37:32:254"
+        "src": "38:32:255"
       },
       {
         "attributes": {
@@ -156,16 +156,16 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 14073,
+        "id": 14163,
         "name": "PragmaDirective",
-        "src": "70:33:254"
+        "src": "72:33:255"
       },
       {
         "attributes": {
           "SourceUnit": 11555,
-          "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/interfaces/IGunPool.sol",
+          "absolutePath": "project:/contracts/interfaces/IGunPool.sol",
           "file": "../../interfaces/IGunPool.sol",
-          "scope": 14079,
+          "scope": 14169,
           "symbolAliases": [
             {
               "foreign": {
@@ -178,18 +178,18 @@
                   "type": null,
                   "value": "IGunPool"
                 },
-                "id": 14074,
+                "id": 14164,
                 "name": "Identifier",
-                "src": "113:8:254"
+                "src": "117:8:255"
               },
               "local": null
             }
           ],
           "unitAlias": ""
         },
-        "id": 14075,
+        "id": 14165,
         "name": "ImportDirective",
-        "src": "105:55:254"
+        "src": "109:55:255"
       },
       {
         "attributes": {
@@ -204,10 +204,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            14078
+            14168
           ],
           "name": "GunPoolConfigurator",
-          "scope": 14079
+          "scope": 14169
         },
         "children": [
           {
@@ -216,7 +216,7 @@
               "mutability": "mutable",
               "name": "pool",
               "overrides": null,
-              "scope": 14078,
+              "scope": 14168,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IGunPool",
@@ -231,32 +231,32 @@
                   "referencedDeclaration": 11554,
                   "type": "contract IGunPool"
                 },
-                "id": 14076,
+                "id": 14166,
                 "name": "UserDefinedTypeName",
-                "src": "195:8:254"
+                "src": "202:8:255"
               }
             ],
-            "id": 14077,
+            "id": 14167,
             "name": "VariableDeclaration",
-            "src": "195:22:254"
+            "src": "202:22:255"
           }
         ],
-        "id": 14078,
+        "id": 14168,
         "name": "ContractDefinition",
-        "src": "162:60:254"
+        "src": "168:64:255"
       }
     ],
-    "id": 14079,
+    "id": 14169,
     "name": "SourceUnit",
-    "src": "37:186:254"
+    "src": "38:196:255"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-28T06:04:33.908Z",
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-08-10T11:43:49.496Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

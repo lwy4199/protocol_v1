@@ -393,16 +393,16 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"AuthorizedOperator\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Burned\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Minted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"RevokedOperator\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Sent\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"authorizeOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"defaultOperators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"granularity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"isOperatorFor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"operatorBurn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"operatorSend\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"revokeOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"send\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC777Token standard as defined in the EIP. This contract uses the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let token holders and recipients react to token movements by using setting implementers for the associated interfaces in said registry. See {IERC1820Registry} and {ERC1820Implementer}.\",\"kind\":\"dev\",\"methods\":{\"authorizeOperator(address)\":{\"details\":\"Make an account an operator of the caller. See {isOperatorFor}. Emits an {AuthorizedOperator} event. Requirements - `operator` cannot be calling address.\"},\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by an account (`owner`).\"},\"burn(uint256,bytes)\":{\"details\":\"Destroys `amount` tokens from the caller's account, reducing the total supply. If a send hook is registered for the caller, the corresponding function will be called with `data` and empty `operatorData`. See {IERC777Sender}. Emits a {Burned} event. Requirements - the caller must have at least `amount` tokens.\"},\"defaultOperators()\":{\"details\":\"Returns the list of default operators. These accounts are operators for all token holders, even if {authorizeOperator} was never called on them. This list is immutable, but individual holders may revoke these via {revokeOperator}, in which case {isOperatorFor} will return false.\"},\"granularity()\":{\"details\":\"Returns the smallest part of the token that is not divisible. This means all token operations (creation, movement and destruction) must have amounts that are a multiple of this number. For most token contracts, this value will equal 1.\"},\"isOperatorFor(address,address)\":{\"details\":\"Returns true if an account is an operator of `tokenHolder`. Operators can send and burn tokens on behalf of their owners. All accounts are their own operator. See {operatorSend} and {operatorBurn}.\"},\"name()\":{\"details\":\"Returns the name of the token.\"},\"operatorBurn(address,uint256,bytes,bytes)\":{\"details\":\"Destroys `amount` tokens from `account`, reducing the total supply. The caller must be an operator of `account`. If a send hook is registered for `account`, the corresponding function will be called with `data` and `operatorData`. See {IERC777Sender}. Emits a {Burned} event. Requirements - `account` cannot be the zero address. - `account` must have at least `amount` tokens. - the caller must be an operator for `account`.\"},\"operatorSend(address,address,uint256,bytes,bytes)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient`. The caller must be an operator of `sender`. If send or receive hooks are registered for `sender` and `recipient`, the corresponding functions will be called with `data` and `operatorData`. See {IERC777Sender} and {IERC777Recipient}. Emits a {Sent} event. Requirements - `sender` cannot be the zero address. - `sender` must have at least `amount` tokens. - the caller must be an operator for `sender`. - `recipient` cannot be the zero address. - if `recipient` is a contract, it must implement the {IERC777Recipient} interface.\"},\"revokeOperator(address)\":{\"details\":\"Revoke an account's operator status for the caller. See {isOperatorFor} and {defaultOperators}. Emits a {RevokedOperator} event. Requirements - `operator` cannot be calling address.\"},\"send(address,uint256,bytes)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. If send or receive hooks are registered for the caller and `recipient`, the corresponding functions will be called with `data` and empty `operatorData`. See {IERC777Sender} and {IERC777Recipient}. Emits a {Sent} event. Requirements - the caller must have at least `amount` tokens. - `recipient` cannot be the zero address. - if `recipient` is a contract, it must implement the {IERC777Recipient} interface.\"},\"symbol()\":{\"details\":\"Returns the symbol of the token, usually a shorter version of the name.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol\":\"IERC777\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x7846aa81baa00557eba6215442eab916bc98f2e692fdc7b8523cf31122dc8e28\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://40a5491dcdcdbea4bf8695e1c75f5f723dcd19c1392e8ff7a5fc56e13b5794e1\",\"dweb:/ipfs/QmcAFeKKXAFFEzCShHhT65smF8SDhhMg5oWmU3TWKPpTFT\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"AuthorizedOperator\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Burned\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Minted\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"RevokedOperator\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"indexed\":false,\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"Sent\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"authorizeOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"defaultOperators\",\"outputs\":[{\"internalType\":\"address[]\",\"name\":\"\",\"type\":\"address[]\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"granularity\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"tokenHolder\",\"type\":\"address\"}],\"name\":\"isOperatorFor\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"operatorBurn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"operatorSend\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"revokeOperator\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"recipient\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"send\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"totalSupply\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC777Token standard as defined in the EIP. This contract uses the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let token holders and recipients react to token movements by using setting implementers for the associated interfaces in said registry. See {IERC1820Registry} and {ERC1820Implementer}.\",\"kind\":\"dev\",\"methods\":{\"authorizeOperator(address)\":{\"details\":\"Make an account an operator of the caller. See {isOperatorFor}. Emits an {AuthorizedOperator} event. Requirements - `operator` cannot be calling address.\"},\"balanceOf(address)\":{\"details\":\"Returns the amount of tokens owned by an account (`owner`).\"},\"burn(uint256,bytes)\":{\"details\":\"Destroys `amount` tokens from the caller's account, reducing the total supply. If a send hook is registered for the caller, the corresponding function will be called with `data` and empty `operatorData`. See {IERC777Sender}. Emits a {Burned} event. Requirements - the caller must have at least `amount` tokens.\"},\"defaultOperators()\":{\"details\":\"Returns the list of default operators. These accounts are operators for all token holders, even if {authorizeOperator} was never called on them. This list is immutable, but individual holders may revoke these via {revokeOperator}, in which case {isOperatorFor} will return false.\"},\"granularity()\":{\"details\":\"Returns the smallest part of the token that is not divisible. This means all token operations (creation, movement and destruction) must have amounts that are a multiple of this number. For most token contracts, this value will equal 1.\"},\"isOperatorFor(address,address)\":{\"details\":\"Returns true if an account is an operator of `tokenHolder`. Operators can send and burn tokens on behalf of their owners. All accounts are their own operator. See {operatorSend} and {operatorBurn}.\"},\"name()\":{\"details\":\"Returns the name of the token.\"},\"operatorBurn(address,uint256,bytes,bytes)\":{\"details\":\"Destroys `amount` tokens from `account`, reducing the total supply. The caller must be an operator of `account`. If a send hook is registered for `account`, the corresponding function will be called with `data` and `operatorData`. See {IERC777Sender}. Emits a {Burned} event. Requirements - `account` cannot be the zero address. - `account` must have at least `amount` tokens. - the caller must be an operator for `account`.\"},\"operatorSend(address,address,uint256,bytes,bytes)\":{\"details\":\"Moves `amount` tokens from `sender` to `recipient`. The caller must be an operator of `sender`. If send or receive hooks are registered for `sender` and `recipient`, the corresponding functions will be called with `data` and `operatorData`. See {IERC777Sender} and {IERC777Recipient}. Emits a {Sent} event. Requirements - `sender` cannot be the zero address. - `sender` must have at least `amount` tokens. - the caller must be an operator for `sender`. - `recipient` cannot be the zero address. - if `recipient` is a contract, it must implement the {IERC777Recipient} interface.\"},\"revokeOperator(address)\":{\"details\":\"Revoke an account's operator status for the caller. See {isOperatorFor} and {defaultOperators}. Emits a {RevokedOperator} event. Requirements - `operator` cannot be calling address.\"},\"send(address,uint256,bytes)\":{\"details\":\"Moves `amount` tokens from the caller's account to `recipient`. If send or receive hooks are registered for the caller and `recipient`, the corresponding functions will be called with `data` and empty `operatorData`. See {IERC777Sender} and {IERC777Recipient}. Emits a {Sent} event. Requirements - the caller must have at least `amount` tokens. - `recipient` cannot be the zero address. - if `recipient` is a contract, it must implement the {IERC777Recipient} interface.\"},\"symbol()\":{\"details\":\"Returns the symbol of the token, usually a shorter version of the name.\"},\"totalSupply()\":{\"details\":\"Returns the amount of tokens in existence.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol\":\"IERC777\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0xbcd28d739c53fe64293d163f1e9a6164ef390a882c52cdbcefbdf6f01c086e40\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6ea4bdd0af9d7c9f3d0e628a7f6a9451a849952ef2477dc765aa16e4f010727e\",\"dweb:/ipfs/QmYKbCkoREjNZSUq5eWamrkyKbUvvo9kveZyGUJeDXEDGW\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\n\npragma solidity ^0.6.0;\n\n/**\n * @dev Interface of the ERC777Token standard as defined in the EIP.\n *\n * This contract uses the\n * https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let\n * token holders and recipients react to token movements by using setting implementers\n * for the associated interfaces in said registry. See {IERC1820Registry} and\n * {ERC1820Implementer}.\n */\ninterface IERC777 {\n    /**\n     * @dev Returns the name of the token.\n     */\n    function name() external view returns (string memory);\n\n    /**\n     * @dev Returns the symbol of the token, usually a shorter version of the\n     * name.\n     */\n    function symbol() external view returns (string memory);\n\n    /**\n     * @dev Returns the smallest part of the token that is not divisible. This\n     * means all token operations (creation, movement and destruction) must have\n     * amounts that are a multiple of this number.\n     *\n     * For most token contracts, this value will equal 1.\n     */\n    function granularity() external view returns (uint256);\n\n    /**\n     * @dev Returns the amount of tokens in existence.\n     */\n    function totalSupply() external view returns (uint256);\n\n    /**\n     * @dev Returns the amount of tokens owned by an account (`owner`).\n     */\n    function balanceOf(address owner) external view returns (uint256);\n\n    /**\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\n     *\n     * If send or receive hooks are registered for the caller and `recipient`,\n     * the corresponding functions will be called with `data` and empty\n     * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\n     *\n     * Emits a {Sent} event.\n     *\n     * Requirements\n     *\n     * - the caller must have at least `amount` tokens.\n     * - `recipient` cannot be the zero address.\n     * - if `recipient` is a contract, it must implement the {IERC777Recipient}\n     * interface.\n     */\n    function send(address recipient, uint256 amount, bytes calldata data) external;\n\n    /**\n     * @dev Destroys `amount` tokens from the caller's account, reducing the\n     * total supply.\n     *\n     * If a send hook is registered for the caller, the corresponding function\n     * will be called with `data` and empty `operatorData`. See {IERC777Sender}.\n     *\n     * Emits a {Burned} event.\n     *\n     * Requirements\n     *\n     * - the caller must have at least `amount` tokens.\n     */\n    function burn(uint256 amount, bytes calldata data) external;\n\n    /**\n     * @dev Returns true if an account is an operator of `tokenHolder`.\n     * Operators can send and burn tokens on behalf of their owners. All\n     * accounts are their own operator.\n     *\n     * See {operatorSend} and {operatorBurn}.\n     */\n    function isOperatorFor(address operator, address tokenHolder) external view returns (bool);\n\n    /**\n     * @dev Make an account an operator of the caller.\n     *\n     * See {isOperatorFor}.\n     *\n     * Emits an {AuthorizedOperator} event.\n     *\n     * Requirements\n     *\n     * - `operator` cannot be calling address.\n     */\n    function authorizeOperator(address operator) external;\n\n    /**\n     * @dev Revoke an account's operator status for the caller.\n     *\n     * See {isOperatorFor} and {defaultOperators}.\n     *\n     * Emits a {RevokedOperator} event.\n     *\n     * Requirements\n     *\n     * - `operator` cannot be calling address.\n     */\n    function revokeOperator(address operator) external;\n\n    /**\n     * @dev Returns the list of default operators. These accounts are operators\n     * for all token holders, even if {authorizeOperator} was never called on\n     * them.\n     *\n     * This list is immutable, but individual holders may revoke these via\n     * {revokeOperator}, in which case {isOperatorFor} will return false.\n     */\n    function defaultOperators() external view returns (address[] memory);\n\n    /**\n     * @dev Moves `amount` tokens from `sender` to `recipient`. The caller must\n     * be an operator of `sender`.\n     *\n     * If send or receive hooks are registered for `sender` and `recipient`,\n     * the corresponding functions will be called with `data` and\n     * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\n     *\n     * Emits a {Sent} event.\n     *\n     * Requirements\n     *\n     * - `sender` cannot be the zero address.\n     * - `sender` must have at least `amount` tokens.\n     * - the caller must be an operator for `sender`.\n     * - `recipient` cannot be the zero address.\n     * - if `recipient` is a contract, it must implement the {IERC777Recipient}\n     * interface.\n     */\n    function operatorSend(\n        address sender,\n        address recipient,\n        uint256 amount,\n        bytes calldata data,\n        bytes calldata operatorData\n    ) external;\n\n    /**\n     * @dev Destroys `amount` tokens from `account`, reducing the total supply.\n     * The caller must be an operator of `account`.\n     *\n     * If a send hook is registered for `account`, the corresponding function\n     * will be called with `data` and `operatorData`. See {IERC777Sender}.\n     *\n     * Emits a {Burned} event.\n     *\n     * Requirements\n     *\n     * - `account` cannot be the zero address.\n     * - `account` must have at least `amount` tokens.\n     * - the caller must be an operator for `account`.\n     */\n    function operatorBurn(\n        address account,\n        uint256 amount,\n        bytes calldata data,\n        bytes calldata operatorData\n    ) external;\n\n    event Sent(\n        address indexed operator,\n        address indexed from,\n        address indexed to,\n        uint256 amount,\n        bytes data,\n        bytes operatorData\n    );\n\n    event Minted(address indexed operator, address indexed to, uint256 amount, bytes data, bytes operatorData);\n\n    event Burned(address indexed operator, address indexed from, uint256 amount, bytes data, bytes operatorData);\n\n    event AuthorizedOperator(address indexed operator, address indexed tokenHolder);\n\n    event RevokedOperator(address indexed operator, address indexed tokenHolder);\n}\n",
-  "sourcePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol",
+  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.6.0;\r\n\r\n/**\r\n * @dev Interface of the ERC777Token standard as defined in the EIP.\r\n *\r\n * This contract uses the\r\n * https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let\r\n * token holders and recipients react to token movements by using setting implementers\r\n * for the associated interfaces in said registry. See {IERC1820Registry} and\r\n * {ERC1820Implementer}.\r\n */\r\ninterface IERC777 {\r\n    /**\r\n     * @dev Returns the name of the token.\r\n     */\r\n    function name() external view returns (string memory);\r\n\r\n    /**\r\n     * @dev Returns the symbol of the token, usually a shorter version of the\r\n     * name.\r\n     */\r\n    function symbol() external view returns (string memory);\r\n\r\n    /**\r\n     * @dev Returns the smallest part of the token that is not divisible. This\r\n     * means all token operations (creation, movement and destruction) must have\r\n     * amounts that are a multiple of this number.\r\n     *\r\n     * For most token contracts, this value will equal 1.\r\n     */\r\n    function granularity() external view returns (uint256);\r\n\r\n    /**\r\n     * @dev Returns the amount of tokens in existence.\r\n     */\r\n    function totalSupply() external view returns (uint256);\r\n\r\n    /**\r\n     * @dev Returns the amount of tokens owned by an account (`owner`).\r\n     */\r\n    function balanceOf(address owner) external view returns (uint256);\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from the caller's account to `recipient`.\r\n     *\r\n     * If send or receive hooks are registered for the caller and `recipient`,\r\n     * the corresponding functions will be called with `data` and empty\r\n     * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\r\n     *\r\n     * Emits a {Sent} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - the caller must have at least `amount` tokens.\r\n     * - `recipient` cannot be the zero address.\r\n     * - if `recipient` is a contract, it must implement the {IERC777Recipient}\r\n     * interface.\r\n     */\r\n    function send(address recipient, uint256 amount, bytes calldata data) external;\r\n\r\n    /**\r\n     * @dev Destroys `amount` tokens from the caller's account, reducing the\r\n     * total supply.\r\n     *\r\n     * If a send hook is registered for the caller, the corresponding function\r\n     * will be called with `data` and empty `operatorData`. See {IERC777Sender}.\r\n     *\r\n     * Emits a {Burned} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - the caller must have at least `amount` tokens.\r\n     */\r\n    function burn(uint256 amount, bytes calldata data) external;\r\n\r\n    /**\r\n     * @dev Returns true if an account is an operator of `tokenHolder`.\r\n     * Operators can send and burn tokens on behalf of their owners. All\r\n     * accounts are their own operator.\r\n     *\r\n     * See {operatorSend} and {operatorBurn}.\r\n     */\r\n    function isOperatorFor(address operator, address tokenHolder) external view returns (bool);\r\n\r\n    /**\r\n     * @dev Make an account an operator of the caller.\r\n     *\r\n     * See {isOperatorFor}.\r\n     *\r\n     * Emits an {AuthorizedOperator} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - `operator` cannot be calling address.\r\n     */\r\n    function authorizeOperator(address operator) external;\r\n\r\n    /**\r\n     * @dev Revoke an account's operator status for the caller.\r\n     *\r\n     * See {isOperatorFor} and {defaultOperators}.\r\n     *\r\n     * Emits a {RevokedOperator} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - `operator` cannot be calling address.\r\n     */\r\n    function revokeOperator(address operator) external;\r\n\r\n    /**\r\n     * @dev Returns the list of default operators. These accounts are operators\r\n     * for all token holders, even if {authorizeOperator} was never called on\r\n     * them.\r\n     *\r\n     * This list is immutable, but individual holders may revoke these via\r\n     * {revokeOperator}, in which case {isOperatorFor} will return false.\r\n     */\r\n    function defaultOperators() external view returns (address[] memory);\r\n\r\n    /**\r\n     * @dev Moves `amount` tokens from `sender` to `recipient`. The caller must\r\n     * be an operator of `sender`.\r\n     *\r\n     * If send or receive hooks are registered for `sender` and `recipient`,\r\n     * the corresponding functions will be called with `data` and\r\n     * `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\r\n     *\r\n     * Emits a {Sent} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - `sender` cannot be the zero address.\r\n     * - `sender` must have at least `amount` tokens.\r\n     * - the caller must be an operator for `sender`.\r\n     * - `recipient` cannot be the zero address.\r\n     * - if `recipient` is a contract, it must implement the {IERC777Recipient}\r\n     * interface.\r\n     */\r\n    function operatorSend(\r\n        address sender,\r\n        address recipient,\r\n        uint256 amount,\r\n        bytes calldata data,\r\n        bytes calldata operatorData\r\n    ) external;\r\n\r\n    /**\r\n     * @dev Destroys `amount` tokens from `account`, reducing the total supply.\r\n     * The caller must be an operator of `account`.\r\n     *\r\n     * If a send hook is registered for `account`, the corresponding function\r\n     * will be called with `data` and `operatorData`. See {IERC777Sender}.\r\n     *\r\n     * Emits a {Burned} event.\r\n     *\r\n     * Requirements\r\n     *\r\n     * - `account` cannot be the zero address.\r\n     * - `account` must have at least `amount` tokens.\r\n     * - the caller must be an operator for `account`.\r\n     */\r\n    function operatorBurn(\r\n        address account,\r\n        uint256 amount,\r\n        bytes calldata data,\r\n        bytes calldata operatorData\r\n    ) external;\r\n\r\n    event Sent(\r\n        address indexed operator,\r\n        address indexed from,\r\n        address indexed to,\r\n        uint256 amount,\r\n        bytes data,\r\n        bytes operatorData\r\n    );\r\n\r\n    event Minted(address indexed operator, address indexed to, uint256 amount, bytes data, bytes operatorData);\r\n\r\n    event Burned(address indexed operator, address indexed from, uint256 amount, bytes data, bytes operatorData);\r\n\r\n    event AuthorizedOperator(address indexed operator, address indexed tokenHolder);\r\n\r\n    event RevokedOperator(address indexed operator, address indexed tokenHolder);\r\n}\r\n",
+  "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\dependencies\\openzeppelin\\contracts\\token\\ERC777\\IERC777.sol",
   "ast": {
-    "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol",
+    "absolutePath": "project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol",
     "exportedSymbols": {
       "IERC777": [
         9424
@@ -421,7 +421,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "33:23:235"
+        "src": "35:23:235"
       },
       {
         "abstract": false,
@@ -431,7 +431,7 @@
         "documentation": {
           "id": 9268,
           "nodeType": "StructuredDocumentation",
-          "src": "58:372:235",
+          "src": "62:380:235",
           "text": " @dev Interface of the ERC777Token standard as defined in the EIP.\n This contract uses the\n https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let\n token holders and recipients react to token movements by using setting implementers\n for the associated interfaces in said registry. See {IERC1820Registry} and\n {ERC1820Implementer}."
         },
         "fullyImplemented": false,
@@ -447,7 +447,7 @@
             "documentation": {
               "id": 9269,
               "nodeType": "StructuredDocumentation",
-              "src": "455:54:235",
+              "src": "469:56:235",
               "text": " @dev Returns the name of the token."
             },
             "functionSelector": "06fdde03",
@@ -462,7 +462,7 @@
               "id": 9270,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "527:2:235"
+              "src": "544:2:235"
             },
             "returnParameters": {
               "id": 9273,
@@ -476,7 +476,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9274,
-                  "src": "553:13:235",
+                  "src": "570:13:235",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -487,7 +487,7 @@
                     "id": 9271,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "553:6:235",
+                    "src": "570:6:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -497,10 +497,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "552:15:235"
+              "src": "569:15:235"
             },
             "scope": 9424,
-            "src": "514:54:235",
+            "src": "531:54:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -510,7 +510,7 @@
             "documentation": {
               "id": 9275,
               "nodeType": "StructuredDocumentation",
-              "src": "574:102:235",
+              "src": "593:105:235",
               "text": " @dev Returns the symbol of the token, usually a shorter version of the\n name."
             },
             "functionSelector": "95d89b41",
@@ -525,7 +525,7 @@
               "id": 9276,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "696:2:235"
+              "src": "719:2:235"
             },
             "returnParameters": {
               "id": 9279,
@@ -539,7 +539,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9280,
-                  "src": "722:13:235",
+                  "src": "745:13:235",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -550,7 +550,7 @@
                     "id": 9277,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "722:6:235",
+                    "src": "745:6:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -560,10 +560,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "721:15:235"
+              "src": "744:15:235"
             },
             "scope": 9424,
-            "src": "681:56:235",
+            "src": "704:56:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -573,7 +573,7 @@
             "documentation": {
               "id": 9281,
               "nodeType": "StructuredDocumentation",
-              "src": "743:287:235",
+              "src": "768:293:235",
               "text": " @dev Returns the smallest part of the token that is not divisible. This\n means all token operations (creation, movement and destruction) must have\n amounts that are a multiple of this number.\n For most token contracts, this value will equal 1."
             },
             "functionSelector": "556f0dc7",
@@ -588,7 +588,7 @@
               "id": 9282,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1055:2:235"
+              "src": "1087:2:235"
             },
             "returnParameters": {
               "id": 9285,
@@ -602,7 +602,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9286,
-                  "src": "1081:7:235",
+                  "src": "1113:7:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -613,7 +613,7 @@
                     "id": 9283,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1081:7:235",
+                    "src": "1113:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -623,10 +623,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1080:9:235"
+              "src": "1112:9:235"
             },
             "scope": 9424,
-            "src": "1035:55:235",
+            "src": "1067:55:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -636,7 +636,7 @@
             "documentation": {
               "id": 9287,
               "nodeType": "StructuredDocumentation",
-              "src": "1096:66:235",
+              "src": "1130:68:235",
               "text": " @dev Returns the amount of tokens in existence."
             },
             "functionSelector": "18160ddd",
@@ -651,7 +651,7 @@
               "id": 9288,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1187:2:235"
+              "src": "1224:2:235"
             },
             "returnParameters": {
               "id": 9291,
@@ -665,7 +665,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9292,
-                  "src": "1213:7:235",
+                  "src": "1250:7:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -676,7 +676,7 @@
                     "id": 9289,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1213:7:235",
+                    "src": "1250:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -686,10 +686,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1212:9:235"
+              "src": "1249:9:235"
             },
             "scope": 9424,
-            "src": "1167:55:235",
+            "src": "1204:55:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -699,7 +699,7 @@
             "documentation": {
               "id": 9293,
               "nodeType": "StructuredDocumentation",
-              "src": "1228:83:235",
+              "src": "1267:85:235",
               "text": " @dev Returns the amount of tokens owned by an account (`owner`)."
             },
             "functionSelector": "70a08231",
@@ -722,7 +722,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9300,
-                  "src": "1335:13:235",
+                  "src": "1377:13:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -733,7 +733,7 @@
                     "id": 9294,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1335:7:235",
+                    "src": "1377:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -744,7 +744,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1334:15:235"
+              "src": "1376:15:235"
             },
             "returnParameters": {
               "id": 9299,
@@ -758,7 +758,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9300,
-                  "src": "1373:7:235",
+                  "src": "1415:7:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -769,7 +769,7 @@
                     "id": 9297,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1373:7:235",
+                    "src": "1415:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -779,10 +779,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1372:9:235"
+              "src": "1414:9:235"
             },
             "scope": 9424,
-            "src": "1316:66:235",
+            "src": "1358:66:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -792,7 +792,7 @@
             "documentation": {
               "id": 9301,
               "nodeType": "StructuredDocumentation",
-              "src": "1388:585:235",
+              "src": "1432:600:235",
               "text": " @dev Moves `amount` tokens from the caller's account to `recipient`.\n If send or receive hooks are registered for the caller and `recipient`,\n the corresponding functions will be called with `data` and empty\n `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\n Emits a {Sent} event.\n Requirements\n - the caller must have at least `amount` tokens.\n - `recipient` cannot be the zero address.\n - if `recipient` is a contract, it must implement the {IERC777Recipient}\n interface."
             },
             "functionSelector": "9bd9bbc6",
@@ -815,7 +815,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9310,
-                  "src": "1992:17:235",
+                  "src": "2052:17:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -826,7 +826,7 @@
                     "id": 9302,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1992:7:235",
+                    "src": "2052:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -844,7 +844,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9310,
-                  "src": "2011:14:235",
+                  "src": "2071:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -855,7 +855,7 @@
                     "id": 9304,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2011:7:235",
+                    "src": "2071:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -872,7 +872,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9310,
-                  "src": "2027:19:235",
+                  "src": "2087:19:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -883,7 +883,7 @@
                     "id": 9306,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2027:5:235",
+                    "src": "2087:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -893,16 +893,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1991:56:235"
+              "src": "2051:56:235"
             },
             "returnParameters": {
               "id": 9309,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2056:0:235"
+              "src": "2116:0:235"
             },
             "scope": 9424,
-            "src": "1978:79:235",
+            "src": "2038:79:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -912,7 +912,7 @@
             "documentation": {
               "id": 9311,
               "nodeType": "StructuredDocumentation",
-              "src": "2063:404:235",
+              "src": "2125:416:235",
               "text": " @dev Destroys `amount` tokens from the caller's account, reducing the\n total supply.\n If a send hook is registered for the caller, the corresponding function\n will be called with `data` and empty `operatorData`. See {IERC777Sender}.\n Emits a {Burned} event.\n Requirements\n - the caller must have at least `amount` tokens."
             },
             "functionSelector": "fe9d9303",
@@ -935,7 +935,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9318,
-                  "src": "2486:14:235",
+                  "src": "2561:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -946,7 +946,7 @@
                     "id": 9312,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2486:7:235",
+                    "src": "2561:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -963,7 +963,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9318,
-                  "src": "2502:19:235",
+                  "src": "2577:19:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -974,7 +974,7 @@
                     "id": 9314,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2502:5:235",
+                    "src": "2577:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -984,16 +984,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2485:37:235"
+              "src": "2560:37:235"
             },
             "returnParameters": {
               "id": 9317,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2531:0:235"
+              "src": "2606:0:235"
             },
             "scope": 9424,
-            "src": "2472:60:235",
+            "src": "2547:60:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1003,7 +1003,7 @@
             "documentation": {
               "id": 9319,
               "nodeType": "StructuredDocumentation",
-              "src": "2538:249:235",
+              "src": "2615:255:235",
               "text": " @dev Returns true if an account is an operator of `tokenHolder`.\n Operators can send and burn tokens on behalf of their owners. All\n accounts are their own operator.\n See {operatorSend} and {operatorBurn}."
             },
             "functionSelector": "d95b6371",
@@ -1026,7 +1026,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9328,
-                  "src": "2815:16:235",
+                  "src": "2899:16:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1037,7 +1037,7 @@
                     "id": 9320,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2815:7:235",
+                    "src": "2899:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1055,7 +1055,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9328,
-                  "src": "2833:19:235",
+                  "src": "2917:19:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1066,7 +1066,7 @@
                     "id": 9322,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2833:7:235",
+                    "src": "2917:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1077,7 +1077,7 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2814:39:235"
+              "src": "2898:39:235"
             },
             "returnParameters": {
               "id": 9327,
@@ -1091,7 +1091,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9328,
-                  "src": "2877:4:235",
+                  "src": "2961:4:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1102,7 +1102,7 @@
                     "id": 9325,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2877:4:235",
+                    "src": "2961:4:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1112,10 +1112,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2876:6:235"
+              "src": "2960:6:235"
             },
             "scope": 9424,
-            "src": "2792:91:235",
+            "src": "2876:91:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1125,7 +1125,7 @@
             "documentation": {
               "id": 9329,
               "nodeType": "StructuredDocumentation",
-              "src": "2889:233:235",
+              "src": "2975:243:235",
               "text": " @dev Make an account an operator of the caller.\n See {isOperatorFor}.\n Emits an {AuthorizedOperator} event.\n Requirements\n - `operator` cannot be calling address."
             },
             "functionSelector": "959b8c3f",
@@ -1148,7 +1148,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9334,
-                  "src": "3154:16:235",
+                  "src": "3251:16:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1159,7 +1159,7 @@
                     "id": 9330,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3154:7:235",
+                    "src": "3251:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1170,16 +1170,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3153:18:235"
+              "src": "3250:18:235"
             },
             "returnParameters": {
               "id": 9333,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3180:0:235"
+              "src": "3277:0:235"
             },
             "scope": 9424,
-            "src": "3127:54:235",
+            "src": "3224:54:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1189,7 +1189,7 @@
             "documentation": {
               "id": 9335,
               "nodeType": "StructuredDocumentation",
-              "src": "3187:261:235",
+              "src": "3286:271:235",
               "text": " @dev Revoke an account's operator status for the caller.\n See {isOperatorFor} and {defaultOperators}.\n Emits a {RevokedOperator} event.\n Requirements\n - `operator` cannot be calling address."
             },
             "functionSelector": "fad8b32a",
@@ -1212,7 +1212,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9340,
-                  "src": "3477:16:235",
+                  "src": "3587:16:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1223,7 +1223,7 @@
                     "id": 9336,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3477:7:235",
+                    "src": "3587:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1234,16 +1234,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3476:18:235"
+              "src": "3586:18:235"
             },
             "returnParameters": {
               "id": 9339,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3503:0:235"
+              "src": "3613:0:235"
             },
             "scope": 9424,
-            "src": "3453:51:235",
+            "src": "3563:51:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1253,7 +1253,7 @@
             "documentation": {
               "id": 9341,
               "nodeType": "StructuredDocumentation",
-              "src": "3510:338:235",
+              "src": "3622:345:235",
               "text": " @dev Returns the list of default operators. These accounts are operators\n for all token holders, even if {authorizeOperator} was never called on\n them.\n This list is immutable, but individual holders may revoke these via\n {revokeOperator}, in which case {isOperatorFor} will return false."
             },
             "functionSelector": "06e48538",
@@ -1268,7 +1268,7 @@
               "id": 9342,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3878:2:235"
+              "src": "3998:2:235"
             },
             "returnParameters": {
               "id": 9346,
@@ -1282,7 +1282,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9347,
-                  "src": "3904:16:235",
+                  "src": "4024:16:235",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1294,7 +1294,7 @@
                       "id": 9343,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "3904:7:235",
+                      "src": "4024:7:235",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -1304,7 +1304,7 @@
                     "id": 9344,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "3904:9:235",
+                    "src": "4024:9:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -1314,10 +1314,10 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3903:18:235"
+              "src": "4023:18:235"
             },
             "scope": 9424,
-            "src": "3853:69:235",
+            "src": "3973:69:235",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1327,7 +1327,7 @@
             "documentation": {
               "id": 9348,
               "nodeType": "StructuredDocumentation",
-              "src": "3928:714:235",
+              "src": "4050:732:235",
               "text": " @dev Moves `amount` tokens from `sender` to `recipient`. The caller must\n be an operator of `sender`.\n If send or receive hooks are registered for `sender` and `recipient`,\n the corresponding functions will be called with `data` and\n `operatorData`. See {IERC777Sender} and {IERC777Recipient}.\n Emits a {Sent} event.\n Requirements\n - `sender` cannot be the zero address.\n - `sender` must have at least `amount` tokens.\n - the caller must be an operator for `sender`.\n - `recipient` cannot be the zero address.\n - if `recipient` is a contract, it must implement the {IERC777Recipient}\n interface."
             },
             "functionSelector": "62ad1b83",
@@ -1350,7 +1350,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9361,
-                  "src": "4678:14:235",
+                  "src": "4820:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1361,7 +1361,7 @@
                     "id": 9349,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4678:7:235",
+                    "src": "4820:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1379,7 +1379,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9361,
-                  "src": "4702:17:235",
+                  "src": "4845:17:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1390,7 +1390,7 @@
                     "id": 9351,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4702:7:235",
+                    "src": "4845:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1408,7 +1408,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9361,
-                  "src": "4729:14:235",
+                  "src": "4873:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1419,7 +1419,7 @@
                     "id": 9353,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4729:7:235",
+                    "src": "4873:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1436,7 +1436,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9361,
-                  "src": "4753:19:235",
+                  "src": "4898:19:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1447,7 +1447,7 @@
                     "id": 9355,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4753:5:235",
+                    "src": "4898:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1464,7 +1464,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9361,
-                  "src": "4782:27:235",
+                  "src": "4928:27:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1475,7 +1475,7 @@
                     "id": 9357,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4782:5:235",
+                    "src": "4928:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1485,16 +1485,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4668:147:235"
+              "src": "4809:153:235"
             },
             "returnParameters": {
               "id": 9360,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "4824:0:235"
+              "src": "4971:0:235"
             },
             "scope": 9424,
-            "src": "4647:178:235",
+            "src": "4788:184:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1504,7 +1504,7 @@
             "documentation": {
               "id": 9362,
               "nodeType": "StructuredDocumentation",
-              "src": "4831:532:235",
+              "src": "4980:546:235",
               "text": " @dev Destroys `amount` tokens from `account`, reducing the total supply.\n The caller must be an operator of `account`.\n If a send hook is registered for `account`, the corresponding function\n will be called with `data` and `operatorData`. See {IERC777Sender}.\n Emits a {Burned} event.\n Requirements\n - `account` cannot be the zero address.\n - `account` must have at least `amount` tokens.\n - the caller must be an operator for `account`."
             },
             "functionSelector": "fc673c4f",
@@ -1527,7 +1527,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9373,
-                  "src": "5399:15:235",
+                  "src": "5564:15:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1538,7 +1538,7 @@
                     "id": 9363,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5399:7:235",
+                    "src": "5564:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1556,7 +1556,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9373,
-                  "src": "5424:14:235",
+                  "src": "5590:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1567,7 +1567,7 @@
                     "id": 9365,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5424:7:235",
+                    "src": "5590:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1584,7 +1584,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9373,
-                  "src": "5448:19:235",
+                  "src": "5615:19:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1595,7 +1595,7 @@
                     "id": 9367,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5448:5:235",
+                    "src": "5615:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1612,7 +1612,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9373,
-                  "src": "5477:27:235",
+                  "src": "5645:27:235",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1623,7 +1623,7 @@
                     "id": 9369,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5477:5:235",
+                    "src": "5645:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1633,16 +1633,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5389:121:235"
+              "src": "5553:126:235"
             },
             "returnParameters": {
               "id": 9372,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5519:0:235"
+              "src": "5688:0:235"
             },
             "scope": 9424,
-            "src": "5368:152:235",
+            "src": "5532:157:235",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1666,7 +1666,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5546:24:235",
+                  "src": "5718:24:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1677,7 +1677,7 @@
                     "id": 9374,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5546:7:235",
+                    "src": "5718:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1696,7 +1696,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5580:20:235",
+                  "src": "5753:20:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1707,7 +1707,7 @@
                     "id": 9376,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5580:7:235",
+                    "src": "5753:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1726,7 +1726,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5610:18:235",
+                  "src": "5784:18:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1737,7 +1737,7 @@
                     "id": 9378,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5610:7:235",
+                    "src": "5784:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1756,7 +1756,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5638:14:235",
+                  "src": "5813:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1767,7 +1767,7 @@
                     "id": 9380,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5638:7:235",
+                    "src": "5813:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1785,7 +1785,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5662:10:235",
+                  "src": "5838:10:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1796,7 +1796,7 @@
                     "id": 9382,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5662:5:235",
+                    "src": "5838:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1814,7 +1814,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9387,
-                  "src": "5682:18:235",
+                  "src": "5859:18:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1825,7 +1825,7 @@
                     "id": 9384,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5682:5:235",
+                    "src": "5859:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1835,9 +1835,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5536:170:235"
+              "src": "5707:177:235"
             },
-            "src": "5526:181:235"
+            "src": "5697:188:235"
           },
           {
             "anonymous": false,
@@ -1858,7 +1858,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9399,
-                  "src": "5726:24:235",
+                  "src": "5906:24:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1869,7 +1869,7 @@
                     "id": 9388,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5726:7:235",
+                    "src": "5906:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1888,7 +1888,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9399,
-                  "src": "5752:18:235",
+                  "src": "5932:18:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1899,7 +1899,7 @@
                     "id": 9390,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5752:7:235",
+                    "src": "5932:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1918,7 +1918,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9399,
-                  "src": "5772:14:235",
+                  "src": "5952:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1929,7 +1929,7 @@
                     "id": 9392,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5772:7:235",
+                    "src": "5952:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1947,7 +1947,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9399,
-                  "src": "5788:10:235",
+                  "src": "5968:10:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1958,7 +1958,7 @@
                     "id": 9394,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5788:5:235",
+                    "src": "5968:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1976,7 +1976,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9399,
-                  "src": "5800:18:235",
+                  "src": "5980:18:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1987,7 +1987,7 @@
                     "id": 9396,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5800:5:235",
+                    "src": "5980:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -1997,9 +1997,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5725:94:235"
+              "src": "5905:94:235"
             },
-            "src": "5713:107:235"
+            "src": "5893:107:235"
           },
           {
             "anonymous": false,
@@ -2020,7 +2020,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9411,
-                  "src": "5839:24:235",
+                  "src": "6021:24:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2031,7 +2031,7 @@
                     "id": 9400,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5839:7:235",
+                    "src": "6021:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2050,7 +2050,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9411,
-                  "src": "5865:20:235",
+                  "src": "6047:20:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2061,7 +2061,7 @@
                     "id": 9402,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5865:7:235",
+                    "src": "6047:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2080,7 +2080,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9411,
-                  "src": "5887:14:235",
+                  "src": "6069:14:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2091,7 +2091,7 @@
                     "id": 9404,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5887:7:235",
+                    "src": "6069:7:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2109,7 +2109,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9411,
-                  "src": "5903:10:235",
+                  "src": "6085:10:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2120,7 +2120,7 @@
                     "id": 9406,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5903:5:235",
+                    "src": "6085:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -2138,7 +2138,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9411,
-                  "src": "5915:18:235",
+                  "src": "6097:18:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2149,7 +2149,7 @@
                     "id": 9408,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5915:5:235",
+                    "src": "6097:5:235",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
@@ -2159,9 +2159,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5838:96:235"
+              "src": "6020:96:235"
             },
-            "src": "5826:109:235"
+            "src": "6008:109:235"
           },
           {
             "anonymous": false,
@@ -2182,7 +2182,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9417,
-                  "src": "5966:24:235",
+                  "src": "6150:24:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2193,7 +2193,7 @@
                     "id": 9412,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5966:7:235",
+                    "src": "6150:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2212,7 +2212,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9417,
-                  "src": "5992:27:235",
+                  "src": "6176:27:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2223,7 +2223,7 @@
                     "id": 9414,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5992:7:235",
+                    "src": "6176:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2234,9 +2234,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5965:55:235"
+              "src": "6149:55:235"
             },
-            "src": "5941:80:235"
+            "src": "6125:80:235"
           },
           {
             "anonymous": false,
@@ -2257,7 +2257,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9423,
-                  "src": "6049:24:235",
+                  "src": "6235:24:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2268,7 +2268,7 @@
                     "id": 9418,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6049:7:235",
+                    "src": "6235:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2287,7 +2287,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 9423,
-                  "src": "6075:27:235",
+                  "src": "6261:27:235",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2298,7 +2298,7 @@
                     "id": 9420,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6075:7:235",
+                    "src": "6261:7:235",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2309,20 +2309,20 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6048:55:235"
+              "src": "6234:55:235"
             },
-            "src": "6027:77:235"
+            "src": "6213:77:235"
           }
         ],
         "scope": 9425,
-        "src": "431:5675:235"
+        "src": "444:5849:235"
       }
     ],
-    "src": "33:6074:235"
+    "src": "35:6260:235"
   },
   "legacyAST": {
     "attributes": {
-      "absolutePath": "/home/gaozl/Downloads/polygon/myproject/contracts/protocol_v1/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol",
+      "absolutePath": "project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777.sol",
       "exportedSymbols": {
         "IERC777": [
           9424
@@ -2342,7 +2342,7 @@
         },
         "id": 9267,
         "name": "PragmaDirective",
-        "src": "33:23:235"
+        "src": "35:23:235"
       },
       {
         "attributes": {
@@ -2368,7 +2368,7 @@
             },
             "id": 9268,
             "name": "StructuredDocumentation",
-            "src": "58:372:235"
+            "src": "62:380:235"
           },
           {
             "attributes": {
@@ -2394,7 +2394,7 @@
                 },
                 "id": 9269,
                 "name": "StructuredDocumentation",
-                "src": "455:54:235"
+                "src": "469:56:235"
               },
               {
                 "attributes": {
@@ -2405,7 +2405,7 @@
                 "children": [],
                 "id": 9270,
                 "name": "ParameterList",
-                "src": "527:2:235"
+                "src": "544:2:235"
               },
               {
                 "children": [
@@ -2430,22 +2430,22 @@
                         },
                         "id": 9271,
                         "name": "ElementaryTypeName",
-                        "src": "553:6:235"
+                        "src": "570:6:235"
                       }
                     ],
                     "id": 9272,
                     "name": "VariableDeclaration",
-                    "src": "553:13:235"
+                    "src": "570:13:235"
                   }
                 ],
                 "id": 9273,
                 "name": "ParameterList",
-                "src": "552:15:235"
+                "src": "569:15:235"
               }
             ],
             "id": 9274,
             "name": "FunctionDefinition",
-            "src": "514:54:235"
+            "src": "531:54:235"
           },
           {
             "attributes": {
@@ -2471,7 +2471,7 @@
                 },
                 "id": 9275,
                 "name": "StructuredDocumentation",
-                "src": "574:102:235"
+                "src": "593:105:235"
               },
               {
                 "attributes": {
@@ -2482,7 +2482,7 @@
                 "children": [],
                 "id": 9276,
                 "name": "ParameterList",
-                "src": "696:2:235"
+                "src": "719:2:235"
               },
               {
                 "children": [
@@ -2507,22 +2507,22 @@
                         },
                         "id": 9277,
                         "name": "ElementaryTypeName",
-                        "src": "722:6:235"
+                        "src": "745:6:235"
                       }
                     ],
                     "id": 9278,
                     "name": "VariableDeclaration",
-                    "src": "722:13:235"
+                    "src": "745:13:235"
                   }
                 ],
                 "id": 9279,
                 "name": "ParameterList",
-                "src": "721:15:235"
+                "src": "744:15:235"
               }
             ],
             "id": 9280,
             "name": "FunctionDefinition",
-            "src": "681:56:235"
+            "src": "704:56:235"
           },
           {
             "attributes": {
@@ -2548,7 +2548,7 @@
                 },
                 "id": 9281,
                 "name": "StructuredDocumentation",
-                "src": "743:287:235"
+                "src": "768:293:235"
               },
               {
                 "attributes": {
@@ -2559,7 +2559,7 @@
                 "children": [],
                 "id": 9282,
                 "name": "ParameterList",
-                "src": "1055:2:235"
+                "src": "1087:2:235"
               },
               {
                 "children": [
@@ -2584,22 +2584,22 @@
                         },
                         "id": 9283,
                         "name": "ElementaryTypeName",
-                        "src": "1081:7:235"
+                        "src": "1113:7:235"
                       }
                     ],
                     "id": 9284,
                     "name": "VariableDeclaration",
-                    "src": "1081:7:235"
+                    "src": "1113:7:235"
                   }
                 ],
                 "id": 9285,
                 "name": "ParameterList",
-                "src": "1080:9:235"
+                "src": "1112:9:235"
               }
             ],
             "id": 9286,
             "name": "FunctionDefinition",
-            "src": "1035:55:235"
+            "src": "1067:55:235"
           },
           {
             "attributes": {
@@ -2625,7 +2625,7 @@
                 },
                 "id": 9287,
                 "name": "StructuredDocumentation",
-                "src": "1096:66:235"
+                "src": "1130:68:235"
               },
               {
                 "attributes": {
@@ -2636,7 +2636,7 @@
                 "children": [],
                 "id": 9288,
                 "name": "ParameterList",
-                "src": "1187:2:235"
+                "src": "1224:2:235"
               },
               {
                 "children": [
@@ -2661,22 +2661,22 @@
                         },
                         "id": 9289,
                         "name": "ElementaryTypeName",
-                        "src": "1213:7:235"
+                        "src": "1250:7:235"
                       }
                     ],
                     "id": 9290,
                     "name": "VariableDeclaration",
-                    "src": "1213:7:235"
+                    "src": "1250:7:235"
                   }
                 ],
                 "id": 9291,
                 "name": "ParameterList",
-                "src": "1212:9:235"
+                "src": "1249:9:235"
               }
             ],
             "id": 9292,
             "name": "FunctionDefinition",
-            "src": "1167:55:235"
+            "src": "1204:55:235"
           },
           {
             "attributes": {
@@ -2702,7 +2702,7 @@
                 },
                 "id": 9293,
                 "name": "StructuredDocumentation",
-                "src": "1228:83:235"
+                "src": "1267:85:235"
               },
               {
                 "children": [
@@ -2728,17 +2728,17 @@
                         },
                         "id": 9294,
                         "name": "ElementaryTypeName",
-                        "src": "1335:7:235"
+                        "src": "1377:7:235"
                       }
                     ],
                     "id": 9295,
                     "name": "VariableDeclaration",
-                    "src": "1335:13:235"
+                    "src": "1377:13:235"
                   }
                 ],
                 "id": 9296,
                 "name": "ParameterList",
-                "src": "1334:15:235"
+                "src": "1376:15:235"
               },
               {
                 "children": [
@@ -2763,22 +2763,22 @@
                         },
                         "id": 9297,
                         "name": "ElementaryTypeName",
-                        "src": "1373:7:235"
+                        "src": "1415:7:235"
                       }
                     ],
                     "id": 9298,
                     "name": "VariableDeclaration",
-                    "src": "1373:7:235"
+                    "src": "1415:7:235"
                   }
                 ],
                 "id": 9299,
                 "name": "ParameterList",
-                "src": "1372:9:235"
+                "src": "1414:9:235"
               }
             ],
             "id": 9300,
             "name": "FunctionDefinition",
-            "src": "1316:66:235"
+            "src": "1358:66:235"
           },
           {
             "attributes": {
@@ -2804,7 +2804,7 @@
                 },
                 "id": 9301,
                 "name": "StructuredDocumentation",
-                "src": "1388:585:235"
+                "src": "1432:600:235"
               },
               {
                 "children": [
@@ -2830,12 +2830,12 @@
                         },
                         "id": 9302,
                         "name": "ElementaryTypeName",
-                        "src": "1992:7:235"
+                        "src": "2052:7:235"
                       }
                     ],
                     "id": 9303,
                     "name": "VariableDeclaration",
-                    "src": "1992:17:235"
+                    "src": "2052:17:235"
                   },
                   {
                     "attributes": {
@@ -2858,12 +2858,12 @@
                         },
                         "id": 9304,
                         "name": "ElementaryTypeName",
-                        "src": "2011:7:235"
+                        "src": "2071:7:235"
                       }
                     ],
                     "id": 9305,
                     "name": "VariableDeclaration",
-                    "src": "2011:14:235"
+                    "src": "2071:14:235"
                   },
                   {
                     "attributes": {
@@ -2886,17 +2886,17 @@
                         },
                         "id": 9306,
                         "name": "ElementaryTypeName",
-                        "src": "2027:5:235"
+                        "src": "2087:5:235"
                       }
                     ],
                     "id": 9307,
                     "name": "VariableDeclaration",
-                    "src": "2027:19:235"
+                    "src": "2087:19:235"
                   }
                 ],
                 "id": 9308,
                 "name": "ParameterList",
-                "src": "1991:56:235"
+                "src": "2051:56:235"
               },
               {
                 "attributes": {
@@ -2907,12 +2907,12 @@
                 "children": [],
                 "id": 9309,
                 "name": "ParameterList",
-                "src": "2056:0:235"
+                "src": "2116:0:235"
               }
             ],
             "id": 9310,
             "name": "FunctionDefinition",
-            "src": "1978:79:235"
+            "src": "2038:79:235"
           },
           {
             "attributes": {
@@ -2938,7 +2938,7 @@
                 },
                 "id": 9311,
                 "name": "StructuredDocumentation",
-                "src": "2063:404:235"
+                "src": "2125:416:235"
               },
               {
                 "children": [
@@ -2963,12 +2963,12 @@
                         },
                         "id": 9312,
                         "name": "ElementaryTypeName",
-                        "src": "2486:7:235"
+                        "src": "2561:7:235"
                       }
                     ],
                     "id": 9313,
                     "name": "VariableDeclaration",
-                    "src": "2486:14:235"
+                    "src": "2561:14:235"
                   },
                   {
                     "attributes": {
@@ -2991,17 +2991,17 @@
                         },
                         "id": 9314,
                         "name": "ElementaryTypeName",
-                        "src": "2502:5:235"
+                        "src": "2577:5:235"
                       }
                     ],
                     "id": 9315,
                     "name": "VariableDeclaration",
-                    "src": "2502:19:235"
+                    "src": "2577:19:235"
                   }
                 ],
                 "id": 9316,
                 "name": "ParameterList",
-                "src": "2485:37:235"
+                "src": "2560:37:235"
               },
               {
                 "attributes": {
@@ -3012,12 +3012,12 @@
                 "children": [],
                 "id": 9317,
                 "name": "ParameterList",
-                "src": "2531:0:235"
+                "src": "2606:0:235"
               }
             ],
             "id": 9318,
             "name": "FunctionDefinition",
-            "src": "2472:60:235"
+            "src": "2547:60:235"
           },
           {
             "attributes": {
@@ -3043,7 +3043,7 @@
                 },
                 "id": 9319,
                 "name": "StructuredDocumentation",
-                "src": "2538:249:235"
+                "src": "2615:255:235"
               },
               {
                 "children": [
@@ -3069,12 +3069,12 @@
                         },
                         "id": 9320,
                         "name": "ElementaryTypeName",
-                        "src": "2815:7:235"
+                        "src": "2899:7:235"
                       }
                     ],
                     "id": 9321,
                     "name": "VariableDeclaration",
-                    "src": "2815:16:235"
+                    "src": "2899:16:235"
                   },
                   {
                     "attributes": {
@@ -3098,17 +3098,17 @@
                         },
                         "id": 9322,
                         "name": "ElementaryTypeName",
-                        "src": "2833:7:235"
+                        "src": "2917:7:235"
                       }
                     ],
                     "id": 9323,
                     "name": "VariableDeclaration",
-                    "src": "2833:19:235"
+                    "src": "2917:19:235"
                   }
                 ],
                 "id": 9324,
                 "name": "ParameterList",
-                "src": "2814:39:235"
+                "src": "2898:39:235"
               },
               {
                 "children": [
@@ -3133,22 +3133,22 @@
                         },
                         "id": 9325,
                         "name": "ElementaryTypeName",
-                        "src": "2877:4:235"
+                        "src": "2961:4:235"
                       }
                     ],
                     "id": 9326,
                     "name": "VariableDeclaration",
-                    "src": "2877:4:235"
+                    "src": "2961:4:235"
                   }
                 ],
                 "id": 9327,
                 "name": "ParameterList",
-                "src": "2876:6:235"
+                "src": "2960:6:235"
               }
             ],
             "id": 9328,
             "name": "FunctionDefinition",
-            "src": "2792:91:235"
+            "src": "2876:91:235"
           },
           {
             "attributes": {
@@ -3174,7 +3174,7 @@
                 },
                 "id": 9329,
                 "name": "StructuredDocumentation",
-                "src": "2889:233:235"
+                "src": "2975:243:235"
               },
               {
                 "children": [
@@ -3200,17 +3200,17 @@
                         },
                         "id": 9330,
                         "name": "ElementaryTypeName",
-                        "src": "3154:7:235"
+                        "src": "3251:7:235"
                       }
                     ],
                     "id": 9331,
                     "name": "VariableDeclaration",
-                    "src": "3154:16:235"
+                    "src": "3251:16:235"
                   }
                 ],
                 "id": 9332,
                 "name": "ParameterList",
-                "src": "3153:18:235"
+                "src": "3250:18:235"
               },
               {
                 "attributes": {
@@ -3221,12 +3221,12 @@
                 "children": [],
                 "id": 9333,
                 "name": "ParameterList",
-                "src": "3180:0:235"
+                "src": "3277:0:235"
               }
             ],
             "id": 9334,
             "name": "FunctionDefinition",
-            "src": "3127:54:235"
+            "src": "3224:54:235"
           },
           {
             "attributes": {
@@ -3252,7 +3252,7 @@
                 },
                 "id": 9335,
                 "name": "StructuredDocumentation",
-                "src": "3187:261:235"
+                "src": "3286:271:235"
               },
               {
                 "children": [
@@ -3278,17 +3278,17 @@
                         },
                         "id": 9336,
                         "name": "ElementaryTypeName",
-                        "src": "3477:7:235"
+                        "src": "3587:7:235"
                       }
                     ],
                     "id": 9337,
                     "name": "VariableDeclaration",
-                    "src": "3477:16:235"
+                    "src": "3587:16:235"
                   }
                 ],
                 "id": 9338,
                 "name": "ParameterList",
-                "src": "3476:18:235"
+                "src": "3586:18:235"
               },
               {
                 "attributes": {
@@ -3299,12 +3299,12 @@
                 "children": [],
                 "id": 9339,
                 "name": "ParameterList",
-                "src": "3503:0:235"
+                "src": "3613:0:235"
               }
             ],
             "id": 9340,
             "name": "FunctionDefinition",
-            "src": "3453:51:235"
+            "src": "3563:51:235"
           },
           {
             "attributes": {
@@ -3330,7 +3330,7 @@
                 },
                 "id": 9341,
                 "name": "StructuredDocumentation",
-                "src": "3510:338:235"
+                "src": "3622:345:235"
               },
               {
                 "attributes": {
@@ -3341,7 +3341,7 @@
                 "children": [],
                 "id": 9342,
                 "name": "ParameterList",
-                "src": "3878:2:235"
+                "src": "3998:2:235"
               },
               {
                 "children": [
@@ -3373,27 +3373,27 @@
                             },
                             "id": 9343,
                             "name": "ElementaryTypeName",
-                            "src": "3904:7:235"
+                            "src": "4024:7:235"
                           }
                         ],
                         "id": 9344,
                         "name": "ArrayTypeName",
-                        "src": "3904:9:235"
+                        "src": "4024:9:235"
                       }
                     ],
                     "id": 9345,
                     "name": "VariableDeclaration",
-                    "src": "3904:16:235"
+                    "src": "4024:16:235"
                   }
                 ],
                 "id": 9346,
                 "name": "ParameterList",
-                "src": "3903:18:235"
+                "src": "4023:18:235"
               }
             ],
             "id": 9347,
             "name": "FunctionDefinition",
-            "src": "3853:69:235"
+            "src": "3973:69:235"
           },
           {
             "attributes": {
@@ -3419,7 +3419,7 @@
                 },
                 "id": 9348,
                 "name": "StructuredDocumentation",
-                "src": "3928:714:235"
+                "src": "4050:732:235"
               },
               {
                 "children": [
@@ -3445,12 +3445,12 @@
                         },
                         "id": 9349,
                         "name": "ElementaryTypeName",
-                        "src": "4678:7:235"
+                        "src": "4820:7:235"
                       }
                     ],
                     "id": 9350,
                     "name": "VariableDeclaration",
-                    "src": "4678:14:235"
+                    "src": "4820:14:235"
                   },
                   {
                     "attributes": {
@@ -3474,12 +3474,12 @@
                         },
                         "id": 9351,
                         "name": "ElementaryTypeName",
-                        "src": "4702:7:235"
+                        "src": "4845:7:235"
                       }
                     ],
                     "id": 9352,
                     "name": "VariableDeclaration",
-                    "src": "4702:17:235"
+                    "src": "4845:17:235"
                   },
                   {
                     "attributes": {
@@ -3502,12 +3502,12 @@
                         },
                         "id": 9353,
                         "name": "ElementaryTypeName",
-                        "src": "4729:7:235"
+                        "src": "4873:7:235"
                       }
                     ],
                     "id": 9354,
                     "name": "VariableDeclaration",
-                    "src": "4729:14:235"
+                    "src": "4873:14:235"
                   },
                   {
                     "attributes": {
@@ -3530,12 +3530,12 @@
                         },
                         "id": 9355,
                         "name": "ElementaryTypeName",
-                        "src": "4753:5:235"
+                        "src": "4898:5:235"
                       }
                     ],
                     "id": 9356,
                     "name": "VariableDeclaration",
-                    "src": "4753:19:235"
+                    "src": "4898:19:235"
                   },
                   {
                     "attributes": {
@@ -3558,17 +3558,17 @@
                         },
                         "id": 9357,
                         "name": "ElementaryTypeName",
-                        "src": "4782:5:235"
+                        "src": "4928:5:235"
                       }
                     ],
                     "id": 9358,
                     "name": "VariableDeclaration",
-                    "src": "4782:27:235"
+                    "src": "4928:27:235"
                   }
                 ],
                 "id": 9359,
                 "name": "ParameterList",
-                "src": "4668:147:235"
+                "src": "4809:153:235"
               },
               {
                 "attributes": {
@@ -3579,12 +3579,12 @@
                 "children": [],
                 "id": 9360,
                 "name": "ParameterList",
-                "src": "4824:0:235"
+                "src": "4971:0:235"
               }
             ],
             "id": 9361,
             "name": "FunctionDefinition",
-            "src": "4647:178:235"
+            "src": "4788:184:235"
           },
           {
             "attributes": {
@@ -3610,7 +3610,7 @@
                 },
                 "id": 9362,
                 "name": "StructuredDocumentation",
-                "src": "4831:532:235"
+                "src": "4980:546:235"
               },
               {
                 "children": [
@@ -3636,12 +3636,12 @@
                         },
                         "id": 9363,
                         "name": "ElementaryTypeName",
-                        "src": "5399:7:235"
+                        "src": "5564:7:235"
                       }
                     ],
                     "id": 9364,
                     "name": "VariableDeclaration",
-                    "src": "5399:15:235"
+                    "src": "5564:15:235"
                   },
                   {
                     "attributes": {
@@ -3664,12 +3664,12 @@
                         },
                         "id": 9365,
                         "name": "ElementaryTypeName",
-                        "src": "5424:7:235"
+                        "src": "5590:7:235"
                       }
                     ],
                     "id": 9366,
                     "name": "VariableDeclaration",
-                    "src": "5424:14:235"
+                    "src": "5590:14:235"
                   },
                   {
                     "attributes": {
@@ -3692,12 +3692,12 @@
                         },
                         "id": 9367,
                         "name": "ElementaryTypeName",
-                        "src": "5448:5:235"
+                        "src": "5615:5:235"
                       }
                     ],
                     "id": 9368,
                     "name": "VariableDeclaration",
-                    "src": "5448:19:235"
+                    "src": "5615:19:235"
                   },
                   {
                     "attributes": {
@@ -3720,17 +3720,17 @@
                         },
                         "id": 9369,
                         "name": "ElementaryTypeName",
-                        "src": "5477:5:235"
+                        "src": "5645:5:235"
                       }
                     ],
                     "id": 9370,
                     "name": "VariableDeclaration",
-                    "src": "5477:27:235"
+                    "src": "5645:27:235"
                   }
                 ],
                 "id": 9371,
                 "name": "ParameterList",
-                "src": "5389:121:235"
+                "src": "5553:126:235"
               },
               {
                 "attributes": {
@@ -3741,12 +3741,12 @@
                 "children": [],
                 "id": 9372,
                 "name": "ParameterList",
-                "src": "5519:0:235"
+                "src": "5688:0:235"
               }
             ],
             "id": 9373,
             "name": "FunctionDefinition",
-            "src": "5368:152:235"
+            "src": "5532:157:235"
           },
           {
             "attributes": {
@@ -3780,12 +3780,12 @@
                         },
                         "id": 9374,
                         "name": "ElementaryTypeName",
-                        "src": "5546:7:235"
+                        "src": "5718:7:235"
                       }
                     ],
                     "id": 9375,
                     "name": "VariableDeclaration",
-                    "src": "5546:24:235"
+                    "src": "5718:24:235"
                   },
                   {
                     "attributes": {
@@ -3810,12 +3810,12 @@
                         },
                         "id": 9376,
                         "name": "ElementaryTypeName",
-                        "src": "5580:7:235"
+                        "src": "5753:7:235"
                       }
                     ],
                     "id": 9377,
                     "name": "VariableDeclaration",
-                    "src": "5580:20:235"
+                    "src": "5753:20:235"
                   },
                   {
                     "attributes": {
@@ -3840,12 +3840,12 @@
                         },
                         "id": 9378,
                         "name": "ElementaryTypeName",
-                        "src": "5610:7:235"
+                        "src": "5784:7:235"
                       }
                     ],
                     "id": 9379,
                     "name": "VariableDeclaration",
-                    "src": "5610:18:235"
+                    "src": "5784:18:235"
                   },
                   {
                     "attributes": {
@@ -3869,12 +3869,12 @@
                         },
                         "id": 9380,
                         "name": "ElementaryTypeName",
-                        "src": "5638:7:235"
+                        "src": "5813:7:235"
                       }
                     ],
                     "id": 9381,
                     "name": "VariableDeclaration",
-                    "src": "5638:14:235"
+                    "src": "5813:14:235"
                   },
                   {
                     "attributes": {
@@ -3898,12 +3898,12 @@
                         },
                         "id": 9382,
                         "name": "ElementaryTypeName",
-                        "src": "5662:5:235"
+                        "src": "5838:5:235"
                       }
                     ],
                     "id": 9383,
                     "name": "VariableDeclaration",
-                    "src": "5662:10:235"
+                    "src": "5838:10:235"
                   },
                   {
                     "attributes": {
@@ -3927,22 +3927,22 @@
                         },
                         "id": 9384,
                         "name": "ElementaryTypeName",
-                        "src": "5682:5:235"
+                        "src": "5859:5:235"
                       }
                     ],
                     "id": 9385,
                     "name": "VariableDeclaration",
-                    "src": "5682:18:235"
+                    "src": "5859:18:235"
                   }
                 ],
                 "id": 9386,
                 "name": "ParameterList",
-                "src": "5536:170:235"
+                "src": "5707:177:235"
               }
             ],
             "id": 9387,
             "name": "EventDefinition",
-            "src": "5526:181:235"
+            "src": "5697:188:235"
           },
           {
             "attributes": {
@@ -3976,12 +3976,12 @@
                         },
                         "id": 9388,
                         "name": "ElementaryTypeName",
-                        "src": "5726:7:235"
+                        "src": "5906:7:235"
                       }
                     ],
                     "id": 9389,
                     "name": "VariableDeclaration",
-                    "src": "5726:24:235"
+                    "src": "5906:24:235"
                   },
                   {
                     "attributes": {
@@ -4006,12 +4006,12 @@
                         },
                         "id": 9390,
                         "name": "ElementaryTypeName",
-                        "src": "5752:7:235"
+                        "src": "5932:7:235"
                       }
                     ],
                     "id": 9391,
                     "name": "VariableDeclaration",
-                    "src": "5752:18:235"
+                    "src": "5932:18:235"
                   },
                   {
                     "attributes": {
@@ -4035,12 +4035,12 @@
                         },
                         "id": 9392,
                         "name": "ElementaryTypeName",
-                        "src": "5772:7:235"
+                        "src": "5952:7:235"
                       }
                     ],
                     "id": 9393,
                     "name": "VariableDeclaration",
-                    "src": "5772:14:235"
+                    "src": "5952:14:235"
                   },
                   {
                     "attributes": {
@@ -4064,12 +4064,12 @@
                         },
                         "id": 9394,
                         "name": "ElementaryTypeName",
-                        "src": "5788:5:235"
+                        "src": "5968:5:235"
                       }
                     ],
                     "id": 9395,
                     "name": "VariableDeclaration",
-                    "src": "5788:10:235"
+                    "src": "5968:10:235"
                   },
                   {
                     "attributes": {
@@ -4093,22 +4093,22 @@
                         },
                         "id": 9396,
                         "name": "ElementaryTypeName",
-                        "src": "5800:5:235"
+                        "src": "5980:5:235"
                       }
                     ],
                     "id": 9397,
                     "name": "VariableDeclaration",
-                    "src": "5800:18:235"
+                    "src": "5980:18:235"
                   }
                 ],
                 "id": 9398,
                 "name": "ParameterList",
-                "src": "5725:94:235"
+                "src": "5905:94:235"
               }
             ],
             "id": 9399,
             "name": "EventDefinition",
-            "src": "5713:107:235"
+            "src": "5893:107:235"
           },
           {
             "attributes": {
@@ -4142,12 +4142,12 @@
                         },
                         "id": 9400,
                         "name": "ElementaryTypeName",
-                        "src": "5839:7:235"
+                        "src": "6021:7:235"
                       }
                     ],
                     "id": 9401,
                     "name": "VariableDeclaration",
-                    "src": "5839:24:235"
+                    "src": "6021:24:235"
                   },
                   {
                     "attributes": {
@@ -4172,12 +4172,12 @@
                         },
                         "id": 9402,
                         "name": "ElementaryTypeName",
-                        "src": "5865:7:235"
+                        "src": "6047:7:235"
                       }
                     ],
                     "id": 9403,
                     "name": "VariableDeclaration",
-                    "src": "5865:20:235"
+                    "src": "6047:20:235"
                   },
                   {
                     "attributes": {
@@ -4201,12 +4201,12 @@
                         },
                         "id": 9404,
                         "name": "ElementaryTypeName",
-                        "src": "5887:7:235"
+                        "src": "6069:7:235"
                       }
                     ],
                     "id": 9405,
                     "name": "VariableDeclaration",
-                    "src": "5887:14:235"
+                    "src": "6069:14:235"
                   },
                   {
                     "attributes": {
@@ -4230,12 +4230,12 @@
                         },
                         "id": 9406,
                         "name": "ElementaryTypeName",
-                        "src": "5903:5:235"
+                        "src": "6085:5:235"
                       }
                     ],
                     "id": 9407,
                     "name": "VariableDeclaration",
-                    "src": "5903:10:235"
+                    "src": "6085:10:235"
                   },
                   {
                     "attributes": {
@@ -4259,22 +4259,22 @@
                         },
                         "id": 9408,
                         "name": "ElementaryTypeName",
-                        "src": "5915:5:235"
+                        "src": "6097:5:235"
                       }
                     ],
                     "id": 9409,
                     "name": "VariableDeclaration",
-                    "src": "5915:18:235"
+                    "src": "6097:18:235"
                   }
                 ],
                 "id": 9410,
                 "name": "ParameterList",
-                "src": "5838:96:235"
+                "src": "6020:96:235"
               }
             ],
             "id": 9411,
             "name": "EventDefinition",
-            "src": "5826:109:235"
+            "src": "6008:109:235"
           },
           {
             "attributes": {
@@ -4308,12 +4308,12 @@
                         },
                         "id": 9412,
                         "name": "ElementaryTypeName",
-                        "src": "5966:7:235"
+                        "src": "6150:7:235"
                       }
                     ],
                     "id": 9413,
                     "name": "VariableDeclaration",
-                    "src": "5966:24:235"
+                    "src": "6150:24:235"
                   },
                   {
                     "attributes": {
@@ -4338,22 +4338,22 @@
                         },
                         "id": 9414,
                         "name": "ElementaryTypeName",
-                        "src": "5992:7:235"
+                        "src": "6176:7:235"
                       }
                     ],
                     "id": 9415,
                     "name": "VariableDeclaration",
-                    "src": "5992:27:235"
+                    "src": "6176:27:235"
                   }
                 ],
                 "id": 9416,
                 "name": "ParameterList",
-                "src": "5965:55:235"
+                "src": "6149:55:235"
               }
             ],
             "id": 9417,
             "name": "EventDefinition",
-            "src": "5941:80:235"
+            "src": "6125:80:235"
           },
           {
             "attributes": {
@@ -4387,12 +4387,12 @@
                         },
                         "id": 9418,
                         "name": "ElementaryTypeName",
-                        "src": "6049:7:235"
+                        "src": "6235:7:235"
                       }
                     ],
                     "id": 9419,
                     "name": "VariableDeclaration",
-                    "src": "6049:24:235"
+                    "src": "6235:24:235"
                   },
                   {
                     "attributes": {
@@ -4417,40 +4417,40 @@
                         },
                         "id": 9420,
                         "name": "ElementaryTypeName",
-                        "src": "6075:7:235"
+                        "src": "6261:7:235"
                       }
                     ],
                     "id": 9421,
                     "name": "VariableDeclaration",
-                    "src": "6075:27:235"
+                    "src": "6261:27:235"
                   }
                 ],
                 "id": 9422,
                 "name": "ParameterList",
-                "src": "6048:55:235"
+                "src": "6234:55:235"
               }
             ],
             "id": 9423,
             "name": "EventDefinition",
-            "src": "6027:77:235"
+            "src": "6213:77:235"
           }
         ],
         "id": 9424,
         "name": "ContractDefinition",
-        "src": "431:5675:235"
+        "src": "444:5849:235"
       }
     ],
     "id": 9425,
     "name": "SourceUnit",
-    "src": "33:6074:235"
+    "src": "35:6260:235"
   },
   "compiler": {
     "name": "solc",
     "version": "0.6.12+commit.27d51765.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-28T06:04:33.810Z",
+  "schemaVersion": "3.4.2",
+  "updatedAt": "2021-08-10T11:43:49.394Z",
   "devdoc": {
     "details": "Interface of the ERC777Token standard as defined in the EIP. This contract uses the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 registry standard] to let token holders and recipients react to token movements by using setting implementers for the associated interfaces in said registry. See {IERC1820Registry} and {ERC1820Implementer}.",
     "kind": "dev",
