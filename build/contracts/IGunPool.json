@@ -760,13 +760,13 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Claim\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"gptAddress\",\"type\":\"address[]\"}],\"name\":\"InitReserve\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"msg\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Log\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\"}],\"name\":\"Pause\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"ResetPcoinReward\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"pc\",\"type\":\"tuple\"}],\"name\":\"ResetPlane\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"feeAccount\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"permillage\",\"type\":\"uint16\"}],\"name\":\"SetFeeto\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"pcoinAddress\",\"type\":\"address\"}],\"name\":\"SetPcoinAddress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"claim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"depositByEth\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"getDepositAPY\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDepositAccounts\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"}],\"name\":\"getPlanes\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"getReserve\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"internalType\":\"bool\",\"name\":\"isFrozen\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"lock\",\"type\":\"bool\"}],\"internalType\":\"struct GunPoolContext.ReserveData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"plane\",\"type\":\"tuple\"}],\"internalType\":\"struct GunPoolContext.PlaneInitInput[]\",\"name\":\"planes\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"initReserve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\"}],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"resetPcoinReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"plane\",\"type\":\"tuple\"}],\"internalType\":\"struct GunPoolContext.PlaneInitInput\",\"name\":\"planeInput\",\"type\":\"tuple\"}],\"name\":\"resetPlane\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"rewardBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"permillage\",\"type\":\"uint16\"}],\"internalType\":\"struct GunPoolContext.FeeContext\",\"name\":\"feeTo\",\"type\":\"tuple\"}],\"name\":\"setFeeto\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pcoinAddress\",\"type\":\"address\"}],\"name\":\"setPcoinAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdrawByEth\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the Gun Pool standard as defined in the EIP.\",\"events\":{\"Claim(address,address,uint256)\":{\"details\":\"Emitted on Claim()\",\"params\":{\"amount\":\"The toatl amount of reward that the user(to) gets which is recalculated by mainet basis token*\",\"from\":\"The address of user who has a opportunity to get reward from gun pool\",\"to\":\"The address of the user who get the reward\"}},\"Deposit(address,address,uint256)\":{\"details\":\"Emitted on deposit()\",\"params\":{\"amount\":\"The amount that the user wants to deposit*\",\"token\":\"The address of token which can be deposited in gun pool\",\"user\":\"The address of the user who deposit token\"}},\"InitReserve(address,(uint256,uint256,uint256,uint256,uint256,uint256),address[])\":{\"details\":\"Emitted on initReserve()\",\"params\":{\"gptAddress\":\"the address pool of gptoken*\",\"pcoin\":\"the reward policy of pcoin\",\"token\":\"the address of token who was initialized\"}},\"Pause(address,bool)\":{\"details\":\"Emitted on pause()\",\"params\":{\"frozen\":\"the status of reserve, true is frozen*\",\"token\":\"the address of token who was initialized\"}},\"ResetPcoinReward(address,(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"Emitted on resetPcoinReward()\",\"params\":{\"pcoin\":\"the reward policy of pcoin*\",\"token\":\"the address of token who was initialized\"}},\"ResetPlane(address,uint8,(address,address))\":{\"details\":\"Emitted on resetPlane()\",\"params\":{\"pc\":\"the address of the plane*\",\"pt\":\"the type of plane\",\"token\":\"The address of the underlying token of the reserve\"}},\"SetFeeto(address,uint16)\":{\"details\":\"Emitted on setFeeTo()\",\"params\":{\"feeAccount\":\"the account of feeTo\",\"permillage\":\"the ratio of feeTo(base 1000)*\"}},\"SetPcoinAddress(address)\":{\"details\":\"Emitted on setPcoinAddress()\",\"params\":{\"pcoinAddress\":\"the address of pcoin who mint reward for user*\"}},\"Withdraw(address,address,uint256)\":{\"details\":\"Emitted on withdraw()\",\"params\":{\"amount\":\"The amount that the user wants to withdraw*\",\"token\":\"The address of token which can be deposited in gun pool\",\"user\":\"The address of the user who obtain token\"}}},\"kind\":\"dev\",\"methods\":{\"claim(address)\":{\"details\":\"claim from gun pool(contain: polylend token) Returns amount The total amount of reward is obtained by to which is recalculated by pcoin Emits a {Claim} event.*\"},\"deposit(address,uint256)\":{\"details\":\"deposit the ERC20 token\",\"params\":{\"amount\":\"The amount of the token to deposit.(For max: `uint256(-1)`) Emits a {Deposit} event.*\",\"token\":\"The address of the token to deposit.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\"}},\"depositByEth()\":{\"details\":\"deposit the mainet basis token Returns a boolean value indicating whether the operation succeeded. Emits a {Deposit} event.*\"},\"getDepositAPY(address)\":{\"details\":\"getDepositAPY get the APY of deposited token\",\"params\":{\"token\":\"the address of reserve\"},\"returns\":{\"_0\":\"APY: Annual percentage yields*\"}},\"getDepositAccounts()\":{\"details\":\"getDepositAccounts get acconts of deposit\",\"returns\":{\"_0\":\"Accounts: who has deposited*\"}},\"getPlanes(address,uint8)\":{\"details\":\"getPlanes get the context address of work plane\",\"params\":{\"pt\":\"the type of plane\",\"token\":\"the address of reserve\"},\"returns\":{\"_0\":\"planecontext contain address of plane and gptoken*\"}},\"getReserve(address)\":{\"details\":\"Returns the state of the reserve in gunpool\",\"params\":{\"token\":\"The address of the underlying token of the reserve\"},\"returns\":{\"_0\":\"The state of the reserve in gunpool*\"}},\"initReserve(address,(uint8,(address,address))[],(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"initReserve configure the reserve in gunpool\",\"params\":{\"pcoin\":\"The reward context of polylend coin Emits a {InitReserve} event.*\",\"planes\":\"the context of the plane\",\"token\":\"The address of the underlying token of the reserve\"}},\"pause(address,bool)\":{\"details\":\"pause set token frozen status\",\"params\":{\"frozen\":\"the status of reserve, true is frozen Emits a {Pause} event*\",\"token\":\"the address of reserve\"}},\"resetPcoinReward(address,(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"resetReservePcoinReward reset pcoin reward params for reserve\",\"params\":{\"pcoin\":\"The reward context of polylend coin Emits a {ResetPcoinReward} event*\",\"token\":\"The address of the underlying token of the reserve\"}},\"resetPlane(address,(uint8,(address,address)))\":{\"details\":\"resetPlane reset plane for reserve\",\"params\":{\"planeInput\":\"the context of the plane Emits a {ResetPlane} event*\",\"token\":\"The address of the underlying token of the reserve\"}},\"rewardBalanceOf(address)\":{\"details\":\"rewardBalanceOf quary pcoin rewards\",\"params\":{\"user\":\"who has rewards Returns balance The total amount of reward*\"}},\"setFeeto((address,uint16))\":{\"details\":\"setFeeto set account and permillage for fee\",\"params\":{\"feeTo\":\"the context of feeto Emits a {SetFeeTo} event*\"}},\"setPcoinAddress(address)\":{\"details\":\"initPcoinAddress set the address of pcoin\",\"params\":{\"pcoinAddress\":\"the address of pcoin who mint reward for user Emits a {SetPcoinAddress} event*\"}},\"withdraw(address,uint256)\":{\"details\":\"withdraw the ERC20 token\",\"params\":{\"amount\":\"The amount of the lptoken (For max: `uint256(-1)`) Returns a boolean value indicating whether the operation succeeded. Emits a {Withdraw} event.*\",\"token\":\"The address of the token to withdraw.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\"}},\"withdrawByEth(uint256)\":{\"details\":\"withdraw the mainet basis token\",\"params\":{\"amount\":\"The amount of the token to withdraw.(For max: `uint256(-1)`) Returns a boolean value indicating whether the operation succeeded. Emits a {Withdraw} event.*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IGunPool.sol\":\"IGunPool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xd21cb8aef1587aef74cefe70cf0fb417161f77f2883bbe9445bc21e143eb240d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://795bfda411fb819132ba5629a0538281963ac36e96a268b3db91a26b51df3cb3\",\"dweb:/ipfs/QmU7yC5cC5e5tu4E3YAXhbfPv2YXL1EF74fkqiA3me3LS6\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Claim\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Deposit\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"},{\"indexed\":false,\"internalType\":\"address[]\",\"name\":\"gptAddress\",\"type\":\"address[]\"}],\"name\":\"InitReserve\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"string\",\"name\":\"msg\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"value\",\"type\":\"uint256\"}],\"name\":\"Log\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\"}],\"name\":\"Pause\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"ResetPcoinReward\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"indexed\":false,\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"pc\",\"type\":\"tuple\"}],\"name\":\"ResetPlane\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"feeAccount\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint16\",\"name\":\"permillage\",\"type\":\"uint16\"}],\"name\":\"SetFeeto\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"pcoinAddress\",\"type\":\"address\"}],\"name\":\"SetPcoinAddress\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"Withdraw\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"claim\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"deposit\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"depositByEth\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"getDepositAPY\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getDepositAccounts\",\"outputs\":[{\"internalType\":\"uint32\",\"name\":\"\",\"type\":\"uint32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"}],\"name\":\"getPlanes\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"getReserve\",\"outputs\":[{\"components\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"internalType\":\"bool\",\"name\":\"isFrozen\",\"type\":\"bool\"},{\"internalType\":\"bool\",\"name\":\"lock\",\"type\":\"bool\"}],\"internalType\":\"struct GunPoolContext.ReserveData\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"plane\",\"type\":\"tuple\"}],\"internalType\":\"struct GunPoolContext.PlaneInitInput[]\",\"name\":\"planes\",\"type\":\"tuple[]\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"initReserve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"frozen\",\"type\":\"bool\"}],\"name\":\"pause\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"uint256\",\"name\":\"mintSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintMaxSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintRateBySec\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastMintTime\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"lastSupply\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"mintCapacity\",\"type\":\"uint256\"}],\"internalType\":\"struct GunPoolContext.PcoinReward\",\"name\":\"pcoin\",\"type\":\"tuple\"}],\"name\":\"resetPcoinReward\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"components\":[{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"},{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"plane\",\"type\":\"tuple\"}],\"internalType\":\"struct GunPoolContext.PlaneInitInput\",\"name\":\"planeInput\",\"type\":\"tuple\"}],\"name\":\"resetPlane\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"user\",\"type\":\"address\"}],\"name\":\"rewardBalanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint16\",\"name\":\"permillage\",\"type\":\"uint16\"}],\"internalType\":\"struct GunPoolContext.FeeContext\",\"name\":\"feeTo\",\"type\":\"tuple\"}],\"name\":\"setFeeto\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"pcoinAddress\",\"type\":\"address\"}],\"name\":\"setPcoinAddress\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdraw\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"withdrawByEth\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the Gun Pool standard as defined in the EIP.\",\"events\":{\"Claim(address,address,uint256)\":{\"details\":\"Emitted on Claim()\",\"params\":{\"amount\":\"The toatl amount of reward that the user(to) gets which is recalculated by mainet basis token*\",\"from\":\"The address of user who has a opportunity to get reward from gun pool\",\"to\":\"The address of the user who get the reward\"}},\"Deposit(address,address,uint256)\":{\"details\":\"Emitted on deposit()\",\"params\":{\"amount\":\"The amount that the user wants to deposit*\",\"token\":\"The address of token which can be deposited in gun pool\",\"user\":\"The address of the user who deposit token\"}},\"InitReserve(address,(uint256,uint256,uint256,uint256,uint256,uint256),address[])\":{\"details\":\"Emitted on initReserve()\",\"params\":{\"gptAddress\":\"the address pool of gptoken*\",\"pcoin\":\"the reward policy of pcoin\",\"token\":\"the address of token who was initialized\"}},\"Pause(address,bool)\":{\"details\":\"Emitted on pause()\",\"params\":{\"frozen\":\"the status of reserve, true is frozen*\",\"token\":\"the address of token who was initialized\"}},\"ResetPcoinReward(address,(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"Emitted on resetPcoinReward()\",\"params\":{\"pcoin\":\"the reward policy of pcoin*\",\"token\":\"the address of token who was initialized\"}},\"ResetPlane(address,uint8,(address,address))\":{\"details\":\"Emitted on resetPlane()\",\"params\":{\"pc\":\"the address of the plane*\",\"pt\":\"the type of plane\",\"token\":\"The address of the underlying token of the reserve\"}},\"SetFeeto(address,uint16)\":{\"details\":\"Emitted on setFeeTo()\",\"params\":{\"feeAccount\":\"the account of feeTo\",\"permillage\":\"the ratio of feeTo(base 1000)*\"}},\"SetPcoinAddress(address)\":{\"details\":\"Emitted on setPcoinAddress()\",\"params\":{\"pcoinAddress\":\"the address of pcoin who mint reward for user*\"}},\"Withdraw(address,address,uint256)\":{\"details\":\"Emitted on withdraw()\",\"params\":{\"amount\":\"The amount that the user wants to withdraw*\",\"token\":\"The address of token which can be deposited in gun pool\",\"user\":\"The address of the user who obtain token\"}}},\"kind\":\"dev\",\"methods\":{\"claim(address)\":{\"details\":\"claim from gun pool(contain: polylend token) Returns amount The total amount of reward is obtained by to which is recalculated by pcoin Emits a {Claim} event.*\"},\"deposit(address,uint256)\":{\"details\":\"deposit the ERC20 token\",\"params\":{\"amount\":\"The amount of the token to deposit.(For max: `uint256(-1)`) Emits a {Deposit} event.*\",\"token\":\"The address of the token to deposit.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\"}},\"depositByEth()\":{\"details\":\"deposit the mainet basis token Returns a boolean value indicating whether the operation succeeded. Emits a {Deposit} event.*\"},\"getDepositAPY(address)\":{\"details\":\"getDepositAPY get the APY of deposited token\",\"params\":{\"token\":\"the address of reserve\"},\"returns\":{\"_0\":\"APY: Annual percentage yields*\"}},\"getDepositAccounts()\":{\"details\":\"getDepositAccounts get acconts of deposit\",\"returns\":{\"_0\":\"Accounts: who has deposited*\"}},\"getPlanes(address,uint8)\":{\"details\":\"getPlanes get the context address of work plane\",\"params\":{\"pt\":\"the type of plane\",\"token\":\"the address of reserve\"},\"returns\":{\"_0\":\"planecontext contain address of plane and gptoken*\"}},\"getReserve(address)\":{\"details\":\"Returns the state of the reserve in gunpool\",\"params\":{\"token\":\"The address of the underlying token of the reserve\"},\"returns\":{\"_0\":\"The state of the reserve in gunpool*\"}},\"initReserve(address,(uint8,(address,address))[],(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"initReserve configure the reserve in gunpool\",\"params\":{\"pcoin\":\"The reward context of polylend coin Emits a {InitReserve} event.*\",\"planes\":\"the context of the plane\",\"token\":\"The address of the underlying token of the reserve\"}},\"pause(address,bool)\":{\"details\":\"pause set token frozen status\",\"params\":{\"frozen\":\"the status of reserve, true is frozen Emits a {Pause} event*\",\"token\":\"the address of reserve\"}},\"resetPcoinReward(address,(uint256,uint256,uint256,uint256,uint256,uint256))\":{\"details\":\"resetReservePcoinReward reset pcoin reward params for reserve\",\"params\":{\"pcoin\":\"The reward context of polylend coin Emits a {ResetPcoinReward} event*\",\"token\":\"The address of the underlying token of the reserve\"}},\"resetPlane(address,(uint8,(address,address)))\":{\"details\":\"resetPlane reset plane for reserve\",\"params\":{\"planeInput\":\"the context of the plane Emits a {ResetPlane} event*\",\"token\":\"The address of the underlying token of the reserve\"}},\"rewardBalanceOf(address)\":{\"details\":\"rewardBalanceOf quary pcoin rewards\",\"params\":{\"user\":\"who has rewards Returns balance The total amount of reward*\"}},\"setFeeto((address,uint16))\":{\"details\":\"setFeeto set account and permillage for fee\",\"params\":{\"feeTo\":\"the context of feeto Emits a {SetFeeTo} event*\"}},\"setPcoinAddress(address)\":{\"details\":\"initPcoinAddress set the address of pcoin\",\"params\":{\"pcoinAddress\":\"the address of pcoin who mint reward for user Emits a {SetPcoinAddress} event*\"}},\"withdraw(address,uint256)\":{\"details\":\"withdraw the ERC20 token\",\"params\":{\"amount\":\"The amount of the lptoken (For max: `uint256(-1)`) Returns a boolean value indicating whether the operation succeeded. Emits a {Withdraw} event.*\",\"token\":\"The address of the token to withdraw.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\"}},\"withdrawByEth(uint256)\":{\"details\":\"withdraw the mainet basis token\",\"params\":{\"amount\":\"The amount of the token to withdraw.(For max: `uint256(-1)`) Returns a boolean value indicating whether the operation succeeded. Emits a {Withdraw} event.*\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/interfaces/IGunPool.sol\":\"IGunPool\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xb1bf50441350e5d7745b98f56064c172124e909bdd748fb21f2781e922c64d60\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://23daf287da5c56724bbb8ddf298ba2e59f9491def3846680eb5a175423acf3de\",\"dweb:/ipfs/QmZyddMiS3TnwFz46fp7vnVBwSuzfKCkuQ3jiqYCkJEmC8\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {GunPoolContext} from \"../protocol/gunpool/GunPoolContext.sol\";\r\n\r\n/**\r\n * @dev Interface of the Gun Pool standard as defined in the EIP.\r\n */\r\ninterface IGunPool {\r\n\r\n  /**** function description ****/\r\n\r\n  /**\r\n   * @dev deposit the ERC20 token\r\n   * @param token The address of the token to deposit.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n   * @param amount The amount of the token to deposit.(For max: `uint256(-1)`)\r\n   * Emits a {Deposit} event.\r\n   **/\r\n  function deposit(address token, uint256 amount) external;\r\n\r\n  /**\r\n   * @dev withdraw the ERC20 token\r\n   * @param token The address of the token to withdraw.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n   * @param amount The amount of the lptoken (For max: `uint256(-1)`)\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Withdraw} event.\r\n   **/\r\n  function withdraw(address token, uint256 amount) external returns (uint256);\r\n\r\n  /**\r\n   * @dev deposit the mainet basis token\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Deposit} event.\r\n  **/\r\n  function depositByEth() external payable;\r\n\r\n  /**\r\n   * @dev withdraw the mainet basis token\r\n   * @param amount The amount of the token to withdraw.(For max: `uint256(-1)`)\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Withdraw} event.\r\n  **/\r\n  function withdrawByEth(uint256 amount) external;\r\n\r\n  /**\r\n   * @dev claim from gun pool(contain: polylend token)\r\n   * Returns amount The total amount of reward is obtained by to which is\r\n             recalculated by pcoin\r\n   * Emits a {Claim} event.\r\n  **/\r\n  function claim(address to) external returns (uint256);\r\n\r\n  /**\r\n   * @dev rewardBalanceOf quary pcoin rewards\r\n   * @param user who has rewards\r\n   * Returns balance The total amount of reward\r\n  **/\r\n  function rewardBalanceOf(address user) external view returns (uint256);\r\n\r\n  /**\r\n   * @dev Returns the state of the reserve in gunpool\r\n   * @param token The address of the underlying token of the reserve\r\n   * @return The state of the reserve in gunpool\r\n  **/\r\n  function getReserve(address token) external view returns (GunPoolContext.ReserveData memory);\r\n\r\n  /**\r\n   * @dev initReserve configure the reserve in gunpool\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param planes the context of the plane\r\n   * @param pcoin The reward context of polylend coin\r\n   * Emits a {InitReserve} event.\r\n  **/\r\n  function initReserve(\r\n    address token,\r\n    GunPoolContext.PlaneInitInput[] calldata planes,\r\n    GunPoolContext.PcoinReward calldata pcoin\r\n  ) external;\r\n\r\n  /**\r\n   * @dev resetReservePcoinReward reset pcoin reward params for reserve\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param pcoin The reward context of polylend coin\r\n   * Emits a {ResetPcoinReward} event\r\n  **/\r\n  function resetPcoinReward(\r\n    address token,\r\n    GunPoolContext.PcoinReward calldata pcoin\r\n  ) external;\r\n\r\n  /**\r\n   * @dev resetPlane reset plane for reserve\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param planeInput the context of the plane\r\n   * Emits a {ResetPlane} event\r\n  **/\r\n  function resetPlane(\r\n    address token,\r\n    GunPoolContext.PlaneInitInput calldata planeInput\r\n  ) external;\r\n\r\n  /**\r\n   * @dev initPcoinAddress set the address of pcoin\r\n   * @param pcoinAddress the address of pcoin who mint reward for user\r\n   * Emits a {SetPcoinAddress} event\r\n  **/\r\n  function setPcoinAddress(address pcoinAddress) external;\r\n\r\n  /**\r\n   * @dev pause set token frozen status\r\n   * @param token the address of reserve\r\n   * @param frozen the status of reserve, true is frozen\r\n   * Emits a {Pause} event\r\n  **/\r\n  function pause(address token, bool frozen) external;\r\n\r\n  /**\r\n   * @dev setFeeto set account and permillage for fee\r\n   * @param feeTo the context of feeto\r\n   * Emits a {SetFeeTo} event\r\n  **/\r\n  function setFeeto(GunPoolContext.FeeContext calldata feeTo) external;\r\n\r\n  /**\r\n   * @dev getPlanes get the context address of work plane\r\n   * @param token the address of reserve\r\n   * @param pt the type of plane\r\n   * @return planecontext contain address of plane and gptoken\r\n  **/\r\n  function getPlanes(address token, GunPoolContext.PlaneType pt)\r\n    external view returns(GunPoolContext.PlaneContext memory);\r\n\r\n  /**\r\n   * @dev getDepositAPY get the APY of deposited token\r\n   * @param token the address of reserve\r\n   * @return APY: Annual percentage yields\r\n  **/\r\n  function getDepositAPY(address token) external view returns(uint256);\r\n\r\n  /**\r\n   * @dev getDepositAccounts get acconts of deposit\r\n   * @return Accounts: who has deposited\r\n  **/\r\n  function getDepositAccounts() external view returns(uint32);\r\n\r\n  /**** event description ****/\r\n  /**\r\n   * @dev Emitted on deposit()\r\n   * @param token The address of token which can be deposited in gun pool\r\n   * @param user The address of the user who deposit token\r\n   * @param amount The amount that the user wants to deposit\r\n  **/\r\n  event Deposit(address indexed token, address indexed user, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on withdraw()\r\n   * @param token The address of token which can be deposited in gun pool\r\n   * @param user The address of the user who obtain token\r\n   * @param amount The amount that the user wants to withdraw\r\n   **/\r\n  event Withdraw(address indexed token, address indexed user, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on Claim()\r\n   * @param from The address of user who has a opportunity to get reward from gun pool\r\n   * @param to The address of the user who get the reward\r\n   * @param amount The toatl amount of reward that the user(to) gets which is\r\n            recalculated by mainet basis token\r\n   **/\r\n  event Claim(address indexed from, address indexed to, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on initReserve()\r\n   * @param token the address of token who was initialized\r\n   * @param pcoin the reward policy of pcoin\r\n   * @param gptAddress the address pool of gptoken\r\n   **/\r\n  event InitReserve(address indexed token,\r\n                    GunPoolContext.PcoinReward pcoin,\r\n                    address[] gptAddress);\r\n  /**\r\n   * @dev Emitted on resetPcoinReward()\r\n   * @param token the address of token who was initialized\r\n   * @param pcoin the reward policy of pcoin\r\n  **/\r\n  event ResetPcoinReward(address indexed token, GunPoolContext.PcoinReward pcoin);\r\n\r\n  /**\r\n   * @dev Emitted on pause()\r\n   * @param token the address of token who was initialized\r\n   * @param frozen the status of reserve, true is frozen\r\n  **/\r\n  event Pause(address indexed token, bool frozen);\r\n\r\n  /**\r\n   * @dev Emitted on setPcoinAddress()\r\n   * @param pcoinAddress the address of pcoin who mint reward for user\r\n  **/\r\n  event SetPcoinAddress(address indexed pcoinAddress);\r\n\r\n  /**\r\n   * @dev Emitted on resetPlane()\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param pt the type of plane\r\n   * @param pc the address of the plane\r\n  **/\r\n  event ResetPlane(address indexed token,\r\n                   GunPoolContext.PlaneType indexed pt,\r\n                   GunPoolContext.PlaneContext pc);\r\n\r\n  /**\r\n   * @dev Emitted on setFeeTo()\r\n   * @param feeAccount the account of feeTo\r\n   * @param permillage the ratio of feeTo(base 1000)\r\n  **/\r\n  event SetFeeto(address feeAccount, uint16 permillage);\r\n\r\n  event Log(string msg, uint256 value);\r\n}\r\n",
+  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {GunPoolContext} from \"../protocol/gunpool/GunPoolContext.sol\";\r\n\r\n/**\r\n * @dev Interface of the Gun Pool standard as defined in the EIP.\r\n */\r\ninterface IGunPool {\r\n\r\n  /**** function description ****/\r\n\r\n  /**\r\n   * @dev deposit the ERC20 token\r\n   * @param token The address of the token to deposit.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n   * @param amount The amount of the token to deposit.(For max: `uint256(-1)`)\r\n   * Emits a {Deposit} event.\r\n   **/\r\n  function deposit(address token, uint256 amount) external;\r\n\r\n  /**\r\n   * @dev withdraw the ERC20 token\r\n   * @param token The address of the token to withdraw.(For MATIC: 0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE)\r\n   * @param amount The amount of the lptoken (For max: `uint256(-1)`)\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Withdraw} event.\r\n   **/\r\n  function withdraw(address token, uint256 amount) external returns (uint256);\r\n\r\n  /**\r\n   * @dev deposit the mainet basis token\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Deposit} event.\r\n  **/\r\n  function depositByEth() external payable;\r\n\r\n  /**\r\n   * @dev withdraw the mainet basis token\r\n   * @param amount The amount of the token to withdraw.(For max: `uint256(-1)`)\r\n   * Returns a boolean value indicating whether the operation succeeded.\r\n   * Emits a {Withdraw} event.\r\n  **/\r\n  function withdrawByEth(uint256 amount) external;\r\n\r\n  /**\r\n   * @dev claim from gun pool(contain: polylend token)\r\n   * Returns amount The total amount of reward is obtained by to which is\r\n             recalculated by pcoin\r\n   * Emits a {Claim} event.\r\n  **/\r\n  function claim(address to) external returns (uint256);\r\n\r\n  /**\r\n   * @dev rewardBalanceOf quary pcoin rewards\r\n   * @param user who has rewards\r\n   * Returns balance The total amount of reward\r\n  **/\r\n  function rewardBalanceOf(address user) external view returns (uint256);\r\n\r\n  /**\r\n   * @dev Returns the state of the reserve in gunpool\r\n   * @param token The address of the underlying token of the reserve\r\n   * @return The state of the reserve in gunpool\r\n  **/\r\n  function getReserve(address token) external view returns (GunPoolContext.ReserveData memory);\r\n\r\n  /**\r\n   * @dev initReserve configure the reserve in gunpool\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param planes the context of the plane\r\n   * @param pcoin The reward context of polylend coin\r\n   * Emits a {InitReserve} event.\r\n  **/\r\n  function initReserve(\r\n    address token,\r\n    GunPoolContext.PlaneInitInput[] calldata planes,\r\n    GunPoolContext.PcoinReward calldata pcoin\r\n  ) external;\r\n\r\n  /**\r\n   * @dev resetReservePcoinReward reset pcoin reward params for reserve\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param pcoin The reward context of polylend coin\r\n   * Emits a {ResetPcoinReward} event\r\n  **/\r\n  function resetPcoinReward(\r\n    address token,\r\n    GunPoolContext.PcoinReward calldata pcoin\r\n  ) external;\r\n\r\n  /**\r\n   * @dev resetPlane reset plane for reserve\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param planeInput the context of the plane\r\n   * Emits a {ResetPlane} event\r\n  **/\r\n  function resetPlane(\r\n    address token,\r\n    GunPoolContext.PlaneInitInput calldata planeInput\r\n  ) external;\r\n\r\n  /**\r\n   * @dev initPcoinAddress set the address of pcoin\r\n   * @param pcoinAddress the address of pcoin who mint reward for user\r\n   * Emits a {SetPcoinAddress} event\r\n  **/\r\n  function setPcoinAddress(address pcoinAddress) external;\r\n\r\n  /**\r\n   * @dev pause set token frozen status\r\n   * @param token the address of reserve\r\n   * @param frozen the status of reserve, true is frozen\r\n   * Emits a {Pause} event\r\n  **/\r\n  function pause(address token, bool frozen) external;\r\n\r\n  /**\r\n   * @dev setFeeto set account and permillage for fee\r\n   * @param feeTo the context of feeto\r\n   * Emits a {SetFeeTo} event\r\n  **/\r\n  function setFeeto(GunPoolContext.FeeContext calldata feeTo) external;\r\n\r\n  /**\r\n   * @dev getPlanes get the context address of work plane\r\n   * @param token the address of reserve\r\n   * @param pt the type of plane\r\n   * @return planecontext contain address of plane and gptoken\r\n  **/\r\n  function getPlanes(address token, GunPoolContext.PlaneType pt)\r\n    external view returns(GunPoolContext.PlaneContext memory);\r\n\r\n  /**\r\n   * @dev getDepositAPY get the APY of deposited token\r\n   * @param token the address of reserve\r\n   * @return APY: Annual percentage yields\r\n  **/\r\n  function getDepositAPY(address token) external view returns(uint256);\r\n\r\n  /**\r\n   * @dev getDepositAccounts get acconts of deposit\r\n   * @return Accounts: who has deposited\r\n  **/\r\n  function getDepositAccounts() external view returns(uint32);\r\n\r\n  /**** event description ****/\r\n  /**\r\n   * @dev Emitted on deposit()\r\n   * @param token The address of token which can be deposited in gun pool\r\n   * @param user The address of the user who deposit token\r\n   * @param amount The amount that the user wants to deposit\r\n   **/\r\n  event Deposit(address indexed token, address indexed user, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on withdraw()\r\n   * @param token The address of token which can be deposited in gun pool\r\n   * @param user The address of the user who obtain token\r\n   * @param amount The amount that the user wants to withdraw\r\n   **/\r\n  event Withdraw(address indexed token, address indexed user, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on Claim()\r\n   * @param from The address of user who has a opportunity to get reward from gun pool\r\n   * @param to The address of the user who get the reward\r\n   * @param amount The toatl amount of reward that the user(to) gets which is\r\n            recalculated by mainet basis token\r\n   **/\r\n  event Claim(address indexed from, address indexed to, uint256 amount);\r\n\r\n  /**\r\n   * @dev Emitted on initReserve()\r\n   * @param token the address of token who was initialized\r\n   * @param pcoin the reward policy of pcoin\r\n   * @param gptAddress the address pool of gptoken\r\n   **/\r\n  event InitReserve(address indexed token,\r\n                    GunPoolContext.PcoinReward pcoin,\r\n                    address[] gptAddress);\r\n  /**\r\n   * @dev Emitted on resetPcoinReward()\r\n   * @param token the address of token who was initialized\r\n   * @param pcoin the reward policy of pcoin\r\n  **/\r\n  event ResetPcoinReward(address indexed token, GunPoolContext.PcoinReward pcoin);\r\n\r\n  /**\r\n   * @dev Emitted on pause()\r\n   * @param token the address of token who was initialized\r\n   * @param frozen the status of reserve, true is frozen\r\n  **/\r\n  event Pause(address indexed token, bool frozen);\r\n\r\n  /**\r\n   * @dev Emitted on setPcoinAddress()\r\n   * @param pcoinAddress the address of pcoin who mint reward for user\r\n  **/\r\n  event SetPcoinAddress(address indexed pcoinAddress);\r\n\r\n  /**\r\n   * @dev Emitted on resetPlane()\r\n   * @param token The address of the underlying token of the reserve\r\n   * @param pt the type of plane\r\n   * @param pc the address of the plane\r\n  **/\r\n  event ResetPlane(address indexed token,\r\n                   GunPoolContext.PlaneType indexed pt,\r\n                   GunPoolContext.PlaneContext pc);\r\n\r\n  /**\r\n   * @dev Emitted on setFeeTo()\r\n   * @param feeAccount the account of feeTo\r\n   * @param permillage the ratio of feeTo(base 1000)\r\n  **/\r\n  event SetFeeto(address feeAccount, uint16 permillage);\r\n\r\n  event Log(string msg, uint256 value);\r\n}\r\n",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\interfaces\\IGunPool.sol",
   "ast": {
     "absolutePath": "project:/contracts/interfaces/IGunPool.sol",
@@ -808,7 +808,7 @@
         "id": 11351,
         "nodeType": "ImportDirective",
         "scope": 11555,
-        "sourceUnit": 14218,
+        "sourceUnit": 14277,
         "src": "109:70:249",
         "symbolAliases": [
           {
@@ -1413,7 +1413,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_ReserveData_$14179_memory_ptr",
+                    "typeIdentifier": "t_struct$_ReserveData_$14238_memory_ptr",
                     "typeString": "struct GunPoolContext.ReserveData"
                   },
                   "typeName": {
@@ -1421,10 +1421,10 @@
                     "id": 11401,
                     "name": "GunPoolContext.ReserveData",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14179,
+                    "referencedDeclaration": 14238,
                     "src": "2325:26:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_ReserveData_$14179_storage_ptr",
+                      "typeIdentifier": "t_struct$_ReserveData_$14238_storage_ptr",
                       "typeString": "struct GunPoolContext.ReserveData"
                     }
                   },
@@ -1501,7 +1501,7 @@
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_array$_t_struct$_PlaneInitInput_$14211_calldata_ptr_$dyn_calldata_ptr",
+                    "typeIdentifier": "t_array$_t_struct$_PlaneInitInput_$14270_calldata_ptr_$dyn_calldata_ptr",
                     "typeString": "struct GunPoolContext.PlaneInitInput[]"
                   },
                   "typeName": {
@@ -1510,10 +1510,10 @@
                       "id": 11408,
                       "name": "GunPoolContext.PlaneInitInput",
                       "nodeType": "UserDefinedTypeName",
-                      "referencedDeclaration": 14211,
+                      "referencedDeclaration": 14270,
                       "src": "2688:29:249",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_PlaneInitInput_$14211_storage_ptr",
+                        "typeIdentifier": "t_struct$_PlaneInitInput_$14270_storage_ptr",
                         "typeString": "struct GunPoolContext.PlaneInitInput"
                       }
                     },
@@ -1522,7 +1522,7 @@
                     "nodeType": "ArrayTypeName",
                     "src": "2688:31:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_array$_t_struct$_PlaneInitInput_$14211_storage_$dyn_storage_ptr",
+                      "typeIdentifier": "t_array$_t_struct$_PlaneInitInput_$14270_storage_$dyn_storage_ptr",
                       "typeString": "struct GunPoolContext.PlaneInitInput[]"
                     }
                   },
@@ -1541,7 +1541,7 @@
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PcoinReward_$14197_calldata_ptr",
+                    "typeIdentifier": "t_struct$_PcoinReward_$14256_calldata_ptr",
                     "typeString": "struct GunPoolContext.PcoinReward"
                   },
                   "typeName": {
@@ -1549,10 +1549,10 @@
                     "id": 11411,
                     "name": "GunPoolContext.PcoinReward",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14197,
+                    "referencedDeclaration": 14256,
                     "src": "2742:26:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                      "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                       "typeString": "struct GunPoolContext.PcoinReward"
                     }
                   },
@@ -1635,7 +1635,7 @@
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PcoinReward_$14197_calldata_ptr",
+                    "typeIdentifier": "t_struct$_PcoinReward_$14256_calldata_ptr",
                     "typeString": "struct GunPoolContext.PcoinReward"
                   },
                   "typeName": {
@@ -1643,10 +1643,10 @@
                     "id": 11419,
                     "name": "GunPoolContext.PcoinReward",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14197,
+                    "referencedDeclaration": 14256,
                     "src": "3107:26:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                      "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                       "typeString": "struct GunPoolContext.PcoinReward"
                     }
                   },
@@ -1729,7 +1729,7 @@
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneInitInput_$14211_calldata_ptr",
+                    "typeIdentifier": "t_struct$_PlaneInitInput_$14270_calldata_ptr",
                     "typeString": "struct GunPoolContext.PlaneInitInput"
                   },
                   "typeName": {
@@ -1737,10 +1737,10 @@
                     "id": 11427,
                     "name": "GunPoolContext.PlaneInitInput",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14211,
+                    "referencedDeclaration": 14270,
                     "src": "3427:29:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PlaneInitInput_$14211_storage_ptr",
+                      "typeIdentifier": "t_struct$_PlaneInitInput_$14270_storage_ptr",
                       "typeString": "struct GunPoolContext.PlaneInitInput"
                     }
                   },
@@ -1950,7 +1950,7 @@
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FeeContext_$14216_calldata_ptr",
+                    "typeIdentifier": "t_struct$_FeeContext_$14275_calldata_ptr",
                     "typeString": "struct GunPoolContext.FeeContext"
                   },
                   "typeName": {
@@ -1958,10 +1958,10 @@
                     "id": 11447,
                     "name": "GunPoolContext.FeeContext",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14216,
+                    "referencedDeclaration": 14275,
                     "src": "4135:25:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FeeContext_$14216_storage_ptr",
+                      "typeIdentifier": "t_struct$_FeeContext_$14275_storage_ptr",
                       "typeString": "struct GunPoolContext.FeeContext"
                     }
                   },
@@ -2044,7 +2044,7 @@
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   },
                   "typeName": {
@@ -2052,10 +2052,10 @@
                     "id": 11455,
                     "name": "GunPoolContext.PlaneType",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14206,
+                    "referencedDeclaration": 14265,
                     "src": "4439:24:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_PlaneType_$14206",
+                      "typeIdentifier": "t_enum$_PlaneType_$14265",
                       "typeString": "enum GunPoolContext.PlaneType"
                     }
                   },
@@ -2081,7 +2081,7 @@
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneContext_$14184_memory_ptr",
+                    "typeIdentifier": "t_struct$_PlaneContext_$14243_memory_ptr",
                     "typeString": "struct GunPoolContext.PlaneContext"
                   },
                   "typeName": {
@@ -2089,10 +2089,10 @@
                     "id": 11458,
                     "name": "GunPoolContext.PlaneContext",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14184,
+                    "referencedDeclaration": 14243,
                     "src": "4495:27:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                      "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                       "typeString": "struct GunPoolContext.PlaneContext"
                     }
                   },
@@ -2269,7 +2269,7 @@
             "documentation": {
               "id": 11476,
               "nodeType": "StructuredDocumentation",
-              "src": "4976:239:249",
+              "src": "4976:240:249",
               "text": " @dev Emitted on deposit()\n @param token The address of token which can be deposited in gun pool\n @param user The address of the user who deposit token\n @param amount The amount that the user wants to deposit*"
             },
             "id": 11484,
@@ -2288,7 +2288,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11484,
-                  "src": "5233:21:249",
+                  "src": "5234:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2299,7 +2299,7 @@
                     "id": 11477,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5233:7:249",
+                    "src": "5234:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2318,7 +2318,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11484,
-                  "src": "5256:20:249",
+                  "src": "5257:20:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2329,7 +2329,7 @@
                     "id": 11479,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5256:7:249",
+                    "src": "5257:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2348,7 +2348,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11484,
-                  "src": "5278:14:249",
+                  "src": "5279:14:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2359,7 +2359,7 @@
                     "id": 11481,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5278:7:249",
+                    "src": "5279:7:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2369,16 +2369,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5232:61:249"
+              "src": "5233:61:249"
             },
-            "src": "5219:75:249"
+            "src": "5220:75:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11485,
               "nodeType": "StructuredDocumentation",
-              "src": "5300:241:249",
+              "src": "5301:241:249",
               "text": " @dev Emitted on withdraw()\n @param token The address of token which can be deposited in gun pool\n @param user The address of the user who obtain token\n @param amount The amount that the user wants to withdraw*"
             },
             "id": 11493,
@@ -2397,7 +2397,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11493,
-                  "src": "5560:21:249",
+                  "src": "5561:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2408,7 +2408,7 @@
                     "id": 11486,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5560:7:249",
+                    "src": "5561:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2427,7 +2427,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11493,
-                  "src": "5583:20:249",
+                  "src": "5584:20:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2438,7 +2438,7 @@
                     "id": 11488,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5583:7:249",
+                    "src": "5584:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2457,7 +2457,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11493,
-                  "src": "5605:14:249",
+                  "src": "5606:14:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2468,7 +2468,7 @@
                     "id": 11490,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5605:7:249",
+                    "src": "5606:7:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2478,16 +2478,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5559:61:249"
+              "src": "5560:61:249"
             },
-            "src": "5545:76:249"
+            "src": "5546:76:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11494,
               "nodeType": "StructuredDocumentation",
-              "src": "5627:315:249",
+              "src": "5628:315:249",
               "text": " @dev Emitted on Claim()\n @param from The address of user who has a opportunity to get reward from gun pool\n @param to The address of the user who get the reward\n @param amount The toatl amount of reward that the user(to) gets which is\nrecalculated by mainet basis token*"
             },
             "id": 11502,
@@ -2506,7 +2506,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11502,
-                  "src": "5958:20:249",
+                  "src": "5959:20:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2517,7 +2517,7 @@
                     "id": 11495,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5958:7:249",
+                    "src": "5959:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2536,7 +2536,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11502,
-                  "src": "5980:18:249",
+                  "src": "5981:18:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2547,7 +2547,7 @@
                     "id": 11497,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "5980:7:249",
+                    "src": "5981:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2566,7 +2566,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11502,
-                  "src": "6000:14:249",
+                  "src": "6001:14:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2577,7 +2577,7 @@
                     "id": 11499,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6000:7:249",
+                    "src": "6001:7:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2587,16 +2587,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "5957:58:249"
+              "src": "5958:58:249"
             },
-            "src": "5946:70:249"
+            "src": "5947:70:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11503,
               "nodeType": "StructuredDocumentation",
-              "src": "6022:205:249",
+              "src": "6023:205:249",
               "text": " @dev Emitted on initReserve()\n @param token the address of token who was initialized\n @param pcoin the reward policy of pcoin\n @param gptAddress the address pool of gptoken*"
             },
             "id": 11512,
@@ -2615,7 +2615,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11512,
-                  "src": "6249:21:249",
+                  "src": "6250:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2626,7 +2626,7 @@
                     "id": 11504,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6249:7:249",
+                    "src": "6250:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2645,11 +2645,11 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11512,
-                  "src": "6293:32:249",
+                  "src": "6294:32:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PcoinReward_$14197_memory_ptr",
+                    "typeIdentifier": "t_struct$_PcoinReward_$14256_memory_ptr",
                     "typeString": "struct GunPoolContext.PcoinReward"
                   },
                   "typeName": {
@@ -2657,10 +2657,10 @@
                     "id": 11506,
                     "name": "GunPoolContext.PcoinReward",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14197,
-                    "src": "6293:26:249",
+                    "referencedDeclaration": 14256,
+                    "src": "6294:26:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                      "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                       "typeString": "struct GunPoolContext.PcoinReward"
                     }
                   },
@@ -2676,7 +2676,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11512,
-                  "src": "6348:20:249",
+                  "src": "6349:20:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2688,7 +2688,7 @@
                       "id": 11508,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "6348:7:249",
+                      "src": "6349:7:249",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
@@ -2698,7 +2698,7 @@
                     "id": 11509,
                     "length": null,
                     "nodeType": "ArrayTypeName",
-                    "src": "6348:9:249",
+                    "src": "6349:9:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -2708,16 +2708,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6248:121:249"
+              "src": "6249:121:249"
             },
-            "src": "6231:139:249"
+            "src": "6232:139:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11513,
               "nodeType": "StructuredDocumentation",
-              "src": "6374:157:249",
+              "src": "6375:157:249",
               "text": " @dev Emitted on resetPcoinReward()\n @param token the address of token who was initialized\n @param pcoin the reward policy of pcoin*"
             },
             "id": 11519,
@@ -2736,7 +2736,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11519,
-                  "src": "6558:21:249",
+                  "src": "6559:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2747,7 +2747,7 @@
                     "id": 11514,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6558:7:249",
+                    "src": "6559:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2766,11 +2766,11 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11519,
-                  "src": "6581:32:249",
+                  "src": "6582:32:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PcoinReward_$14197_memory_ptr",
+                    "typeIdentifier": "t_struct$_PcoinReward_$14256_memory_ptr",
                     "typeString": "struct GunPoolContext.PcoinReward"
                   },
                   "typeName": {
@@ -2778,10 +2778,10 @@
                     "id": 11516,
                     "name": "GunPoolContext.PcoinReward",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14197,
-                    "src": "6581:26:249",
+                    "referencedDeclaration": 14256,
+                    "src": "6582:26:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                      "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                       "typeString": "struct GunPoolContext.PcoinReward"
                     }
                   },
@@ -2789,16 +2789,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6557:57:249"
+              "src": "6558:57:249"
             },
-            "src": "6535:80:249"
+            "src": "6536:80:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11520,
               "nodeType": "StructuredDocumentation",
-              "src": "6621:158:249",
+              "src": "6622:158:249",
               "text": " @dev Emitted on pause()\n @param token the address of token who was initialized\n @param frozen the status of reserve, true is frozen*"
             },
             "id": 11526,
@@ -2817,7 +2817,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11526,
-                  "src": "6795:21:249",
+                  "src": "6796:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2828,7 +2828,7 @@
                     "id": 11521,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6795:7:249",
+                    "src": "6796:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2847,7 +2847,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11526,
-                  "src": "6818:11:249",
+                  "src": "6819:11:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2858,7 +2858,7 @@
                     "id": 11523,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6818:4:249",
+                    "src": "6819:4:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -2868,16 +2868,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6794:36:249"
+              "src": "6795:36:249"
             },
-            "src": "6783:48:249"
+            "src": "6784:48:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11527,
               "nodeType": "StructuredDocumentation",
-              "src": "6837:122:249",
+              "src": "6838:122:249",
               "text": " @dev Emitted on setPcoinAddress()\n @param pcoinAddress the address of pcoin who mint reward for user*"
             },
             "id": 11531,
@@ -2896,7 +2896,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11531,
-                  "src": "6985:28:249",
+                  "src": "6986:28:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2907,7 +2907,7 @@
                     "id": 11528,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "6985:7:249",
+                    "src": "6986:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2918,16 +2918,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "6984:30:249"
+              "src": "6985:30:249"
             },
-            "src": "6963:52:249"
+            "src": "6964:52:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11532,
               "nodeType": "StructuredDocumentation",
-              "src": "7021:190:249",
+              "src": "7022:190:249",
               "text": " @dev Emitted on resetPlane()\n @param token The address of the underlying token of the reserve\n @param pt the type of plane\n @param pc the address of the plane*"
             },
             "id": 11540,
@@ -2946,7 +2946,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11540,
-                  "src": "7232:21:249",
+                  "src": "7233:21:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2957,7 +2957,7 @@
                     "id": 11533,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7232:7:249",
+                    "src": "7233:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2976,11 +2976,11 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11540,
-                  "src": "7275:35:249",
+                  "src": "7276:35:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   },
                   "typeName": {
@@ -2988,10 +2988,10 @@
                     "id": 11535,
                     "name": "GunPoolContext.PlaneType",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14206,
-                    "src": "7275:24:249",
+                    "referencedDeclaration": 14265,
+                    "src": "7276:24:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_PlaneType_$14206",
+                      "typeIdentifier": "t_enum$_PlaneType_$14265",
                       "typeString": "enum GunPoolContext.PlaneType"
                     }
                   },
@@ -3007,11 +3007,11 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11540,
-                  "src": "7332:30:249",
+                  "src": "7333:30:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneContext_$14184_memory_ptr",
+                    "typeIdentifier": "t_struct$_PlaneContext_$14243_memory_ptr",
                     "typeString": "struct GunPoolContext.PlaneContext"
                   },
                   "typeName": {
@@ -3019,10 +3019,10 @@
                     "id": 11537,
                     "name": "GunPoolContext.PlaneContext",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14184,
-                    "src": "7332:27:249",
+                    "referencedDeclaration": 14243,
+                    "src": "7333:27:249",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                      "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                       "typeString": "struct GunPoolContext.PlaneContext"
                     }
                   },
@@ -3030,16 +3030,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7231:132:249"
+              "src": "7232:132:249"
             },
-            "src": "7215:149:249"
+            "src": "7216:149:249"
           },
           {
             "anonymous": false,
             "documentation": {
               "id": 11541,
               "nodeType": "StructuredDocumentation",
-              "src": "7370:142:249",
+              "src": "7371:142:249",
               "text": " @dev Emitted on setFeeTo()\n @param feeAccount the account of feeTo\n @param permillage the ratio of feeTo(base 1000)*"
             },
             "id": 11547,
@@ -3058,7 +3058,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11547,
-                  "src": "7531:18:249",
+                  "src": "7532:18:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3069,7 +3069,7 @@
                     "id": 11542,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7531:7:249",
+                    "src": "7532:7:249",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -3088,7 +3088,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11547,
-                  "src": "7551:17:249",
+                  "src": "7552:17:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3099,7 +3099,7 @@
                     "id": 11544,
                     "name": "uint16",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7551:6:249",
+                    "src": "7552:6:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint16",
                       "typeString": "uint16"
@@ -3109,9 +3109,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7530:39:249"
+              "src": "7531:39:249"
             },
-            "src": "7516:54:249"
+            "src": "7517:54:249"
           },
           {
             "anonymous": false,
@@ -3132,7 +3132,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11553,
-                  "src": "7586:10:249",
+                  "src": "7587:10:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3143,7 +3143,7 @@
                     "id": 11548,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7586:6:249",
+                    "src": "7587:6:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -3161,7 +3161,7 @@
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
                   "scope": 11553,
-                  "src": "7598:13:249",
+                  "src": "7599:13:249",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -3172,7 +3172,7 @@
                     "id": 11550,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "7598:7:249",
+                    "src": "7599:7:249",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -3182,16 +3182,16 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "7585:27:249"
+              "src": "7586:27:249"
             },
-            "src": "7576:37:249"
+            "src": "7577:37:249"
           }
         ],
         "scope": 11555,
-        "src": "260:7356:249"
+        "src": "260:7357:249"
       }
     ],
-    "src": "38:7580:249"
+    "src": "38:7581:249"
   },
   "legacyAST": {
     "attributes": {
@@ -3233,7 +3233,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 14218,
+          "SourceUnit": 14277,
           "absolutePath": "project:/contracts/protocol/gunpool/GunPoolContext.sol",
           "file": "../protocol/gunpool/GunPoolContext.sol",
           "scope": 11555,
@@ -3940,7 +3940,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.ReserveData",
-                          "referencedDeclaration": 14179,
+                          "referencedDeclaration": 14238,
                           "type": "struct GunPoolContext.ReserveData"
                         },
                         "id": 11401,
@@ -4043,7 +4043,7 @@
                             "attributes": {
                               "contractScope": null,
                               "name": "GunPoolContext.PlaneInitInput",
-                              "referencedDeclaration": 14211,
+                              "referencedDeclaration": 14270,
                               "type": "struct GunPoolContext.PlaneInitInput"
                             },
                             "id": 11408,
@@ -4078,7 +4078,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PcoinReward",
-                          "referencedDeclaration": 14197,
+                          "referencedDeclaration": 14256,
                           "type": "struct GunPoolContext.PcoinReward"
                         },
                         "id": 11411,
@@ -4186,7 +4186,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PcoinReward",
-                          "referencedDeclaration": 14197,
+                          "referencedDeclaration": 14256,
                           "type": "struct GunPoolContext.PcoinReward"
                         },
                         "id": 11419,
@@ -4294,7 +4294,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneInitInput",
-                          "referencedDeclaration": 14211,
+                          "referencedDeclaration": 14270,
                           "type": "struct GunPoolContext.PlaneInitInput"
                         },
                         "id": 11427,
@@ -4557,7 +4557,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.FeeContext",
-                          "referencedDeclaration": 14216,
+                          "referencedDeclaration": 14275,
                           "type": "struct GunPoolContext.FeeContext"
                         },
                         "id": 11447,
@@ -4665,7 +4665,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneType",
-                          "referencedDeclaration": 14206,
+                          "referencedDeclaration": 14265,
                           "type": "enum GunPoolContext.PlaneType"
                         },
                         "id": 11455,
@@ -4702,7 +4702,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneContext",
-                          "referencedDeclaration": 14184,
+                          "referencedDeclaration": 14243,
                           "type": "struct GunPoolContext.PlaneContext"
                         },
                         "id": 11458,
@@ -4915,7 +4915,7 @@
                 },
                 "id": 11476,
                 "name": "StructuredDocumentation",
-                "src": "4976:239:249"
+                "src": "4976:240:249"
               },
               {
                 "children": [
@@ -4942,12 +4942,12 @@
                         },
                         "id": 11477,
                         "name": "ElementaryTypeName",
-                        "src": "5233:7:249"
+                        "src": "5234:7:249"
                       }
                     ],
                     "id": 11478,
                     "name": "VariableDeclaration",
-                    "src": "5233:21:249"
+                    "src": "5234:21:249"
                   },
                   {
                     "attributes": {
@@ -4972,12 +4972,12 @@
                         },
                         "id": 11479,
                         "name": "ElementaryTypeName",
-                        "src": "5256:7:249"
+                        "src": "5257:7:249"
                       }
                     ],
                     "id": 11480,
                     "name": "VariableDeclaration",
-                    "src": "5256:20:249"
+                    "src": "5257:20:249"
                   },
                   {
                     "attributes": {
@@ -5001,22 +5001,22 @@
                         },
                         "id": 11481,
                         "name": "ElementaryTypeName",
-                        "src": "5278:7:249"
+                        "src": "5279:7:249"
                       }
                     ],
                     "id": 11482,
                     "name": "VariableDeclaration",
-                    "src": "5278:14:249"
+                    "src": "5279:14:249"
                   }
                 ],
                 "id": 11483,
                 "name": "ParameterList",
-                "src": "5232:61:249"
+                "src": "5233:61:249"
               }
             ],
             "id": 11484,
             "name": "EventDefinition",
-            "src": "5219:75:249"
+            "src": "5220:75:249"
           },
           {
             "attributes": {
@@ -5030,7 +5030,7 @@
                 },
                 "id": 11485,
                 "name": "StructuredDocumentation",
-                "src": "5300:241:249"
+                "src": "5301:241:249"
               },
               {
                 "children": [
@@ -5057,12 +5057,12 @@
                         },
                         "id": 11486,
                         "name": "ElementaryTypeName",
-                        "src": "5560:7:249"
+                        "src": "5561:7:249"
                       }
                     ],
                     "id": 11487,
                     "name": "VariableDeclaration",
-                    "src": "5560:21:249"
+                    "src": "5561:21:249"
                   },
                   {
                     "attributes": {
@@ -5087,12 +5087,12 @@
                         },
                         "id": 11488,
                         "name": "ElementaryTypeName",
-                        "src": "5583:7:249"
+                        "src": "5584:7:249"
                       }
                     ],
                     "id": 11489,
                     "name": "VariableDeclaration",
-                    "src": "5583:20:249"
+                    "src": "5584:20:249"
                   },
                   {
                     "attributes": {
@@ -5116,22 +5116,22 @@
                         },
                         "id": 11490,
                         "name": "ElementaryTypeName",
-                        "src": "5605:7:249"
+                        "src": "5606:7:249"
                       }
                     ],
                     "id": 11491,
                     "name": "VariableDeclaration",
-                    "src": "5605:14:249"
+                    "src": "5606:14:249"
                   }
                 ],
                 "id": 11492,
                 "name": "ParameterList",
-                "src": "5559:61:249"
+                "src": "5560:61:249"
               }
             ],
             "id": 11493,
             "name": "EventDefinition",
-            "src": "5545:76:249"
+            "src": "5546:76:249"
           },
           {
             "attributes": {
@@ -5145,7 +5145,7 @@
                 },
                 "id": 11494,
                 "name": "StructuredDocumentation",
-                "src": "5627:315:249"
+                "src": "5628:315:249"
               },
               {
                 "children": [
@@ -5172,12 +5172,12 @@
                         },
                         "id": 11495,
                         "name": "ElementaryTypeName",
-                        "src": "5958:7:249"
+                        "src": "5959:7:249"
                       }
                     ],
                     "id": 11496,
                     "name": "VariableDeclaration",
-                    "src": "5958:20:249"
+                    "src": "5959:20:249"
                   },
                   {
                     "attributes": {
@@ -5202,12 +5202,12 @@
                         },
                         "id": 11497,
                         "name": "ElementaryTypeName",
-                        "src": "5980:7:249"
+                        "src": "5981:7:249"
                       }
                     ],
                     "id": 11498,
                     "name": "VariableDeclaration",
-                    "src": "5980:18:249"
+                    "src": "5981:18:249"
                   },
                   {
                     "attributes": {
@@ -5231,22 +5231,22 @@
                         },
                         "id": 11499,
                         "name": "ElementaryTypeName",
-                        "src": "6000:7:249"
+                        "src": "6001:7:249"
                       }
                     ],
                     "id": 11500,
                     "name": "VariableDeclaration",
-                    "src": "6000:14:249"
+                    "src": "6001:14:249"
                   }
                 ],
                 "id": 11501,
                 "name": "ParameterList",
-                "src": "5957:58:249"
+                "src": "5958:58:249"
               }
             ],
             "id": 11502,
             "name": "EventDefinition",
-            "src": "5946:70:249"
+            "src": "5947:70:249"
           },
           {
             "attributes": {
@@ -5260,7 +5260,7 @@
                 },
                 "id": 11503,
                 "name": "StructuredDocumentation",
-                "src": "6022:205:249"
+                "src": "6023:205:249"
               },
               {
                 "children": [
@@ -5287,12 +5287,12 @@
                         },
                         "id": 11504,
                         "name": "ElementaryTypeName",
-                        "src": "6249:7:249"
+                        "src": "6250:7:249"
                       }
                     ],
                     "id": 11505,
                     "name": "VariableDeclaration",
-                    "src": "6249:21:249"
+                    "src": "6250:21:249"
                   },
                   {
                     "attributes": {
@@ -5313,17 +5313,17 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PcoinReward",
-                          "referencedDeclaration": 14197,
+                          "referencedDeclaration": 14256,
                           "type": "struct GunPoolContext.PcoinReward"
                         },
                         "id": 11506,
                         "name": "UserDefinedTypeName",
-                        "src": "6293:26:249"
+                        "src": "6294:26:249"
                       }
                     ],
                     "id": 11507,
                     "name": "VariableDeclaration",
-                    "src": "6293:32:249"
+                    "src": "6294:32:249"
                   },
                   {
                     "attributes": {
@@ -5354,27 +5354,27 @@
                             },
                             "id": 11508,
                             "name": "ElementaryTypeName",
-                            "src": "6348:7:249"
+                            "src": "6349:7:249"
                           }
                         ],
                         "id": 11509,
                         "name": "ArrayTypeName",
-                        "src": "6348:9:249"
+                        "src": "6349:9:249"
                       }
                     ],
                     "id": 11510,
                     "name": "VariableDeclaration",
-                    "src": "6348:20:249"
+                    "src": "6349:20:249"
                   }
                 ],
                 "id": 11511,
                 "name": "ParameterList",
-                "src": "6248:121:249"
+                "src": "6249:121:249"
               }
             ],
             "id": 11512,
             "name": "EventDefinition",
-            "src": "6231:139:249"
+            "src": "6232:139:249"
           },
           {
             "attributes": {
@@ -5388,7 +5388,7 @@
                 },
                 "id": 11513,
                 "name": "StructuredDocumentation",
-                "src": "6374:157:249"
+                "src": "6375:157:249"
               },
               {
                 "children": [
@@ -5415,12 +5415,12 @@
                         },
                         "id": 11514,
                         "name": "ElementaryTypeName",
-                        "src": "6558:7:249"
+                        "src": "6559:7:249"
                       }
                     ],
                     "id": 11515,
                     "name": "VariableDeclaration",
-                    "src": "6558:21:249"
+                    "src": "6559:21:249"
                   },
                   {
                     "attributes": {
@@ -5441,27 +5441,27 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PcoinReward",
-                          "referencedDeclaration": 14197,
+                          "referencedDeclaration": 14256,
                           "type": "struct GunPoolContext.PcoinReward"
                         },
                         "id": 11516,
                         "name": "UserDefinedTypeName",
-                        "src": "6581:26:249"
+                        "src": "6582:26:249"
                       }
                     ],
                     "id": 11517,
                     "name": "VariableDeclaration",
-                    "src": "6581:32:249"
+                    "src": "6582:32:249"
                   }
                 ],
                 "id": 11518,
                 "name": "ParameterList",
-                "src": "6557:57:249"
+                "src": "6558:57:249"
               }
             ],
             "id": 11519,
             "name": "EventDefinition",
-            "src": "6535:80:249"
+            "src": "6536:80:249"
           },
           {
             "attributes": {
@@ -5475,7 +5475,7 @@
                 },
                 "id": 11520,
                 "name": "StructuredDocumentation",
-                "src": "6621:158:249"
+                "src": "6622:158:249"
               },
               {
                 "children": [
@@ -5502,12 +5502,12 @@
                         },
                         "id": 11521,
                         "name": "ElementaryTypeName",
-                        "src": "6795:7:249"
+                        "src": "6796:7:249"
                       }
                     ],
                     "id": 11522,
                     "name": "VariableDeclaration",
-                    "src": "6795:21:249"
+                    "src": "6796:21:249"
                   },
                   {
                     "attributes": {
@@ -5531,22 +5531,22 @@
                         },
                         "id": 11523,
                         "name": "ElementaryTypeName",
-                        "src": "6818:4:249"
+                        "src": "6819:4:249"
                       }
                     ],
                     "id": 11524,
                     "name": "VariableDeclaration",
-                    "src": "6818:11:249"
+                    "src": "6819:11:249"
                   }
                 ],
                 "id": 11525,
                 "name": "ParameterList",
-                "src": "6794:36:249"
+                "src": "6795:36:249"
               }
             ],
             "id": 11526,
             "name": "EventDefinition",
-            "src": "6783:48:249"
+            "src": "6784:48:249"
           },
           {
             "attributes": {
@@ -5560,7 +5560,7 @@
                 },
                 "id": 11527,
                 "name": "StructuredDocumentation",
-                "src": "6837:122:249"
+                "src": "6838:122:249"
               },
               {
                 "children": [
@@ -5587,22 +5587,22 @@
                         },
                         "id": 11528,
                         "name": "ElementaryTypeName",
-                        "src": "6985:7:249"
+                        "src": "6986:7:249"
                       }
                     ],
                     "id": 11529,
                     "name": "VariableDeclaration",
-                    "src": "6985:28:249"
+                    "src": "6986:28:249"
                   }
                 ],
                 "id": 11530,
                 "name": "ParameterList",
-                "src": "6984:30:249"
+                "src": "6985:30:249"
               }
             ],
             "id": 11531,
             "name": "EventDefinition",
-            "src": "6963:52:249"
+            "src": "6964:52:249"
           },
           {
             "attributes": {
@@ -5616,7 +5616,7 @@
                 },
                 "id": 11532,
                 "name": "StructuredDocumentation",
-                "src": "7021:190:249"
+                "src": "7022:190:249"
               },
               {
                 "children": [
@@ -5643,12 +5643,12 @@
                         },
                         "id": 11533,
                         "name": "ElementaryTypeName",
-                        "src": "7232:7:249"
+                        "src": "7233:7:249"
                       }
                     ],
                     "id": 11534,
                     "name": "VariableDeclaration",
-                    "src": "7232:21:249"
+                    "src": "7233:21:249"
                   },
                   {
                     "attributes": {
@@ -5669,17 +5669,17 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneType",
-                          "referencedDeclaration": 14206,
+                          "referencedDeclaration": 14265,
                           "type": "enum GunPoolContext.PlaneType"
                         },
                         "id": 11535,
                         "name": "UserDefinedTypeName",
-                        "src": "7275:24:249"
+                        "src": "7276:24:249"
                       }
                     ],
                     "id": 11536,
                     "name": "VariableDeclaration",
-                    "src": "7275:35:249"
+                    "src": "7276:35:249"
                   },
                   {
                     "attributes": {
@@ -5700,27 +5700,27 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneContext",
-                          "referencedDeclaration": 14184,
+                          "referencedDeclaration": 14243,
                           "type": "struct GunPoolContext.PlaneContext"
                         },
                         "id": 11537,
                         "name": "UserDefinedTypeName",
-                        "src": "7332:27:249"
+                        "src": "7333:27:249"
                       }
                     ],
                     "id": 11538,
                     "name": "VariableDeclaration",
-                    "src": "7332:30:249"
+                    "src": "7333:30:249"
                   }
                 ],
                 "id": 11539,
                 "name": "ParameterList",
-                "src": "7231:132:249"
+                "src": "7232:132:249"
               }
             ],
             "id": 11540,
             "name": "EventDefinition",
-            "src": "7215:149:249"
+            "src": "7216:149:249"
           },
           {
             "attributes": {
@@ -5734,7 +5734,7 @@
                 },
                 "id": 11541,
                 "name": "StructuredDocumentation",
-                "src": "7370:142:249"
+                "src": "7371:142:249"
               },
               {
                 "children": [
@@ -5761,12 +5761,12 @@
                         },
                         "id": 11542,
                         "name": "ElementaryTypeName",
-                        "src": "7531:7:249"
+                        "src": "7532:7:249"
                       }
                     ],
                     "id": 11543,
                     "name": "VariableDeclaration",
-                    "src": "7531:18:249"
+                    "src": "7532:18:249"
                   },
                   {
                     "attributes": {
@@ -5790,22 +5790,22 @@
                         },
                         "id": 11544,
                         "name": "ElementaryTypeName",
-                        "src": "7551:6:249"
+                        "src": "7552:6:249"
                       }
                     ],
                     "id": 11545,
                     "name": "VariableDeclaration",
-                    "src": "7551:17:249"
+                    "src": "7552:17:249"
                   }
                 ],
                 "id": 11546,
                 "name": "ParameterList",
-                "src": "7530:39:249"
+                "src": "7531:39:249"
               }
             ],
             "id": 11547,
             "name": "EventDefinition",
-            "src": "7516:54:249"
+            "src": "7517:54:249"
           },
           {
             "attributes": {
@@ -5838,12 +5838,12 @@
                         },
                         "id": 11548,
                         "name": "ElementaryTypeName",
-                        "src": "7586:6:249"
+                        "src": "7587:6:249"
                       }
                     ],
                     "id": 11549,
                     "name": "VariableDeclaration",
-                    "src": "7586:10:249"
+                    "src": "7587:10:249"
                   },
                   {
                     "attributes": {
@@ -5867,32 +5867,32 @@
                         },
                         "id": 11550,
                         "name": "ElementaryTypeName",
-                        "src": "7598:7:249"
+                        "src": "7599:7:249"
                       }
                     ],
                     "id": 11551,
                     "name": "VariableDeclaration",
-                    "src": "7598:13:249"
+                    "src": "7599:13:249"
                   }
                 ],
                 "id": 11552,
                 "name": "ParameterList",
-                "src": "7585:27:249"
+                "src": "7586:27:249"
               }
             ],
             "id": 11553,
             "name": "EventDefinition",
-            "src": "7576:37:249"
+            "src": "7577:37:249"
           }
         ],
         "id": 11554,
         "name": "ContractDefinition",
-        "src": "260:7356:249"
+        "src": "260:7357:249"
       }
     ],
     "id": 11555,
     "name": "SourceUnit",
-    "src": "38:7580:249"
+    "src": "38:7581:249"
   },
   "compiler": {
     "name": "solc",
@@ -5900,7 +5900,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-10T11:43:49.443Z",
+  "updatedAt": "2021-08-12T06:18:20.684Z",
   "devdoc": {
     "details": "Interface of the Gun Pool standard as defined in the EIP.",
     "events": {

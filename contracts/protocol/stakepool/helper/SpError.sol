@@ -14,4 +14,20 @@ library SpError {
     string public constant DELEGATE_AMOUNT_ZERO = '4';
     // undelegate must in subscribe status
     string public constant UNDELEGATE_NOT_SUBSCRIBE = '5';
+    // order mismatch
+    string public constant ORDER_MISMATCH = '6';
+    // order proxy abnormal
+    string public constant ORDER_PROXY_ABNORMAL = '7';
+    // order repay is invalid
+    string public constant ORDER_REPAY_AMOUNT_ZERO = '8';
+    // order does not reply for state mismatch
+    string public constant ORDER_REPLY_FAIL_FOR_STATE = '9';
+    // order does not claim for state mismatch
+    string public constant ORDER_CLAIM_FAIL_FOR_STATE = '10';
+    // order contract address is invalid
+    string public constant ORDER_CONTRACT_INVALID = '11';
+    // order claim fail for zero amount
+    string public constant ORDER_CLAIM_FAIL_FOR_ZERO = '12';
+    // order delegate is invalid
+    string public constant ORDER_DELEGATE_INVALID = '13';
 }

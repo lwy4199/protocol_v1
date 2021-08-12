@@ -1,27 +1,27 @@
 {
   "contractName": "GunPoolConfigurator",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":\"GunPoolConfigurator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xd21cb8aef1587aef74cefe70cf0fb417161f77f2883bbe9445bc21e143eb240d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://795bfda411fb819132ba5629a0538281963ac36e96a268b3db91a26b51df3cb3\",\"dweb:/ipfs/QmU7yC5cC5e5tu4E3YAXhbfPv2YXL1EF74fkqiA3me3LS6\"]},\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":{\"keccak256\":\"0x8b9a9d325b0217a1a1ecc17113f74a53530b15b3c91b0e8786622f4a5b7717f2\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://0a99b19cbc4551a33f7bc02dc77e53948f52f43d6c372ab2170c1483435a8e75\",\"dweb:/ipfs/QmVCLcTWXG3J9TqX7nGyNs2QFDwhTKuvSQHeigu2ZYjz1E\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220a89b998cdef9e759eae144b933917e1424590fca616195198f1126f4e664b75464736f6c634300060c0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220a89b998cdef9e759eae144b933917e1424590fca616195198f1126f4e664b75464736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":\"GunPoolConfigurator\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xb1bf50441350e5d7745b98f56064c172124e909bdd748fb21f2781e922c64d60\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://23daf287da5c56724bbb8ddf298ba2e59f9491def3846680eb5a175423acf3de\",\"dweb:/ipfs/QmZyddMiS3TnwFz46fp7vnVBwSuzfKCkuQ3jiqYCkJEmC8\"]},\"project:/contracts/protocol/gunpool/GunPoolConfigurator.sol\":{\"keccak256\":\"0x8b9a9d325b0217a1a1ecc17113f74a53530b15b3c91b0e8786622f4a5b7717f2\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://0a99b19cbc4551a33f7bc02dc77e53948f52f43d6c372ab2170c1483435a8e75\",\"dweb:/ipfs/QmVCLcTWXG3J9TqX7nGyNs2QFDwhTKuvSQHeigu2ZYjz1E\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea26469706673582212202c305ba906ddd9718f5897367ba7c528a50b3927dd7b7b8c0500b0532476721a64736f6c634300060c0033",
+  "deployedBytecode": "0x6080604052600080fdfea26469706673582212202c305ba906ddd9718f5897367ba7c528a50b3927dd7b7b8c0500b0532476721a64736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "168:64:255:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "168:64:255:-:0;;;;;",
+  "sourceMap": "168:64:256:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "168:64:256:-:0;;;;;",
   "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {IGunPool} from \"../../interfaces/IGunPool.sol\";\r\n\r\ncontract GunPoolConfigurator {\r\n  IGunPool internal pool;\r\n\r\n\r\n}\r\n",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\protocol\\gunpool\\GunPoolConfigurator.sol",
   "ast": {
     "absolutePath": "project:/contracts/protocol/gunpool/GunPoolConfigurator.sol",
     "exportedSymbols": {
       "GunPoolConfigurator": [
-        14168
+        14227
       ]
     },
-    "id": 14169,
+    "id": 14228,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14162,
+        "id": 14221,
         "literals": [
           "solidity",
           ">=",
@@ -32,35 +32,35 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:32:255"
+        "src": "38:32:256"
       },
       {
-        "id": 14163,
+        "id": 14222,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "72:33:255"
+        "src": "72:33:256"
       },
       {
         "absolutePath": "project:/contracts/interfaces/IGunPool.sol",
         "file": "../../interfaces/IGunPool.sol",
-        "id": 14165,
+        "id": 14224,
         "nodeType": "ImportDirective",
-        "scope": 14169,
+        "scope": 14228,
         "sourceUnit": 11555,
-        "src": "109:55:255",
+        "src": "109:55:256",
         "symbolAliases": [
           {
             "foreign": {
               "argumentTypes": null,
-              "id": 14164,
+              "id": 14223,
               "name": "IGunPool",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
               "referencedDeclaration": null,
-              "src": "117:8:255",
+              "src": "117:8:256",
               "typeDescriptions": {
                 "typeIdentifier": null,
                 "typeString": null
@@ -78,22 +78,22 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 14168,
+        "id": 14227,
         "linearizedBaseContracts": [
-          14168
+          14227
         ],
         "name": "GunPoolConfigurator",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 14167,
+            "id": 14226,
             "mutability": "mutable",
             "name": "pool",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 14168,
-            "src": "202:22:255",
+            "scope": 14227,
+            "src": "202:22:256",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -102,11 +102,11 @@
             },
             "typeName": {
               "contractScope": null,
-              "id": 14166,
+              "id": 14225,
               "name": "IGunPool",
               "nodeType": "UserDefinedTypeName",
               "referencedDeclaration": 11554,
-              "src": "202:8:255",
+              "src": "202:8:256",
               "typeDescriptions": {
                 "typeIdentifier": "t_contract$_IGunPool_$11554",
                 "typeString": "contract IGunPool"
@@ -116,18 +116,18 @@
             "visibility": "internal"
           }
         ],
-        "scope": 14169,
-        "src": "168:64:255"
+        "scope": 14228,
+        "src": "168:64:256"
       }
     ],
-    "src": "38:196:255"
+    "src": "38:196:256"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/protocol/gunpool/GunPoolConfigurator.sol",
       "exportedSymbols": {
         "GunPoolConfigurator": [
-          14168
+          14227
         ]
       },
       "license": "agpl-3.0"
@@ -145,9 +145,9 @@
             ".0"
           ]
         },
-        "id": 14162,
+        "id": 14221,
         "name": "PragmaDirective",
-        "src": "38:32:255"
+        "src": "38:32:256"
       },
       {
         "attributes": {
@@ -156,16 +156,16 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 14163,
+        "id": 14222,
         "name": "PragmaDirective",
-        "src": "72:33:255"
+        "src": "72:33:256"
       },
       {
         "attributes": {
           "SourceUnit": 11555,
           "absolutePath": "project:/contracts/interfaces/IGunPool.sol",
           "file": "../../interfaces/IGunPool.sol",
-          "scope": 14169,
+          "scope": 14228,
           "symbolAliases": [
             {
               "foreign": {
@@ -178,18 +178,18 @@
                   "type": null,
                   "value": "IGunPool"
                 },
-                "id": 14164,
+                "id": 14223,
                 "name": "Identifier",
-                "src": "117:8:255"
+                "src": "117:8:256"
               },
               "local": null
             }
           ],
           "unitAlias": ""
         },
-        "id": 14165,
+        "id": 14224,
         "name": "ImportDirective",
-        "src": "109:55:255"
+        "src": "109:55:256"
       },
       {
         "attributes": {
@@ -204,10 +204,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            14168
+            14227
           ],
           "name": "GunPoolConfigurator",
-          "scope": 14169
+          "scope": 14228
         },
         "children": [
           {
@@ -216,7 +216,7 @@
               "mutability": "mutable",
               "name": "pool",
               "overrides": null,
-              "scope": 14168,
+              "scope": 14227,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "contract IGunPool",
@@ -231,24 +231,24 @@
                   "referencedDeclaration": 11554,
                   "type": "contract IGunPool"
                 },
-                "id": 14166,
+                "id": 14225,
                 "name": "UserDefinedTypeName",
-                "src": "202:8:255"
+                "src": "202:8:256"
               }
             ],
-            "id": 14167,
+            "id": 14226,
             "name": "VariableDeclaration",
-            "src": "202:22:255"
+            "src": "202:22:256"
           }
         ],
-        "id": 14168,
+        "id": 14227,
         "name": "ContractDefinition",
-        "src": "168:64:255"
+        "src": "168:64:256"
       }
     ],
-    "id": 14169,
+    "id": 14228,
     "name": "SourceUnit",
-    "src": "38:196:255"
+    "src": "38:196:256"
   },
   "compiler": {
     "name": "solc",
@@ -256,7 +256,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-10T11:43:49.496Z",
+  "updatedAt": "2021-08-12T06:18:20.741Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

@@ -8,10 +8,9 @@ library StakePoolContext {
     *     subscribe: user can deposit/withdraw matic anytime;
     *     migrate: user can also deposit matic before proxy get matic from stakepool to stake in ethereum
     *     locking storage: the matic of users are locked to stake in eth;
-    *     claim: the user can be claim reward from this order;
-    *     close: when all users claim reward the order would be closed.
+    *     claim: the user can be claim reward from this order.
     */
-    enum ORDER_STATUS {INIT, SUBSCRIBE, MIGRATE, LOCKING, CLAIM, CLOSE, SPARE}
+    enum ORDER_STATUS {INIT, SUBSCRIBE, MIGRATE, LOCKING, CLAIM, SPARE}
 
     /*
     * order context
@@ -55,12 +54,14 @@ library StakePoolContext {
     * user context in the order
     *   balances: the deposit amount of every user;
     *   hasDelegate: the user has delegated in this order;
-    *   totalSupply: the total supply of deposit amount
-    *   accounts: the account address of all users
+    *   totalSupply: the total supply of deposit amount;
+    *   accounts: the account address of all users;
+    *   pcoinReward: the reward of pcoin.
     */
     struct User {
         mapping(address => bool) delegates;
         mapping(address => uint256) balances;
+        mapping(address => uint256) pcoinReward;
         uint256 totalSupply;
         address[] accounts;
     }

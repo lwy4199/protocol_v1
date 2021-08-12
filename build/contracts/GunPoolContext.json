@@ -5,23 +5,23 @@
   "bytecode": "0x60566023600b82828239805160001a607314601657fe5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207c4fffa86ee6aaf84f2453e056ef5761dfd95c02f415069476bd12e9e0002f5a64736f6c634300060c0033",
   "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212207c4fffa86ee6aaf84f2453e056ef5761dfd95c02f415069476bd12e9e0002f5a64736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "74:1365:256:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "74:1365:256:-:0;;;;;;;;",
+  "sourceMap": "74:1365:257:-:0;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "74:1365:257:-:0;;;;;;;;",
   "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\nlibrary GunPoolContext {\r\n  struct ReserveData {\r\n    // for pcoin reward\r\n    PcoinReward pcoin;\r\n    // PlaneType\r\n    PlaneType pt;\r\n    // reserve frozen flag\r\n    bool isFrozen;\r\n    // lock\r\n    bool lock;\r\n  }\r\n\r\n  // Plane context\r\n  struct PlaneContext {\r\n    // plane address\r\n    address plane;\r\n    // gunpool token address for plane\r\n    address gptoken;\r\n  }\r\n\r\n  // pcoin reward\r\n  struct PcoinReward {\r\n    // the current mint supply of pcoin\r\n    uint256 mintSupply;\r\n    // the max mint supply of pcoin\r\n    uint256 mintMaxSupply;\r\n    // the mint rate in second from pcoin\r\n    uint256 mintRateBySec;\r\n    // the last mint time\r\n    uint256 lastMintTime;\r\n    // the last supply of mint token\r\n    uint256 lastSupply;\r\n    // the mint accumulation capacity of one unit token\r\n    uint256 mintCapacity;\r\n  }\r\n\r\n  // record the reward of account\r\n  struct RewardContext {\r\n    // record the reward supply of pcoin which has obtained by account\r\n    uint256 rewardSupply;\r\n    // last mint capacity of one unit token\r\n    uint256 lastMintCapacity;\r\n    // last balance of gptoken\r\n    uint256 lastGpBalance;\r\n  }\r\n\r\n  enum PlaneType {AAVE}\r\n\r\n  struct PlaneInitInput {\r\n    PlaneType pt;\r\n    PlaneContext plane;\r\n  }\r\n\r\n  struct FeeContext {\r\n    // fee account\r\n    address account;\r\n    // the max fee ratio is 10\r\n    uint16  permillage;\r\n  }\r\n}\r\n",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\protocol\\gunpool\\GunPoolContext.sol",
   "ast": {
     "absolutePath": "project:/contracts/protocol/gunpool/GunPoolContext.sol",
     "exportedSymbols": {
       "GunPoolContext": [
-        14217
+        14276
       ]
     },
-    "id": 14218,
+    "id": 14277,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 14170,
+        "id": 14229,
         "literals": [
           "solidity",
           ">=",
@@ -32,7 +32,7 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:32:256"
+        "src": "38:32:257"
       },
       {
         "abstract": false,
@@ -41,41 +41,41 @@
         "contractKind": "library",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 14217,
+        "id": 14276,
         "linearizedBaseContracts": [
-          14217
+          14276
         ],
         "name": "GunPoolContext",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "canonicalName": "GunPoolContext.ReserveData",
-            "id": 14179,
+            "id": 14238,
             "members": [
               {
                 "constant": false,
-                "id": 14172,
+                "id": 14231,
                 "mutability": "mutable",
                 "name": "pcoin",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14179,
-                "src": "153:17:256",
+                "scope": 14238,
+                "src": "153:17:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                  "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                   "typeString": "struct GunPoolContext.PcoinReward"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 14171,
+                  "id": 14230,
                   "name": "PcoinReward",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14197,
-                  "src": "153:11:256",
+                  "referencedDeclaration": 14256,
+                  "src": "153:11:257",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PcoinReward_$14197_storage_ptr",
+                    "typeIdentifier": "t_struct$_PcoinReward_$14256_storage_ptr",
                     "typeString": "struct GunPoolContext.PcoinReward"
                   }
                 },
@@ -84,28 +84,28 @@
               },
               {
                 "constant": false,
-                "id": 14174,
+                "id": 14233,
                 "mutability": "mutable",
                 "name": "pt",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14179,
-                "src": "195:12:256",
+                "scope": 14238,
+                "src": "195:12:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_PlaneType_$14206",
+                  "typeIdentifier": "t_enum$_PlaneType_$14265",
                   "typeString": "enum GunPoolContext.PlaneType"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 14173,
+                  "id": 14232,
                   "name": "PlaneType",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14206,
-                  "src": "195:9:256",
+                  "referencedDeclaration": 14265,
+                  "src": "195:9:257",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   }
                 },
@@ -114,13 +114,13 @@
               },
               {
                 "constant": false,
-                "id": 14176,
+                "id": 14235,
                 "mutability": "mutable",
                 "name": "isFrozen",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14179,
-                "src": "242:13:256",
+                "scope": 14238,
+                "src": "242:13:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -128,10 +128,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 14175,
+                  "id": 14234,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "242:4:256",
+                  "src": "242:4:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -142,13 +142,13 @@
               },
               {
                 "constant": false,
-                "id": 14178,
+                "id": 14237,
                 "mutability": "mutable",
                 "name": "lock",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14179,
-                "src": "275:9:256",
+                "scope": 14238,
+                "src": "275:9:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -156,10 +156,10 @@
                   "typeString": "bool"
                 },
                 "typeName": {
-                  "id": 14177,
+                  "id": 14236,
                   "name": "bool",
                   "nodeType": "ElementaryTypeName",
-                  "src": "275:4:256",
+                  "src": "275:4:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_bool",
                     "typeString": "bool"
@@ -171,23 +171,23 @@
             ],
             "name": "ReserveData",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "102:188:256",
+            "scope": 14276,
+            "src": "102:188:257",
             "visibility": "public"
           },
           {
             "canonicalName": "GunPoolContext.PlaneContext",
-            "id": 14184,
+            "id": 14243,
             "members": [
               {
                 "constant": false,
-                "id": 14181,
+                "id": 14240,
                 "mutability": "mutable",
                 "name": "plane",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14184,
-                "src": "365:13:256",
+                "scope": 14243,
+                "src": "365:13:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -195,10 +195,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 14180,
+                  "id": 14239,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "365:7:256",
+                  "src": "365:7:257",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -210,13 +210,13 @@
               },
               {
                 "constant": false,
-                "id": 14183,
+                "id": 14242,
                 "mutability": "mutable",
                 "name": "gptoken",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14184,
-                "src": "425:15:256",
+                "scope": 14243,
+                "src": "425:15:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -224,10 +224,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 14182,
+                  "id": 14241,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "425:7:256",
+                  "src": "425:7:257",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -240,23 +240,23 @@
             ],
             "name": "PlaneContext",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "316:130:256",
+            "scope": 14276,
+            "src": "316:130:257",
             "visibility": "public"
           },
           {
             "canonicalName": "GunPoolContext.PcoinReward",
-            "id": 14197,
+            "id": 14256,
             "members": [
               {
                 "constant": false,
-                "id": 14186,
+                "id": 14245,
                 "mutability": "mutable",
                 "name": "mintSupply",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "538:18:256",
+                "scope": 14256,
+                "src": "538:18:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -264,10 +264,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14185,
+                  "id": 14244,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "538:7:256",
+                  "src": "538:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -278,13 +278,13 @@
               },
               {
                 "constant": false,
-                "id": 14188,
+                "id": 14247,
                 "mutability": "mutable",
                 "name": "mintMaxSupply",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "600:21:256",
+                "scope": 14256,
+                "src": "600:21:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -292,10 +292,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14187,
+                  "id": 14246,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "600:7:256",
+                  "src": "600:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -306,13 +306,13 @@
               },
               {
                 "constant": false,
-                "id": 14190,
+                "id": 14249,
                 "mutability": "mutable",
                 "name": "mintRateBySec",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "671:21:256",
+                "scope": 14256,
+                "src": "671:21:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -320,10 +320,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14189,
+                  "id": 14248,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "671:7:256",
+                  "src": "671:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -334,13 +334,13 @@
               },
               {
                 "constant": false,
-                "id": 14192,
+                "id": 14251,
                 "mutability": "mutable",
                 "name": "lastMintTime",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "726:20:256",
+                "scope": 14256,
+                "src": "726:20:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -348,10 +348,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14191,
+                  "id": 14250,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "726:7:256",
+                  "src": "726:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -362,13 +362,13 @@
               },
               {
                 "constant": false,
-                "id": 14194,
+                "id": 14253,
                 "mutability": "mutable",
                 "name": "lastSupply",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "791:18:256",
+                "scope": 14256,
+                "src": "791:18:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -376,10 +376,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14193,
+                  "id": 14252,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "791:7:256",
+                  "src": "791:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -390,13 +390,13 @@
               },
               {
                 "constant": false,
-                "id": 14196,
+                "id": 14255,
                 "mutability": "mutable",
                 "name": "mintCapacity",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14197,
-                "src": "873:20:256",
+                "scope": 14256,
+                "src": "873:20:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -404,10 +404,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14195,
+                  "id": 14254,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "873:7:256",
+                  "src": "873:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -419,23 +419,23 @@
             ],
             "name": "PcoinReward",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "471:428:256",
+            "scope": 14276,
+            "src": "471:428:257",
             "visibility": "public"
           },
           {
             "canonicalName": "GunPoolContext.RewardContext",
-            "id": 14204,
+            "id": 14263,
             "members": [
               {
                 "constant": false,
-                "id": 14199,
+                "id": 14258,
                 "mutability": "mutable",
                 "name": "rewardSupply",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14204,
-                "src": "1040:20:256",
+                "scope": 14263,
+                "src": "1040:20:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -443,10 +443,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14198,
+                  "id": 14257,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1040:7:256",
+                  "src": "1040:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -457,13 +457,13 @@
               },
               {
                 "constant": false,
-                "id": 14201,
+                "id": 14260,
                 "mutability": "mutable",
                 "name": "lastMintCapacity",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14204,
-                "src": "1112:24:256",
+                "scope": 14263,
+                "src": "1112:24:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -471,10 +471,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14200,
+                  "id": 14259,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1112:7:256",
+                  "src": "1112:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -485,13 +485,13 @@
               },
               {
                 "constant": false,
-                "id": 14203,
+                "id": 14262,
                 "mutability": "mutable",
                 "name": "lastGpBalance",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14204,
-                "src": "1175:21:256",
+                "scope": 14263,
+                "src": "1175:21:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -499,10 +499,10 @@
                   "typeString": "uint256"
                 },
                 "typeName": {
-                  "id": 14202,
+                  "id": 14261,
                   "name": "uint256",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1175:7:256",
+                  "src": "1175:7:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint256",
                     "typeString": "uint256"
@@ -514,53 +514,53 @@
             ],
             "name": "RewardContext",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "940:262:256",
+            "scope": 14276,
+            "src": "940:262:257",
             "visibility": "public"
           },
           {
             "canonicalName": "GunPoolContext.PlaneType",
-            "id": 14206,
+            "id": 14265,
             "members": [
               {
-                "id": 14205,
+                "id": 14264,
                 "name": "AAVE",
                 "nodeType": "EnumValue",
-                "src": "1224:4:256"
+                "src": "1224:4:257"
               }
             ],
             "name": "PlaneType",
             "nodeType": "EnumDefinition",
-            "src": "1208:21:256"
+            "src": "1208:21:257"
           },
           {
             "canonicalName": "GunPoolContext.PlaneInitInput",
-            "id": 14211,
+            "id": 14270,
             "members": [
               {
                 "constant": false,
-                "id": 14208,
+                "id": 14267,
                 "mutability": "mutable",
                 "name": "pt",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14211,
-                "src": "1264:12:256",
+                "scope": 14270,
+                "src": "1264:12:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_enum$_PlaneType_$14206",
+                  "typeIdentifier": "t_enum$_PlaneType_$14265",
                   "typeString": "enum GunPoolContext.PlaneType"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 14207,
+                  "id": 14266,
                   "name": "PlaneType",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14206,
-                  "src": "1264:9:256",
+                  "referencedDeclaration": 14265,
+                  "src": "1264:9:257",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   }
                 },
@@ -569,28 +569,28 @@
               },
               {
                 "constant": false,
-                "id": 14210,
+                "id": 14269,
                 "mutability": "mutable",
                 "name": "plane",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14211,
-                "src": "1283:18:256",
+                "scope": 14270,
+                "src": "1283:18:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                  "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                   "typeString": "struct GunPoolContext.PlaneContext"
                 },
                 "typeName": {
                   "contractScope": null,
-                  "id": 14209,
+                  "id": 14268,
                   "name": "PlaneContext",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14184,
-                  "src": "1283:12:256",
+                  "referencedDeclaration": 14243,
+                  "src": "1283:12:257",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                    "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                     "typeString": "struct GunPoolContext.PlaneContext"
                   }
                 },
@@ -600,23 +600,23 @@
             ],
             "name": "PlaneInitInput",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "1235:72:256",
+            "scope": 14276,
+            "src": "1235:72:257",
             "visibility": "public"
           },
           {
             "canonicalName": "GunPoolContext.FeeContext",
-            "id": 14216,
+            "id": 14275,
             "members": [
               {
                 "constant": false,
-                "id": 14213,
+                "id": 14272,
                 "mutability": "mutable",
                 "name": "account",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14216,
-                "src": "1358:15:256",
+                "scope": 14275,
+                "src": "1358:15:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -624,10 +624,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 14212,
+                  "id": 14271,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1358:7:256",
+                  "src": "1358:7:257",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -639,13 +639,13 @@
               },
               {
                 "constant": false,
-                "id": 14215,
+                "id": 14274,
                 "mutability": "mutable",
                 "name": "permillage",
                 "nodeType": "VariableDeclaration",
                 "overrides": null,
-                "scope": 14216,
-                "src": "1412:18:256",
+                "scope": 14275,
+                "src": "1412:18:257",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -653,10 +653,10 @@
                   "typeString": "uint16"
                 },
                 "typeName": {
-                  "id": 14214,
+                  "id": 14273,
                   "name": "uint16",
                   "nodeType": "ElementaryTypeName",
-                  "src": "1412:6:256",
+                  "src": "1412:6:257",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint16",
                     "typeString": "uint16"
@@ -668,23 +668,23 @@
             ],
             "name": "FeeContext",
             "nodeType": "StructDefinition",
-            "scope": 14217,
-            "src": "1313:123:256",
+            "scope": 14276,
+            "src": "1313:123:257",
             "visibility": "public"
           }
         ],
-        "scope": 14218,
-        "src": "74:1365:256"
+        "scope": 14277,
+        "src": "74:1365:257"
       }
     ],
-    "src": "38:1403:256"
+    "src": "38:1403:257"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/protocol/gunpool/GunPoolContext.sol",
       "exportedSymbols": {
         "GunPoolContext": [
-          14217
+          14276
         ]
       },
       "license": "agpl-3.0"
@@ -702,9 +702,9 @@
             ".0"
           ]
         },
-        "id": 14170,
+        "id": 14229,
         "name": "PragmaDirective",
-        "src": "38:32:256"
+        "src": "38:32:257"
       },
       {
         "attributes": {
@@ -719,17 +719,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            14217
+            14276
           ],
           "name": "GunPoolContext",
-          "scope": 14218
+          "scope": 14277
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "GunPoolContext.ReserveData",
               "name": "ReserveData",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -739,7 +739,7 @@
                   "mutability": "mutable",
                   "name": "pcoin",
                   "overrides": null,
-                  "scope": 14179,
+                  "scope": 14238,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "struct GunPoolContext.PcoinReward",
@@ -751,17 +751,17 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "PcoinReward",
-                      "referencedDeclaration": 14197,
+                      "referencedDeclaration": 14256,
                       "type": "struct GunPoolContext.PcoinReward"
                     },
-                    "id": 14171,
+                    "id": 14230,
                     "name": "UserDefinedTypeName",
-                    "src": "153:11:256"
+                    "src": "153:11:257"
                   }
                 ],
-                "id": 14172,
+                "id": 14231,
                 "name": "VariableDeclaration",
-                "src": "153:17:256"
+                "src": "153:17:257"
               },
               {
                 "attributes": {
@@ -769,7 +769,7 @@
                   "mutability": "mutable",
                   "name": "pt",
                   "overrides": null,
-                  "scope": 14179,
+                  "scope": 14238,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "enum GunPoolContext.PlaneType",
@@ -781,17 +781,17 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "PlaneType",
-                      "referencedDeclaration": 14206,
+                      "referencedDeclaration": 14265,
                       "type": "enum GunPoolContext.PlaneType"
                     },
-                    "id": 14173,
+                    "id": 14232,
                     "name": "UserDefinedTypeName",
-                    "src": "195:9:256"
+                    "src": "195:9:257"
                   }
                 ],
-                "id": 14174,
+                "id": 14233,
                 "name": "VariableDeclaration",
-                "src": "195:12:256"
+                "src": "195:12:257"
               },
               {
                 "attributes": {
@@ -799,7 +799,7 @@
                   "mutability": "mutable",
                   "name": "isFrozen",
                   "overrides": null,
-                  "scope": 14179,
+                  "scope": 14238,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -812,14 +812,14 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 14175,
+                    "id": 14234,
                     "name": "ElementaryTypeName",
-                    "src": "242:4:256"
+                    "src": "242:4:257"
                   }
                 ],
-                "id": 14176,
+                "id": 14235,
                 "name": "VariableDeclaration",
-                "src": "242:13:256"
+                "src": "242:13:257"
               },
               {
                 "attributes": {
@@ -827,7 +827,7 @@
                   "mutability": "mutable",
                   "name": "lock",
                   "overrides": null,
-                  "scope": 14179,
+                  "scope": 14238,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "bool",
@@ -840,25 +840,25 @@
                       "name": "bool",
                       "type": "bool"
                     },
-                    "id": 14177,
+                    "id": 14236,
                     "name": "ElementaryTypeName",
-                    "src": "275:4:256"
+                    "src": "275:4:257"
                   }
                 ],
-                "id": 14178,
+                "id": 14237,
                 "name": "VariableDeclaration",
-                "src": "275:9:256"
+                "src": "275:9:257"
               }
             ],
-            "id": 14179,
+            "id": 14238,
             "name": "StructDefinition",
-            "src": "102:188:256"
+            "src": "102:188:257"
           },
           {
             "attributes": {
               "canonicalName": "GunPoolContext.PlaneContext",
               "name": "PlaneContext",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -868,7 +868,7 @@
                   "mutability": "mutable",
                   "name": "plane",
                   "overrides": null,
-                  "scope": 14184,
+                  "scope": 14243,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -882,14 +882,14 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 14180,
+                    "id": 14239,
                     "name": "ElementaryTypeName",
-                    "src": "365:7:256"
+                    "src": "365:7:257"
                   }
                 ],
-                "id": 14181,
+                "id": 14240,
                 "name": "VariableDeclaration",
-                "src": "365:13:256"
+                "src": "365:13:257"
               },
               {
                 "attributes": {
@@ -897,7 +897,7 @@
                   "mutability": "mutable",
                   "name": "gptoken",
                   "overrides": null,
-                  "scope": 14184,
+                  "scope": 14243,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -911,25 +911,25 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 14182,
+                    "id": 14241,
                     "name": "ElementaryTypeName",
-                    "src": "425:7:256"
+                    "src": "425:7:257"
                   }
                 ],
-                "id": 14183,
+                "id": 14242,
                 "name": "VariableDeclaration",
-                "src": "425:15:256"
+                "src": "425:15:257"
               }
             ],
-            "id": 14184,
+            "id": 14243,
             "name": "StructDefinition",
-            "src": "316:130:256"
+            "src": "316:130:257"
           },
           {
             "attributes": {
               "canonicalName": "GunPoolContext.PcoinReward",
               "name": "PcoinReward",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -939,7 +939,7 @@
                   "mutability": "mutable",
                   "name": "mintSupply",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -952,14 +952,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14185,
+                    "id": 14244,
                     "name": "ElementaryTypeName",
-                    "src": "538:7:256"
+                    "src": "538:7:257"
                   }
                 ],
-                "id": 14186,
+                "id": 14245,
                 "name": "VariableDeclaration",
-                "src": "538:18:256"
+                "src": "538:18:257"
               },
               {
                 "attributes": {
@@ -967,7 +967,7 @@
                   "mutability": "mutable",
                   "name": "mintMaxSupply",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -980,14 +980,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14187,
+                    "id": 14246,
                     "name": "ElementaryTypeName",
-                    "src": "600:7:256"
+                    "src": "600:7:257"
                   }
                 ],
-                "id": 14188,
+                "id": 14247,
                 "name": "VariableDeclaration",
-                "src": "600:21:256"
+                "src": "600:21:257"
               },
               {
                 "attributes": {
@@ -995,7 +995,7 @@
                   "mutability": "mutable",
                   "name": "mintRateBySec",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1008,14 +1008,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14189,
+                    "id": 14248,
                     "name": "ElementaryTypeName",
-                    "src": "671:7:256"
+                    "src": "671:7:257"
                   }
                 ],
-                "id": 14190,
+                "id": 14249,
                 "name": "VariableDeclaration",
-                "src": "671:21:256"
+                "src": "671:21:257"
               },
               {
                 "attributes": {
@@ -1023,7 +1023,7 @@
                   "mutability": "mutable",
                   "name": "lastMintTime",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1036,14 +1036,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14191,
+                    "id": 14250,
                     "name": "ElementaryTypeName",
-                    "src": "726:7:256"
+                    "src": "726:7:257"
                   }
                 ],
-                "id": 14192,
+                "id": 14251,
                 "name": "VariableDeclaration",
-                "src": "726:20:256"
+                "src": "726:20:257"
               },
               {
                 "attributes": {
@@ -1051,7 +1051,7 @@
                   "mutability": "mutable",
                   "name": "lastSupply",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1064,14 +1064,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14193,
+                    "id": 14252,
                     "name": "ElementaryTypeName",
-                    "src": "791:7:256"
+                    "src": "791:7:257"
                   }
                 ],
-                "id": 14194,
+                "id": 14253,
                 "name": "VariableDeclaration",
-                "src": "791:18:256"
+                "src": "791:18:257"
               },
               {
                 "attributes": {
@@ -1079,7 +1079,7 @@
                   "mutability": "mutable",
                   "name": "mintCapacity",
                   "overrides": null,
-                  "scope": 14197,
+                  "scope": 14256,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1092,25 +1092,25 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14195,
+                    "id": 14254,
                     "name": "ElementaryTypeName",
-                    "src": "873:7:256"
+                    "src": "873:7:257"
                   }
                 ],
-                "id": 14196,
+                "id": 14255,
                 "name": "VariableDeclaration",
-                "src": "873:20:256"
+                "src": "873:20:257"
               }
             ],
-            "id": 14197,
+            "id": 14256,
             "name": "StructDefinition",
-            "src": "471:428:256"
+            "src": "471:428:257"
           },
           {
             "attributes": {
               "canonicalName": "GunPoolContext.RewardContext",
               "name": "RewardContext",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -1120,7 +1120,7 @@
                   "mutability": "mutable",
                   "name": "rewardSupply",
                   "overrides": null,
-                  "scope": 14204,
+                  "scope": 14263,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1133,14 +1133,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14198,
+                    "id": 14257,
                     "name": "ElementaryTypeName",
-                    "src": "1040:7:256"
+                    "src": "1040:7:257"
                   }
                 ],
-                "id": 14199,
+                "id": 14258,
                 "name": "VariableDeclaration",
-                "src": "1040:20:256"
+                "src": "1040:20:257"
               },
               {
                 "attributes": {
@@ -1148,7 +1148,7 @@
                   "mutability": "mutable",
                   "name": "lastMintCapacity",
                   "overrides": null,
-                  "scope": 14204,
+                  "scope": 14263,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1161,14 +1161,14 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14200,
+                    "id": 14259,
                     "name": "ElementaryTypeName",
-                    "src": "1112:7:256"
+                    "src": "1112:7:257"
                   }
                 ],
-                "id": 14201,
+                "id": 14260,
                 "name": "VariableDeclaration",
-                "src": "1112:24:256"
+                "src": "1112:24:257"
               },
               {
                 "attributes": {
@@ -1176,7 +1176,7 @@
                   "mutability": "mutable",
                   "name": "lastGpBalance",
                   "overrides": null,
-                  "scope": 14204,
+                  "scope": 14263,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint256",
@@ -1189,19 +1189,19 @@
                       "name": "uint256",
                       "type": "uint256"
                     },
-                    "id": 14202,
+                    "id": 14261,
                     "name": "ElementaryTypeName",
-                    "src": "1175:7:256"
+                    "src": "1175:7:257"
                   }
                 ],
-                "id": 14203,
+                "id": 14262,
                 "name": "VariableDeclaration",
-                "src": "1175:21:256"
+                "src": "1175:21:257"
               }
             ],
-            "id": 14204,
+            "id": 14263,
             "name": "StructDefinition",
-            "src": "940:262:256"
+            "src": "940:262:257"
           },
           {
             "attributes": {
@@ -1213,20 +1213,20 @@
                 "attributes": {
                   "name": "AAVE"
                 },
-                "id": 14205,
+                "id": 14264,
                 "name": "EnumValue",
-                "src": "1224:4:256"
+                "src": "1224:4:257"
               }
             ],
-            "id": 14206,
+            "id": 14265,
             "name": "EnumDefinition",
-            "src": "1208:21:256"
+            "src": "1208:21:257"
           },
           {
             "attributes": {
               "canonicalName": "GunPoolContext.PlaneInitInput",
               "name": "PlaneInitInput",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -1236,7 +1236,7 @@
                   "mutability": "mutable",
                   "name": "pt",
                   "overrides": null,
-                  "scope": 14211,
+                  "scope": 14270,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "enum GunPoolContext.PlaneType",
@@ -1248,17 +1248,17 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "PlaneType",
-                      "referencedDeclaration": 14206,
+                      "referencedDeclaration": 14265,
                       "type": "enum GunPoolContext.PlaneType"
                     },
-                    "id": 14207,
+                    "id": 14266,
                     "name": "UserDefinedTypeName",
-                    "src": "1264:9:256"
+                    "src": "1264:9:257"
                   }
                 ],
-                "id": 14208,
+                "id": 14267,
                 "name": "VariableDeclaration",
-                "src": "1264:12:256"
+                "src": "1264:12:257"
               },
               {
                 "attributes": {
@@ -1266,7 +1266,7 @@
                   "mutability": "mutable",
                   "name": "plane",
                   "overrides": null,
-                  "scope": 14211,
+                  "scope": 14270,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "struct GunPoolContext.PlaneContext",
@@ -1278,28 +1278,28 @@
                     "attributes": {
                       "contractScope": null,
                       "name": "PlaneContext",
-                      "referencedDeclaration": 14184,
+                      "referencedDeclaration": 14243,
                       "type": "struct GunPoolContext.PlaneContext"
                     },
-                    "id": 14209,
+                    "id": 14268,
                     "name": "UserDefinedTypeName",
-                    "src": "1283:12:256"
+                    "src": "1283:12:257"
                   }
                 ],
-                "id": 14210,
+                "id": 14269,
                 "name": "VariableDeclaration",
-                "src": "1283:18:256"
+                "src": "1283:18:257"
               }
             ],
-            "id": 14211,
+            "id": 14270,
             "name": "StructDefinition",
-            "src": "1235:72:256"
+            "src": "1235:72:257"
           },
           {
             "attributes": {
               "canonicalName": "GunPoolContext.FeeContext",
               "name": "FeeContext",
-              "scope": 14217,
+              "scope": 14276,
               "visibility": "public"
             },
             "children": [
@@ -1309,7 +1309,7 @@
                   "mutability": "mutable",
                   "name": "account",
                   "overrides": null,
-                  "scope": 14216,
+                  "scope": 14275,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address",
@@ -1323,14 +1323,14 @@
                       "stateMutability": "nonpayable",
                       "type": "address"
                     },
-                    "id": 14212,
+                    "id": 14271,
                     "name": "ElementaryTypeName",
-                    "src": "1358:7:256"
+                    "src": "1358:7:257"
                   }
                 ],
-                "id": 14213,
+                "id": 14272,
                 "name": "VariableDeclaration",
-                "src": "1358:15:256"
+                "src": "1358:15:257"
               },
               {
                 "attributes": {
@@ -1338,7 +1338,7 @@
                   "mutability": "mutable",
                   "name": "permillage",
                   "overrides": null,
-                  "scope": 14216,
+                  "scope": 14275,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "uint16",
@@ -1351,29 +1351,29 @@
                       "name": "uint16",
                       "type": "uint16"
                     },
-                    "id": 14214,
+                    "id": 14273,
                     "name": "ElementaryTypeName",
-                    "src": "1412:6:256"
+                    "src": "1412:6:257"
                   }
                 ],
-                "id": 14215,
+                "id": 14274,
                 "name": "VariableDeclaration",
-                "src": "1412:18:256"
+                "src": "1412:18:257"
               }
             ],
-            "id": 14216,
+            "id": 14275,
             "name": "StructDefinition",
-            "src": "1313:123:256"
+            "src": "1313:123:257"
           }
         ],
-        "id": 14217,
+        "id": 14276,
         "name": "ContractDefinition",
-        "src": "74:1365:256"
+        "src": "74:1365:257"
       }
     ],
-    "id": 14218,
+    "id": 14277,
     "name": "SourceUnit",
-    "src": "38:1403:256"
+    "src": "38:1403:257"
   },
   "compiler": {
     "name": "solc",
@@ -1381,7 +1381,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-10T11:43:49.498Z",
+  "updatedAt": "2021-08-12T06:18:20.743Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

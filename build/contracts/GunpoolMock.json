@@ -127,27 +127,27 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"}],\"name\":\"getPlanes\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gpAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"lendpoolAddress\",\"type\":\"address\"}],\"name\":\"initReserve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/mock/GunpoolMock.sol\":\"GunpoolMock\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x979000648732c91f60536a23950b83e11a1f47204cb280cf2b8dc0a1280258da\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://880bda603cd4c34690385db83633dd3918de7a96d9361089d9329ca81ef4e273\",\"dweb:/ipfs/QmRZqTMmCpNYqCcEsbMMtvF6NYKDarNnNbJseZ2LLDrevA\"]},\"project:/contracts/interfaces/IGPToken.sol\":{\"keccak256\":\"0x38082657819ae93346424842c4f791fdbfd12703d646152dfe2ed4c06deb633e\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://0fb6b84d3f95b5860da8bf912fe3e042a01cdcc28b8a46a325cbfc6dbd1060d4\",\"dweb:/ipfs/QmcwtP1FXebKq6TGn22NL9LpAtXNCH9HQRcs1wj32jPpFA\"]},\"project:/contracts/mock/GunpoolMock.sol\":{\"keccak256\":\"0x42b620c7161d20242823a9604512bdf742a431a8afe5632dbb15a3cd7e307d9c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://705b9d6d0393996131ce5e83d00726553bce0a59e225d97e2d8d25e7600d28fb\",\"dweb:/ipfs/QmTHypNxV1L6RFnTUM6hCwriEd56QJAgvxe5gtDCac4EAS\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
-  "bytecode": "0x608060405234801561001057600080fd5b50610510806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806340c10f191461005c578063932f12c8146100855780639dc29fac1461009a578063b2751b4c146100ad578063f7888aec146100cd575b600080fd5b61006f61006a36600461040d565b6100ed565b60405161007c91906104a3565b60405180910390f35b61009861009336600461038e565b610179565b005b6100986100a836600461040d565b6101d8565b6100c06100bb3660046103d3565b61023c565b60405161007c91906104ae565b6100e06100db36600461035a565b6102ad565b60405161007c91906104d1565b6040516340c10f1960e01b81526000906001600160a01b038416906340c10f199061011e903390869060040161048a565b602060405180830381600087803b15801561013857600080fd5b505af115801561014c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101709190610437565b90505b92915050565b6001600160a01b03928316600090815260208181526040808320600601805460ff19169055600180835281842084805280845291842090810180549688166001600160a01b031997881617905592805290528054919093169116179055565b604051632770a7eb60e21b81526001600160a01b03831690639dc29fac90610206903390859060040161048a565b600060405180830381600087803b15801561022057600080fd5b505af1158015610234573d6000803e3d6000fd5b505050505050565b61024461032c565b6001600160a01b03831660009081526001602052604081209083801561026657fe5b801561026e57fe5b81526020808201929092526040908101600020815180830190925280546001600160a01b03908116835260019091015416918101919091529392505050565b6040516370a0823160e01b81526000906001600160a01b038416906370a08231906102dc908590600401610476565b60206040518083038186803b1580156102f457600080fd5b505afa158015610308573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610170919061045e565b604080518082019091526000808252602082015290565b80356001600160a01b038116811461017357600080fd5b6000806040838503121561036c578182fd5b6103768484610343565b91506103858460208501610343565b90509250929050565b6000806000606084860312156103a2578081fd5b6103ac8585610343565b92506103bb8560208601610343565b91506103ca8560408601610343565b90509250925092565b600080604083850312156103e5578182fd5b6103ef8484610343565b9150602083013560018110610402578182fd5b809150509250929050565b6000806040838503121561041f578182fd5b6104298484610343565b946020939093013593505050565b600060208284031215610448578081fd5b81518015158114610457578182fd5b9392505050565b60006020828403121561046f578081fd5b5051919050565b6001600160a01b0391909116815260200190565b6001600160a01b03929092168252602082015260400190565b901515815260200190565b81516001600160a01b039081168252602092830151169181019190915260400190565b9081526020019056fea2646970667358221220e4fc173f38f7c3d49ac02572af170bc04e848efd3d34770bfcba107c309caa9564736f6c634300060c0033",
-  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806340c10f191461005c578063932f12c8146100855780639dc29fac1461009a578063b2751b4c146100ad578063f7888aec146100cd575b600080fd5b61006f61006a36600461040d565b6100ed565b60405161007c91906104a3565b60405180910390f35b61009861009336600461038e565b610179565b005b6100986100a836600461040d565b6101d8565b6100c06100bb3660046103d3565b61023c565b60405161007c91906104ae565b6100e06100db36600461035a565b6102ad565b60405161007c91906104d1565b6040516340c10f1960e01b81526000906001600160a01b038416906340c10f199061011e903390869060040161048a565b602060405180830381600087803b15801561013857600080fd5b505af115801561014c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101709190610437565b90505b92915050565b6001600160a01b03928316600090815260208181526040808320600601805460ff19169055600180835281842084805280845291842090810180549688166001600160a01b031997881617905592805290528054919093169116179055565b604051632770a7eb60e21b81526001600160a01b03831690639dc29fac90610206903390859060040161048a565b600060405180830381600087803b15801561022057600080fd5b505af1158015610234573d6000803e3d6000fd5b505050505050565b61024461032c565b6001600160a01b03831660009081526001602052604081209083801561026657fe5b801561026e57fe5b81526020808201929092526040908101600020815180830190925280546001600160a01b03908116835260019091015416918101919091529392505050565b6040516370a0823160e01b81526000906001600160a01b038416906370a08231906102dc908590600401610476565b60206040518083038186803b1580156102f457600080fd5b505afa158015610308573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610170919061045e565b604080518082019091526000808252602082015290565b80356001600160a01b038116811461017357600080fd5b6000806040838503121561036c578182fd5b6103768484610343565b91506103858460208501610343565b90509250929050565b6000806000606084860312156103a2578081fd5b6103ac8585610343565b92506103bb8560208601610343565b91506103ca8560408601610343565b90509250925092565b600080604083850312156103e5578182fd5b6103ef8484610343565b9150602083013560018110610402578182fd5b809150509250929050565b6000806040838503121561041f578182fd5b6104298484610343565b946020939093013593505050565b600060208284031215610448578081fd5b81518015158114610457578182fd5b9392505050565b60006020828403121561046f578081fd5b5051919050565b6001600160a01b0391909116815260200190565b6001600160a01b03929092168252602082015260400190565b901515815260200190565b81516001600160a01b039081168252602092830151169181019190915260400190565b9081526020019056fea2646970667358221220e4fc173f38f7c3d49ac02572af170bc04e848efd3d34770bfcba107c309caa9564736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"burn\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"enum GunPoolContext.PlaneType\",\"name\":\"pt\",\"type\":\"uint8\"}],\"name\":\"getPlanes\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"plane\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gptoken\",\"type\":\"address\"}],\"internalType\":\"struct GunPoolContext.PlaneContext\",\"name\":\"\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"gpAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"lendpoolAddress\",\"type\":\"address\"}],\"name\":\"initReserve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"gpToken\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"}],\"name\":\"mint\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/mock/GunpoolMock.sol\":\"GunpoolMock\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x979000648732c91f60536a23950b83e11a1f47204cb280cf2b8dc0a1280258da\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://880bda603cd4c34690385db83633dd3918de7a96d9361089d9329ca81ef4e273\",\"dweb:/ipfs/QmRZqTMmCpNYqCcEsbMMtvF6NYKDarNnNbJseZ2LLDrevA\"]},\"project:/contracts/interfaces/IGPToken.sol\":{\"keccak256\":\"0x5c3b6d0299173c87713be41e398a7fb43e8c282cc9d80f36e32532e8aae3b55e\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://b7eb597bb53a8f7e3e0de1b4fe5229d6cc7d33a7cad42ca4b5b77faa7029d25d\",\"dweb:/ipfs/QmcGxgfLWbjsFcYovx1nMLatigqAaiJXNQZVEk5jH5JAgt\"]},\"project:/contracts/mock/GunpoolMock.sol\":{\"keccak256\":\"0x42b620c7161d20242823a9604512bdf742a431a8afe5632dbb15a3cd7e307d9c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://705b9d6d0393996131ce5e83d00726553bce0a59e225d97e2d8d25e7600d28fb\",\"dweb:/ipfs/QmTHypNxV1L6RFnTUM6hCwriEd56QJAgvxe5gtDCac4EAS\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]}},\"version\":1}",
+  "bytecode": "0x608060405234801561001057600080fd5b50610510806100206000396000f3fe608060405234801561001057600080fd5b50600436106100575760003560e01c806340c10f191461005c578063932f12c8146100855780639dc29fac1461009a578063b2751b4c146100ad578063f7888aec146100cd575b600080fd5b61006f61006a36600461040d565b6100ed565b60405161007c91906104a3565b60405180910390f35b61009861009336600461038e565b610179565b005b6100986100a836600461040d565b6101d8565b6100c06100bb3660046103d3565b61023c565b60405161007c91906104ae565b6100e06100db36600461035a565b6102ad565b60405161007c91906104d1565b6040516340c10f1960e01b81526000906001600160a01b038416906340c10f199061011e903390869060040161048a565b602060405180830381600087803b15801561013857600080fd5b505af115801561014c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101709190610437565b90505b92915050565b6001600160a01b03928316600090815260208181526040808320600601805460ff19169055600180835281842084805280845291842090810180549688166001600160a01b031997881617905592805290528054919093169116179055565b604051632770a7eb60e21b81526001600160a01b03831690639dc29fac90610206903390859060040161048a565b600060405180830381600087803b15801561022057600080fd5b505af1158015610234573d6000803e3d6000fd5b505050505050565b61024461032c565b6001600160a01b03831660009081526001602052604081209083801561026657fe5b801561026e57fe5b81526020808201929092526040908101600020815180830190925280546001600160a01b03908116835260019091015416918101919091529392505050565b6040516370a0823160e01b81526000906001600160a01b038416906370a08231906102dc908590600401610476565b60206040518083038186803b1580156102f457600080fd5b505afa158015610308573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610170919061045e565b604080518082019091526000808252602082015290565b80356001600160a01b038116811461017357600080fd5b6000806040838503121561036c578182fd5b6103768484610343565b91506103858460208501610343565b90509250929050565b6000806000606084860312156103a2578081fd5b6103ac8585610343565b92506103bb8560208601610343565b91506103ca8560408601610343565b90509250925092565b600080604083850312156103e5578182fd5b6103ef8484610343565b9150602083013560018110610402578182fd5b809150509250929050565b6000806040838503121561041f578182fd5b6104298484610343565b946020939093013593505050565b600060208284031215610448578081fd5b81518015158114610457578182fd5b9392505050565b60006020828403121561046f578081fd5b5051919050565b6001600160a01b0391909116815260200190565b6001600160a01b03929092168252602082015260400190565b901515815260200190565b81516001600160a01b039081168252602092830151169181019190915260400190565b9081526020019056fea26469706673582212207b527f9de19bea7b66006e57c61dbf436f3f024afc31f38fec6dec8ad12294f264736f6c634300060c0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100575760003560e01c806340c10f191461005c578063932f12c8146100855780639dc29fac1461009a578063b2751b4c146100ad578063f7888aec146100cd575b600080fd5b61006f61006a36600461040d565b6100ed565b60405161007c91906104a3565b60405180910390f35b61009861009336600461038e565b610179565b005b6100986100a836600461040d565b6101d8565b6100c06100bb3660046103d3565b61023c565b60405161007c91906104ae565b6100e06100db36600461035a565b6102ad565b60405161007c91906104d1565b6040516340c10f1960e01b81526000906001600160a01b038416906340c10f199061011e903390869060040161048a565b602060405180830381600087803b15801561013857600080fd5b505af115801561014c573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101709190610437565b90505b92915050565b6001600160a01b03928316600090815260208181526040808320600601805460ff19169055600180835281842084805280845291842090810180549688166001600160a01b031997881617905592805290528054919093169116179055565b604051632770a7eb60e21b81526001600160a01b03831690639dc29fac90610206903390859060040161048a565b600060405180830381600087803b15801561022057600080fd5b505af1158015610234573d6000803e3d6000fd5b505050505050565b61024461032c565b6001600160a01b03831660009081526001602052604081209083801561026657fe5b801561026e57fe5b81526020808201929092526040908101600020815180830190925280546001600160a01b03908116835260019091015416918101919091529392505050565b6040516370a0823160e01b81526000906001600160a01b038416906370a08231906102dc908590600401610476565b60206040518083038186803b1580156102f457600080fd5b505afa158015610308573d6000803e3d6000fd5b505050506040513d601f19601f82011682018060405250810190610170919061045e565b604080518082019091526000808252602082015290565b80356001600160a01b038116811461017357600080fd5b6000806040838503121561036c578182fd5b6103768484610343565b91506103858460208501610343565b90509250929050565b6000806000606084860312156103a2578081fd5b6103ac8585610343565b92506103bb8560208601610343565b91506103ca8560408601610343565b90509250925092565b600080604083850312156103e5578182fd5b6103ef8484610343565b9150602083013560018110610402578182fd5b809150509250929050565b6000806040838503121561041f578182fd5b6104298484610343565b946020939093013593505050565b600060208284031215610448578081fd5b81518015158114610457578182fd5b9392505050565b60006020828403121561046f578081fd5b5051919050565b6001600160a01b0391909116815260200190565b6001600160a01b03929092168252602082015260400190565b901515815260200190565b81516001600160a01b039081168252602092830151169181019190915260400190565b9081526020019056fea26469706673582212207b527f9de19bea7b66006e57c61dbf436f3f024afc31f38fec6dec8ad12294f264736f6c634300060c0033",
   "immutableReferences": {},
-  "sourceMap": "237:1207:251:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "237:1207:251:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;964:155;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;445:329;;;;;;:::i;:::-;;:::i;:::-;;1125:134;;;;;;:::i;:::-;;:::i;780:178::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;1265:174::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;964:155::-;1071:42;;-1:-1:-1;;;1071:42:251;;1048:4;;-1:-1:-1;;;;;1071:22:251;;;;;:42;;1094:10;;1106:6;;1071:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1064:49;;964:155;;;;;:::o;445:329::-;-1:-1:-1;;;;;569:16:251;;;591:29;569:16;;;;;;;;;;;:19;;:51;;-1:-1:-1;;569:51:251;;;-1:-1:-1;627:14:251;;;;;;:45;;;;;;;;;:53;;;:65;;;;;-1:-1:-1;;;;;;627:65:251;;;;;;699:45;;;;;:69;;;;;;;;;;;445:329::o;1125:134::-;1211:42;;-1:-1:-1;;;1211:42:251;;-1:-1:-1;;;;;1211:22:251;;;;;:42;;1234:10;;1246:6;;1211:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1125:134;;:::o;780:178::-;881:34;;:::i;:::-;-1:-1:-1;;;;;934:14:251;;;;;;:7;:14;;;;;;949:2;934:18;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;934:18:251;927:25;;;;;;;;;;-1:-1:-1;;;;;927:25:251;;;;;;;;;;;;;;;;;;;780:178;-1:-1:-1;;;780:178:251:o;1265:174::-;1397:36;;-1:-1:-1;;;1397:36:251;;1371:7;;-1:-1:-1;;;;;1397:27:251;;;;;:36;;1425:7;;1397:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;:::o;5:130::-;72:20;;-1:-1;;;;;5727:54;;6310:35;;6300:2;;6359:1;;6349:12;722:366;;;843:2;831:9;822:7;818:23;814:32;811:2;;;-1:-1;;849:12;811:2;911:53;956:7;932:22;911:53;:::i;:::-;901:63;;1019:53;1064:7;1001:2;1044:9;1040:22;1019:53;:::i;:::-;1009:63;;805:283;;;;;:::o;1095:491::-;;;;1233:2;1221:9;1212:7;1208:23;1204:32;1201:2;;;-1:-1;;1239:12;1201:2;1301:53;1346:7;1322:22;1301:53;:::i;:::-;1291:63;;1409:53;1454:7;1391:2;1434:9;1430:22;1409:53;:::i;:::-;1399:63;;1517:53;1562:7;1499:2;1542:9;1538:22;1517:53;:::i;:::-;1507:63;;1195:391;;;;;:::o;1593:396::-;;;1729:2;1717:9;1708:7;1704:23;1700:32;1697:2;;;-1:-1;;1735:12;1697:2;1797:53;1842:7;1818:22;1797:53;:::i;:::-;1787:63;;1887:2;1945:9;1941:22;359:20;6577:1;6570:5;6567:12;6557:2;;-1:-1;;6583:12;6557:2;1895:78;;;;1691:298;;;;;:::o;1996:366::-;;;2117:2;2105:9;2096:7;2092:23;2088:32;2085:2;;;-1:-1;;2123:12;2085:2;2185:53;2230:7;2206:22;2185:53;:::i;:::-;2175:63;2275:2;2314:22;;;;511:20;;-1:-1;;;2079:283::o;2369:257::-;;2481:2;2469:9;2460:7;2456:23;2452:32;2449:2;;;-1:-1;;2487:12;2449:2;223:6;217:13;6456:5;5639:13;5632:21;6434:5;6431:32;6421:2;;-1:-1;;6467:12;6421:2;2539:71;2443:183;-1:-1;;;2443:183::o;2633:263::-;;2748:2;2736:9;2727:7;2723:23;2719:32;2716:2;;;-1:-1;;2754:12;2716:2;-1:-1;659:13;;2710:186;-1:-1;2710:186::o;4091:222::-;-1:-1;;;;;5727:54;;;;3113:37;;4218:2;4203:18;;4189:124::o;4320:349::-;-1:-1;;;;;5727:54;;;;2982:58;;4655:2;4640:18;;4042:37;4483:2;4468:18;;4454:215::o;4676:210::-;5639:13;;5632:21;3347:34;;4797:2;4782:18;;4768:118::o;4893:346::-;3694:23;;-1:-1;;;;;5727:54;;;3113:37;;3868:4;3857:16;;;3851:23;5727:54;3928:14;;;3113:37;;;;5082:2;5067:18;;5053:186::o;5246:222::-;4042:37;;;5373:2;5358:18;;5344:124::o",
+  "sourceMap": "237:1207:252:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "237:1207:252:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;964:155;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;:::-;;;;;;;;445:329;;;;;;:::i;:::-;;:::i;:::-;;1125:134;;;;;;:::i;:::-;;:::i;780:178::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;1265:174::-;;;;;;:::i;:::-;;:::i;:::-;;;;;;;:::i;964:155::-;1071:42;;-1:-1:-1;;;1071:42:252;;1048:4;;-1:-1:-1;;;;;1071:22:252;;;;;:42;;1094:10;;1106:6;;1071:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;1064:49;;964:155;;;;;:::o;445:329::-;-1:-1:-1;;;;;569:16:252;;;591:29;569:16;;;;;;;;;;;:19;;:51;;-1:-1:-1;;569:51:252;;;-1:-1:-1;627:14:252;;;;;;:45;;;;;;;;;:53;;;:65;;;;;-1:-1:-1;;;;;;627:65:252;;;;;;699:45;;;;;:69;;;;;;;;;;;445:329::o;1125:134::-;1211:42;;-1:-1:-1;;;1211:42:252;;-1:-1:-1;;;;;1211:22:252;;;;;:42;;1234:10;;1246:6;;1211:42;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1125:134;;:::o;780:178::-;881:34;;:::i;:::-;-1:-1:-1;;;;;934:14:252;;;;;;:7;:14;;;;;;949:2;934:18;;;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;934:18:252;927:25;;;;;;;;;;-1:-1:-1;;;;;927:25:252;;;;;;;;;;;;;;;;;;;780:178;-1:-1:-1;;;780:178:252:o;1265:174::-;1397:36;;-1:-1:-1;;;1397:36:252;;1371:7;;-1:-1:-1;;;;;1397:27:252;;;;;:36;;1425:7;;1397:36;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;-1:-1:-1:-;;;;;;;;;;;;;;;;;;;:::o;5:130::-;72:20;;-1:-1;;;;;5727:54;;6310:35;;6300:2;;6359:1;;6349:12;722:366;;;843:2;831:9;822:7;818:23;814:32;811:2;;;-1:-1;;849:12;811:2;911:53;956:7;932:22;911:53;:::i;:::-;901:63;;1019:53;1064:7;1001:2;1044:9;1040:22;1019:53;:::i;:::-;1009:63;;805:283;;;;;:::o;1095:491::-;;;;1233:2;1221:9;1212:7;1208:23;1204:32;1201:2;;;-1:-1;;1239:12;1201:2;1301:53;1346:7;1322:22;1301:53;:::i;:::-;1291:63;;1409:53;1454:7;1391:2;1434:9;1430:22;1409:53;:::i;:::-;1399:63;;1517:53;1562:7;1499:2;1542:9;1538:22;1517:53;:::i;:::-;1507:63;;1195:391;;;;;:::o;1593:396::-;;;1729:2;1717:9;1708:7;1704:23;1700:32;1697:2;;;-1:-1;;1735:12;1697:2;1797:53;1842:7;1818:22;1797:53;:::i;:::-;1787:63;;1887:2;1945:9;1941:22;359:20;6577:1;6570:5;6567:12;6557:2;;-1:-1;;6583:12;6557:2;1895:78;;;;1691:298;;;;;:::o;1996:366::-;;;2117:2;2105:9;2096:7;2092:23;2088:32;2085:2;;;-1:-1;;2123:12;2085:2;2185:53;2230:7;2206:22;2185:53;:::i;:::-;2175:63;2275:2;2314:22;;;;511:20;;-1:-1;;;2079:283::o;2369:257::-;;2481:2;2469:9;2460:7;2456:23;2452:32;2449:2;;;-1:-1;;2487:12;2449:2;223:6;217:13;6456:5;5639:13;5632:21;6434:5;6431:32;6421:2;;-1:-1;;6467:12;6421:2;2539:71;2443:183;-1:-1;;;2443:183::o;2633:263::-;;2748:2;2736:9;2727:7;2723:23;2719:32;2716:2;;;-1:-1;;2754:12;2716:2;-1:-1;659:13;;2710:186;-1:-1;2710:186::o;4091:222::-;-1:-1;;;;;5727:54;;;;3113:37;;4218:2;4203:18;;4189:124::o;4320:349::-;-1:-1;;;;;5727:54;;;;2982:58;;4655:2;4640:18;;4042:37;4483:2;4468:18;;4454:215::o;4676:210::-;5639:13;;5632:21;3347:34;;4797:2;4782:18;;4768:118::o;4893:346::-;3694:23;;-1:-1;;;;;5727:54;;;3113:37;;3868:4;3857:16;;;3851:23;5727:54;3928:14;;;3113:37;;;;5082:2;5067:18;;5053:186::o;5246:222::-;4042:37;;;5373:2;5358:18;;5344:124::o",
   "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\npragma experimental ABIEncoderV2;\r\n\r\nimport {GunPoolContext} from \"../protocol/gunpool/GunPoolContext.sol\";\r\nimport {IGPToken} from \"../interfaces/IGPToken.sol\";\r\n\r\ncontract GunpoolMock {\r\n\r\n  mapping (address => GunPoolContext.ReserveData) internal _reserves;\r\n  mapping (address => mapping(GunPoolContext.PlaneType => GunPoolContext.PlaneContext)) internal _planes;\r\n\r\n  function initReserve(\r\n    address token,\r\n    address gpAddress,\r\n    address lendpoolAddress\r\n  )\r\n    external\r\n  {\r\n    _reserves[token].pt = GunPoolContext.PlaneType.AAVE;\r\n    _planes[token][GunPoolContext.PlaneType.AAVE].gptoken = gpAddress;\r\n    _planes[token][GunPoolContext.PlaneType.AAVE].plane = lendpoolAddress;\r\n  }\r\n\r\n  function getPlanes(address token, GunPoolContext.PlaneType pt)\r\n    external\r\n    view\r\n    returns (GunPoolContext.PlaneContext memory)\r\n  {\r\n    return _planes[token][pt];\r\n  }\r\n\r\n  function mint(\r\n    address gpToken,\r\n    uint256 amount\r\n  )\r\n    external returns(bool)\r\n  {\r\n    return IGPToken(gpToken).mint(msg.sender, amount);\r\n  }\r\n\r\n  function burn(\r\n    address gpToken,\r\n    uint256 amount\r\n  )\r\n    external\r\n  {\r\n    IGPToken(gpToken).burn(msg.sender, amount);\r\n  }\r\n\r\n  function balanceOf(\r\n    address gpToken,\r\n    address account\r\n  )\r\n    external\r\n    view\r\n    returns (uint256)\r\n  {\r\n    return IGPToken(gpToken).balanceOf(account);\r\n  }\r\n\r\n}\r\n",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\mock\\GunpoolMock.sol",
   "ast": {
     "absolutePath": "project:/contracts/mock/GunpoolMock.sol",
     "exportedSymbols": {
       "GunpoolMock": [
-        11772
+        11831
       ]
     },
-    "id": 11773,
+    "id": 11832,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 11646,
+        "id": 11705,
         "literals": [
           "solidity",
           ">=",
@@ -158,35 +158,35 @@
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:32:251"
+        "src": "38:32:252"
       },
       {
-        "id": 11647,
+        "id": 11706,
         "literals": [
           "experimental",
           "ABIEncoderV2"
         ],
         "nodeType": "PragmaDirective",
-        "src": "72:33:251"
+        "src": "72:33:252"
       },
       {
         "absolutePath": "project:/contracts/protocol/gunpool/GunPoolContext.sol",
         "file": "../protocol/gunpool/GunPoolContext.sol",
-        "id": 11649,
+        "id": 11708,
         "nodeType": "ImportDirective",
-        "scope": 11773,
-        "sourceUnit": 14218,
-        "src": "109:70:251",
+        "scope": 11832,
+        "sourceUnit": 14277,
+        "src": "109:70:252",
         "symbolAliases": [
           {
             "foreign": {
               "argumentTypes": null,
-              "id": 11648,
+              "id": 11707,
               "name": "GunPoolContext",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
               "referencedDeclaration": null,
-              "src": "117:14:251",
+              "src": "117:14:252",
               "typeDescriptions": {
                 "typeIdentifier": null,
                 "typeString": null
@@ -200,21 +200,21 @@
       {
         "absolutePath": "project:/contracts/interfaces/IGPToken.sol",
         "file": "../interfaces/IGPToken.sol",
-        "id": 11651,
+        "id": 11710,
         "nodeType": "ImportDirective",
-        "scope": 11773,
+        "scope": 11832,
         "sourceUnit": 11347,
-        "src": "181:52:251",
+        "src": "181:52:252",
         "symbolAliases": [
           {
             "foreign": {
               "argumentTypes": null,
-              "id": 11650,
+              "id": 11709,
               "name": "IGPToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
               "referencedDeclaration": null,
-              "src": "189:8:251",
+              "src": "189:8:252",
               "typeDescriptions": {
                 "typeIdentifier": null,
                 "typeString": null
@@ -232,55 +232,55 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 11772,
+        "id": 11831,
         "linearizedBaseContracts": [
-          11772
+          11831
         ],
         "name": "GunpoolMock",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
             "constant": false,
-            "id": 11655,
+            "id": 11714,
             "mutability": "mutable",
             "name": "_reserves",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 11772,
-            "src": "265:66:251",
+            "scope": 11831,
+            "src": "265:66:252",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14179_storage_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14238_storage_$",
               "typeString": "mapping(address => struct GunPoolContext.ReserveData)"
             },
             "typeName": {
-              "id": 11654,
+              "id": 11713,
               "keyType": {
-                "id": 11652,
+                "id": 11711,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "274:7:251",
+                "src": "274:7:252",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "265:47:251",
+              "src": "265:47:252",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14179_storage_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14238_storage_$",
                 "typeString": "mapping(address => struct GunPoolContext.ReserveData)"
               },
               "valueType": {
                 "contractScope": null,
-                "id": 11653,
+                "id": 11712,
                 "name": "GunPoolContext.ReserveData",
                 "nodeType": "UserDefinedTypeName",
-                "referencedDeclaration": 14179,
-                "src": "285:26:251",
+                "referencedDeclaration": 14238,
+                "src": "285:26:252",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_struct$_ReserveData_$14179_storage_ptr",
+                  "typeIdentifier": "t_struct$_ReserveData_$14238_storage_ptr",
                   "typeString": "struct GunPoolContext.ReserveData"
                 }
               }
@@ -290,66 +290,66 @@
           },
           {
             "constant": false,
-            "id": 11661,
+            "id": 11720,
             "mutability": "mutable",
             "name": "_planes",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 11772,
-            "src": "336:102:251",
+            "scope": 11831,
+            "src": "336:102:252",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$_$",
+              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$_$",
               "typeString": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext))"
             },
             "typeName": {
-              "id": 11660,
+              "id": 11719,
               "keyType": {
-                "id": 11656,
+                "id": 11715,
                 "name": "address",
                 "nodeType": "ElementaryTypeName",
-                "src": "345:7:251",
+                "src": "345:7:252",
                 "typeDescriptions": {
                   "typeIdentifier": "t_address",
                   "typeString": "address"
                 }
               },
               "nodeType": "Mapping",
-              "src": "336:85:251",
+              "src": "336:85:252",
               "typeDescriptions": {
-                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$_$",
+                "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$_$",
                 "typeString": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext))"
               },
               "valueType": {
-                "id": 11659,
+                "id": 11718,
                 "keyType": {
                   "contractScope": null,
-                  "id": 11657,
+                  "id": 11716,
                   "name": "GunPoolContext.PlaneType",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14206,
-                  "src": "364:24:251",
+                  "referencedDeclaration": 14265,
+                  "src": "364:24:252",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   }
                 },
                 "nodeType": "Mapping",
-                "src": "356:64:251",
+                "src": "356:64:252",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$",
+                  "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$",
                   "typeString": "mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext)"
                 },
                 "valueType": {
                   "contractScope": null,
-                  "id": 11658,
+                  "id": 11717,
                   "name": "GunPoolContext.PlaneContext",
                   "nodeType": "UserDefinedTypeName",
-                  "referencedDeclaration": 14184,
-                  "src": "392:27:251",
+                  "referencedDeclaration": 14243,
+                  "src": "392:27:252",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                    "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                     "typeString": "struct GunPoolContext.PlaneContext"
                   }
                 }
@@ -360,14 +360,14 @@
           },
           {
             "body": {
-              "id": 11701,
+              "id": 11760,
               "nodeType": "Block",
-              "src": "562:212:251",
+              "src": "562:212:252",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 11677,
+                    "id": 11736,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -378,26 +378,26 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 11670,
+                          "id": 11729,
                           "name": "_reserves",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11655,
-                          "src": "569:9:251",
+                          "referencedDeclaration": 11714,
+                          "src": "569:9:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14179_storage_$",
+                            "typeIdentifier": "t_mapping$_t_address_$_t_struct$_ReserveData_$14238_storage_$",
                             "typeString": "mapping(address => struct GunPoolContext.ReserveData storage ref)"
                           }
                         },
-                        "id": 11672,
+                        "id": 11731,
                         "indexExpression": {
                           "argumentTypes": null,
-                          "id": 11671,
+                          "id": 11730,
                           "name": "token",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 11663,
-                          "src": "579:5:251",
+                          "referencedDeclaration": 11722,
+                          "src": "579:5:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -408,23 +408,23 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "569:16:251",
+                        "src": "569:16:252",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_ReserveData_$14179_storage",
+                          "typeIdentifier": "t_struct$_ReserveData_$14238_storage",
                           "typeString": "struct GunPoolContext.ReserveData storage ref"
                         }
                       },
-                      "id": 11673,
+                      "id": 11732,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "pt",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 14174,
-                      "src": "569:19:251",
+                      "referencedDeclaration": 14233,
+                      "src": "569:19:252",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_PlaneType_$14206",
+                        "typeIdentifier": "t_enum$_PlaneType_$14265",
                         "typeString": "enum GunPoolContext.PlaneType"
                       }
                     },
@@ -436,32 +436,32 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 11674,
+                          "id": 11733,
                           "name": "GunPoolContext",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 14217,
-                          "src": "591:14:251",
+                          "referencedDeclaration": 14276,
+                          "src": "591:14:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14217_$",
+                            "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14276_$",
                             "typeString": "type(library GunPoolContext)"
                           }
                         },
-                        "id": 11675,
+                        "id": 11734,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "memberName": "PlaneType",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 14206,
-                        "src": "591:24:251",
+                        "referencedDeclaration": 14265,
+                        "src": "591:24:252",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_enum$_PlaneType_$14206_$",
+                          "typeIdentifier": "t_type$_t_enum$_PlaneType_$14265_$",
                           "typeString": "type(enum GunPoolContext.PlaneType)"
                         }
                       },
-                      "id": 11676,
+                      "id": 11735,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
@@ -469,26 +469,26 @@
                       "memberName": "AAVE",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": null,
-                      "src": "591:29:251",
+                      "src": "591:29:252",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_PlaneType_$14206",
+                        "typeIdentifier": "t_enum$_PlaneType_$14265",
                         "typeString": "enum GunPoolContext.PlaneType"
                       }
                     },
-                    "src": "569:51:251",
+                    "src": "569:51:252",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_PlaneType_$14206",
+                      "typeIdentifier": "t_enum$_PlaneType_$14265",
                       "typeString": "enum GunPoolContext.PlaneType"
                     }
                   },
-                  "id": 11678,
+                  "id": 11737,
                   "nodeType": "ExpressionStatement",
-                  "src": "569:51:251"
+                  "src": "569:51:252"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 11688,
+                    "id": 11747,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -501,26 +501,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 11679,
+                            "id": 11738,
                             "name": "_planes",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11661,
-                            "src": "627:7:251",
+                            "referencedDeclaration": 11720,
+                            "src": "627:7:252",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$_$",
                               "typeString": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))"
                             }
                           },
-                          "id": 11684,
+                          "id": 11743,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 11680,
+                            "id": 11739,
                             "name": "token",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11663,
-                            "src": "635:5:251",
+                            "referencedDeclaration": 11722,
+                            "src": "635:5:252",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -531,45 +531,45 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "627:14:251",
+                          "src": "627:14:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$",
+                            "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$",
                             "typeString": "mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref)"
                           }
                         },
-                        "id": 11685,
+                        "id": 11744,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 11681,
+                              "id": 11740,
                               "name": "GunPoolContext",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 14217,
-                              "src": "642:14:251",
+                              "referencedDeclaration": 14276,
+                              "src": "642:14:252",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14217_$",
+                                "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14276_$",
                                 "typeString": "type(library GunPoolContext)"
                               }
                             },
-                            "id": 11682,
+                            "id": 11741,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "PlaneType",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 14206,
-                            "src": "642:24:251",
+                            "referencedDeclaration": 14265,
+                            "src": "642:24:252",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_PlaneType_$14206_$",
+                              "typeIdentifier": "t_type$_t_enum$_PlaneType_$14265_$",
                               "typeString": "type(enum GunPoolContext.PlaneType)"
                             }
                           },
-                          "id": 11683,
+                          "id": 11742,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -577,9 +577,9 @@
                           "memberName": "AAVE",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "642:29:251",
+                          "src": "642:29:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_PlaneType_$14206",
+                            "typeIdentifier": "t_enum$_PlaneType_$14265",
                             "typeString": "enum GunPoolContext.PlaneType"
                           }
                         },
@@ -588,21 +588,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "627:45:251",
+                        "src": "627:45:252",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_PlaneContext_$14184_storage",
+                          "typeIdentifier": "t_struct$_PlaneContext_$14243_storage",
                           "typeString": "struct GunPoolContext.PlaneContext storage ref"
                         }
                       },
-                      "id": 11686,
+                      "id": 11745,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "gptoken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 14183,
-                      "src": "627:53:251",
+                      "referencedDeclaration": 14242,
+                      "src": "627:53:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -612,31 +612,31 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 11687,
+                      "id": 11746,
                       "name": "gpAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11665,
-                      "src": "683:9:251",
+                      "referencedDeclaration": 11724,
+                      "src": "683:9:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "627:65:251",
+                    "src": "627:65:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 11689,
+                  "id": 11748,
                   "nodeType": "ExpressionStatement",
-                  "src": "627:65:251"
+                  "src": "627:65:252"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 11699,
+                    "id": 11758,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -649,26 +649,26 @@
                           "argumentTypes": null,
                           "baseExpression": {
                             "argumentTypes": null,
-                            "id": 11690,
+                            "id": 11749,
                             "name": "_planes",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11661,
-                            "src": "699:7:251",
+                            "referencedDeclaration": 11720,
+                            "src": "699:7:252",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$_$",
+                              "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$_$",
                               "typeString": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))"
                             }
                           },
-                          "id": 11695,
+                          "id": 11754,
                           "indexExpression": {
                             "argumentTypes": null,
-                            "id": 11691,
+                            "id": 11750,
                             "name": "token",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11663,
-                            "src": "707:5:251",
+                            "referencedDeclaration": 11722,
+                            "src": "707:5:252",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -679,45 +679,45 @@
                           "isPure": false,
                           "lValueRequested": false,
                           "nodeType": "IndexAccess",
-                          "src": "699:14:251",
+                          "src": "699:14:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$",
+                            "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$",
                             "typeString": "mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref)"
                           }
                         },
-                        "id": 11696,
+                        "id": 11755,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
                             "expression": {
                               "argumentTypes": null,
-                              "id": 11692,
+                              "id": 11751,
                               "name": "GunPoolContext",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 14217,
-                              "src": "714:14:251",
+                              "referencedDeclaration": 14276,
+                              "src": "714:14:252",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14217_$",
+                                "typeIdentifier": "t_type$_t_contract$_GunPoolContext_$14276_$",
                                 "typeString": "type(library GunPoolContext)"
                               }
                             },
-                            "id": 11693,
+                            "id": 11752,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
                             "memberName": "PlaneType",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 14206,
-                            "src": "714:24:251",
+                            "referencedDeclaration": 14265,
+                            "src": "714:24:252",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_type$_t_enum$_PlaneType_$14206_$",
+                              "typeIdentifier": "t_type$_t_enum$_PlaneType_$14265_$",
                               "typeString": "type(enum GunPoolContext.PlaneType)"
                             }
                           },
-                          "id": 11694,
+                          "id": 11753,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -725,9 +725,9 @@
                           "memberName": "AAVE",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "714:29:251",
+                          "src": "714:29:252",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_enum$_PlaneType_$14206",
+                            "typeIdentifier": "t_enum$_PlaneType_$14265",
                             "typeString": "enum GunPoolContext.PlaneType"
                           }
                         },
@@ -736,21 +736,21 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "699:45:251",
+                        "src": "699:45:252",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_PlaneContext_$14184_storage",
+                          "typeIdentifier": "t_struct$_PlaneContext_$14243_storage",
                           "typeString": "struct GunPoolContext.PlaneContext storage ref"
                         }
                       },
-                      "id": 11697,
+                      "id": 11756,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
                       "memberName": "plane",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 14181,
-                      "src": "699:51:251",
+                      "referencedDeclaration": 14240,
+                      "src": "699:51:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -760,32 +760,32 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 11698,
+                      "id": 11757,
                       "name": "lendpoolAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11667,
-                      "src": "753:15:251",
+                      "referencedDeclaration": 11726,
+                      "src": "753:15:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "699:69:251",
+                    "src": "699:69:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 11700,
+                  "id": 11759,
                   "nodeType": "ExpressionStatement",
-                  "src": "699:69:251"
+                  "src": "699:69:252"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "932f12c8",
-            "id": 11702,
+            "id": 11761,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -793,18 +793,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 11668,
+              "id": 11727,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11663,
+                  "id": 11722,
                   "mutability": "mutable",
                   "name": "token",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11702,
-                  "src": "472:13:251",
+                  "scope": 11761,
+                  "src": "472:13:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -812,10 +812,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11662,
+                    "id": 11721,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "472:7:251",
+                    "src": "472:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -827,13 +827,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 11665,
+                  "id": 11724,
                   "mutability": "mutable",
                   "name": "gpAddress",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11702,
-                  "src": "492:17:251",
+                  "scope": 11761,
+                  "src": "492:17:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -841,10 +841,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11664,
+                    "id": 11723,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "492:7:251",
+                    "src": "492:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -856,13 +856,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 11667,
+                  "id": 11726,
                   "mutability": "mutable",
                   "name": "lendpoolAddress",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11702,
-                  "src": "516:23:251",
+                  "scope": 11761,
+                  "src": "516:23:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -870,10 +870,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11666,
+                    "id": 11725,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "516:7:251",
+                    "src": "516:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -884,25 +884,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "465:79:251"
+              "src": "465:79:252"
             },
             "returnParameters": {
-              "id": 11669,
+              "id": 11728,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "562:0:251"
+              "src": "562:0:252"
             },
-            "scope": 11772,
-            "src": "445:329:251",
+            "scope": 11831,
+            "src": "445:329:252",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 11717,
+              "id": 11776,
               "nodeType": "Block",
-              "src": "920:38:251",
+              "src": "920:38:252",
               "statements": [
                 {
                   "expression": {
@@ -911,26 +911,26 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 11711,
+                        "id": 11770,
                         "name": "_planes",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11661,
-                        "src": "934:7:251",
+                        "referencedDeclaration": 11720,
+                        "src": "934:7:252",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$_$",
+                          "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$_$",
                           "typeString": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))"
                         }
                       },
-                      "id": 11713,
+                      "id": 11772,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "id": 11712,
+                        "id": 11771,
                         "name": "token",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11704,
-                        "src": "942:5:251",
+                        "referencedDeclaration": 11763,
+                        "src": "942:5:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -941,23 +941,23 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "934:14:251",
+                      "src": "934:14:252",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14206_$_t_struct$_PlaneContext_$14184_storage_$",
+                        "typeIdentifier": "t_mapping$_t_enum$_PlaneType_$14265_$_t_struct$_PlaneContext_$14243_storage_$",
                         "typeString": "mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref)"
                       }
                     },
-                    "id": 11715,
+                    "id": 11774,
                     "indexExpression": {
                       "argumentTypes": null,
-                      "id": 11714,
+                      "id": 11773,
                       "name": "pt",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 11706,
-                      "src": "949:2:251",
+                      "referencedDeclaration": 11765,
+                      "src": "949:2:252",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_enum$_PlaneType_$14206",
+                        "typeIdentifier": "t_enum$_PlaneType_$14265",
                         "typeString": "enum GunPoolContext.PlaneType"
                       }
                     },
@@ -966,22 +966,22 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "934:18:251",
+                    "src": "934:18:252",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PlaneContext_$14184_storage",
+                      "typeIdentifier": "t_struct$_PlaneContext_$14243_storage",
                       "typeString": "struct GunPoolContext.PlaneContext storage ref"
                     }
                   },
-                  "functionReturnParameters": 11710,
-                  "id": 11716,
+                  "functionReturnParameters": 11769,
+                  "id": 11775,
                   "nodeType": "Return",
-                  "src": "927:25:251"
+                  "src": "927:25:252"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "b2751b4c",
-            "id": 11718,
+            "id": 11777,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -989,18 +989,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 11707,
+              "id": 11766,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11704,
+                  "id": 11763,
                   "mutability": "mutable",
                   "name": "token",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11718,
-                  "src": "799:13:251",
+                  "scope": 11777,
+                  "src": "799:13:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1008,10 +1008,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11703,
+                    "id": 11762,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "799:7:251",
+                    "src": "799:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1023,28 +1023,28 @@
                 },
                 {
                   "constant": false,
-                  "id": 11706,
+                  "id": 11765,
                   "mutability": "mutable",
                   "name": "pt",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11718,
-                  "src": "814:27:251",
+                  "scope": 11777,
+                  "src": "814:27:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_PlaneType_$14206",
+                    "typeIdentifier": "t_enum$_PlaneType_$14265",
                     "typeString": "enum GunPoolContext.PlaneType"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 11705,
+                    "id": 11764,
                     "name": "GunPoolContext.PlaneType",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14206,
-                    "src": "814:24:251",
+                    "referencedDeclaration": 14265,
+                    "src": "814:24:252",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_PlaneType_$14206",
+                      "typeIdentifier": "t_enum$_PlaneType_$14265",
                       "typeString": "enum GunPoolContext.PlaneType"
                     }
                   },
@@ -1052,36 +1052,36 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "798:44:251"
+              "src": "798:44:252"
             },
             "returnParameters": {
-              "id": 11710,
+              "id": 11769,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11709,
+                  "id": 11768,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11718,
-                  "src": "881:34:251",
+                  "scope": 11777,
+                  "src": "881:34:252",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_PlaneContext_$14184_memory_ptr",
+                    "typeIdentifier": "t_struct$_PlaneContext_$14243_memory_ptr",
                     "typeString": "struct GunPoolContext.PlaneContext"
                   },
                   "typeName": {
                     "contractScope": null,
-                    "id": 11708,
+                    "id": 11767,
                     "name": "GunPoolContext.PlaneContext",
                     "nodeType": "UserDefinedTypeName",
-                    "referencedDeclaration": 14184,
-                    "src": "881:27:251",
+                    "referencedDeclaration": 14243,
+                    "src": "881:27:252",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_PlaneContext_$14184_storage_ptr",
+                      "typeIdentifier": "t_struct$_PlaneContext_$14243_storage_ptr",
                       "typeString": "struct GunPoolContext.PlaneContext"
                     }
                   },
@@ -1089,19 +1089,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "880:36:251"
+              "src": "880:36:252"
             },
-            "scope": 11772,
-            "src": "780:178:251",
+            "scope": 11831,
+            "src": "780:178:252",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 11736,
+              "id": 11795,
               "nodeType": "Block",
-              "src": "1057:62:251",
+              "src": "1057:62:252",
               "statements": [
                 {
                   "expression": {
@@ -1111,18 +1111,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 11731,
+                          "id": 11790,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
-                          "src": "1094:3:251",
+                          "src": "1094:3:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 11732,
+                        "id": 11791,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1130,7 +1130,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "1094:10:251",
+                        "src": "1094:10:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -1138,12 +1138,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 11733,
+                        "id": 11792,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11722,
-                        "src": "1106:6:251",
+                        "referencedDeclaration": 11781,
+                        "src": "1106:6:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1166,12 +1166,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 11728,
+                            "id": 11787,
                             "name": "gpToken",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11720,
-                            "src": "1080:7:251",
+                            "referencedDeclaration": 11779,
+                            "src": "1080:7:252",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1185,18 +1185,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 11727,
+                          "id": 11786,
                           "name": "IGPToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 11346,
-                          "src": "1071:8:251",
+                          "src": "1071:8:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_contract$_IGPToken_$11346_$",
                             "typeString": "type(contract IGPToken)"
                           }
                         },
-                        "id": 11729,
+                        "id": 11788,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1204,14 +1204,14 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1071:17:251",
+                        "src": "1071:17:252",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_IGPToken_$11346",
                           "typeString": "contract IGPToken"
                         }
                       },
-                      "id": 11730,
+                      "id": 11789,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1219,13 +1219,13 @@
                       "memberName": "mint",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 11307,
-                      "src": "1071:22:251",
+                      "src": "1071:22:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$_t_bool_$",
                         "typeString": "function (address,uint256) external returns (bool)"
                       }
                     },
-                    "id": 11734,
+                    "id": 11793,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1233,23 +1233,23 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1071:42:251",
+                    "src": "1071:42:252",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 11726,
-                  "id": 11735,
+                  "functionReturnParameters": 11785,
+                  "id": 11794,
                   "nodeType": "Return",
-                  "src": "1064:49:251"
+                  "src": "1064:49:252"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "40c10f19",
-            "id": 11737,
+            "id": 11796,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1257,18 +1257,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 11723,
+              "id": 11782,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11720,
+                  "id": 11779,
                   "mutability": "mutable",
                   "name": "gpToken",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11737,
-                  "src": "984:15:251",
+                  "scope": 11796,
+                  "src": "984:15:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1276,10 +1276,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11719,
+                    "id": 11778,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "984:7:251",
+                    "src": "984:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1291,13 +1291,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 11722,
+                  "id": 11781,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11737,
-                  "src": "1006:14:251",
+                  "scope": 11796,
+                  "src": "1006:14:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1305,10 +1305,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11721,
+                    "id": 11780,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1006:7:251",
+                    "src": "1006:7:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1318,21 +1318,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "977:48:251"
+              "src": "977:48:252"
             },
             "returnParameters": {
-              "id": 11726,
+              "id": 11785,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11725,
+                  "id": 11784,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11737,
-                  "src": "1048:4:251",
+                  "scope": 11796,
+                  "src": "1048:4:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1340,10 +1340,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 11724,
+                    "id": 11783,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1048:4:251",
+                    "src": "1048:4:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1353,19 +1353,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1047:6:251"
+              "src": "1047:6:252"
             },
-            "scope": 11772,
-            "src": "964:155:251",
+            "scope": 11831,
+            "src": "964:155:252",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 11753,
+              "id": 11812,
               "nodeType": "Block",
-              "src": "1204:55:251",
+              "src": "1204:55:252",
               "statements": [
                 {
                   "expression": {
@@ -1375,18 +1375,18 @@
                         "argumentTypes": null,
                         "expression": {
                           "argumentTypes": null,
-                          "id": 11748,
+                          "id": 11807,
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -15,
-                          "src": "1234:3:251",
+                          "src": "1234:3:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
                             "typeString": "msg"
                           }
                         },
-                        "id": 11749,
+                        "id": 11808,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1394,7 +1394,7 @@
                         "memberName": "sender",
                         "nodeType": "MemberAccess",
                         "referencedDeclaration": null,
-                        "src": "1234:10:251",
+                        "src": "1234:10:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
@@ -1402,12 +1402,12 @@
                       },
                       {
                         "argumentTypes": null,
-                        "id": 11750,
+                        "id": 11809,
                         "name": "amount",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11741,
-                        "src": "1246:6:251",
+                        "referencedDeclaration": 11800,
+                        "src": "1246:6:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -1430,12 +1430,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 11745,
+                            "id": 11804,
                             "name": "gpToken",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11739,
-                            "src": "1220:7:251",
+                            "referencedDeclaration": 11798,
+                            "src": "1220:7:252",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1449,18 +1449,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 11744,
+                          "id": 11803,
                           "name": "IGPToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 11346,
-                          "src": "1211:8:251",
+                          "src": "1211:8:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_contract$_IGPToken_$11346_$",
                             "typeString": "type(contract IGPToken)"
                           }
                         },
-                        "id": 11746,
+                        "id": 11805,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1468,14 +1468,14 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1211:17:251",
+                        "src": "1211:17:252",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_IGPToken_$11346",
                           "typeString": "contract IGPToken"
                         }
                       },
-                      "id": 11747,
+                      "id": 11806,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1483,13 +1483,13 @@
                       "memberName": "burn",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 11315,
-                      "src": "1211:22:251",
+                      "src": "1211:22:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$returns$__$",
                         "typeString": "function (address,uint256) external"
                       }
                     },
-                    "id": 11751,
+                    "id": 11810,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1497,22 +1497,22 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1211:42:251",
+                    "src": "1211:42:252",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 11752,
+                  "id": 11811,
                   "nodeType": "ExpressionStatement",
-                  "src": "1211:42:251"
+                  "src": "1211:42:252"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "9dc29fac",
-            "id": 11754,
+            "id": 11813,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1520,18 +1520,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 11742,
+              "id": 11801,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11739,
+                  "id": 11798,
                   "mutability": "mutable",
                   "name": "gpToken",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11754,
-                  "src": "1145:15:251",
+                  "scope": 11813,
+                  "src": "1145:15:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1539,10 +1539,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11738,
+                    "id": 11797,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1145:7:251",
+                    "src": "1145:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1554,13 +1554,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 11741,
+                  "id": 11800,
                   "mutability": "mutable",
                   "name": "amount",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11754,
-                  "src": "1167:14:251",
+                  "scope": 11813,
+                  "src": "1167:14:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1568,10 +1568,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11740,
+                    "id": 11799,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1167:7:251",
+                    "src": "1167:7:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1581,25 +1581,25 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1138:48:251"
+              "src": "1138:48:252"
             },
             "returnParameters": {
-              "id": 11743,
+              "id": 11802,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1204:0:251"
+              "src": "1204:0:252"
             },
-            "scope": 11772,
-            "src": "1125:134:251",
+            "scope": 11831,
+            "src": "1125:134:252",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 11770,
+              "id": 11829,
               "nodeType": "Block",
-              "src": "1383:56:251",
+              "src": "1383:56:252",
               "statements": [
                 {
                   "expression": {
@@ -1607,12 +1607,12 @@
                     "arguments": [
                       {
                         "argumentTypes": null,
-                        "id": 11767,
+                        "id": 11826,
                         "name": "account",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 11758,
-                        "src": "1425:7:251",
+                        "referencedDeclaration": 11817,
+                        "src": "1425:7:252",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1631,12 +1631,12 @@
                         "arguments": [
                           {
                             "argumentTypes": null,
-                            "id": 11764,
+                            "id": 11823,
                             "name": "gpToken",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 11756,
-                            "src": "1406:7:251",
+                            "referencedDeclaration": 11815,
+                            "src": "1406:7:252",
                             "typeDescriptions": {
                               "typeIdentifier": "t_address",
                               "typeString": "address"
@@ -1650,18 +1650,18 @@
                               "typeString": "address"
                             }
                           ],
-                          "id": 11763,
+                          "id": 11822,
                           "name": "IGPToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 11346,
-                          "src": "1397:8:251",
+                          "src": "1397:8:252",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_contract$_IGPToken_$11346_$",
                             "typeString": "type(contract IGPToken)"
                           }
                         },
-                        "id": 11765,
+                        "id": 11824,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -1669,14 +1669,14 @@
                         "lValueRequested": false,
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1397:17:251",
+                        "src": "1397:17:252",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_contract$_IGPToken_$11346",
                           "typeString": "contract IGPToken"
                         }
                       },
-                      "id": 11766,
+                      "id": 11825,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1684,13 +1684,13 @@
                       "memberName": "balanceOf",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 6566,
-                      "src": "1397:27:251",
+                      "src": "1397:27:252",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$_t_address_$returns$_t_uint256_$",
                         "typeString": "function (address) view external returns (uint256)"
                       }
                     },
-                    "id": 11768,
+                    "id": 11827,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1698,23 +1698,23 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1397:36:251",
+                    "src": "1397:36:252",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 11762,
-                  "id": 11769,
+                  "functionReturnParameters": 11821,
+                  "id": 11828,
                   "nodeType": "Return",
-                  "src": "1390:43:251"
+                  "src": "1390:43:252"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "f7888aec",
-            "id": 11771,
+            "id": 11830,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1722,18 +1722,18 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 11759,
+              "id": 11818,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11756,
+                  "id": 11815,
                   "mutability": "mutable",
                   "name": "gpToken",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11771,
-                  "src": "1290:15:251",
+                  "scope": 11830,
+                  "src": "1290:15:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1741,10 +1741,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11755,
+                    "id": 11814,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1290:7:251",
+                    "src": "1290:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1756,13 +1756,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 11758,
+                  "id": 11817,
                   "mutability": "mutable",
                   "name": "account",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11771,
-                  "src": "1312:15:251",
+                  "scope": 11830,
+                  "src": "1312:15:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1770,10 +1770,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 11757,
+                    "id": 11816,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1312:7:251",
+                    "src": "1312:7:252",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1784,21 +1784,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1283:49:251"
+              "src": "1283:49:252"
             },
             "returnParameters": {
-              "id": 11762,
+              "id": 11821,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 11761,
+                  "id": 11820,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 11771,
-                  "src": "1371:7:251",
+                  "scope": 11830,
+                  "src": "1371:7:252",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1806,10 +1806,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 11760,
+                    "id": 11819,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1371:7:251",
+                    "src": "1371:7:252",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1819,27 +1819,27 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1370:9:251"
+              "src": "1370:9:252"
             },
-            "scope": 11772,
-            "src": "1265:174:251",
+            "scope": 11831,
+            "src": "1265:174:252",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 11773,
-        "src": "237:1207:251"
+        "scope": 11832,
+        "src": "237:1207:252"
       }
     ],
-    "src": "38:1408:251"
+    "src": "38:1408:252"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/mock/GunpoolMock.sol",
       "exportedSymbols": {
         "GunpoolMock": [
-          11772
+          11831
         ]
       },
       "license": "agpl-3.0"
@@ -1857,9 +1857,9 @@
             ".0"
           ]
         },
-        "id": 11646,
+        "id": 11705,
         "name": "PragmaDirective",
-        "src": "38:32:251"
+        "src": "38:32:252"
       },
       {
         "attributes": {
@@ -1868,16 +1868,16 @@
             "ABIEncoderV2"
           ]
         },
-        "id": 11647,
+        "id": 11706,
         "name": "PragmaDirective",
-        "src": "72:33:251"
+        "src": "72:33:252"
       },
       {
         "attributes": {
-          "SourceUnit": 14218,
+          "SourceUnit": 14277,
           "absolutePath": "project:/contracts/protocol/gunpool/GunPoolContext.sol",
           "file": "../protocol/gunpool/GunPoolContext.sol",
-          "scope": 11773,
+          "scope": 11832,
           "symbolAliases": [
             {
               "foreign": {
@@ -1890,25 +1890,25 @@
                   "type": null,
                   "value": "GunPoolContext"
                 },
-                "id": 11648,
+                "id": 11707,
                 "name": "Identifier",
-                "src": "117:14:251"
+                "src": "117:14:252"
               },
               "local": null
             }
           ],
           "unitAlias": ""
         },
-        "id": 11649,
+        "id": 11708,
         "name": "ImportDirective",
-        "src": "109:70:251"
+        "src": "109:70:252"
       },
       {
         "attributes": {
           "SourceUnit": 11347,
           "absolutePath": "project:/contracts/interfaces/IGPToken.sol",
           "file": "../interfaces/IGPToken.sol",
-          "scope": 11773,
+          "scope": 11832,
           "symbolAliases": [
             {
               "foreign": {
@@ -1921,18 +1921,18 @@
                   "type": null,
                   "value": "IGPToken"
                 },
-                "id": 11650,
+                "id": 11709,
                 "name": "Identifier",
-                "src": "189:8:251"
+                "src": "189:8:252"
               },
               "local": null
             }
           ],
           "unitAlias": ""
         },
-        "id": 11651,
+        "id": 11710,
         "name": "ImportDirective",
-        "src": "181:52:251"
+        "src": "181:52:252"
       },
       {
         "attributes": {
@@ -1947,10 +1947,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            11772
+            11831
           ],
           "name": "GunpoolMock",
-          "scope": 11773
+          "scope": 11832
         },
         "children": [
           {
@@ -1959,7 +1959,7 @@
               "mutability": "mutable",
               "name": "_reserves",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct GunPoolContext.ReserveData)",
@@ -1977,30 +1977,30 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 11652,
+                    "id": 11711,
                     "name": "ElementaryTypeName",
-                    "src": "274:7:251"
+                    "src": "274:7:252"
                   },
                   {
                     "attributes": {
                       "contractScope": null,
                       "name": "GunPoolContext.ReserveData",
-                      "referencedDeclaration": 14179,
+                      "referencedDeclaration": 14238,
                       "type": "struct GunPoolContext.ReserveData"
                     },
-                    "id": 11653,
+                    "id": 11712,
                     "name": "UserDefinedTypeName",
-                    "src": "285:26:251"
+                    "src": "285:26:252"
                   }
                 ],
-                "id": 11654,
+                "id": 11713,
                 "name": "Mapping",
-                "src": "265:47:251"
+                "src": "265:47:252"
               }
             ],
-            "id": 11655,
+            "id": 11714,
             "name": "VariableDeclaration",
-            "src": "265:66:251"
+            "src": "265:66:252"
           },
           {
             "attributes": {
@@ -2008,7 +2008,7 @@
               "mutability": "mutable",
               "name": "_planes",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext))",
@@ -2026,9 +2026,9 @@
                       "name": "address",
                       "type": "address"
                     },
-                    "id": 11656,
+                    "id": 11715,
                     "name": "ElementaryTypeName",
-                    "src": "345:7:251"
+                    "src": "345:7:252"
                   },
                   {
                     "attributes": {
@@ -2039,38 +2039,38 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneType",
-                          "referencedDeclaration": 14206,
+                          "referencedDeclaration": 14265,
                           "type": "enum GunPoolContext.PlaneType"
                         },
-                        "id": 11657,
+                        "id": 11716,
                         "name": "UserDefinedTypeName",
-                        "src": "364:24:251"
+                        "src": "364:24:252"
                       },
                       {
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneContext",
-                          "referencedDeclaration": 14184,
+                          "referencedDeclaration": 14243,
                           "type": "struct GunPoolContext.PlaneContext"
                         },
-                        "id": 11658,
+                        "id": 11717,
                         "name": "UserDefinedTypeName",
-                        "src": "392:27:251"
+                        "src": "392:27:252"
                       }
                     ],
-                    "id": 11659,
+                    "id": 11718,
                     "name": "Mapping",
-                    "src": "356:64:251"
+                    "src": "356:64:252"
                   }
                 ],
-                "id": 11660,
+                "id": 11719,
                 "name": "Mapping",
-                "src": "336:85:251"
+                "src": "336:85:252"
               }
             ],
-            "id": 11661,
+            "id": 11720,
             "name": "VariableDeclaration",
-            "src": "336:102:251"
+            "src": "336:102:252"
           },
           {
             "attributes": {
@@ -2084,7 +2084,7 @@
               ],
               "name": "initReserve",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -2098,7 +2098,7 @@
                       "mutability": "mutable",
                       "name": "token",
                       "overrides": null,
-                      "scope": 11702,
+                      "scope": 11761,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2112,14 +2112,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11662,
+                        "id": 11721,
                         "name": "ElementaryTypeName",
-                        "src": "472:7:251"
+                        "src": "472:7:252"
                       }
                     ],
-                    "id": 11663,
+                    "id": 11722,
                     "name": "VariableDeclaration",
-                    "src": "472:13:251"
+                    "src": "472:13:252"
                   },
                   {
                     "attributes": {
@@ -2127,7 +2127,7 @@
                       "mutability": "mutable",
                       "name": "gpAddress",
                       "overrides": null,
-                      "scope": 11702,
+                      "scope": 11761,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2141,14 +2141,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11664,
+                        "id": 11723,
                         "name": "ElementaryTypeName",
-                        "src": "492:7:251"
+                        "src": "492:7:252"
                       }
                     ],
-                    "id": 11665,
+                    "id": 11724,
                     "name": "VariableDeclaration",
-                    "src": "492:17:251"
+                    "src": "492:17:252"
                   },
                   {
                     "attributes": {
@@ -2156,7 +2156,7 @@
                       "mutability": "mutable",
                       "name": "lendpoolAddress",
                       "overrides": null,
-                      "scope": 11702,
+                      "scope": 11761,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2170,19 +2170,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11666,
+                        "id": 11725,
                         "name": "ElementaryTypeName",
-                        "src": "516:7:251"
+                        "src": "516:7:252"
                       }
                     ],
-                    "id": 11667,
+                    "id": 11726,
                     "name": "VariableDeclaration",
-                    "src": "516:23:251"
+                    "src": "516:23:252"
                   }
                 ],
-                "id": 11668,
+                "id": 11727,
                 "name": "ParameterList",
-                "src": "465:79:251"
+                "src": "465:79:252"
               },
               {
                 "attributes": {
@@ -2191,9 +2191,9 @@
                   ]
                 },
                 "children": [],
-                "id": 11669,
+                "id": 11728,
                 "name": "ParameterList",
-                "src": "562:0:251"
+                "src": "562:0:252"
               },
               {
                 "children": [
@@ -2218,7 +2218,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "pt",
-                              "referencedDeclaration": 14174,
+                              "referencedDeclaration": 14233,
                               "type": "enum GunPoolContext.PlaneType"
                             },
                             "children": [
@@ -2238,13 +2238,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11655,
+                                      "referencedDeclaration": 11714,
                                       "type": "mapping(address => struct GunPoolContext.ReserveData storage ref)",
                                       "value": "_reserves"
                                     },
-                                    "id": 11670,
+                                    "id": 11729,
                                     "name": "Identifier",
-                                    "src": "569:9:251"
+                                    "src": "569:9:252"
                                   },
                                   {
                                     "attributes": {
@@ -2252,23 +2252,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11663,
+                                      "referencedDeclaration": 11722,
                                       "type": "address",
                                       "value": "token"
                                     },
-                                    "id": 11671,
+                                    "id": 11730,
                                     "name": "Identifier",
-                                    "src": "579:5:251"
+                                    "src": "579:5:252"
                                   }
                                 ],
-                                "id": 11672,
+                                "id": 11731,
                                 "name": "IndexAccess",
-                                "src": "569:16:251"
+                                "src": "569:16:252"
                               }
                             ],
-                            "id": 11673,
+                            "id": 11732,
                             "name": "MemberAccess",
-                            "src": "569:19:251"
+                            "src": "569:19:252"
                           },
                           {
                             "attributes": {
@@ -2290,7 +2290,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "PlaneType",
-                                  "referencedDeclaration": 14206,
+                                  "referencedDeclaration": 14265,
                                   "type": "type(enum GunPoolContext.PlaneType)"
                                 },
                                 "children": [
@@ -2300,33 +2300,33 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 14217,
+                                      "referencedDeclaration": 14276,
                                       "type": "type(library GunPoolContext)",
                                       "value": "GunPoolContext"
                                     },
-                                    "id": 11674,
+                                    "id": 11733,
                                     "name": "Identifier",
-                                    "src": "591:14:251"
+                                    "src": "591:14:252"
                                   }
                                 ],
-                                "id": 11675,
+                                "id": 11734,
                                 "name": "MemberAccess",
-                                "src": "591:24:251"
+                                "src": "591:24:252"
                               }
                             ],
-                            "id": 11676,
+                            "id": 11735,
                             "name": "MemberAccess",
-                            "src": "591:29:251"
+                            "src": "591:29:252"
                           }
                         ],
-                        "id": 11677,
+                        "id": 11736,
                         "name": "Assignment",
-                        "src": "569:51:251"
+                        "src": "569:51:252"
                       }
                     ],
-                    "id": 11678,
+                    "id": 11737,
                     "name": "ExpressionStatement",
-                    "src": "569:51:251"
+                    "src": "569:51:252"
                   },
                   {
                     "children": [
@@ -2349,7 +2349,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "gptoken",
-                              "referencedDeclaration": 14183,
+                              "referencedDeclaration": 14242,
                               "type": "address"
                             },
                             "children": [
@@ -2379,13 +2379,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 11661,
+                                          "referencedDeclaration": 11720,
                                           "type": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))",
                                           "value": "_planes"
                                         },
-                                        "id": 11679,
+                                        "id": 11738,
                                         "name": "Identifier",
-                                        "src": "627:7:251"
+                                        "src": "627:7:252"
                                       },
                                       {
                                         "attributes": {
@@ -2393,18 +2393,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 11663,
+                                          "referencedDeclaration": 11722,
                                           "type": "address",
                                           "value": "token"
                                         },
-                                        "id": 11680,
+                                        "id": 11739,
                                         "name": "Identifier",
-                                        "src": "635:5:251"
+                                        "src": "635:5:252"
                                       }
                                     ],
-                                    "id": 11684,
+                                    "id": 11743,
                                     "name": "IndexAccess",
-                                    "src": "627:14:251"
+                                    "src": "627:14:252"
                                   },
                                   {
                                     "attributes": {
@@ -2426,7 +2426,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "PlaneType",
-                                          "referencedDeclaration": 14206,
+                                          "referencedDeclaration": 14265,
                                           "type": "type(enum GunPoolContext.PlaneType)"
                                         },
                                         "children": [
@@ -2436,33 +2436,33 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 14217,
+                                              "referencedDeclaration": 14276,
                                               "type": "type(library GunPoolContext)",
                                               "value": "GunPoolContext"
                                             },
-                                            "id": 11681,
+                                            "id": 11740,
                                             "name": "Identifier",
-                                            "src": "642:14:251"
+                                            "src": "642:14:252"
                                           }
                                         ],
-                                        "id": 11682,
+                                        "id": 11741,
                                         "name": "MemberAccess",
-                                        "src": "642:24:251"
+                                        "src": "642:24:252"
                                       }
                                     ],
-                                    "id": 11683,
+                                    "id": 11742,
                                     "name": "MemberAccess",
-                                    "src": "642:29:251"
+                                    "src": "642:29:252"
                                   }
                                 ],
-                                "id": 11685,
+                                "id": 11744,
                                 "name": "IndexAccess",
-                                "src": "627:45:251"
+                                "src": "627:45:252"
                               }
                             ],
-                            "id": 11686,
+                            "id": 11745,
                             "name": "MemberAccess",
-                            "src": "627:53:251"
+                            "src": "627:53:252"
                           },
                           {
                             "attributes": {
@@ -2470,23 +2470,23 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11665,
+                              "referencedDeclaration": 11724,
                               "type": "address",
                               "value": "gpAddress"
                             },
-                            "id": 11687,
+                            "id": 11746,
                             "name": "Identifier",
-                            "src": "683:9:251"
+                            "src": "683:9:252"
                           }
                         ],
-                        "id": 11688,
+                        "id": 11747,
                         "name": "Assignment",
-                        "src": "627:65:251"
+                        "src": "627:65:252"
                       }
                     ],
-                    "id": 11689,
+                    "id": 11748,
                     "name": "ExpressionStatement",
-                    "src": "627:65:251"
+                    "src": "627:65:252"
                   },
                   {
                     "children": [
@@ -2509,7 +2509,7 @@
                               "isPure": false,
                               "lValueRequested": true,
                               "member_name": "plane",
-                              "referencedDeclaration": 14181,
+                              "referencedDeclaration": 14240,
                               "type": "address"
                             },
                             "children": [
@@ -2539,13 +2539,13 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 11661,
+                                          "referencedDeclaration": 11720,
                                           "type": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))",
                                           "value": "_planes"
                                         },
-                                        "id": 11690,
+                                        "id": 11749,
                                         "name": "Identifier",
-                                        "src": "699:7:251"
+                                        "src": "699:7:252"
                                       },
                                       {
                                         "attributes": {
@@ -2553,18 +2553,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 11663,
+                                          "referencedDeclaration": 11722,
                                           "type": "address",
                                           "value": "token"
                                         },
-                                        "id": 11691,
+                                        "id": 11750,
                                         "name": "Identifier",
-                                        "src": "707:5:251"
+                                        "src": "707:5:252"
                                       }
                                     ],
-                                    "id": 11695,
+                                    "id": 11754,
                                     "name": "IndexAccess",
-                                    "src": "699:14:251"
+                                    "src": "699:14:252"
                                   },
                                   {
                                     "attributes": {
@@ -2586,7 +2586,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "PlaneType",
-                                          "referencedDeclaration": 14206,
+                                          "referencedDeclaration": 14265,
                                           "type": "type(enum GunPoolContext.PlaneType)"
                                         },
                                         "children": [
@@ -2596,33 +2596,33 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 14217,
+                                              "referencedDeclaration": 14276,
                                               "type": "type(library GunPoolContext)",
                                               "value": "GunPoolContext"
                                             },
-                                            "id": 11692,
+                                            "id": 11751,
                                             "name": "Identifier",
-                                            "src": "714:14:251"
+                                            "src": "714:14:252"
                                           }
                                         ],
-                                        "id": 11693,
+                                        "id": 11752,
                                         "name": "MemberAccess",
-                                        "src": "714:24:251"
+                                        "src": "714:24:252"
                                       }
                                     ],
-                                    "id": 11694,
+                                    "id": 11753,
                                     "name": "MemberAccess",
-                                    "src": "714:29:251"
+                                    "src": "714:29:252"
                                   }
                                 ],
-                                "id": 11696,
+                                "id": 11755,
                                 "name": "IndexAccess",
-                                "src": "699:45:251"
+                                "src": "699:45:252"
                               }
                             ],
-                            "id": 11697,
+                            "id": 11756,
                             "name": "MemberAccess",
-                            "src": "699:51:251"
+                            "src": "699:51:252"
                           },
                           {
                             "attributes": {
@@ -2630,33 +2630,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11667,
+                              "referencedDeclaration": 11726,
                               "type": "address",
                               "value": "lendpoolAddress"
                             },
-                            "id": 11698,
+                            "id": 11757,
                             "name": "Identifier",
-                            "src": "753:15:251"
+                            "src": "753:15:252"
                           }
                         ],
-                        "id": 11699,
+                        "id": 11758,
                         "name": "Assignment",
-                        "src": "699:69:251"
+                        "src": "699:69:252"
                       }
                     ],
-                    "id": 11700,
+                    "id": 11759,
                     "name": "ExpressionStatement",
-                    "src": "699:69:251"
+                    "src": "699:69:252"
                   }
                 ],
-                "id": 11701,
+                "id": 11760,
                 "name": "Block",
-                "src": "562:212:251"
+                "src": "562:212:252"
               }
             ],
-            "id": 11702,
+            "id": 11761,
             "name": "FunctionDefinition",
-            "src": "445:329:251"
+            "src": "445:329:252"
           },
           {
             "attributes": {
@@ -2670,7 +2670,7 @@
               ],
               "name": "getPlanes",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -2684,7 +2684,7 @@
                       "mutability": "mutable",
                       "name": "token",
                       "overrides": null,
-                      "scope": 11718,
+                      "scope": 11777,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2698,14 +2698,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11703,
+                        "id": 11762,
                         "name": "ElementaryTypeName",
-                        "src": "799:7:251"
+                        "src": "799:7:252"
                       }
                     ],
-                    "id": 11704,
+                    "id": 11763,
                     "name": "VariableDeclaration",
-                    "src": "799:13:251"
+                    "src": "799:13:252"
                   },
                   {
                     "attributes": {
@@ -2713,7 +2713,7 @@
                       "mutability": "mutable",
                       "name": "pt",
                       "overrides": null,
-                      "scope": 11718,
+                      "scope": 11777,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "enum GunPoolContext.PlaneType",
@@ -2725,22 +2725,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneType",
-                          "referencedDeclaration": 14206,
+                          "referencedDeclaration": 14265,
                           "type": "enum GunPoolContext.PlaneType"
                         },
-                        "id": 11705,
+                        "id": 11764,
                         "name": "UserDefinedTypeName",
-                        "src": "814:24:251"
+                        "src": "814:24:252"
                       }
                     ],
-                    "id": 11706,
+                    "id": 11765,
                     "name": "VariableDeclaration",
-                    "src": "814:27:251"
+                    "src": "814:27:252"
                   }
                 ],
-                "id": 11707,
+                "id": 11766,
                 "name": "ParameterList",
-                "src": "798:44:251"
+                "src": "798:44:252"
               },
               {
                 "children": [
@@ -2750,7 +2750,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 11718,
+                      "scope": 11777,
                       "stateVariable": false,
                       "storageLocation": "memory",
                       "type": "struct GunPoolContext.PlaneContext",
@@ -2762,28 +2762,28 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "GunPoolContext.PlaneContext",
-                          "referencedDeclaration": 14184,
+                          "referencedDeclaration": 14243,
                           "type": "struct GunPoolContext.PlaneContext"
                         },
-                        "id": 11708,
+                        "id": 11767,
                         "name": "UserDefinedTypeName",
-                        "src": "881:27:251"
+                        "src": "881:27:252"
                       }
                     ],
-                    "id": 11709,
+                    "id": 11768,
                     "name": "VariableDeclaration",
-                    "src": "881:34:251"
+                    "src": "881:34:252"
                   }
                 ],
-                "id": 11710,
+                "id": 11769,
                 "name": "ParameterList",
-                "src": "880:36:251"
+                "src": "880:36:252"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 11710
+                      "functionReturnParameters": 11769
                     },
                     "children": [
                       {
@@ -2812,13 +2812,13 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 11661,
+                                  "referencedDeclaration": 11720,
                                   "type": "mapping(address => mapping(enum GunPoolContext.PlaneType => struct GunPoolContext.PlaneContext storage ref))",
                                   "value": "_planes"
                                 },
-                                "id": 11711,
+                                "id": 11770,
                                 "name": "Identifier",
-                                "src": "934:7:251"
+                                "src": "934:7:252"
                               },
                               {
                                 "attributes": {
@@ -2826,18 +2826,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 11704,
+                                  "referencedDeclaration": 11763,
                                   "type": "address",
                                   "value": "token"
                                 },
-                                "id": 11712,
+                                "id": 11771,
                                 "name": "Identifier",
-                                "src": "942:5:251"
+                                "src": "942:5:252"
                               }
                             ],
-                            "id": 11713,
+                            "id": 11772,
                             "name": "IndexAccess",
-                            "src": "934:14:251"
+                            "src": "934:14:252"
                           },
                           {
                             "attributes": {
@@ -2845,33 +2845,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11706,
+                              "referencedDeclaration": 11765,
                               "type": "enum GunPoolContext.PlaneType",
                               "value": "pt"
                             },
-                            "id": 11714,
+                            "id": 11773,
                             "name": "Identifier",
-                            "src": "949:2:251"
+                            "src": "949:2:252"
                           }
                         ],
-                        "id": 11715,
+                        "id": 11774,
                         "name": "IndexAccess",
-                        "src": "934:18:251"
+                        "src": "934:18:252"
                       }
                     ],
-                    "id": 11716,
+                    "id": 11775,
                     "name": "Return",
-                    "src": "927:25:251"
+                    "src": "927:25:252"
                   }
                 ],
-                "id": 11717,
+                "id": 11776,
                 "name": "Block",
-                "src": "920:38:251"
+                "src": "920:38:252"
               }
             ],
-            "id": 11718,
+            "id": 11777,
             "name": "FunctionDefinition",
-            "src": "780:178:251"
+            "src": "780:178:252"
           },
           {
             "attributes": {
@@ -2885,7 +2885,7 @@
               ],
               "name": "mint",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -2899,7 +2899,7 @@
                       "mutability": "mutable",
                       "name": "gpToken",
                       "overrides": null,
-                      "scope": 11737,
+                      "scope": 11796,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -2913,14 +2913,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11719,
+                        "id": 11778,
                         "name": "ElementaryTypeName",
-                        "src": "984:7:251"
+                        "src": "984:7:252"
                       }
                     ],
-                    "id": 11720,
+                    "id": 11779,
                     "name": "VariableDeclaration",
-                    "src": "984:15:251"
+                    "src": "984:15:252"
                   },
                   {
                     "attributes": {
@@ -2928,7 +2928,7 @@
                       "mutability": "mutable",
                       "name": "amount",
                       "overrides": null,
-                      "scope": 11737,
+                      "scope": 11796,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -2941,19 +2941,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 11721,
+                        "id": 11780,
                         "name": "ElementaryTypeName",
-                        "src": "1006:7:251"
+                        "src": "1006:7:252"
                       }
                     ],
-                    "id": 11722,
+                    "id": 11781,
                     "name": "VariableDeclaration",
-                    "src": "1006:14:251"
+                    "src": "1006:14:252"
                   }
                 ],
-                "id": 11723,
+                "id": 11782,
                 "name": "ParameterList",
-                "src": "977:48:251"
+                "src": "977:48:252"
               },
               {
                 "children": [
@@ -2963,7 +2963,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 11737,
+                      "scope": 11796,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -2976,25 +2976,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 11724,
+                        "id": 11783,
                         "name": "ElementaryTypeName",
-                        "src": "1048:4:251"
+                        "src": "1048:4:252"
                       }
                     ],
-                    "id": 11725,
+                    "id": 11784,
                     "name": "VariableDeclaration",
-                    "src": "1048:4:251"
+                    "src": "1048:4:252"
                   }
                 ],
-                "id": 11726,
+                "id": 11785,
                 "name": "ParameterList",
-                "src": "1047:6:251"
+                "src": "1047:6:252"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 11726
+                      "functionReturnParameters": 11785
                     },
                     "children": [
                       {
@@ -3065,9 +3065,9 @@
                                       "type": "type(contract IGPToken)",
                                       "value": "IGPToken"
                                     },
-                                    "id": 11727,
+                                    "id": 11786,
                                     "name": "Identifier",
-                                    "src": "1071:8:251"
+                                    "src": "1071:8:252"
                                   },
                                   {
                                     "attributes": {
@@ -3075,23 +3075,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11720,
+                                      "referencedDeclaration": 11779,
                                       "type": "address",
                                       "value": "gpToken"
                                     },
-                                    "id": 11728,
+                                    "id": 11787,
                                     "name": "Identifier",
-                                    "src": "1080:7:251"
+                                    "src": "1080:7:252"
                                   }
                                 ],
-                                "id": 11729,
+                                "id": 11788,
                                 "name": "FunctionCall",
-                                "src": "1071:17:251"
+                                "src": "1071:17:252"
                               }
                             ],
-                            "id": 11730,
+                            "id": 11789,
                             "name": "MemberAccess",
-                            "src": "1071:22:251"
+                            "src": "1071:22:252"
                           },
                           {
                             "attributes": {
@@ -3115,14 +3115,14 @@
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 11731,
+                                "id": 11790,
                                 "name": "Identifier",
-                                "src": "1094:3:251"
+                                "src": "1094:3:252"
                               }
                             ],
-                            "id": 11732,
+                            "id": 11791,
                             "name": "MemberAccess",
-                            "src": "1094:10:251"
+                            "src": "1094:10:252"
                           },
                           {
                             "attributes": {
@@ -3130,33 +3130,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11722,
+                              "referencedDeclaration": 11781,
                               "type": "uint256",
                               "value": "amount"
                             },
-                            "id": 11733,
+                            "id": 11792,
                             "name": "Identifier",
-                            "src": "1106:6:251"
+                            "src": "1106:6:252"
                           }
                         ],
-                        "id": 11734,
+                        "id": 11793,
                         "name": "FunctionCall",
-                        "src": "1071:42:251"
+                        "src": "1071:42:252"
                       }
                     ],
-                    "id": 11735,
+                    "id": 11794,
                     "name": "Return",
-                    "src": "1064:49:251"
+                    "src": "1064:49:252"
                   }
                 ],
-                "id": 11736,
+                "id": 11795,
                 "name": "Block",
-                "src": "1057:62:251"
+                "src": "1057:62:252"
               }
             ],
-            "id": 11737,
+            "id": 11796,
             "name": "FunctionDefinition",
-            "src": "964:155:251"
+            "src": "964:155:252"
           },
           {
             "attributes": {
@@ -3170,7 +3170,7 @@
               ],
               "name": "burn",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -3184,7 +3184,7 @@
                       "mutability": "mutable",
                       "name": "gpToken",
                       "overrides": null,
-                      "scope": 11754,
+                      "scope": 11813,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3198,14 +3198,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11738,
+                        "id": 11797,
                         "name": "ElementaryTypeName",
-                        "src": "1145:7:251"
+                        "src": "1145:7:252"
                       }
                     ],
-                    "id": 11739,
+                    "id": 11798,
                     "name": "VariableDeclaration",
-                    "src": "1145:15:251"
+                    "src": "1145:15:252"
                   },
                   {
                     "attributes": {
@@ -3213,7 +3213,7 @@
                       "mutability": "mutable",
                       "name": "amount",
                       "overrides": null,
-                      "scope": 11754,
+                      "scope": 11813,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -3226,19 +3226,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 11740,
+                        "id": 11799,
                         "name": "ElementaryTypeName",
-                        "src": "1167:7:251"
+                        "src": "1167:7:252"
                       }
                     ],
-                    "id": 11741,
+                    "id": 11800,
                     "name": "VariableDeclaration",
-                    "src": "1167:14:251"
+                    "src": "1167:14:252"
                   }
                 ],
-                "id": 11742,
+                "id": 11801,
                 "name": "ParameterList",
-                "src": "1138:48:251"
+                "src": "1138:48:252"
               },
               {
                 "attributes": {
@@ -3247,9 +3247,9 @@
                   ]
                 },
                 "children": [],
-                "id": 11743,
+                "id": 11802,
                 "name": "ParameterList",
-                "src": "1204:0:251"
+                "src": "1204:0:252"
               },
               {
                 "children": [
@@ -3323,9 +3323,9 @@
                                       "type": "type(contract IGPToken)",
                                       "value": "IGPToken"
                                     },
-                                    "id": 11744,
+                                    "id": 11803,
                                     "name": "Identifier",
-                                    "src": "1211:8:251"
+                                    "src": "1211:8:252"
                                   },
                                   {
                                     "attributes": {
@@ -3333,23 +3333,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11739,
+                                      "referencedDeclaration": 11798,
                                       "type": "address",
                                       "value": "gpToken"
                                     },
-                                    "id": 11745,
+                                    "id": 11804,
                                     "name": "Identifier",
-                                    "src": "1220:7:251"
+                                    "src": "1220:7:252"
                                   }
                                 ],
-                                "id": 11746,
+                                "id": 11805,
                                 "name": "FunctionCall",
-                                "src": "1211:17:251"
+                                "src": "1211:17:252"
                               }
                             ],
-                            "id": 11747,
+                            "id": 11806,
                             "name": "MemberAccess",
-                            "src": "1211:22:251"
+                            "src": "1211:22:252"
                           },
                           {
                             "attributes": {
@@ -3373,14 +3373,14 @@
                                   "type": "msg",
                                   "value": "msg"
                                 },
-                                "id": 11748,
+                                "id": 11807,
                                 "name": "Identifier",
-                                "src": "1234:3:251"
+                                "src": "1234:3:252"
                               }
                             ],
-                            "id": 11749,
+                            "id": 11808,
                             "name": "MemberAccess",
-                            "src": "1234:10:251"
+                            "src": "1234:10:252"
                           },
                           {
                             "attributes": {
@@ -3388,33 +3388,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11741,
+                              "referencedDeclaration": 11800,
                               "type": "uint256",
                               "value": "amount"
                             },
-                            "id": 11750,
+                            "id": 11809,
                             "name": "Identifier",
-                            "src": "1246:6:251"
+                            "src": "1246:6:252"
                           }
                         ],
-                        "id": 11751,
+                        "id": 11810,
                         "name": "FunctionCall",
-                        "src": "1211:42:251"
+                        "src": "1211:42:252"
                       }
                     ],
-                    "id": 11752,
+                    "id": 11811,
                     "name": "ExpressionStatement",
-                    "src": "1211:42:251"
+                    "src": "1211:42:252"
                   }
                 ],
-                "id": 11753,
+                "id": 11812,
                 "name": "Block",
-                "src": "1204:55:251"
+                "src": "1204:55:252"
               }
             ],
-            "id": 11754,
+            "id": 11813,
             "name": "FunctionDefinition",
-            "src": "1125:134:251"
+            "src": "1125:134:252"
           },
           {
             "attributes": {
@@ -3428,7 +3428,7 @@
               ],
               "name": "balanceOf",
               "overrides": null,
-              "scope": 11772,
+              "scope": 11831,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -3442,7 +3442,7 @@
                       "mutability": "mutable",
                       "name": "gpToken",
                       "overrides": null,
-                      "scope": 11771,
+                      "scope": 11830,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3456,14 +3456,14 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11755,
+                        "id": 11814,
                         "name": "ElementaryTypeName",
-                        "src": "1290:7:251"
+                        "src": "1290:7:252"
                       }
                     ],
-                    "id": 11756,
+                    "id": 11815,
                     "name": "VariableDeclaration",
-                    "src": "1290:15:251"
+                    "src": "1290:15:252"
                   },
                   {
                     "attributes": {
@@ -3471,7 +3471,7 @@
                       "mutability": "mutable",
                       "name": "account",
                       "overrides": null,
-                      "scope": 11771,
+                      "scope": 11830,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -3485,19 +3485,19 @@
                           "stateMutability": "nonpayable",
                           "type": "address"
                         },
-                        "id": 11757,
+                        "id": 11816,
                         "name": "ElementaryTypeName",
-                        "src": "1312:7:251"
+                        "src": "1312:7:252"
                       }
                     ],
-                    "id": 11758,
+                    "id": 11817,
                     "name": "VariableDeclaration",
-                    "src": "1312:15:251"
+                    "src": "1312:15:252"
                   }
                 ],
-                "id": 11759,
+                "id": 11818,
                 "name": "ParameterList",
-                "src": "1283:49:251"
+                "src": "1283:49:252"
               },
               {
                 "children": [
@@ -3507,7 +3507,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 11771,
+                      "scope": 11830,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -3520,25 +3520,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 11760,
+                        "id": 11819,
                         "name": "ElementaryTypeName",
-                        "src": "1371:7:251"
+                        "src": "1371:7:252"
                       }
                     ],
-                    "id": 11761,
+                    "id": 11820,
                     "name": "VariableDeclaration",
-                    "src": "1371:7:251"
+                    "src": "1371:7:252"
                   }
                 ],
-                "id": 11762,
+                "id": 11821,
                 "name": "ParameterList",
-                "src": "1370:9:251"
+                "src": "1370:9:252"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 11762
+                      "functionReturnParameters": 11821
                     },
                     "children": [
                       {
@@ -3605,9 +3605,9 @@
                                       "type": "type(contract IGPToken)",
                                       "value": "IGPToken"
                                     },
-                                    "id": 11763,
+                                    "id": 11822,
                                     "name": "Identifier",
-                                    "src": "1397:8:251"
+                                    "src": "1397:8:252"
                                   },
                                   {
                                     "attributes": {
@@ -3615,23 +3615,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 11756,
+                                      "referencedDeclaration": 11815,
                                       "type": "address",
                                       "value": "gpToken"
                                     },
-                                    "id": 11764,
+                                    "id": 11823,
                                     "name": "Identifier",
-                                    "src": "1406:7:251"
+                                    "src": "1406:7:252"
                                   }
                                 ],
-                                "id": 11765,
+                                "id": 11824,
                                 "name": "FunctionCall",
-                                "src": "1397:17:251"
+                                "src": "1397:17:252"
                               }
                             ],
-                            "id": 11766,
+                            "id": 11825,
                             "name": "MemberAccess",
-                            "src": "1397:27:251"
+                            "src": "1397:27:252"
                           },
                           {
                             "attributes": {
@@ -3639,43 +3639,43 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 11758,
+                              "referencedDeclaration": 11817,
                               "type": "address",
                               "value": "account"
                             },
-                            "id": 11767,
+                            "id": 11826,
                             "name": "Identifier",
-                            "src": "1425:7:251"
+                            "src": "1425:7:252"
                           }
                         ],
-                        "id": 11768,
+                        "id": 11827,
                         "name": "FunctionCall",
-                        "src": "1397:36:251"
+                        "src": "1397:36:252"
                       }
                     ],
-                    "id": 11769,
+                    "id": 11828,
                     "name": "Return",
-                    "src": "1390:43:251"
+                    "src": "1390:43:252"
                   }
                 ],
-                "id": 11770,
+                "id": 11829,
                 "name": "Block",
-                "src": "1383:56:251"
+                "src": "1383:56:252"
               }
             ],
-            "id": 11771,
+            "id": 11830,
             "name": "FunctionDefinition",
-            "src": "1265:174:251"
+            "src": "1265:174:252"
           }
         ],
-        "id": 11772,
+        "id": 11831,
         "name": "ContractDefinition",
-        "src": "237:1207:251"
+        "src": "237:1207:252"
       }
     ],
-    "id": 11773,
+    "id": 11832,
     "name": "SourceUnit",
-    "src": "38:1408:251"
+    "src": "38:1408:252"
   },
   "compiler": {
     "name": "solc",
@@ -3683,7 +3683,7 @@
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-10T11:43:49.449Z",
+  "updatedAt": "2021-08-12T06:18:20.693Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

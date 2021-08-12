@@ -28,10 +28,23 @@ interface IStakePool {
     function undelegate(uint256 amount) external;
 
     /**
-     * @dev lock it is migrating matic from contract to ethereum
+     * @dev lock migrating matic from contract to ethereum
      * Emits a {Migrate} event
     **/
     function lock() external;
+
+    /**
+     * @dev repay the rewards from ethereum to delegates
+     * @param id the index of order
+     * Emits a {reply}
+    **/
+    function reply(uint128 id) external payable;
+
+    /**
+     * @dev claim the rewards of user
+     * Emits a {Claim}
+    **/
+    function claim() external;
 
     /**
     * @dev balanceOf get balance of account
@@ -43,6 +56,17 @@ interface IStakePool {
     * @dev totalSupply get supply of this contract
     **/
     function totalSupply() external view returns (uint256);
+
+    /**
+    * @dev get order context
+    **/
+    function getOrder() external view returns (StakePoolContext.Order memory);
+
+    /**
+    * @dev get the pcoin reward of account
+    * @param account who has delegated
+    **/
+    function reward(address account) external view returns (uint256);
 
     /**
      * @dev InitOrder on initOrder()
@@ -74,6 +98,20 @@ interface IStakePool {
     **/
     event Migrate(uint128 indexed id, address indexed proxy, uint256 amount);
 
+    /**
+     * @dev Reply on reply()
+     * @param id the index of order
+     * @param amount the reward of matic from ethereum
+    **/
+    event Reply(uint128 indexed id, uint256 amount);
+
+    /**
+     * @dev Claim on claim()
+     * @param id the index of order
+     * @param matic the reward of matic for user
+     * @param pcoin the reward of pcoin for user
+    **/
+    event Claim(uint128 indexed id, uint256 matic, uint256 pcoin);
 
     /**
      * @dev StatusTransfer on status switch

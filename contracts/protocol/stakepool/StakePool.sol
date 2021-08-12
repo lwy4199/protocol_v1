@@ -6,15 +6,19 @@ import {StakePoolContext} from "./StakePoolContext.sol";
 import {SpError} from "./helper/SpError.sol";
 import {IStakePool} from "../../interfaces/IStakePool.sol";
 import {IGunPool} from "../../interfaces/IGunPool.sol";
+import {IPCoin} from "../../interfaces/IPCoin.sol";
 import {GunPoolContext} from "../gunpool/GunPoolContext.sol";
 import {ILendingPool} from "../gunpool/pools/aave/ILendingPool.sol";
 import {WadRayMath} from "../gunpool/pools/aave/WadRayMath.sol";
 import {Ownable} from "../../dependencies/openzeppelin/contracts/access/Ownable.sol";
 import {SafeMath} from "../../dependencies/openzeppelin/contracts/math/SafeMath.sol";
+import {Address} from "../../dependencies/openzeppelin/contracts/utils/Address.sol";
+
 
 contract StakePool is Ownable, IStakePool {
     using SafeMath for uint256;
     using WadRayMath for uint256;
+    using Address for address;
 
     /******** Key Variables ********/
     // order context
@@ -35,6 +39,10 @@ contract StakePool is Ownable, IStakePool {
     )
         public
     {
+        require(pcoinAddress.isContract(), SpError.ORDER_CONTRACT_INVALID);
+        require(gunpoolAddress.isContract(), SpError.ORDER_CONTRACT_INVALID);
+        require(iwethAddress.isContract(), SpError.ORDER_CONTRACT_INVALID);
+
         _order.state = StakePoolContext.ORDER_STATUS.INIT;
         delete _users.accounts;
         _users.totalSupply = 0;
@@ -125,7 +133,7 @@ contract StakePool is Ownable, IStakePool {
 
         address account = msg.sender;
 
-        uint256 withdrawAmount = _subscribeWithdraw(account, amount);
+        uint256 withdrawAmount = _withdraw(account, amount);
 
         emit UnDelegate(_order.id, account, withdrawAmount);
     }
@@ -135,14 +143,82 @@ contract StakePool is Ownable, IStakePool {
         override
         onlyOwner
     {
-        _safeTransferETH(_order.proxy, _users.totalSupply);
-        emit Migrate(_order.id, _order.proxy, _users.totalSupply);
+        uint256 amount = address(this).balance;
+        _safeTransferETH(_order.proxy, amount);
+        emit Migrate(_order.id, _order.proxy, amount);
         // status change
         _order.stateTime.push(block.timestamp);
         _order.state = StakePoolContext.ORDER_STATUS.LOCKING;
         emit StatusTransfer(_order.id,
             StakePoolContext.ORDER_STATUS.MIGRATE,
             StakePoolContext.ORDER_STATUS.LOCKING);
+    }
+
+    function reply(uint128 id)
+        external
+        payable
+        override
+    {
+        require(_order.id == id, SpError.ORDER_MISMATCH);
+        require(_msgSender() != _order.proxy, SpError.ORDER_PROXY_ABNORMAL);
+        require(_order.state == StakePoolContext.ORDER_STATUS.LOCKING, SpError.ORDER_REPLY_FAIL_FOR_STATE);
+        require(msg.value > 0, SpError.ORDER_REPAY_AMOUNT_ZERO);
+
+        uint256 amount = msg.value;
+        uint256 supply = _users.totalSupply;
+        uint256 balance = 0;
+        address account = address(0);
+        uint256 index = _getIncome();
+
+        _users.totalSupply = 0;
+
+        // alloc matic reward
+        for ( uint256 i = 0; i < _users.accounts.length; i++ ) {
+            account = _users.accounts[i];
+            balance = _users.balances[account];
+            _users.balances[account] = amount.mul(balance).div(supply);
+            _users.balances[account] = _users.balances[account].rayDiv(index);
+            _users.totalSupply = _users.totalSupply.add(_users.balances[account]);
+        }
+        // deposit into gunpool to get matic reward
+        IGunPool(_gunpool).depositByEth{value: amount}();
+
+        // alloc pcoin reward
+        if ( _order.pcoinReward > 0 ) {
+            supply = _users.totalSupply;
+            for ( uint256 j = 0; j < _users.accounts.length; j++ ) {
+                balance = _users.balances[account];
+                _users.pcoinReward[account] = _order.pcoinReward.mul(balance).div(supply);
+            }
+        }
+
+        // status change
+        _order.stateTime.push(block.timestamp);
+        _order.state = StakePoolContext.ORDER_STATUS.CLAIM;
+        emit StatusTransfer(_order.id,
+            StakePoolContext.ORDER_STATUS.LOCKING,
+            _order.state);
+    }
+
+    function claim()
+        external
+        override
+    {
+        require(_order.state == StakePoolContext.ORDER_STATUS.CLAIM, SpError.ORDER_CLAIM_FAIL_FOR_STATE);
+        address account = _msgSender();
+
+        uint256 maticAmount = _withdraw(account, uint256(-1));
+        uint256 pcoinAmount = _users.pcoinReward[account];
+
+        if ( maticAmount == 0 && pcoinAmount == 0 ) {
+            require(false, SpError.ORDER_CLAIM_FAIL_FOR_ZERO);
+        }
+
+        if ( pcoinAmount > 0 ) {
+            IPCoin(_pcoin).mint(account, maticAmount);
+        }
+
+        emit Claim(_order.id, maticAmount, pcoinAmount);
     }
 
     function balanceOf(address account)
@@ -152,7 +228,8 @@ contract StakePool is Ownable, IStakePool {
         returns (uint256)
     {
         uint256 balance = _users.balances[account];
-        if ( _order.state == StakePoolContext.ORDER_STATUS.SUBSCRIBE ) {
+        if ( _order.state == StakePoolContext.ORDER_STATUS.SUBSCRIBE
+          || _order.state == StakePoolContext.ORDER_STATUS.CLAIM ) {
             uint256 index = _getIncome();
             return balance.rayMul(index);
         }
@@ -169,12 +246,36 @@ contract StakePool is Ownable, IStakePool {
     {
         uint256 supply = _users.totalSupply;
 
-        if ( _order.state == StakePoolContext.ORDER_STATUS.SUBSCRIBE ) {
+        if ( _order.state == StakePoolContext.ORDER_STATUS.SUBSCRIBE
+          || _order.state == StakePoolContext.ORDER_STATUS.CLAIM ) {
             uint256 index = _getIncome();
             return supply.rayMul(index);
         }
         else {
             return supply;
+        }
+    }
+
+    function getOrder()
+        external
+        view
+        override
+        returns (StakePoolContext.Order memory)
+    {
+        return _order;
+    }
+
+    function reward(address account)
+        external
+        view
+        override
+        returns (uint256)
+    {
+        bool isDelegater = _users.delegates[account];
+        if ( isDelegater ) {
+            return _users.pcoinReward[account];
+        } else {
+            return 0;
         }
     }
 
@@ -206,9 +307,15 @@ contract StakePool is Ownable, IStakePool {
                 _users.balances[account] = balance.rayMul(index);
                 supply = supply.add(_users.balances[account]);
             }
-
-            IGunPool(_gunpool).withdrawByEth( uint256(-1) );
             _users.totalSupply = supply;
+
+            // gunpool withdraw and claim reward
+            IGunPool(_gunpool).withdrawByEth( uint256(-1) );
+            uint256 pcoinReward = IGunPool(_gunpool).claim(address(this));
+            if ( pcoinReward > 0 ) {
+                IPCoin(_pcoin).burn(pcoinReward);
+                _order.pcoinReward = _order.pcoinReward.add(pcoinReward);
+            }
 
             if ( _users.totalSupply > address(this).balance ) {
                 emit Warn(_order.id, "_users.totalSupply more than contract balance in _subscribeDeposit");
@@ -227,7 +334,7 @@ contract StakePool is Ownable, IStakePool {
         }
     }
 
-    function _subscribeWithdraw(address account, uint256 amount)
+    function _withdraw(address account, uint256 amount)
         internal
         returns (uint256)
     {
