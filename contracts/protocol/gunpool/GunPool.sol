@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity ^0.8.0;
+pragma solidity >=0.4.22 <0.9.0;
 pragma experimental ABIEncoderV2;
 
 import {IGunPool} from "../../interfaces/IGunPool.sol";
@@ -7,17 +7,17 @@ import {IGPToken} from "../../interfaces/IGPToken.sol";
 import {Ownable} from '../../dependencies/openzeppelin/contracts/access/Ownable.sol';
 import {GunPoolContext} from "./GunPoolContext.sol";
 import {IERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {SafeERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import {SafeERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import {Address} from "../../dependencies/openzeppelin/contracts/utils/Address.sol";
 import {Error} from "./helpers/Error.sol";
 import {DataTypes} from "./pools/aave/DataTypes.sol";
 import {ILendingPool} from "./pools/aave/ILendingPool.sol";
 import {IAToken} from "./pools/aave/IAToken.sol";
-import {SafeMath} from "../../dependencies/openzeppelin/contracts/utils/math/SafeMath.sol";
+import {SafeMath} from "../../dependencies/openzeppelin/contracts/math/SafeMath.sol";
 import {MintPolicy} from "../libraries/MintPolicy.sol";
 import {IWETH} from "../../dependencies/misc/IWETH.sol";
 import {WadRayMath} from "./pools/aave/WadRayMath.sol";
-import {PolylendToken} from "../token/PolylendToken.sol";
+import {IPCoin} from "../../interfaces/IPCoin.sol";
 
 contract GunPool is IGunPool, Ownable {
   using Address for address;
@@ -67,9 +67,9 @@ contract GunPool is IGunPool, Ownable {
     GunPoolContext.PlaneInitInput[] calldata planes,
     GunPoolContext.PcoinReward calldata pcoin
   )
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     require(token != address(0), Error.TOKEN_ADDRESS_ZERO);
     require(token.isContract(), Error.TOKEN_INVALID_CONTRACTS);
@@ -116,9 +116,9 @@ contract GunPool is IGunPool, Ownable {
     address token,
     GunPoolContext.PcoinReward calldata pcoin
   )
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     bool isExist = false;
     for (uint32 i = 0; i < _reservesCount; i++) {
@@ -140,9 +140,9 @@ contract GunPool is IGunPool, Ownable {
     address token,
     GunPoolContext.PlaneInitInput calldata planeInput
   )
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     bool isExist = false;
     for (uint32 i = 0; i < _reservesCount; i++) {
@@ -162,13 +162,12 @@ contract GunPool is IGunPool, Ownable {
     }
 
     emit ResetPlane(token, planeInput.pt, planeInput.plane);
-
   }
 
   function pause(address token, bool frozen)
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     reserve.isFrozen = frozen;
@@ -176,9 +175,9 @@ contract GunPool is IGunPool, Ownable {
   }
 
   function setPcoinAddress(address pcoinAddress)
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     _pcoinAddress = pcoinAddress;
 
@@ -186,9 +185,9 @@ contract GunPool is IGunPool, Ownable {
   }
 
   function setFeeto(GunPoolContext.FeeContext calldata feeTo)
-  external
-  override
-  onlyOwner
+    external
+    override
+    onlyOwner
   {
     uint16 permillage = feeTo.permillage;
     if ( permillage > 10 ) {
@@ -199,10 +198,10 @@ contract GunPool is IGunPool, Ownable {
   }
 
   function getDepositAPY(address token)
-  external
-  override
-  view
-  returns(uint256)
+    external
+    override
+    view
+    returns(uint256)
   {
     GunPoolContext.ReserveData memory reserve = _reserves[token];
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
@@ -217,10 +216,10 @@ contract GunPool is IGunPool, Ownable {
   }
 
   function getDepositAccounts()
-  external
-  override
-  view
-  returns(uint32)
+    external
+    override
+    view
+    returns(uint32)
   {
     return _depositAccounts;
   }
@@ -232,9 +231,9 @@ contract GunPool is IGunPool, Ownable {
     address token,
     uint256 amount
   )
-  external
-  override
-  tokenValid(token, amount)
+    external
+    override
+    tokenValid(token, amount)
   {
     _deposit(token, amount);
   }
@@ -243,15 +242,13 @@ contract GunPool is IGunPool, Ownable {
     address token,
     uint256 amount
   )
-  internal
+    internal
   {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     _reserveValidate(reserve);
     bool isFirst = false;
     IGPToken gpToken;
-    //uint256 gpMPSupply = 0;
     uint256 gpMASupply = 0;
-    //uint256 gpMPBalance = 0;
     uint256 gpMABalance = 0;
     reserve.lock = true;
 
@@ -262,8 +259,6 @@ contract GunPool is IGunPool, Ownable {
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
       GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
       gpToken = IGPToken(plane.gptoken);
-      //gpMPBalance = gpToken.balanceOf(msg.sender);
-      //gpMPSupply = gpToken.totalSupply();
       isFirst = _aaveDeposit(token,
         plane.plane,
         gpToken,
@@ -306,8 +301,8 @@ contract GunPool is IGunPool, Ownable {
     address token,
     uint256 amount
   )
-  internal
-  returns (uint256)
+    internal
+    returns (uint256)
   {
     GunPoolContext.ReserveData storage reserve = _reserves[token];
     _reserveValidate(reserve);
@@ -320,7 +315,6 @@ contract GunPool is IGunPool, Ownable {
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
       GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
       gpToken = IGPToken(plane.gptoken);
-      // gpPreSupply = gpToken.totalSupply();
       amountWithdraw = _aaveWithdraw(token,
         plane.plane,
         gpToken,
@@ -342,15 +336,14 @@ contract GunPool is IGunPool, Ownable {
       _depositAccounts = _depositAccounts - 1;
     }
 
-    claim(msg.sender);
-
+    _claim(msg.sender);
     emit Withdraw(token, msg.sender, amountWithdraw);
     reserve.lock = false;
     return amountWithdraw;
   }
 
   function depositByEth()
-  external payable override
+    external payable override
   {
     uint256 amount = msg.value;
     _IWETH.deposit{value: msg.value}();
@@ -362,7 +355,7 @@ contract GunPool is IGunPool, Ownable {
   }
 
   function withdrawByEth(uint256 amount)
-  external override
+    external override
   {
     //IGunPool pool = IGunPool(address(this));
     //bytes memory data = abi.encodeWithSelector(pool.withdraw.selector, address(_IWETH), amount);
@@ -376,65 +369,37 @@ contract GunPool is IGunPool, Ownable {
     _safeTransferETH(msg.sender, amountWithdraw);
   }
 
-  function claim(
-    address to
-  ) internal returns (uint256) {
-    uint256 totalReward = 0;
-    GunPoolContext.ReserveData storage reserve;
-    GunPoolContext.RewardContext storage reward;
-    IGPToken gpToken;
-    address token = address(0);
-
-    for ( uint32 i = 0; i < _reservesCount; i++ ) {
-      token = _reservesList[i];
-      reserve = _reserves[token];
-      reward = _rewards[msg.sender][token];
-
-      if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-        GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
-        gpToken = IGPToken(plane.gptoken);
-        _updateMint(reserve.pcoin, gpToken.totalSupply());
-        _updateReward(reward, reserve.pcoin);
-        totalReward = totalReward.add(reward.rewardSupply);
-        reward.rewardSupply = 0;
-        reward.lastMintCapacity = reserve.pcoin.mintCapacity;
-        reward.lastGpBalance = gpToken.balanceOf(msg.sender);
-      }
-    }
-
-    if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
-      //      IERC20(_pcoinAddress).safeTransfer(to, totalReward);
-      //      Pcoin(_pcoinAddress).mint(to,totalReward);
-      PolylendToken(_pcoinAddress).mint(to,totalReward);
-      emit Claim(msg.sender, to, totalReward);
-    }
-
-    return totalReward;
+  function claim(address to)
+    external
+    override
+    returns (uint256)
+  {
+    return _claim(to);
   }
 
   function getReserve(address token)
-  external
-  view
-  override
-  returns (GunPoolContext.ReserveData memory)
+    external
+    view
+    override
+    returns (GunPoolContext.ReserveData memory)
   {
     return _reserves[token];
   }
 
   function getPlanes(address token, GunPoolContext.PlaneType pt)
-  external
-  view
-  override
-  returns(GunPoolContext.PlaneContext memory)
+    external
+    view
+    override
+    returns(GunPoolContext.PlaneContext memory)
   {
     return _planes[token][pt];
   }
 
   function rewardBalanceOf(address user)
-  external
-  view
-  override
-  returns (uint256 amount)
+    external
+    view
+    override
+    returns (uint256 amount)
   {
     GunPoolContext.ReserveData memory reserve;
     GunPoolContext.RewardContext memory reward;
@@ -473,8 +438,8 @@ contract GunPool is IGunPool, Ownable {
     address user,
     uint256 amount
   )
-  internal
-  returns (bool)
+    internal
+    returns (bool)
   {
     ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
     lendingPool.deposit(token, amount, address(this), 0);
@@ -488,15 +453,16 @@ contract GunPool is IGunPool, Ownable {
     address user,
     uint256 amount
   )
-  internal
-  returns (uint256)
+    internal
+    returns (uint256)
   {
     ILendingPool lendingPool = ILendingPool(lendingPoolAddress);
     uint256 amountToWithdraw = amount;
     uint256 gpBalance = gpToken.balanceOf(user);
 
-    if ( (amount == type(uint256).max) || (amount > gpBalance) )
+    if ( (amount == type(uint256).max) || (amount > gpBalance) ) {
       amountToWithdraw = gpBalance;
+    }
     emit Log("burn withdraw", amountToWithdraw);
     gpToken.burn(user, amountToWithdraw);
 
@@ -519,11 +485,49 @@ contract GunPool is IGunPool, Ownable {
     return amountToWithdraw;
   }
 
+  function _claim(address to)
+    internal
+    returns (uint256)
+  {
+    uint256 totalReward = 0;
+    GunPoolContext.ReserveData storage reserve;
+    GunPoolContext.RewardContext storage reward;
+    IGPToken gpToken;
+    address token = address(0);
+
+    for ( uint32 i = 0; i < _reservesCount; i++ ) {
+      token = _reservesList[i];
+      reserve = _reserves[token];
+      reward = _rewards[msg.sender][token];
+
+      if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
+        GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
+        gpToken = IGPToken(plane.gptoken);
+        _updateMint(reserve.pcoin, gpToken.totalSupply());
+        _updateReward(reward, reserve.pcoin);
+        totalReward = totalReward.add(reward.rewardSupply);
+        reward.rewardSupply = 0;
+        reward.lastMintCapacity = reserve.pcoin.mintCapacity;
+        reward.lastGpBalance = gpToken.balanceOf(msg.sender);
+      }
+    }
+
+    if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
+      //      IERC20(_pcoinAddress).safeTransfer(to, totalReward);
+      IPCoin(_pcoinAddress).mint(to, totalReward);
+      emit Claim(msg.sender, to, totalReward);
+      return totalReward;
+    }
+    else {
+      return 0;
+    }
+  }
+
   function _updateMint(
     GunPoolContext.PcoinReward storage pcoin,
     uint256 supply
   )
-  internal
+    internal
   {
     if ( pcoin.mintSupply < pcoin.mintMaxSupply ) {
       uint256 timestamp = block.timestamp;
@@ -536,7 +540,7 @@ contract GunPool is IGunPool, Ownable {
     GunPoolContext.RewardContext storage reward,
     GunPoolContext.PcoinReward memory pcoin
   )
-  internal
+    internal
   {
     uint256 preSupply = reward.lastGpBalance.mul(reward.lastMintCapacity);
     uint256 curSupply = reward.lastGpBalance.mul(pcoin.mintCapacity);
@@ -566,7 +570,7 @@ contract GunPool is IGunPool, Ownable {
     address token,
     address plane
   )
-  internal
+    internal
   {
     IERC20(token).approve(plane, type(uint256).max);
   }
