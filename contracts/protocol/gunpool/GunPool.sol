@@ -17,7 +17,7 @@ import {SafeMath} from "../../dependencies/openzeppelin/contracts/utils/math/Saf
 import {MintPolicy} from "../libraries/MintPolicy.sol";
 import {IWETH} from "../../dependencies/misc/IWETH.sol";
 import {WadRayMath} from "./pools/aave/WadRayMath.sol";
-import {PolylendToken} from "../token/PolylendToken.sol";
+import {IPCoin} from "../../interfaces/IPCoin.sol";
 
 contract GunPool is IGunPool, Ownable {
   using Address for address;
@@ -162,7 +162,6 @@ contract GunPool is IGunPool, Ownable {
     }
 
     emit ResetPlane(token, planeInput.pt, planeInput.plane);
-
   }
 
   function pause(address token, bool frozen)
@@ -249,9 +248,7 @@ contract GunPool is IGunPool, Ownable {
     _reserveValidate(reserve);
     bool isFirst = false;
     IGPToken gpToken;
-    //uint256 gpMPSupply = 0;
     uint256 gpMASupply = 0;
-    //uint256 gpMPBalance = 0;
     uint256 gpMABalance = 0;
     reserve.lock = true;
 
@@ -262,8 +259,6 @@ contract GunPool is IGunPool, Ownable {
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
       GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
       gpToken = IGPToken(plane.gptoken);
-      //gpMPBalance = gpToken.balanceOf(msg.sender);
-      //gpMPSupply = gpToken.totalSupply();
       isFirst = _aaveDeposit(token,
         plane.plane,
         gpToken,
@@ -320,7 +315,6 @@ contract GunPool is IGunPool, Ownable {
     if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
       GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
       gpToken = IGPToken(plane.gptoken);
-      // gpPreSupply = gpToken.totalSupply();
       amountWithdraw = _aaveWithdraw(token,
         plane.plane,
         gpToken,
@@ -342,8 +336,7 @@ contract GunPool is IGunPool, Ownable {
       _depositAccounts = _depositAccounts - 1;
     }
 
-    claim(msg.sender);
-
+    _claim(msg.sender);
     emit Withdraw(token, msg.sender, amountWithdraw);
     reserve.lock = false;
     return amountWithdraw;
@@ -376,40 +369,12 @@ contract GunPool is IGunPool, Ownable {
     _safeTransferETH(msg.sender, amountWithdraw);
   }
 
-  function claim(
-    address to
-  ) internal returns (uint256) {
-    uint256 totalReward = 0;
-    GunPoolContext.ReserveData storage reserve;
-    GunPoolContext.RewardContext storage reward;
-    IGPToken gpToken;
-    address token = address(0);
-
-    for ( uint32 i = 0; i < _reservesCount; i++ ) {
-      token = _reservesList[i];
-      reserve = _reserves[token];
-      reward = _rewards[msg.sender][token];
-
-      if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
-        GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
-        gpToken = IGPToken(plane.gptoken);
-        _updateMint(reserve.pcoin, gpToken.totalSupply());
-        _updateReward(reward, reserve.pcoin);
-        totalReward = totalReward.add(reward.rewardSupply);
-        reward.rewardSupply = 0;
-        reward.lastMintCapacity = reserve.pcoin.mintCapacity;
-        reward.lastGpBalance = gpToken.balanceOf(msg.sender);
-      }
-    }
-
-    if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
-      //      IERC20(_pcoinAddress).safeTransfer(to, totalReward);
-      //      Pcoin(_pcoinAddress).mint(to,totalReward);
-      PolylendToken(_pcoinAddress).mint(to,totalReward);
-      emit Claim(msg.sender, to, totalReward);
-    }
-
-    return totalReward;
+  function claim(address to)
+  external
+  override
+  returns (uint256)
+  {
+    return _claim(to);
   }
 
   function getReserve(address token)
@@ -495,8 +460,9 @@ contract GunPool is IGunPool, Ownable {
     uint256 amountToWithdraw = amount;
     uint256 gpBalance = gpToken.balanceOf(user);
 
-    if ( (amount == type(uint256).max) || (amount > gpBalance) )
+    if ( (amount == type(uint256).max) || (amount > gpBalance) ) {
       amountToWithdraw = gpBalance;
+    }
     emit Log("burn withdraw", amountToWithdraw);
     gpToken.burn(user, amountToWithdraw);
 
@@ -517,6 +483,46 @@ contract GunPool is IGunPool, Ownable {
     }
 
     return amountToWithdraw;
+  }
+
+  function _claim(address to)
+  internal
+  returns (uint256)
+  {
+    uint256 totalReward = 0;
+    GunPoolContext.ReserveData storage reserve;
+    GunPoolContext.RewardContext storage reward;
+    IGPToken gpToken;
+    address token = address(0);
+
+    for ( uint32 i = 0; i < _reservesCount; i++ ) {
+      token = _reservesList[i];
+      reserve = _reserves[token];
+      reward = _rewards[msg.sender][token];
+
+      if ( reserve.pt == GunPoolContext.PlaneType.AAVE ) {
+        GunPoolContext.PlaneContext memory plane = _planes[token][reserve.pt];
+        gpToken = IGPToken(plane.gptoken);
+        _updateMint(reserve.pcoin, gpToken.totalSupply());
+        _updateReward(reward, reserve.pcoin);
+        totalReward = totalReward.add(reward.rewardSupply);
+        reward.rewardSupply = 0;
+        reward.lastMintCapacity = reserve.pcoin.mintCapacity;
+        reward.lastGpBalance = gpToken.balanceOf(msg.sender);
+      }
+    }
+
+    if ( (_pcoinAddress != address(0)) && (totalReward > 0) ) {
+      //      IERC20(_pcoinAddress).safeTransfer(to, totalReward);
+      IPCoin(_pcoinAddress).mint(to, totalReward);
+//      IPCoin(_pcoinAddress).mint(_feeTo.account, totalReward*_feeTo.permillage);
+
+      emit Claim(msg.sender, to, totalReward);
+      return totalReward;
+    }
+    else {
+      return 0;
+    }
   }
 
   function _updateMint(

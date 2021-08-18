@@ -129,7 +129,7 @@ interface IGunPool {
    * @return planecontext contain address of plane and gptoken
   **/
   function getPlanes(address token, GunPoolContext.PlaneType pt)
-    external view returns(GunPoolContext.PlaneContext memory);
+  external view returns(GunPoolContext.PlaneContext memory);
 
   /**
    * @dev getDepositAPY get the APY of deposited token
@@ -177,8 +177,8 @@ interface IGunPool {
    * @param gptAddress the address pool of gptoken
    **/
   event InitReserve(address indexed token,
-                    GunPoolContext.PcoinReward pcoin,
-                    address[] gptAddress);
+    GunPoolContext.PcoinReward pcoin,
+    address[] gptAddress);
   /**
    * @dev Emitted on resetPcoinReward()
    * @param token the address of token who was initialized
@@ -206,8 +206,8 @@ interface IGunPool {
    * @param pc the address of the plane
   **/
   event ResetPlane(address indexed token,
-                   GunPoolContext.PlaneType indexed pt,
-                   GunPoolContext.PlaneContext pc);
+    GunPoolContext.PlaneType indexed pt,
+    GunPoolContext.PlaneContext pc);
 
   /**
    * @dev Emitted on setFeeTo()

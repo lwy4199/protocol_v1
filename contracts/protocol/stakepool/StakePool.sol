@@ -11,7 +11,7 @@ import {GunPoolContext} from "../gunpool/GunPoolContext.sol";
 import {ILendingPool} from "../gunpool/pools/aave/ILendingPool.sol";
 import {WadRayMath} from "../gunpool/pools/aave/WadRayMath.sol";
 import {Ownable} from "../../dependencies/openzeppelin/contracts/access/Ownable.sol";
-import {SafeMath} from "../../dependencies/openzeppelin/contracts/math/SafeMath.sol";
+import {SafeMath} from "../../dependencies/openzeppelin/contracts/utils/math/SafeMath.sol";
 import {Address} from "../../dependencies/openzeppelin/contracts/utils/Address.sol";
 
 
@@ -31,6 +31,8 @@ contract StakePool is Ownable, IStakePool {
     address private _gunpool;
     // IWETH address
     address private _iweth;
+
+    uint256 public constant MASK = type(uint128).max;
 
     constructor (
         address pcoinAddress,
@@ -207,7 +209,7 @@ contract StakePool is Ownable, IStakePool {
         require(_order.state == StakePoolContext.ORDER_STATUS.CLAIM, SpError.ORDER_CLAIM_FAIL_FOR_STATE);
         address account = _msgSender();
 
-        uint256 maticAmount = _withdraw(account, uint256(-1));
+        uint256 maticAmount = _withdraw(account, MASK);
         uint256 pcoinAmount = _users.pcoinReward[account];
 
         if ( maticAmount == 0 && pcoinAmount == 0 ) {
@@ -310,7 +312,7 @@ contract StakePool is Ownable, IStakePool {
             _users.totalSupply = supply;
 
             // gunpool withdraw and claim reward
-            IGunPool(_gunpool).withdrawByEth( uint256(-1) );
+            IGunPool(_gunpool).withdrawByEth( MASK );
             uint256 pcoinReward = IGunPool(_gunpool).claim(address(this));
             if ( pcoinReward > 0 ) {
                 IPCoin(_pcoin).burn(pcoinReward);
@@ -347,7 +349,7 @@ contract StakePool is Ownable, IStakePool {
         balance = balance.rayMul(index);
         supply = supply.rayMul(index);
 
-        if ( (amount == uint256(-1)) || (amount > balance) ) {
+        if ( (amount == MASK) || (amount > balance) ) {
             withdrawAmount = balance;
         }
 

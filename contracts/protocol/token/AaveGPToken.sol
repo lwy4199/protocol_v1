@@ -30,7 +30,7 @@ contract AaveGPToken is
     _;
   }
 
-  function initialize(
+    function initialize(
     address gunPoolAddress,
     address correspondToken,
     string calldata name,
