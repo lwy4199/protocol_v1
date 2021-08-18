@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 pragma experimental ABIEncoderV2;
 
 import {GunPoolContext} from "../protocol/gunpool/GunPoolContext.sol";
 import {MintPolicy} from "../protocol/libraries/MintPolicy.sol";
-import {SafeMath} from "../dependencies/openzeppelin/contracts/math/SafeMath.sol";
+import {SafeMath} from "../dependencies/openzeppelin/contracts/utils/math/SafeMath.sol";
 import {WadRayMath} from "../protocol/gunpool/pools/aave/WadRayMath.sol";
 
 contract MintPolicyMock {

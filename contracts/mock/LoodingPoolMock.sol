@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 
-import {SafeMath} from "../dependencies/openzeppelin/contracts/math/SafeMath.sol";
+import {SafeMath} from "../dependencies/openzeppelin/contracts/utils/math/SafeMath.sol";
 import {IGPToken} from "../interfaces/IGPToken.sol";
 
 contract LoodingPoolMock {

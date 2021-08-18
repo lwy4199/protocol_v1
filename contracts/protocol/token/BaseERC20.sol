@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: agpl-3.0
-pragma solidity >=0.4.22 <0.9.0;
+pragma solidity ^0.8.0;
 
-import {SafeERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/SafeERC20.sol";
+import {SafeERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import {IERC20} from "../../dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol";
-import {Context} from '../../dependencies/openzeppelin/contracts/GSN/Context.sol';
-import {SafeMath} from '../../dependencies/openzeppelin/contracts/math/SafeMath.sol';
+import {Context} from '../../dependencies/openzeppelin/contracts/utils/Context.sol';
+import {SafeMath} from '../../dependencies/openzeppelin/contracts/utils/math/SafeMath.sol';
 
 /**
  * @title BaseERC20
@@ -26,7 +26,7 @@ abstract contract BaseERC20 is Context, IERC20 {
     string memory name,
     string memory symbol,
     uint8 decimals
-  ) public {
+  ) {
     _name = name;
     _symbol = symbol;
     _decimals = decimals;
