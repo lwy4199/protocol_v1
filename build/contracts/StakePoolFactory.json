@@ -1,47 +1,83 @@
 {
   "contractName": "StakePoolFactory",
   "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/stakepool/StakePoolFactory.sol\":\"StakePoolFactory\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/GSN/Context.sol\":{\"keccak256\":\"0xd9e1cdbea4cf7c51ac26f5782db0fb3d78c1b37e090547e83aef497a727a18f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://5017e004334d7579774232e18f739ee9eb39438d03c49a9451a35e315c28761b\",\"dweb:/ipfs/QmNb8Q8C6WLgtWqCE7iL5T1UN52Q6QsE7ZtVc6ppcvViXe\"]},\"project:/contracts/dependencies/openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0x78d7d9211513b60f81db3089fffbc1ce5c3d87d021d54c9c41a909000ba8bbc4\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://6c0471235adc538bfe1054546ff5136cf463a0c139b6c38e6aafeeb4a2a00c58\",\"dweb:/ipfs/QmdHm68MUvSaVCbJkDpxyyeMJoG6upDMjBKgt91HZHW71G\"]},\"project:/contracts/dependencies/openzeppelin/contracts/math/SafeMath.sol\":{\"keccak256\":\"0x8d890f7a794b66b8b3ab54779603c254f85ee0d436dd4a17b3543c6629b726f8\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://887bb68104c8f862a66939b192a85e79564bed9bbe72cda6240fd89bbea642fd\",\"dweb:/ipfs/QmbC56SFqW7UCx26RfPFWPiEXnQTJXSBA5r4SrojRMHqeM\"]},\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x979000648732c91f60536a23950b83e11a1f47204cb280cf2b8dc0a1280258da\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://880bda603cd4c34690385db83633dd3918de7a96d9361089d9329ca81ef4e273\",\"dweb:/ipfs/QmRZqTMmCpNYqCcEsbMMtvF6NYKDarNnNbJseZ2LLDrevA\"]},\"project:/contracts/dependencies/openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x03ff2e6e8b0fd0ad8019c5b05498c43f4e1cb20ad28dd17486471aef0708e249\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://900e116b74159637bd510eb42c707f7e25f5326eff7fff36b246b7c3d540b770\",\"dweb:/ipfs/QmSsZhmUsvnKwKJ14XMFYX4KeiBwx4cwJUWWbkUo1u8KTQ\"]},\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0xb1bf50441350e5d7745b98f56064c172124e909bdd748fb21f2781e922c64d60\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://23daf287da5c56724bbb8ddf298ba2e59f9491def3846680eb5a175423acf3de\",\"dweb:/ipfs/QmZyddMiS3TnwFz46fp7vnVBwSuzfKCkuQ3jiqYCkJEmC8\"]},\"project:/contracts/interfaces/IPCoin.sol\":{\"keccak256\":\"0xa00b3004a579db91fc7613564cd90e30d5af1fd1c93af3d020acbd4a88925581\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://865a3adac6c182a8a7c918aa5f0e9eb8b9cb2792d3d12c8264260ad08c788af0\",\"dweb:/ipfs/QmYokXX6moFWMNYvT1Mu7uV3pNZCbkstgiw1JNMwwq2c6n\"]},\"project:/contracts/interfaces/IStakePool.sol\":{\"keccak256\":\"0x880d502f0ef132401bbad1500d65843021fdd6f184010a960744dcd0d4a32141\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://6f5857fe96956884a4bd4bed6f2b33bc48300567eba3fd559b7828bd068b5851\",\"dweb:/ipfs/QmTmffH7QhT9FuSESzdqtcQssnQb7yyLgCHFzWFFj789dT\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x532bea3084407747904d62c84921a8e5df0dd2f2e432092c855245fad43bc898\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://bd04033e835b7ecae2b77f39b37059869c332641b24c62cb9fdc67b8115874e7\",\"dweb:/ipfs/QmVbsEnStvCVYYMTY4X7ZmzQQ8bYDWkY2tVvwi536t5N6L\"]},\"project:/contracts/protocol/gunpool/pools/aave/DataTypes.sol\":{\"keccak256\":\"0xf645d3e560cec23f2e1c0367e474efa9db1e85fda88bc54fec7a925366a93540\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://e60e7eb473dfcf2e762d1cb08d6cd00608d2e50410368d07fa3be5e14dd2d8ed\",\"dweb:/ipfs/QmWY2YwVS4ViqeRkjQkwTHdZANsdAitDdhbzHvafdg3HyR\"]},\"project:/contracts/protocol/gunpool/pools/aave/ILendingPool.sol\":{\"keccak256\":\"0x4f54212b9060915d42f89de9b9b2e195d1bb289b65b93fdf7b386e2635ce0ffb\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://b79d577b68a2415f63ab55cbc8867dbc1d32266b04aacf54a0bab7dfa9d72643\",\"dweb:/ipfs/QmchC6paK39CoHKVZiFN2gjJwjKN8jJPzQNpHM9stfrUVU\"]},\"project:/contracts/protocol/gunpool/pools/aave/WadRayMath.sol\":{\"keccak256\":\"0xbba67daa60fe908222a634fd59deb4a958c5143fe02963a0268a446a3b672dbc\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://1c5acfffca872da6754a723c8cf6f1440e2a59de24a7bb613c07fa97d98e9637\",\"dweb:/ipfs/QmeEnMkTMfBSNt7AuzSbdkuQtxuQCPn14w5FCkHXk1v75g\"]},\"project:/contracts/protocol/stakepool/StakePool.sol\":{\"keccak256\":\"0xef8ae0df6c5801d5e44428e4352d0ce109753ea47cba0a8dd2515e02dfac08c0\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://8e54a7e023ae69915c004672fd49611a5b67568dc0cf27c24fdea5e87dbff41f\",\"dweb:/ipfs/QmRX3edTgfK1rGb15rANpjb3kCkhZvkeD2NbfcPD3K5GLV\"]},\"project:/contracts/protocol/stakepool/StakePoolContext.sol\":{\"keccak256\":\"0x19f8b6a5c82194ce4ea425fd29a0a1617ec1553830202e7ba062ecc1a864d685\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://db8fe860a720f4dbdef4508272396c91a73f802930326f98c43a16541ba567b4\",\"dweb:/ipfs/QmUkbjwcE1hk9j9CL8zW2o1Zg1CFgnWxKNv9S2M6LC985s\"]},\"project:/contracts/protocol/stakepool/StakePoolFactory.sol\":{\"keccak256\":\"0xdedb9ae8ae6ba11bc5d1f351a5fc476db33d15593fd791660317d3e4f09e0f87\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://f664e86c2c5eafc4cbed409c3363366c1e949453b1f13fb58a34e0ee2f1a4b12\",\"dweb:/ipfs/Qmbc5vxBTfYjUiZmadDceEhrfwyEtay915ZtrhaaycJVNT\"]},\"project:/contracts/protocol/stakepool/helper/SpError.sol\":{\"keccak256\":\"0x5a5daca87b4459f84e4c68588cfb18b8f1463ad12a4331a6a32d55f0000384dc\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://28881950ea2da7d3b398d9d3056774119e1cc5d321f3755514178bb38b28d9b0\",\"dweb:/ipfs/QmUWT8rV5zY9e39XLibyz7j2M2XuTAXiUzJFdmj9g1otw7\"]}},\"version\":1}",
-  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220f7fe92c138944f36aa9519d2417b4794c31650e3fb8a4e34ec912962430a5f1164736f6c634300060c0033",
-  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220f7fe92c138944f36aa9519d2417b4794c31650e3fb8a4e34ec912962430a5f1164736f6c634300060c0033",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/protocol/stakepool/StakePoolFactory.sol\":\"StakePoolFactory\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/access/Ownable.sol\":{\"keccak256\":\"0xff947df457c211856a24ba4496e247e5320a22f4440c7c17c0a69370334bfd8f\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a6c4c65ef66c4a9e66f423cba92633b04b8b84827f340a43457693f3b5749d4f\",\"dweb:/ipfs/QmPozCmBaHoYCp3dDshZd8Wg54n7uDpvH6XMxCnhEik9FE\"]},\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x208a653b3c4850786f94a1fa164579a3620a56097b138f02c3eccb393c214e13\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9d73fec8ca929de836d72ee70c40e71f09c04a938231d68c934327b400602d7a\",\"dweb:/ipfs/QmNosM3yrnQPekRJPap1wwhcdTQUdQuCmpfnfEwQvyuCiw\"]},\"project:/contracts/dependencies/openzeppelin/contracts/utils/Address.sol\":{\"keccak256\":\"0x56c55493b8912cb4729acd8a226a37dfb815c104cb57536a899bdaa708b45e1c\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://13456b3168b87f09c352f0074f4942b07651b6c1e153860879c3ae9ae0426cb4\",\"dweb:/ipfs/QmZnZ9FEYxGBGx1AqRSv85XZwN9pBDYJxUKQ2ydYdQcyDj\"]},\"project:/contracts/dependencies/openzeppelin/contracts/utils/Context.sol\":{\"keccak256\":\"0xd66de64ebb51d57721ac10bb1571dc8b2798cd48723b8222341bc0e65372e050\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d6b561766010211e50ffdc7363fb2227d15e1c846d1ee9ff33532a86fce8b6d5\",\"dweb:/ipfs/Qme61ahYQqCyYLhQmF4cyKe539E9f4HK1d9PrEb4MDKEtr\"]},\"project:/contracts/dependencies/openzeppelin/contracts/utils/math/SafeMath.sol\":{\"keccak256\":\"0xc27c53ee27aba4777c424234773faa8e2ca7a7755e5e3b4e0fe329858c988412\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://aa12bc531370e30935ce59d2c75fe05c17810c75a6e0d7f0bf65743ad5c18fdc\",\"dweb:/ipfs/QmdKGECnDUns4TkVA6iFGhC9oHf5PdUAe9SADVfSw1UCHM\"]},\"project:/contracts/interfaces/IGunPool.sol\":{\"keccak256\":\"0x4920ac92fd278574f55f924970f00fea58fc9251db4007abeef6eb1968eee591\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://2a5739537b29beb6ab009fe45c20dcebddab719bda7a05ce7fc6b03a435ba6df\",\"dweb:/ipfs/QmWBNb7RTQ2L4WMhnw1AoUoTiSGSypJ565t3U8p7auHejy\"]},\"project:/contracts/interfaces/IPCoin.sol\":{\"keccak256\":\"0xf9f5ef94c9853f3bad8695b72b6b052bd1ea735b3b7a88a098ce28984730202e\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://c4b2db0cd976bed6e781cd6733a0652e8ffb37d7ca3a81c024a385ed5112e480\",\"dweb:/ipfs/QmR8xh4q1tNdwo6EJkGtAN8Ce94XAURTj6YHqKyxQsdjqQ\"]},\"project:/contracts/interfaces/IStakePool.sol\":{\"keccak256\":\"0x7f81d70761d5597721ed54a930ebd216eaeefbcf180621335b238091cbc953a5\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://59c0367c9cf68ee17bec7df9a8258926dba97b78c9084ae9bf54a841af292276\",\"dweb:/ipfs/Qma8DfCfxUbjMb2hGo3D4nj1d1CLN2DQ7swwyR9faezARm\"]},\"project:/contracts/protocol/gunpool/GunPoolContext.sol\":{\"keccak256\":\"0x40513ad15b426e68520bafe04559a066c6776045a92d3f29de23f14aac78e26c\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://0471931889ddc945c944c9327c2fe7af6366c50bcc03f11e925c855ed9ab334e\",\"dweb:/ipfs/QmW95nj8zGBn1FST3oaGPBnzGVQgNysfZNwWT72UXx3WEi\"]},\"project:/contracts/protocol/gunpool/pools/aave/DataTypes.sol\":{\"keccak256\":\"0xca71d87271bebaa6bcf226e21783445d318f017f8c7bc467d799f89d648bd336\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4bf2f414b3846a623bf278938d124b8a3e471589de80901edf18a799d2fd136b\",\"dweb:/ipfs/QmdZJfAeMrwbciiAX5c3mb3b3nmU4nR2GT7LBow7SxfBbx\"]},\"project:/contracts/protocol/gunpool/pools/aave/ILendingPool.sol\":{\"keccak256\":\"0x5a66e3d7e6c2f9f6d3ed4cd755802d7554daf0e359944d60cf83a96ac8c9a828\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://9e0aedbac302531326b83fdfe9b822d64206c031965350992ac8b9c1f05af6ce\",\"dweb:/ipfs/QmcXj2KfwTmLYNUsx4T3g8v3qfN2LFNX2EWUV8vurRZoHX\"]},\"project:/contracts/protocol/gunpool/pools/aave/WadRayMath.sol\":{\"keccak256\":\"0xae27563d5a4354493fa2fd0d4019d035a1ac2691e701d7f3846c565d74e953b8\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d87cfa526bf429f728d66140d947e44dcd5a30f828b3cd4db09a1f8a342b31a8\",\"dweb:/ipfs/QmPALuoLnQLDE492PFwpehjALrPRdyvbweE3oQGvTudKDo\"]},\"project:/contracts/protocol/stakepool/StakePool.sol\":{\"keccak256\":\"0xf0d8c4e90388651f69b6c9de9545534f39cfc221e3694aba39fd643eb3c8f9e4\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://4ba399852a3815900dfc79a09c51a5b1c36e18c802229ecfbc3940ee619e66cc\",\"dweb:/ipfs/QmQhZEVKZxHm2vQe4CUHyfZ4yyXrL9rXwE6t1r5uzN3B5t\"]},\"project:/contracts/protocol/stakepool/StakePoolContext.sol\":{\"keccak256\":\"0xd6ee072c112da865edcca72ca17153ca48d185bf9cc724772cba4c50262b987d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://15be18188b4b6c23da557bccf23234ae9b225092434711364722c2b9f7e33546\",\"dweb:/ipfs/QmRvV5uFCerS8xDYbmm2PdyS4HtzMXzYFaMdnKpkhcjBP2\"]},\"project:/contracts/protocol/stakepool/StakePoolFactory.sol\":{\"keccak256\":\"0xee8376be2c936b52d826a30433bfd11ba67d4d8ea6a171c32a9cc16080338489\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://99f2a2cf9c03cb58e64e5d97c7312eab57d01710b069dff129bcd743e61bbcdb\",\"dweb:/ipfs/QmTjQmp51rooiwWgd6R41Q2fpw6WffEaqNbF9t5qeVQK1a\"]},\"project:/contracts/protocol/stakepool/helper/SpError.sol\":{\"keccak256\":\"0x90827e78b9b91ccf8e6220e4c8da50b057166d3f0c893b096c15b2b7be5aab6d\",\"license\":\"agpl-3.0\",\"urls\":[\"bzz-raw://d0fe75a6d3d495fb9189fa9a3d6d6876ab25bd1eaecac164a99af5e6a8622d94\",\"dweb:/ipfs/QmYvbSecAXMDduFwRF1PT8YL2bDY1B5terCELB9Ny5Hx3Q\"]}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea2646970667358221220646cb8db8b6e04ca5ab324d9a05ba4b71833bd1b6e57029d55b6d891b692851c64736f6c63430008070033",
+  "deployedBytecode": "0x6080604052600080fdfea2646970667358221220646cb8db8b6e04ca5ab324d9a05ba4b71833bd1b6e57029d55b6d891b692851c64736f6c63430008070033",
   "immutableReferences": {},
-  "sourceMap": "103:32:268:-:0;;;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "103:32:268:-:0;;;;;",
-  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity >=0.4.22 <0.9.0;\r\n\r\nimport \"./StakePool.sol\";\r\n\r\ncontract StakePoolFactory {\r\n\r\n}",
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "94:32:206:-:0;;;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "94:32:206:-:0;;;;;",
+  "source": "// SPDX-License-Identifier: agpl-3.0\r\npragma solidity ^0.8.0;\r\n\r\nimport \"./StakePool.sol\";\r\n\r\ncontract StakePoolFactory {\r\n\r\n}",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\protocol\\stakepool\\StakePoolFactory.sol",
   "ast": {
     "absolutePath": "project:/contracts/protocol/stakepool/StakePoolFactory.sol",
     "exportedSymbols": {
+      "Address": [
+        10575
+      ],
+      "GunPoolContext": [
+        17204
+      ],
+      "IGunPool": [
+        14383
+      ],
+      "ILendingPool": [
+        17750
+      ],
+      "IPCoin": [
+        14402
+      ],
+      "IStakePool": [
+        14537
+      ],
+      "Ownable": [
+        707
+      ],
+      "SafeMath": [
+        13051
+      ],
+      "SpError": [
+        19780
+      ],
+      "StakePool": [
+        19656
+      ],
+      "StakePoolContext": [
+        19731
+      ],
       "StakePoolFactory": [
-        16823
+        19735
+      ],
+      "WadRayMath": [
+        18129
       ]
     },
-    "id": 16824,
+    "id": 19736,
     "license": "agpl-3.0",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 16821,
+        "id": 19733,
         "literals": [
           "solidity",
-          ">=",
-          "0.4",
-          ".22",
-          "<",
-          "0.9",
+          "^",
+          "0.8",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "38:32:268"
+        "src": "38:23:206"
       },
       {
         "absolutePath": "project:/contracts/protocol/stakepool/StakePool.sol",
         "file": "./StakePool.sol",
-        "id": 16822,
+        "id": 19734,
+        "nameLocation": "-1:-1:-1",
         "nodeType": "ImportDirective",
-        "scope": 16824,
-        "sourceUnit": 16746,
-        "src": "74:25:268",
+        "scope": 19736,
+        "sourceUnit": 19657,
+        "src": "65:25:206",
         "symbolAliases": [],
         "unitAlias": ""
       },
@@ -50,100 +86,120 @@
         "baseContracts": [],
         "contractDependencies": [],
         "contractKind": "contract",
-        "documentation": null,
         "fullyImplemented": true,
-        "id": 16823,
+        "id": 19735,
         "linearizedBaseContracts": [
-          16823
+          19735
         ],
         "name": "StakePoolFactory",
+        "nameLocation": "103:16:206",
         "nodeType": "ContractDefinition",
         "nodes": [],
-        "scope": 16824,
-        "src": "103:32:268"
+        "scope": 19736,
+        "src": "94:32:206",
+        "usedErrors": []
       }
     ],
-    "src": "38:97:268"
+    "src": "38:88:206"
   },
   "legacyAST": {
-    "attributes": {
-      "absolutePath": "project:/contracts/protocol/stakepool/StakePoolFactory.sol",
-      "exportedSymbols": {
-        "StakePoolFactory": [
-          16823
-        ]
-      },
-      "license": "agpl-3.0"
+    "absolutePath": "project:/contracts/protocol/stakepool/StakePoolFactory.sol",
+    "exportedSymbols": {
+      "Address": [
+        10575
+      ],
+      "GunPoolContext": [
+        17204
+      ],
+      "IGunPool": [
+        14383
+      ],
+      "ILendingPool": [
+        17750
+      ],
+      "IPCoin": [
+        14402
+      ],
+      "IStakePool": [
+        14537
+      ],
+      "Ownable": [
+        707
+      ],
+      "SafeMath": [
+        13051
+      ],
+      "SpError": [
+        19780
+      ],
+      "StakePool": [
+        19656
+      ],
+      "StakePoolContext": [
+        19731
+      ],
+      "StakePoolFactory": [
+        19735
+      ],
+      "WadRayMath": [
+        18129
+      ]
     },
-    "children": [
+    "id": 19736,
+    "license": "agpl-3.0",
+    "nodeType": "SourceUnit",
+    "nodes": [
       {
-        "attributes": {
-          "literals": [
-            "solidity",
-            ">=",
-            "0.4",
-            ".22",
-            "<",
-            "0.9",
-            ".0"
-          ]
-        },
-        "id": 16821,
-        "name": "PragmaDirective",
-        "src": "38:32:268"
+        "id": 19733,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "38:23:206"
       },
       {
-        "attributes": {
-          "SourceUnit": 16746,
-          "absolutePath": "project:/contracts/protocol/stakepool/StakePool.sol",
-          "file": "./StakePool.sol",
-          "scope": 16824,
-          "symbolAliases": [
-            null
-          ],
-          "unitAlias": ""
-        },
-        "id": 16822,
-        "name": "ImportDirective",
-        "src": "74:25:268"
+        "absolutePath": "project:/contracts/protocol/stakepool/StakePool.sol",
+        "file": "./StakePool.sol",
+        "id": 19734,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 19736,
+        "sourceUnit": 19657,
+        "src": "65:25:206",
+        "symbolAliases": [],
+        "unitAlias": ""
       },
       {
-        "attributes": {
-          "abstract": false,
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
-          "contractKind": "contract",
-          "documentation": null,
-          "fullyImplemented": true,
-          "linearizedBaseContracts": [
-            16823
-          ],
-          "name": "StakePoolFactory",
-          "nodes": [
-            null
-          ],
-          "scope": 16824
-        },
-        "id": 16823,
-        "name": "ContractDefinition",
-        "src": "103:32:268"
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 19735,
+        "linearizedBaseContracts": [
+          19735
+        ],
+        "name": "StakePoolFactory",
+        "nameLocation": "103:16:206",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 19736,
+        "src": "94:32:206",
+        "usedErrors": []
       }
     ],
-    "id": 16824,
-    "name": "SourceUnit",
-    "src": "38:97:268"
+    "src": "38:88:206"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-16T04:20:18.818Z",
+  "updatedAt": "2021-08-19T02:20:52.494Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

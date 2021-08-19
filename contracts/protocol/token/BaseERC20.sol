@@ -23,13 +23,13 @@ abstract contract BaseERC20 is Context, IERC20 {
   uint8 private _decimals;
 
   constructor(
-    string memory name,
-    string memory symbol,
-    uint8 decimals
+    string memory tokenname,
+    string memory tokensymbol,
+    uint8 tokendecimals
   ) {
-    _name = name;
-    _symbol = symbol;
-    _decimals = decimals;
+    _name = tokenname;
+    _symbol = tokensymbol;
+    _decimals = tokendecimals;
   }
 
   /**

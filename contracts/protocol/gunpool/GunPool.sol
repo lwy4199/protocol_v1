@@ -53,7 +53,7 @@ contract GunPool is IGunPool, Ownable {
   }
 
   /**** constructor funcion ****/
-  constructor (address weth) public {
+  constructor (address weth) {
     _reservesCount = 0;
     _IWETH = IWETH(weth);
     _feeTo.account = address(0);

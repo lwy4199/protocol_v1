@@ -37,9 +37,7 @@ contract StakePool is Ownable, IStakePool {
     constructor (
         address pcoinAddress,
         address gunpoolAddress,
-        address iwethAddress
-    )
-        public
+        address iwethAddress)
     {
         require(pcoinAddress.isContract(), SpError.ORDER_CONTRACT_INVALID);
         require(gunpoolAddress.isContract(), SpError.ORDER_CONTRACT_INVALID);

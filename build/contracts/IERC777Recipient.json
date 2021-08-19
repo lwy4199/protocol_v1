@@ -40,35 +40,37 @@
       "type": "function"
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.12+commit.27d51765\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"userData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"tokensReceived\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC777TokensRecipient standard as defined in the EIP. Accounts can be notified of {IERC777} tokens being sent to them by having a contract implement this interface (contract holders can be their own implementer) and registering it on the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry]. See {IERC1820Registry} and {ERC1820Implementer}.\",\"kind\":\"dev\",\"methods\":{\"tokensReceived(address,address,address,uint256,bytes,bytes)\":{\"details\":\"Called by an {IERC777} token contract whenever tokens are being moved or created into a registered account (`to`). The type of operation is conveyed by `from` being the zero address or not. This call occurs _after_ the token contract's state is updated, so {IERC777-balanceOf}, etc., can be used to query the post-operation state. This function may revert to prevent the operation from being executed.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol\":\"IERC777Recipient\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol\":{\"keccak256\":\"0x07fbbc131922bff6f181c1b69ee5c0709aee1e22f42f7253414aca730c3c03f5\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://33477ed16849d4d5f6a972b333f9205644c82c262c1649635b315a87f1b1a5c9\",\"dweb:/ipfs/QmQ5zSjPLs6NgZpJtDRv87VXntsjUgpvW4ws1wJQ8jp6N9\"]}},\"version\":1}",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.7+commit.e28d00a7\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"amount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"userData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"operatorData\",\"type\":\"bytes\"}],\"name\":\"tokensReceived\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the ERC777TokensRecipient standard as defined in the EIP. Accounts can be notified of {IERC777} tokens being sent to them by having a contract implement this interface (contract holders can be their own implementer) and registering it on the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry]. See {IERC1820Registry} and {ERC1820Implementer}.\",\"kind\":\"dev\",\"methods\":{\"tokensReceived(address,address,address,uint256,bytes,bytes)\":{\"details\":\"Called by an {IERC777} token contract whenever tokens are being moved or created into a registered account (`to`). The type of operation is conveyed by `from` being the zero address or not. This call occurs _after_ the token contract's state is updated, so {IERC777-balanceOf}, etc., can be used to query the post-operation state. This function may revert to prevent the operation from being executed.\"}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol\":\"IERC777Recipient\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol\":{\"keccak256\":\"0xed5bc3724af6c6303f18e02c3243b3cdbadfc7b27e3fedd4ba21b4c6c23483b1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://412d7dbd241017d58cfd61d3196f0af43adc8c244b4abcc8d0fd9e35c3358059\",\"dweb:/ipfs/QmW4wi36fmeE5skQ1AbNuraAAnmQAasrBkVwyoChFbHhHN\"]}},\"version\":1}",
   "bytecode": "0x",
   "deployedBytecode": "0x",
   "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
   "sourceMap": "",
   "deployedSourceMap": "",
-  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.6.0;\r\n\r\n/**\r\n * @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.\r\n *\r\n * Accounts can be notified of {IERC777} tokens being sent to them by having a\r\n * contract implement this interface (contract holders can be their own\r\n * implementer) and registering it on the\r\n * https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry].\r\n *\r\n * See {IERC1820Registry} and {ERC1820Implementer}.\r\n */\r\ninterface IERC777Recipient {\r\n    /**\r\n     * @dev Called by an {IERC777} token contract whenever tokens are being\r\n     * moved or created into a registered account (`to`). The type of operation\r\n     * is conveyed by `from` being the zero address or not.\r\n     *\r\n     * This call occurs _after_ the token contract's state is updated, so\r\n     * {IERC777-balanceOf}, etc., can be used to query the post-operation state.\r\n     *\r\n     * This function may revert to prevent the operation from being executed.\r\n     */\r\n    function tokensReceived(\r\n        address operator,\r\n        address from,\r\n        address to,\r\n        uint256 amount,\r\n        bytes calldata userData,\r\n        bytes calldata operatorData\r\n    ) external;\r\n}\r\n",
+  "source": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.0;\r\n\r\n/**\r\n * @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.\r\n *\r\n * Accounts can be notified of {IERC777} tokens being sent to them by having a\r\n * contract implement this interface (contract holders can be their own\r\n * implementer) and registering it on the\r\n * https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry].\r\n *\r\n * See {IERC1820Registry} and {ERC1820Implementer}.\r\n */\r\ninterface IERC777Recipient {\r\n    /**\r\n     * @dev Called by an {IERC777} token contract whenever tokens are being\r\n     * moved or created into a registered account (`to`). The type of operation\r\n     * is conveyed by `from` being the zero address or not.\r\n     *\r\n     * This call occurs _after_ the token contract's state is updated, so\r\n     * {IERC777-balanceOf}, etc., can be used to query the post-operation state.\r\n     *\r\n     * This function may revert to prevent the operation from being executed.\r\n     */\r\n    function tokensReceived(\r\n        address operator,\r\n        address from,\r\n        address to,\r\n        uint256 amount,\r\n        bytes calldata userData,\r\n        bytes calldata operatorData\r\n    ) external;\r\n}\r\n",
   "sourcePath": "E:\\my_work\\Eos\\polylend\\core\\protocol_v1\\contracts\\dependencies\\openzeppelin\\contracts\\token\\ERC777\\IERC777Recipient.sol",
   "ast": {
     "absolutePath": "project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol",
     "exportedSymbols": {
       "IERC777Recipient": [
-        9444
+        10224
       ]
     },
-    "id": 9445,
+    "id": 10225,
     "license": "MIT",
     "nodeType": "SourceUnit",
     "nodes": [
       {
-        "id": 9426,
+        "id": 10206,
         "literals": [
           "solidity",
           "^",
-          "0.6",
+          "0.8",
           ".0"
         ],
         "nodeType": "PragmaDirective",
-        "src": "35:23:236"
+        "src": "35:23:155"
       },
       {
         "abstract": false,
@@ -76,48 +78,48 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 9427,
+          "id": 10207,
           "nodeType": "StructuredDocumentation",
-          "src": "62:415:236",
+          "src": "62:415:155",
           "text": " @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.\n Accounts can be notified of {IERC777} tokens being sent to them by having a\n contract implement this interface (contract holders can be their own\n implementer) and registering it on the\n https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry].\n See {IERC1820Registry} and {ERC1820Implementer}."
         },
         "fullyImplemented": false,
-        "id": 9444,
+        "id": 10224,
         "linearizedBaseContracts": [
-          9444
+          10224
         ],
         "name": "IERC777Recipient",
+        "nameLocation": "489:16:155",
         "nodeType": "ContractDefinition",
         "nodes": [
           {
-            "body": null,
             "documentation": {
-              "id": 9428,
+              "id": 10208,
               "nodeType": "StructuredDocumentation",
-              "src": "513:483:236",
+              "src": "513:483:155",
               "text": " @dev Called by an {IERC777} token contract whenever tokens are being\n moved or created into a registered account (`to`). The type of operation\n is conveyed by `from` being the zero address or not.\n This call occurs _after_ the token contract's state is updated, so\n {IERC777-balanceOf}, etc., can be used to query the post-operation state.\n This function may revert to prevent the operation from being executed."
             },
             "functionSelector": "0023de29",
-            "id": 9443,
+            "id": 10223,
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "tokensReceived",
+            "nameLocation": "1011:14:155",
             "nodeType": "FunctionDefinition",
-            "overrides": null,
             "parameters": {
-              "id": 9441,
+              "id": 10221,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 9430,
+                  "id": 10210,
                   "mutability": "mutable",
                   "name": "operator",
+                  "nameLocation": "1044:8:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1036:16:236",
+                  "scope": 10223,
+                  "src": "1036:16:155",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -125,28 +127,27 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9429,
+                    "id": 10209,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1036:7:236",
+                    "src": "1036:7:155",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 },
                 {
                   "constant": false,
-                  "id": 9432,
+                  "id": 10212,
                   "mutability": "mutable",
                   "name": "from",
+                  "nameLocation": "1071:4:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1063:12:236",
+                  "scope": 10223,
+                  "src": "1063:12:155",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -154,28 +155,27 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9431,
+                    "id": 10211,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1063:7:236",
+                    "src": "1063:7:155",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 },
                 {
                   "constant": false,
-                  "id": 9434,
+                  "id": 10214,
                   "mutability": "mutable",
                   "name": "to",
+                  "nameLocation": "1094:2:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1086:10:236",
+                  "scope": 10223,
+                  "src": "1086:10:155",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -183,28 +183,27 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 9433,
+                    "id": 10213,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1086:7:236",
+                    "src": "1086:7:155",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 },
                 {
                   "constant": false,
-                  "id": 9436,
+                  "id": 10216,
                   "mutability": "mutable",
                   "name": "amount",
+                  "nameLocation": "1115:6:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1107:14:236",
+                  "scope": 10223,
+                  "src": "1107:14:155",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -212,27 +211,26 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 9435,
+                    "id": 10215,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1107:7:236",
+                    "src": "1107:7:155",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 },
                 {
                   "constant": false,
-                  "id": 9438,
+                  "id": 10218,
                   "mutability": "mutable",
                   "name": "userData",
+                  "nameLocation": "1147:8:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1132:23:236",
+                  "scope": 10223,
+                  "src": "1132:23:155",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -240,27 +238,26 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 9437,
+                    "id": 10217,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1132:5:236",
+                    "src": "1132:5:155",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 },
                 {
                   "constant": false,
-                  "id": 9440,
+                  "id": 10220,
                   "mutability": "mutable",
                   "name": "operatorData",
+                  "nameLocation": "1181:12:155",
                   "nodeType": "VariableDeclaration",
-                  "overrides": null,
-                  "scope": 9443,
-                  "src": "1166:27:236",
+                  "scope": 10223,
+                  "src": "1166:27:155",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -268,327 +265,296 @@
                     "typeString": "bytes"
                   },
                   "typeName": {
-                    "id": 9439,
+                    "id": 10219,
                     "name": "bytes",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1166:5:236",
+                    "src": "1166:5:155",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes_storage_ptr",
                       "typeString": "bytes"
                     }
                   },
-                  "value": null,
                   "visibility": "internal"
                 }
               ],
-              "src": "1025:175:236"
+              "src": "1025:175:155"
             },
             "returnParameters": {
-              "id": 9442,
+              "id": 10222,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1209:0:236"
+              "src": "1209:0:155"
             },
-            "scope": 9444,
-            "src": "1002:208:236",
+            "scope": 10224,
+            "src": "1002:208:155",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           }
         ],
-        "scope": 9445,
-        "src": "479:734:236"
+        "scope": 10225,
+        "src": "479:734:155",
+        "usedErrors": []
       }
     ],
-    "src": "35:1180:236"
+    "src": "35:1180:155"
   },
   "legacyAST": {
-    "attributes": {
-      "absolutePath": "project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol",
-      "exportedSymbols": {
-        "IERC777Recipient": [
-          9444
-        ]
-      },
-      "license": "MIT"
+    "absolutePath": "project:/contracts/dependencies/openzeppelin/contracts/token/ERC777/IERC777Recipient.sol",
+    "exportedSymbols": {
+      "IERC777Recipient": [
+        10224
+      ]
     },
-    "children": [
+    "id": 10225,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
       {
-        "attributes": {
-          "literals": [
-            "solidity",
-            "^",
-            "0.6",
-            ".0"
-          ]
-        },
-        "id": 9426,
-        "name": "PragmaDirective",
-        "src": "35:23:236"
+        "id": 10206,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".0"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "35:23:155"
       },
       {
-        "attributes": {
-          "abstract": false,
-          "baseContracts": [
-            null
-          ],
-          "contractDependencies": [
-            null
-          ],
-          "contractKind": "interface",
-          "fullyImplemented": false,
-          "linearizedBaseContracts": [
-            9444
-          ],
-          "name": "IERC777Recipient",
-          "scope": 9445
+        "abstract": false,
+        "baseContracts": [],
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 10207,
+          "nodeType": "StructuredDocumentation",
+          "src": "62:415:155",
+          "text": " @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.\n Accounts can be notified of {IERC777} tokens being sent to them by having a\n contract implement this interface (contract holders can be their own\n implementer) and registering it on the\n https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry].\n See {IERC1820Registry} and {ERC1820Implementer}."
         },
-        "children": [
+        "fullyImplemented": false,
+        "id": 10224,
+        "linearizedBaseContracts": [
+          10224
+        ],
+        "name": "IERC777Recipient",
+        "nameLocation": "489:16:155",
+        "nodeType": "ContractDefinition",
+        "nodes": [
           {
-            "attributes": {
-              "text": " @dev Interface of the ERC777TokensRecipient standard as defined in the EIP.\n Accounts can be notified of {IERC777} tokens being sent to them by having a\n contract implement this interface (contract holders can be their own\n implementer) and registering it on the\n https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry].\n See {IERC1820Registry} and {ERC1820Implementer}."
+            "documentation": {
+              "id": 10208,
+              "nodeType": "StructuredDocumentation",
+              "src": "513:483:155",
+              "text": " @dev Called by an {IERC777} token contract whenever tokens are being\n moved or created into a registered account (`to`). The type of operation\n is conveyed by `from` being the zero address or not.\n This call occurs _after_ the token contract's state is updated, so\n {IERC777-balanceOf}, etc., can be used to query the post-operation state.\n This function may revert to prevent the operation from being executed."
             },
-            "id": 9427,
-            "name": "StructuredDocumentation",
-            "src": "62:415:236"
-          },
-          {
-            "attributes": {
-              "body": null,
-              "functionSelector": "0023de29",
-              "implemented": false,
-              "isConstructor": false,
-              "kind": "function",
-              "modifiers": [
-                null
+            "functionSelector": "0023de29",
+            "id": 10223,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "tokensReceived",
+            "nameLocation": "1011:14:155",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 10221,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 10210,
+                  "mutability": "mutable",
+                  "name": "operator",
+                  "nameLocation": "1044:8:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1036:16:155",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10209,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1036:7:155",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10212,
+                  "mutability": "mutable",
+                  "name": "from",
+                  "nameLocation": "1071:4:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1063:12:155",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10211,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1063:7:155",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10214,
+                  "mutability": "mutable",
+                  "name": "to",
+                  "nameLocation": "1094:2:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1086:10:155",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 10213,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1086:7:155",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10216,
+                  "mutability": "mutable",
+                  "name": "amount",
+                  "nameLocation": "1115:6:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1107:14:155",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10215,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1107:7:155",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10218,
+                  "mutability": "mutable",
+                  "name": "userData",
+                  "nameLocation": "1147:8:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1132:23:155",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 10217,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1132:5:155",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 10220,
+                  "mutability": "mutable",
+                  "name": "operatorData",
+                  "nameLocation": "1181:12:155",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 10223,
+                  "src": "1166:27:155",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 10219,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1166:5:155",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
               ],
-              "name": "tokensReceived",
-              "overrides": null,
-              "scope": 9444,
-              "stateMutability": "nonpayable",
-              "virtual": false,
-              "visibility": "external"
+              "src": "1025:175:155"
             },
-            "children": [
-              {
-                "attributes": {
-                  "text": " @dev Called by an {IERC777} token contract whenever tokens are being\n moved or created into a registered account (`to`). The type of operation\n is conveyed by `from` being the zero address or not.\n This call occurs _after_ the token contract's state is updated, so\n {IERC777-balanceOf}, etc., can be used to query the post-operation state.\n This function may revert to prevent the operation from being executed."
-                },
-                "id": 9428,
-                "name": "StructuredDocumentation",
-                "src": "513:483:236"
-              },
-              {
-                "children": [
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "operator",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 9429,
-                        "name": "ElementaryTypeName",
-                        "src": "1036:7:236"
-                      }
-                    ],
-                    "id": 9430,
-                    "name": "VariableDeclaration",
-                    "src": "1036:16:236"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "from",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 9431,
-                        "name": "ElementaryTypeName",
-                        "src": "1063:7:236"
-                      }
-                    ],
-                    "id": 9432,
-                    "name": "VariableDeclaration",
-                    "src": "1063:12:236"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "to",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "address",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "address",
-                          "stateMutability": "nonpayable",
-                          "type": "address"
-                        },
-                        "id": 9433,
-                        "name": "ElementaryTypeName",
-                        "src": "1086:7:236"
-                      }
-                    ],
-                    "id": 9434,
-                    "name": "VariableDeclaration",
-                    "src": "1086:10:236"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "amount",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "default",
-                      "type": "uint256",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "uint256",
-                          "type": "uint256"
-                        },
-                        "id": 9435,
-                        "name": "ElementaryTypeName",
-                        "src": "1107:7:236"
-                      }
-                    ],
-                    "id": 9436,
-                    "name": "VariableDeclaration",
-                    "src": "1107:14:236"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "userData",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "calldata",
-                      "type": "bytes",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes",
-                          "type": "bytes"
-                        },
-                        "id": 9437,
-                        "name": "ElementaryTypeName",
-                        "src": "1132:5:236"
-                      }
-                    ],
-                    "id": 9438,
-                    "name": "VariableDeclaration",
-                    "src": "1132:23:236"
-                  },
-                  {
-                    "attributes": {
-                      "constant": false,
-                      "mutability": "mutable",
-                      "name": "operatorData",
-                      "overrides": null,
-                      "scope": 9443,
-                      "stateVariable": false,
-                      "storageLocation": "calldata",
-                      "type": "bytes",
-                      "value": null,
-                      "visibility": "internal"
-                    },
-                    "children": [
-                      {
-                        "attributes": {
-                          "name": "bytes",
-                          "type": "bytes"
-                        },
-                        "id": 9439,
-                        "name": "ElementaryTypeName",
-                        "src": "1166:5:236"
-                      }
-                    ],
-                    "id": 9440,
-                    "name": "VariableDeclaration",
-                    "src": "1166:27:236"
-                  }
-                ],
-                "id": 9441,
-                "name": "ParameterList",
-                "src": "1025:175:236"
-              },
-              {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 9442,
-                "name": "ParameterList",
-                "src": "1209:0:236"
-              }
-            ],
-            "id": 9443,
-            "name": "FunctionDefinition",
-            "src": "1002:208:236"
+            "returnParameters": {
+              "id": 10222,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1209:0:155"
+            },
+            "scope": 10224,
+            "src": "1002:208:155",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
           }
         ],
-        "id": 9444,
-        "name": "ContractDefinition",
-        "src": "479:734:236"
+        "scope": 10225,
+        "src": "479:734:155",
+        "usedErrors": []
       }
     ],
-    "id": 9445,
-    "name": "SourceUnit",
-    "src": "35:1180:236"
+    "src": "35:1180:155"
   },
   "compiler": {
     "name": "solc",
-    "version": "0.6.12+commit.27d51765.Emscripten.clang"
+    "version": "0.8.7+commit.e28d00a7.Emscripten.clang"
   },
   "networks": {},
   "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-16T04:20:18.652Z",
+  "updatedAt": "2021-08-19T02:20:52.262Z",
   "devdoc": {
     "details": "Interface of the ERC777TokensRecipient standard as defined in the EIP. Accounts can be notified of {IERC777} tokens being sent to them by having a contract implement this interface (contract holders can be their own implementer) and registering it on the https://eips.ethereum.org/EIPS/eip-1820[ERC1820 global registry]. See {IERC1820Registry} and {ERC1820Implementer}.",
     "kind": "dev",

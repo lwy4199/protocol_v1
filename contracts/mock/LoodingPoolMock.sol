@@ -12,7 +12,8 @@ contract LoodingPoolMock {
   uint256 _curBlockTime;
   uint256 _index;
 
-  constructor (address asset) public {
+  constructor (address asset)
+  {
     _lastBlockTime = block.timestamp;
     _asset = asset;
     _curBlockTime = _lastBlockTime;
